@@ -131,6 +131,7 @@ dist
 
 # custom
 pages/api
+.DS_Store
 
 # IDE and editor files
 .vscode/
