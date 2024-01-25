@@ -128,3 +128,34 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# custom
+pages/api
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Compiled files
+*.log
+*.tsbuildinfo
+*.db
+*.sqlite
+*.log
+*.jst
+*.map
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+npm-shrinkwrap.json

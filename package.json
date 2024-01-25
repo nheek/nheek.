@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev -p 3010",
+    "start": "next start -p 3010"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.18",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "framer-motion": "^10.18.0",
+    "gray-matter": "^4.0.3",
+    "marked": "^9.1.0",
+    "mysql2": "^3.6.5",
+    "next": "latest",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.5.3",
+    "react-markdown": "^9.0.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "20.8.2",
+    "@types/react": "18.2.25",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3",
+    "typescript": "5.2.2"
+  }
+}
