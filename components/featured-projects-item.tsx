@@ -14,6 +14,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'notasrare', desc: 'public poll platform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'MySQL', 'TailwindCSS'] },
       { name: 'lookatme', desc: 'real-time statistics entertainment platform', link: 'https://lookatme.nheek.com/', image: '/featured-projects/lookatme.png', techstack: ['ExpressJS', 'MySQL', 'TailwindCSS', 'Socket.IO'] },
       { name: 'studently', desc: 'schools forum platform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', techstack: ['PHP', 'MySQL'] },
+      { name: 'motto', desc: 'virtual friend app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'Tailwind'] },
       { name: 'poetree', desc: 'google-inspired poetry library', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'MySQL'] },
     ],
     apps: [
@@ -40,6 +41,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'notasrare', desc: 'offentlig avstemningsplattform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'MySQL', 'TailwindCSS'] },
       { name: 'lookatme', desc: 'real-time statistikk underholdningsplattform', link: 'https://lookatme.nheek.com/', image: '/featured-projects/lookatme.png', techstack: ['ExpressJS', 'MySQL', 'TailwindCSS', 'Socket.IO'] },
       { name: 'studently', desc: 'skolens forumplattform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', techstack: ['PHP', 'MySQL'] },
+      { name: 'motto', desc: 'virtuell venn app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'Tailwind'] },
       { name: 'poetree', desc: 'google-inspirert poesibibliotek', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'MySQL'] },
     ],
     apps: [
