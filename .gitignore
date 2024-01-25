@@ -132,6 +132,7 @@ dist
 # custom
 pages/api
 .DS_Store
+.htaccess
 
 # IDE and editor files
 .vscode/
