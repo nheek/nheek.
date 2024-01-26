@@ -57,7 +57,7 @@ export default function ContactForm() {
   };
   
   return (
-    <div className="px-6 min-h-max h-[50vh]">
+    <div className="px-4 min-h-max h-[50vh]">
       <form className="h-full flex flex-col md:flex-row items-center justify-center gap-0 md:gap-[5%]" onSubmit={handleSubmit}>
         <section className="w-full md:w-[40%] h-full flex flex-col justify-center gap-[6%] md:gap-[5%] text-lg">
           {inputFields.map((field) => (

@@ -21,7 +21,7 @@ export default function FooterHero() {
 
   return (
     <>
-      <div className="px-6 pt-[25%] md:pt-[15%] min-h-max h-[60vh] md:h-[70vh]">
+      <div className="px-4 pt-[25%] md:pt-[15%] min-h-max h-[60vh] md:h-[70vh]">
           <section className="text-6xl md:text-[6rem] xl:text-[10rem]">
             {textsMap.txtFooterHero}
           </section>

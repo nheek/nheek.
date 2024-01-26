@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     
-    <div className="px-6 pb-4 pt-20 min-h-max">
+    <div className="px-4 pb-4 pt-20 min-h-max">
        <section className="text-8xl md:text-[12rem] text-right">
           {textsMap.sitename}
         </section>

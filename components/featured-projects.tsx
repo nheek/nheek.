@@ -34,7 +34,7 @@ export default function FeaturedProjects() {
 
   return (
 
-    <div className="px-6 pt-[20%] md:pt-[10%]">
+    <div className="px-4 pt-[20%] md:pt-[10%]">
       <section className="text-6xl">{textsMap.featuredProjects}</section>
       <section className="md:ml-6 mt-8">
         <ul className="flex flex-wrap gap-2">

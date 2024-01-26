@@ -23,7 +23,7 @@ export default function SocialLinks() {
   ]
 
   return (
-      <div className="mt-20 px-6 py-4 flex items-center justify-center">
+      <div className="mt-20 px-4 py-4 flex items-center justify-center">
         {
           socials.map((social, index) => (
             <div 

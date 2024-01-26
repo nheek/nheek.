@@ -9,12 +9,12 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'raincheck', desc: 'weather web app', link: 'https://raincheck.nheek.com/', image: '/featured-projects/raincheck.png', techstack: ['Django', 'Python', 'JavaScript', 'TailwindCSS'] },
       { name: 'wee', desc: 'link shortening platform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'MySQL', 'TailwindCSS'] },
       { name: 'swiftgoss', desc: 'anonymous social media platform', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', techstack: ['PHP', 'MySQL'] },
-      { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'] },
+      { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/shareme" },
       { name: 'kledeli', desc: 'children clothing subscription platform', link: 'https://kledeli.nheek.com/', image: '/featured-projects/kledeli.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'] },
       { name: 'notasrare', desc: 'public poll platform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'MySQL', 'TailwindCSS'] },
       { name: 'lookatme', desc: 'real-time statistics entertainment platform', link: 'https://lookatme.nheek.com/', image: '/featured-projects/lookatme.png', techstack: ['ExpressJS', 'MySQL', 'TailwindCSS', 'Socket.IO'] },
       { name: 'studently', desc: 'schools forum platform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', techstack: ['PHP', 'MySQL'] },
-      { name: 'motto', desc: 'virtual friend app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'Tailwind'] },
+      { name: 'motto', desc: 'virtual friend app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', techstack: ['NextJS', 'NodeJS', 'Typescript', 'Tailwind'], onGithub: "https://github.com/nheek/motto" },
       { name: 'poetree', desc: 'google-inspired poetry library', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'MySQL'] },
     ],
     apps: [
@@ -88,9 +88,17 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
           <div key={index} className="w-full md:w-[40%] mt-16">
             <img className="max-h-[400px] rounded-xl shadow-lg" src={project.image} alt={project.name} />
             <div className="mt-2 text-lg opacity-60">{project.desc}</div>
-            <a href={project.link}>
-              <div className="mt-1 text-3xl">{project.name}</div>
-            </a>
+              <div className={`${project.onGithub ? "flex gap-4" : ""} mt-1 text-3xl`}>
+              <a href={project.link}>
+                <span>{project.name}</span>
+              </a>
+              <a 
+                title="Github link"
+                className={`${project.onGithub ? "block" : "hidden"} flex items-center`}
+                href={project.onGithub}>
+                <img src="/social-links/github-iconx.svg" alt="github icon logo" />
+              </a>
+              </div>
             <div className="mt-2 opacity-80">
               <ul className="flex flex-wrap text-xs gap-2">
                 {project.techstack.map((tech, index) => (
