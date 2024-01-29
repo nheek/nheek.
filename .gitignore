@@ -130,7 +130,6 @@ dist
 .pnp.*
 
 # custom
-pages/api
 .DS_Store
 .htaccess
 

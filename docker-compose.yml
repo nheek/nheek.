@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  node-app:
+    build: .
+    ports:
+      - "3004:3004"
+    depends_on:
+      - mysql-db
+    env_file:
+      - .env
+    environment:
+      - PLACEHOLDER=YES
+    image: "nheek/nheek:latest" 
+
+  mysql-db:
+    image: mysql:latest
+    env_file:
+      - .env
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
