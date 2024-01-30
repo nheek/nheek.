@@ -63,12 +63,14 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
   const wwwNheekNo = {
     projectsToShowMap: projects_no,
     static: "disse er ikke funksjonelle nettsteder/apper",
-    template: "disse er nettsteder/apper jeg delvis har kodet"
+    template: "disse er nettsteder/apper jeg delvis har kodet",
+    with: "med"
   };
   const wwwDefault = {
     projectsToShowMap: projects,
     static: "these are non-functional websites/applications",
-    template: "these are websites/apps i partially coded"
+    template: "these are websites/apps i partially coded",
+    with: "with"
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo, 
@@ -134,7 +136,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
             </div>
             {project.collaborators && (
               <div className="flex gap-1 items-center mt-1 ml-2 opacity-80">
-                <span className='text-xs'>with</span>
+                <span className='text-xs'>{txtInfo["with"]}</span>
                 <ul className="flex flex-wrap text-xs gap-2">
                   {project.collaborators.map((person, index) => (
                     <li key={index} className="py-2 cursor-pointer">
