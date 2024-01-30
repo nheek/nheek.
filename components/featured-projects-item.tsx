@@ -7,7 +7,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
   const projects = {
     websites: [
       { name: 'raincheck', desc: 'weather web app', link: 'https://raincheck.nheek.com/', image: '/featured-projects/raincheck.png', techstack: ['Django', 'Python', 'JavaScript', 'TailwindCSS'] },
-      { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/PIN.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
+      { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'wee', desc: 'link shortening platform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', techstack: ['NextJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'swiftgoss', desc: 'anonymous social media platform', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', techstack: ['PHP', 'MySQL'] },
       { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/shareme" },
