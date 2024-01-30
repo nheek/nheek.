@@ -35,14 +35,15 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
   const projects_no = {
     websites: [
       { name: 'raincheck', desc: 'vær web app', link: 'https://raincheck.nheek.com/', image: '/featured-projects/raincheck.png', techstack: ['Django', 'Python', 'JavaScript', 'TailwindCSS'] },
+      { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'wee', desc: 'lenkeforkortingsplattform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', techstack: ['NextJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'swiftgoss', desc: 'anonym sosiale medie', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', techstack: ['PHP', 'MySQL'] },
-      { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'] },
+      { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'],  onGithub: "https://github.com/nheek/shareme" },
       { name: 'kledeli', desc: 'abonnementsplattform for barneklær', link: 'https://kledeli.nheek.com/', image: '/featured-projects/kledeli.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'] },
       { name: 'notasrare', desc: 'offentlig avstemningsplattform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', techstack: ['NextJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'lookatme', desc: 'real-time statistikk underholdningsplattform', link: 'https://lookatme.nheek.com/', image: '/featured-projects/lookatme.png', techstack: ['ExpressJS', 'MySQL', 'TailwindCSS', 'Socket.IO'] },
       { name: 'studently', desc: 'skolens forumplattform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', techstack: ['PHP', 'MySQL'] },
-      { name: 'motto', desc: 'virtuell venn app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', techstack: ['NextJS', 'NodeJS', 'TypeScript', 'Tailwind'] },
+      { name: 'motto', desc: 'virtuell venn app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', techstack: ['NextJS', 'NodeJS', 'TypeScript', 'Tailwind'], onGithub: "https://github.com/nheek/motto" },
       { name: 'poetree', desc: 'google-inspirert poesibibliotek', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'MySQL'] },
     ],
     apps: [
@@ -84,9 +85,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
     setProjectsToShow(textsMap.projectsToShowMap[category].slice(startIndex, endIndex));
     setTxtInfo(textsMap);
 
-    if (sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    
   }, [category, currentPage]);
 
   useEffect(() => {
@@ -94,7 +93,11 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
   }, [category]);
 
   const totalPages = Math.ceil(textsMap.projectsToShowMap[category].length / itemsPerPage);
-
+  useEffect(() => {
+    if (currentPage > 1 && sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [currentPage]);
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
