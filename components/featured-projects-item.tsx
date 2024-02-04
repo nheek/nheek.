@@ -85,7 +85,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
   const sectionRef = useRef(null);
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
-  // const [mobileImageChanged, setMobileImageChanged] = useState(false);
+  
   useEffect(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;

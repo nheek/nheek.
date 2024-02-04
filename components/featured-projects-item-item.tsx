@@ -1,7 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function FeaturedProjectsItemItem ({project = null, txtInfo = null}) {
     const [projectImage, setProjectImage] = useState(project.image);
+
+    useEffect(() => {
+        // Update the projectImage state when project.image changes
+        setProjectImage(project.image);
+    }, [project.image]);
 
     const changeImage = () => {
         let imageToSet = projectImage == project.image ? project.mobileImage : project.image;
