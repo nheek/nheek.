@@ -53,6 +53,5 @@ jobs:
             echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
-            # git pull origin actions-test
             docker-compose up -d
   
