@@ -24,4 +24,4 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
-      - ./sql_data:/docker-entrypoint-initdb.d
+      - .sql_data:/docker-entrypoint-initdb.d/
