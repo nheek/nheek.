@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm install --only=production
 
 # Copy the rest of the application code to the working directory
 COPY . .
@@ -31,7 +31,7 @@ RUN apk --no-cache add bash \
     && chmod +x /usr/local/bin/wait-for-it.sh
 
 # Copy built assets from the build stage
-COPY --from=build /usr/src/app .
+COPY --from=build /usr/src/app/dist ./next
 
 # Start MySQL server and wait for it to be ready, then run the app
 CMD ["sh", "-c", "mysqld_safe --user=mysql & /usr/local/bin/wait-for-it.sh mysql-db:3306 -- npm run start-app"]
