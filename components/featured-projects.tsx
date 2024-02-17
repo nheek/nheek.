@@ -5,7 +5,7 @@ import getTextsMap from '../components/get-texts-map';
 export default function FeaturedProjects() {
   const [selectedComponent, setSelectedComponent] = useState(<FeaturedProjectsItem />);
   const [currentCategory, setCurrentCategory] = useState("websites");
-  const categories = ["websites", "apps", "static", "template"];
+  const categories = ["websites", "apps", "contributions", "static", "template"];
 
   const handleItemClick = (component, category) => {
     setSelectedComponent(component);
@@ -16,6 +16,7 @@ export default function FeaturedProjects() {
     featuredProjects: "utvalgte prosjekter",
     websites: "Nettsteder",
     apps: "Apper",
+    contributions: "Contributions",
     static: "Statisk",
     template: "Mal"
   };
@@ -23,6 +24,7 @@ export default function FeaturedProjects() {
     featuredProjects: "featured projects",
     websites: "Websites",
     apps: "Apps",
+    contributions: "Contributions",
     static: "Static",
     template: "Template"
   };

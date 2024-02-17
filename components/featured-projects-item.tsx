@@ -15,7 +15,6 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'motto', desc: 'virtual friend app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', mobileImage: '/featured-projects/mobile/m-motto.png', techstack: ['NextJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/motto" },
       { name: 'lookatme', desc: 'real-time statistics entertainment platform', link: 'https://lookatme.nheek.com/', image: '/featured-projects/lookatme.png', mobileImage: '/featured-projects/mobile/m-lookatme.png', techstack: ['ExpressJS', 'MySQL', 'TailwindCSS', 'Socket.IO'] },
       { name: 'bould', desc: 'cover photo focused blog platform', link: 'https://bould.nheek.com/', image: '/featured-projects/bould.png', mobileImage: '/featured-projects/mobile/m-bould.png', techstack: ['AstroJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/bould" },
-      { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'kledeli', desc: 'children clothing subscription platform', link: 'https://kledeli.nheek.com/', image: '/featured-projects/kledeli.png', mobileImage: '/featured-projects/mobile/m-kledeli.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'] },
       { name: 'swiftgoss', desc: 'anonymous social media platform', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', mobileImage: '/featured-projects/mobile/m-swiftgoss.png', techstack: ['PHP', 'MySQL'] },
       { name: 'studently', desc: 'schools forum platform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', mobileImage: '/featured-projects/mobile/m-studently.png', techstack: ['PHP', 'MySQL'] },
@@ -25,6 +24,10 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'simple calculator', desc: 'simple calculator application', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/python/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
       { name: 'weather', desc: 'minimalistic weather application', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/python/weather.png', techstack: ['Python', 'PyQt6'] },
       { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    ],
+    contributions: [
+      { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
+      { name: 'fribyte', desc: 'landing page for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/fribyte.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
     ],
     static: [
       { name: 'lady', desc: 'food service online platform', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'] },
@@ -45,7 +48,6 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'motto', desc: 'virtuell venn app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', mobileImage: '/featured-projects/mobile/m-motto.png', techstack: ['NextJS', 'NodeJS', 'TypeScript', 'Tailwind'], onGithub: "https://github.com/nheek/motto" },
       { name: 'lookatme', desc: 'real-time statistikk underholdningsplattform', link: 'https://lookatme.nheek.com/', image: '/featured-projects/lookatme.png', mobileImage: '/featured-projects/mobile/m-lookatme.png', techstack: ['ExpressJS', 'MySQL', 'TailwindCSS', 'Socket.IO'] },
       { name: 'bould', desc: 'forsidebildefokusert bloggplattform', link: 'https://bould.nheek.com/', image: '/featured-projects/bould.png', mobileImage: '/featured-projects/mobile/m-bould.png', techstack: ['AstroJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/bould" },
-      { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'kledeli', desc: 'abonnementsplattform for barneklær', link: 'https://kledeli.nheek.com/', image: '/featured-projects/kledeli.png', mobileImage: '/featured-projects/mobile/m-kledeli.png', techstack: ['PHP', 'MySQL', 'TailwindCSS'] },
       { name: 'swiftgoss', desc: 'anonym sosiale medie', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', mobileImage: '/featured-projects/mobile/m-swiftgoss.png', techstack: ['PHP', 'MySQL'] },
       { name: 'studently', desc: 'skolens forumplattform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', mobileImage: '/featured-projects/mobile/m-studently.png', techstack: ['PHP', 'MySQL'] },
@@ -55,6 +57,10 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'enkel kalkulator', desc: 'enkel kalkulator applikasjon', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/python/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
       { name: 'vær', desc: 'minimalistisk vær applikasjon', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/python/weather.png', techstack: ['Python', 'PyQt6'] },
       { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    ],
+    contributions: [
+      { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
+      { name: 'fribyte', desc: 'landingsside for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/fribyte.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
     ],
     static: [
       { name: 'lady', desc: 'nettbasert matserveringstjeneste', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'] },
@@ -67,12 +73,14 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
   };
   const wwwNheekNo = {
     projectsToShowMap: projects_no,
+    contributions: "disse er prosjekter jeg har bidratt til",
     static: "disse er ikke funksjonelle nettsteder/apper",
     template: "disse er nettsteder/apper jeg delvis har kodet",
     with: "med"
   };
   const wwwDefault = {
     projectsToShowMap: projects,
+    contributions: "these are projects i have contributed to",
     static: "these are non-functional websites/applications",
     template: "these are websites/apps i partially coded",
     with: "with"
