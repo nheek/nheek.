@@ -4,6 +4,9 @@ FROM node:21-alpine
 # Set the working directory inside the container
 WORKDIR /usr/src/app
 
+# Install MySQL client
+RUN apk --no-cache add mysql-client
+
 # Install MySQL client and server, and wait-for-it script
 RUN apk --no-cache add mysql bash \
     && wget -O /usr/local/bin/wait-for-it.sh https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh \
