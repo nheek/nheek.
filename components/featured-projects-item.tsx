@@ -26,7 +26,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
     ],
     contributions: [
-      { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
+      { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'fribyte', desc: 'landing page for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/fribyte.png', mobileImage: '/featured-projects/mobile/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
     ],
     static: [
@@ -59,7 +59,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
     ],
     contributions: [
-      { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.nheek.com/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
+      { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'fribyte', desc: 'landingsside for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/fribyte.png', mobileImage: '/featured-projects/mobile/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
     ],
     static: [
