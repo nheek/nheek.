@@ -31,7 +31,7 @@ RUN apk --no-cache add bash \
     && chmod +x /usr/local/bin/wait-for-it.sh
 
 # Copy built assets from the build stage
-COPY --from=build /usr/src/app ./next
+COPY --from=build /usr/src/app .
 
 # Start MySQL server and wait for it to be ready, then run the app
 CMD ["sh", "-c", "mysqld_safe --user=mysql & /usr/local/bin/wait-for-it.sh mysql-db:3306 -- npm run start-app"]
