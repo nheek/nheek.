@@ -3,7 +3,7 @@ version: '3'
 services:
   node-app:
     build: .
-    restart: always
+    restart: unless-stopped
     ports:
       - "3004:3004"
     depends_on:
@@ -16,7 +16,7 @@ services:
 
   mysql-db:
     image: mysql:latest
-    restart: always
+    restart: unless-stopped
     ports:
       - "4000:3306"
     env_file:
