@@ -10,12 +10,3 @@ FLUSH PRIVILEGES;
 
 -- Use the created database
 USE nheek;
-
--- Create a table
--- CREATE TABLE ContactForm (
---   id INT AUTO_INCREMENT PRIMARY KEY,
---   name varchar(100),
---   email varchar(100),
---   subject varchar(100),
---   message text
--- );
