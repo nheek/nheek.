@@ -41,7 +41,6 @@ jobs:
             # Change to the appropriate directory..
             cd apps/nheek/
 
-            echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
             # Pull the Docker Compose project on the remote server
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
             docker pull mysql
