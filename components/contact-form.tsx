@@ -59,7 +59,7 @@ export default function ContactForm() {
   return (
     <div className="px-4 min-h-max h-[50vh]">
       <form className="h-full flex flex-col md:flex-row items-center justify-center gap-0 md:gap-[5%]" onSubmit={handleSubmit}>
-        <section className="w-full md:w-[40%] h-full flex flex-col justify-center gap-[6%] md:gap-[5%] text-lg">
+        <div className="w-full md:w-[40%] h-full flex flex-col justify-center gap-[6%] md:gap-[5%] text-lg">
           {inputFields.map((field) => (
             <input
               key={field}
@@ -71,8 +71,8 @@ export default function ContactForm() {
               onChange={handleChange}
             />
           ))}
-        </section>
-        <section className="w-full md:w-[40%] h-full flex flex-col md:justify-center gap-[6%] md:gap-[5%] text-lg">
+        </div>
+        <div className="w-full md:w-[40%] h-full flex flex-col md:justify-center gap-[6%] md:gap-[5%] text-lg">
           <textarea
             className="rounded-xl md:rounded-3xl pl-4 h-[60%] pt-5 text-gray-900"
             name="message"
@@ -87,7 +87,7 @@ export default function ContactForm() {
           >
             {loading ? txtLoading[0] : txtLoading[1]}
           </button>
-        </section>
+        </div>
       </form>
 
       {submissionResult && (

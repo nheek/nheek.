@@ -90,7 +90,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
-  const sectionRef = useRef(null);
+  const divRef = useRef(null);
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
   
@@ -109,8 +109,8 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
 
   const totalPages = Math.ceil(textsMap.projectsToShowMap[category].length / itemsPerPage);
   useEffect(() => {
-    if (currentPage > 1 && sectionRef.current) {
-      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (currentPage > 1 && divRef.current) {
+      divRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [currentPage]);
   const handlePageChange = (newPage) => {
@@ -119,14 +119,14 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
 
   return (
     <>
-      <section ref={sectionRef} className="relative text-3xl leading-snug flex flex-col md:flex-row items-center justify-center gap-[7%] flex-wrap">
+      <div ref={divRef} className="relative text-3xl leading-snug flex flex-col md:flex-row items-center justify-center gap-[7%] flex-wrap">
           <span className="text-lg -mb-8 md:mb-0 mt-4 md:absolute top-0 italic opacity-60">
           {txtInfo[category] || ""}
         </span>
         {projectsToShow.map((project, index) => (
           <FeaturedProjectsItemItem key={index} project={project} txtInfo={txtInfo} />
         ))}
-      </section>
+      </div>
       {totalPages > 1 && (
         <div className="flex gap-4 justify-center mt-12">
           {Array.from({ length: totalPages }, (_, index) => (
