@@ -53,5 +53,10 @@ jobs:
             echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./test-actions/Dockerfile
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./test-actions/docker-compose.yml
+
+            mkdir .sql_data
+            cd .sql_data
+            curl -O -L https://raw.githubusercontent.com/nheek/nheek./test-actions/.sql_data/create_database.sql
+
             docker-compose up -d
   
