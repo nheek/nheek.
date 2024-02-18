@@ -3,7 +3,7 @@ name: Build, Push, and Deploy Docker Compose
 on:
   push:
     branches:
-      - main
+      - test-actions
 
 jobs:
   build-push-and-deploy:
@@ -41,13 +41,22 @@ jobs:
             # Change to the appropriate directory..
             cd apps/nheek/
             
+            # Pull the Docker Compose project on the remote server
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
+            docker pull mysql
+
             echo "MYSQL_PORT=${{ secrets.MYSQL_PORT }}" >> .env
             echo "MYSQL_HOST=${{ secrets.MYSQL_HOST }}" >> .env
             echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
             echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
             echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> .env
             echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
-            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
-            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
+            curl -O -L https://raw.githubusercontent.com/nheek/nheek./test-actions/Dockerfile
+            curl -O -L https://raw.githubusercontent.com/nheek/nheek./test-actions/docker-compose.yml
+
+            mkdir .sql_data
+            cd .sql_data
+            curl -O -L https://raw.githubusercontent.com/nheek/nheek./test-actions/.sql_data/create_database.sql
+
             docker-compose up -d
   
