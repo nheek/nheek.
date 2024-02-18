@@ -7,9 +7,6 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Debugging: List files in the working directory
-RUN ls -al
-
 # Install dependencies
 RUN npm install --only=production
 
@@ -35,6 +32,8 @@ RUN apk --no-cache add bash \
 
 # Copy built assets from the build stage
 COPY --from=build /usr/src/app .
+
+RUN ls -al
 
 # Start MySQL server and wait for it to be ready, then run the app
 CMD ["sh", "-c", "mysqld_safe --user=mysql & /usr/local/bin/wait-for-it.sh mysql-db:3306 -- npm run start-app"]
