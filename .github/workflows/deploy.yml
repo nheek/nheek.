@@ -3,7 +3,7 @@ name: Build, Push, and Deploy Docker Compose
 on:
   push:
     branches:
-      - main
+      - test-actions
 
 jobs:
   build-push-and-deploy:
