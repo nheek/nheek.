@@ -3,7 +3,7 @@ name: Build, Push, and Deploy Docker Compose
 on:
   push:
     branches:
-      - test-actions
+      - main
 
 jobs:
   build-push-and-deploy:
@@ -40,6 +40,10 @@ jobs:
           script: |
             # Change to the appropriate directory..
             cd apps/nheek/
+            
+            # Pull the Docker Compose project on the remote server
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
+            docker pull mysql
             
             echo "MYSQL_PORT=${{ secrets.MYSQL_PORT }}" >> .env
             echo "MYSQL_HOST=${{ secrets.MYSQL_HOST }}" >> .env
