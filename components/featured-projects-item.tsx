@@ -124,7 +124,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
           {txtInfo[category] || ""}
         </span>
         {projectsToShow.map((project, index) => (
-          <FeaturedProjectsItemItem key={index} project={project} txtInfo={txtInfo} />
+          <FeaturedProjectsItemItem key={index} category={category} project={project} txtInfo={txtInfo} />
         ))}
       </div>
       {totalPages > 1 && (
