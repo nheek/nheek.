@@ -35,8 +35,8 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'techie', desc: 'tech product landing page', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie" },
     ],
     template: [
-      { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
+      { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
+      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/yloizah.png', mobileImage: '/featured-projects/mobile/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
     ],
   };
   const projects_no = {
@@ -69,8 +69,8 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
       { name: 'techie', desc: 'landingsside for tech-produkter', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie" },
     ],
     template: [
-      { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
+      { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
+      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/yloizah.png', mobileImage: '/featured-projects/mobile/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
     ],
   };
   const wwwNheekNo = {
