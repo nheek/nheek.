@@ -28,6 +28,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
     contributions: [
       { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'fribyte', desc: 'landing page for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/fribyte.png', mobileImage: '/featured-projects/mobile/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
+      { name: 'fribyte ctf', desc: 'fribyte\'s own capture the flag platform', link: 'https://ctf.fribyte.no/', image: '/featured-projects/fribyte-ctf.png', mobileImage: '/featured-projects/mobile/m-fribyte-ctf.png', techstack: ['ViteJS', 'ReactJS', 'TypeScript', '.NET', 'CSS'], onGithub: "https://github.com/fribyte-code/friByte.capture-the-flag" },
     ],
     static: [
       { name: 'lady', desc: 'food service online platform', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
@@ -61,6 +62,7 @@ export default function FeaturedProjectsItem({ category = "websites" }) {
     contributions: [
       { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/pin.png', mobileImage: '/featured-projects/mobile/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'fribyte', desc: 'landingsside for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/fribyte.png', mobileImage: '/featured-projects/mobile/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
+      { name: 'fribyte ctf', desc: 'fribyte sin capture the flag plattform', link: 'https://ctf.fribyte.no/', image: '/featured-projects/fribyte-ctf.png', mobileImage: '/featured-projects/mobile/m-fribyte-ctf.png', techstack: ['ViteJS', 'ReactJS', 'TypeScript', '.NET', 'CSS'], onGithub: "https://github.com/fribyte-code/friByte.capture-the-flag" },
     ],
     static: [
       { name: 'lady', desc: 'nettbasert matserveringstjeneste', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },

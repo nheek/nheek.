@@ -13,7 +13,7 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
         if (project.link) {
             checkWebsiteStatus(project.link);
         }
-    }, []);
+    }, [project.link]);
 
     const changeImage = () => {
         let imageToSet = projectImage === project.image ? project.mobileImage : project.image;
