@@ -1,6 +1,6 @@
 import getTextsMap from '../components/get-texts-map';
 
-export default function Hero() {
+export default function Hero({isFullStack}) {
   const wwwNheekNo = {
     sitename: "nheek no",
     heroText: "hei! jeg er nheek. kodene mine gir liv til nettsider og applikasjoner. la dine ideer bli virkelighet."
@@ -22,7 +22,7 @@ export default function Hero() {
           {textsMap.sitename}
         </section>
         <section className="text-xl md:text-3xl leading-snug w-[90%]">
-          {textsMap.heroText}
+          {isFullStack ? "So it is foretold" : textsMap.heroText}
         </section>
     </div>
   );
