@@ -8,7 +8,7 @@ export default function Main({isFullStack}) {
     <main>
       <Hero isFullStack={isFullStack}/>
       <SocialLinks />
-      <FeaturedProjects />
+      <FeaturedProjects isFullStack={isFullStack} />
       <FooterHero />
     </main>
   );
