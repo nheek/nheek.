@@ -17,6 +17,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
       { name: 'bould', desc: 'cover photo focused blog platform', link: 'https://bould.nheek.com/', image: '/featured-projects/bould.png', mobileImage: '/featured-projects/mobile/m-bould.png', techstack: ['AstroJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/bould" },
       { name: 'swiftgoss', desc: 'anonymous social media platform', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', mobileImage: '/featured-projects/mobile/m-swiftgoss.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'studently', desc: 'schools forum platform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', mobileImage: '/featured-projects/mobile/m-studently.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
+      { name: 'confy', desc: 'anonymous confession site', link: 'https://confy.nheek.com/', image: '/featured-projects/confy.png', techstack: ['RemixJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'poetree', desc: 'google-inspired poetry library', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtual ai assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
@@ -38,7 +39,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
     ],
     template: [
       { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
+      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'video production agency landing page', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -54,6 +55,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
       { name: 'bould', desc: 'forsidebildefokusert bloggplattform', link: 'https://bould.nheek.com/', image: '/featured-projects/bould.png', mobileImage: '/featured-projects/mobile/m-bould.png', techstack: ['AstroJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/bould" },
       { name: 'swiftgoss', desc: 'anonym sosiale medie', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', mobileImage: '/featured-projects/mobile/m-swiftgoss.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'studently', desc: 'skolens forumplattform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', mobileImage: '/featured-projects/mobile/m-studently.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
+      { name: 'confy', desc: 'anonym confession side', link: 'https://confy.nheek.com/', image: '/featured-projects/confy.png', techstack: ['RemixJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'poetree', desc: 'google-inspirert poesibibliotek', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtuell ki-assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
@@ -75,7 +77,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
     ],
     template: [
       { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
+      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'landingsside for videoproduksjonsbyrå', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -92,6 +94,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
       { name: 'bould', desc: 'cover photo focused blog platform', link: 'https://bould.nheek.com/', image: '/featured-projects/bould.png', mobileImage: '/featured-projects/mobile/m-bould.png', techstack: ['AstroJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/bould" },
       { name: 'swiftgoss', desc: 'anonymous social media platform', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', mobileImage: '/featured-projects/mobile/m-swiftgoss.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'studently', desc: 'schools forum platform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', mobileImage: '/featured-projects/mobile/m-studently.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
+      { name: 'confy', desc: 'anonymous confession site', link: 'https://confy.nheek.com/', image: '/featured-projects/confy.png', techstack: ['RemixJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'poetree', desc: 'google-inspired poetry library', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtual ai assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
@@ -115,7 +118,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
     ],
     template: [
       { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
+      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'video production agency landing page', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -131,6 +134,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
       { name: 'bould', desc: 'forsidebildefokusert bloggplattform', link: 'https://bould.nheek.com/', image: '/featured-projects/bould.png', mobileImage: '/featured-projects/mobile/m-bould.png', techstack: ['AstroJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/bould" },
       { name: 'swiftgoss', desc: 'anonym sosiale medie', link: 'https://swiftgoss.nheek.com/', image: '/featured-projects/swiftgoss.png', mobileImage: '/featured-projects/mobile/m-swiftgoss.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'studently', desc: 'skolens forumplattform', link: 'https://studently.nheek.com/', image: '/featured-projects/studently.png', mobileImage: '/featured-projects/mobile/m-studently.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
+      { name: 'confy', desc: 'anonym confession side', link: 'https://confy.nheek.com/', image: '/featured-projects/confy.png', techstack: ['RemixJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'poetree', desc: 'google-inspirert poesibibliotek', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtuell ki-assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
@@ -154,7 +158,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
     ],
     template: [
       { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'CSS'] },
+      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'landingsside for videoproduksjonsbyrå', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
