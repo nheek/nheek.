@@ -60,12 +60,30 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
             <div className="mt-2 opacity-80">
                 <ul className="flex flex-wrap text-xs gap-2">
                     {project.techstack.map((tech, index) => (
-                        <li key={index} className="border border-1 border-gray-400 px-2 py-1 rounded-xl hover:bg-gray-400 cursor-pointer">
+                        <li key={index} className="border border-1 border-gray-400 px-2 py-1 rounded-xl hover:bg-gray-400">
                             <span>{tech}</span>
                         </li>
                     ))}
                 </ul>
             </div>
+            {
+                project.deployedWith && (
+                    <div className="flex gap-1 items-center mt-2 ml-1 opacity-80">
+                        <span className="text-xs">{txtInfo["deployedWith"]}</span>
+                        <ul className="flex flex-wrap text-xs gap-2">
+                        {
+                            project.deployedWith.map((deploy, index) => (
+                                <li key={index}>
+                                    {deploy}
+                                    {project.deployedWith.length > 1 && index !== project.deployedWith.length - 1 ? "," : ""}
+                                </li>
+                                
+                            ))
+                        }
+                        </ul>
+                    </div>
+                )
+            }
             {project.collaborators && (
                 <div className="flex gap-1 items-center mt-1 ml-2 opacity-80">
                     <span className='text-xs'>{txtInfo["with"]}</span>

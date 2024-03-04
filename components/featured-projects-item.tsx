@@ -7,9 +7,9 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
   const [txtInfo, setTxtInfo] = useState({})
   const projects = {
     websites: [
-      { name: 'nheek', desc: 'this portfolio website', link: 'https://www.nheek.com/', image: '/featured-projects/nheek.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek." },
+      { name: 'nheek', desc: 'this portfolio website', link: 'https://www.nheek.com/', image: '/featured-projects/nheek.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek.", deployedWith: ["docker", "github actions"] },
       { name: 'raincheck', desc: 'weather web app', link: 'https://raincheck.nheek.com/', image: '/featured-projects/raincheck.png', mobileImage: '/featured-projects/mobile/m-raincheck.png', techstack: ['Django', 'Python', 'JavaScript', 'TailwindCSS'] },
-      { name: 'wee', desc: 'link shortening platform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
+      { name: 'wee', desc: 'link shortening platform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', mobileImage: '/featured-projects/mobile/m-shareme.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/shareme" },
       { name: 'notasrare', desc: 'public poll platform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', mobileImage: '/featured-projects/mobile/m-notasrare.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'motto', desc: 'virtual friend app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', mobileImage: '/featured-projects/mobile/m-motto.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/motto" },
@@ -45,9 +45,9 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
   };
   const projects_no = {
     websites: [
-      { name: 'nheek', desc: 'denne portefølje nettsiden', link: 'https://www.nheek.no/', image: '/featured-projects/nheek-no.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek." },
+      { name: 'nheek', desc: 'denne portefølje nettsiden', link: 'https://www.nheek.no/', image: '/featured-projects/nheek-no.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek.", deployedWith: ["docker", "github actions"] },
       { name: 'raincheck', desc: 'vær web app', link: 'https://raincheck.nheek.com/', image: '/featured-projects/raincheck.png', mobileImage: '/featured-projects/mobile/m-raincheck.png', techstack: ['Django', 'Python', 'JavaScript', 'TailwindCSS'] },
-      { name: 'wee', desc: 'lenkeforkortingsplattform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
+      { name: 'wee', desc: 'lenkeforkortingsplattform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', mobileImage: '/featured-projects/mobile/m-shareme.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'],  onGithub: "https://github.com/nheek/shareme" },
       { name: 'notasrare', desc: 'offentlig avstemningsplattform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', mobileImage: '/featured-projects/mobile/m-notasrare.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'motto', desc: 'virtuell venn app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', mobileImage: '/featured-projects/mobile/m-motto.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/motto" },
@@ -84,9 +84,9 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
 
   const projects_fullstack = {
     websites: [
-      { name: 'nheek', desc: 'this portfolio website', link: 'https://www.nheek.com/', image: '/featured-projects/nheek.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek." },
+      { name: 'nheek', desc: 'this portfolio website', link: 'https://www.nheek.com/', image: '/featured-projects/nheek.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek.", deployedWith: ["docker", "github actions"] },
       { name: 'raincheck', desc: 'weather web app', link: 'https://raincheck.nheek.com/', image: '/featured-projects/raincheck.png', mobileImage: '/featured-projects/mobile/m-raincheck.png', techstack: ['Django', 'Python', 'JavaScript', 'TailwindCSS'] },
-      { name: 'wee', desc: 'link shortening platform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
+      { name: 'wee', desc: 'link shortening platform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', mobileImage: '/featured-projects/mobile/m-shareme.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/shareme" },
       { name: 'notasrare', desc: 'public poll platform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', mobileImage: '/featured-projects/mobile/m-notasrare.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'motto', desc: 'virtual friend app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', mobileImage: '/featured-projects/mobile/m-motto.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/motto" },
@@ -124,9 +124,9 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
   };
   const projects_no_fullstack = {
     websites: [
-      { name: 'nheek', desc: 'denne portefølje nettsiden', link: 'https://www.nheek.no/', image: '/featured-projects/nheek-no.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek." },
+      { name: 'nheek', desc: 'denne portefølje nettsiden', link: 'https://www.nheek.no/', image: '/featured-projects/nheek-no.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek.", deployedWith: ["docker", "github actions"] },
       { name: 'raincheck', desc: 'vær web app', link: 'https://raincheck.nheek.com/', image: '/featured-projects/raincheck.png', mobileImage: '/featured-projects/mobile/m-raincheck.png', techstack: ['Django', 'Python', 'JavaScript', 'TailwindCSS'] },
-      { name: 'wee', desc: 'lenkeforkortingsplattform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
+      { name: 'wee', desc: 'lenkeforkortingsplattform', link: 'https://wee.nheek.com/', image: '/featured-projects/wee.png', mobileImage: '/featured-projects/mobile/m-wee.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'shareme', desc: 'no-login todo list web app', link: 'https://shareme.nheek.com/', image: '/featured-projects/shareme.png', mobileImage: '/featured-projects/mobile/m-shareme.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'],  onGithub: "https://github.com/nheek/shareme" },
       { name: 'notasrare', desc: 'offentlig avstemningsplattform', link: 'https://notasrare.nheek.com/', image: '/featured-projects/notasrare.png', mobileImage: '/featured-projects/mobile/m-notasrare.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'] },
       { name: 'motto', desc: 'virtuell venn app', link: 'https://motto.nheek.com/', image: '/featured-projects/motto.png', mobileImage: '/featured-projects/mobile/m-motto.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/motto" },
@@ -168,6 +168,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
     contributions: "disse er prosjekter jeg har bidratt til",
     static: "disse er ikke funksjonelle nettsteder/apper",
     template: "disse er nettsteder/apper jeg delvis har kodet",
+    deployedWith: "deployert med",
     with: "med"
   };
   const wwwDefault = {
@@ -175,6 +176,7 @@ export default function FeaturedProjectsItem({ isFullStack, category = "websites
     contributions: "these are projects i have contributed to",
     static: "these are non-functional websites/applications",
     template: "these are websites/apps i partially coded",
+    deployedWith: "deployed with",
     with: "with"
   };
   const domainPairs = {
