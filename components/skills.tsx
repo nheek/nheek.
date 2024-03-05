@@ -17,17 +17,21 @@ export default function Skills() {
   let textsMap = getTextsMap(domainPairs);
 
   let skills = [
-    "CSS", "CloudFlare", "Django", "Zola", "Firebase",
+    "CSS", "CloudFlare", "Firebase",
     "Docker", "Docker Compose", "TailwindCSS", "TypeScript", 
     "ExpressJS", "GitHub", "GitHub Actions", "WordPress",
     "HTML", "Java", "JavaScript", "jQuery", "MySQL", "NextJS",
     "NGINX", "NodeJS", "PHP", "Python", "PyQT",
     "ReactJS", "RemixJS", "RESTful API", "Socket.IO"
   ];
+  let middleSkills = [
+    "Zola", "Django", "AstroJS", "Git", "Flutter"
+  ]
   let orangeSkills = [
-    "AstroJS", "SCSS", "Swift", "Flutter", "Git", "Go", "C++"
+    "SCSS", "Swift", "Go", "C++", "C#"
   ]
   skills.sort();
+  middleSkills.sort();
   orangeSkills.sort();
 
   return (
@@ -40,6 +44,11 @@ export default function Skills() {
             {
               skills.map((skill, index) => (
                 <li key={index} className="bg-green-600 px-3 py-1 rounded-3xl duration-500">{skill}</li>
+              ))
+            }
+            {
+              middleSkills.map((skill, index) => (
+                <li key={index} className="bg-gradient-to-br from-green-600 to-yellow-600 px-3 py-1 rounded-3xl duration-500">{skill}</li>
               ))
             }
             {
