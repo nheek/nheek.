@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export const siteTitle = 'nheek';
 
-export default function Header({isFullStack, setIsFullStack}) {
+export default function Header({isFullStack = null, setIsFullStack = null, customHeaderText=""}) {
   const wwwNheekNo = {
     fullStack: "fullstack utvikler",
     sitename: "nheek no",
@@ -45,7 +45,7 @@ export default function Header({isFullStack, setIsFullStack}) {
         </ul>
       </nav>
 
-      <div className="w-[30%]"></div>
+      <div className="w-[30%] text-8xl text-center">{customHeaderText}</div>
       <nav className="w-[33%] text-right">
         <ul>
           <li>

@@ -36,7 +36,7 @@ export default function Skills() {
 
   return (
     <div className="px-4 pt-[25%] md:pt-[15%] min-h-max">
-        <section className="text-6xl md:text-[6rem] xl:text-[10rem]">
+        <section className="text-4xl md:text-[4rem] xl:text-[8rem]">
           {textsMap.txtSkills}
         </section>
         <section className="text-md w-[90%] mt-4 m-auto">
