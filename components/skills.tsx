@@ -35,11 +35,11 @@ export default function Skills() {
   orangeSkills.sort();
 
   return (
-    <div className="px-4 pt-[25%] md:pt-[15%] min-h-max">
-        <section className="text-4xl md:text-[4rem] xl:text-[8rem]">
+    <section className="px-4 pt-[25%] md:pt-[15%] min-h-max">
+        <hgroup className="text-4xl md:text-[4rem] xl:text-[8rem]">
           {textsMap.txtSkills}
-        </section>
-        <section className="text-md w-[90%] mt-4 m-auto">
+        </hgroup>
+        <div className="text-md w-[90%] mt-4 md:mt-10 m-auto">
           <ul className="flex flex-wrap gap-3">
             {
               skills.map((skill, index) => (
@@ -57,7 +57,7 @@ export default function Skills() {
               ))
             }
           </ul>
-        </section>
-    </div>
+        </div>
+    </section>
   );
 }

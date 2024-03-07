@@ -45,7 +45,7 @@ export default function Header({isFullStack = null, setIsFullStack = null, custo
         </ul>
       </nav>
 
-      <div className="w-[30%] text-8xl text-center">{customHeaderText}</div>
+      <div className="w-[30%] text-6xl text-center">{customHeaderText}</div>
       <nav className="w-[33%] text-right">
         <ul>
           <li>

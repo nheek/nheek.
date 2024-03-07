@@ -1,13 +1,9 @@
-import Profile from "./profile";
-import Volunteer from "./volunteer";
-import Work from "./work";
+import Links from "./links";
 
 export default function Main() {
   return (
     <main>
-        <Profile />
-        <Work />
-        <Volunteer />
+        <Links />
     </main>
   );
 }
