@@ -1,4 +1,4 @@
-import getTextsMap from '../../components/get-texts-map';
+import getTextsMap from '../get-texts-map';
 
 export default function Volunteer() {
   const wwwNheekNo = {

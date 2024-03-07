@@ -22,7 +22,7 @@ export default function Navigate({ underPage = false }) {
     { name: "gallery - coming soon", link: "/" }, // maybe add a gallery page where i can showcase some of my favourite pictures
     { name: "cv", link: "/cv" }, // add page for your cv
     { name: "fun - coming soon", link: "/" }, // post your spotify playlists here maybe or favourite shows or anything really
-    { name: "links - coming soon", link: "/" } // add links you want to add on your portfolio, like a friend's portfolio website
+    { name: "links", link: "/links" } // add links you want to add on your portfolio, like a friend's portfolio website
   ]
   return (
     <div className={`${underPage && "!p-0"} px-4 pt-[25%] md:pt-[15%] min-h-max`}>
