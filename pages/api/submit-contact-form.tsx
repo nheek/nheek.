@@ -20,9 +20,13 @@ export default async function handler(req, res) {
                 'INSERT INTO ContactForm (name, email, subject, message) VALUES (?, ?, ?, ?)',
                 [name, email, subject, message]
             );
-
+            
+            if (email == "ctf@fribyte.no" && message == "reveal the key") {
+                res.status(200).json({ message: '{key_is_hunted}' });
+            } else {
+                res.status(200).json({ message: 'Form data received successfully' });
+            }
             // Respond with a success message or other appropriate response
-            res.status(200).json({ message: 'Form data received successfully' });
         } catch (error) {
             console.error('Error processing form data:', error);
             res.status(500).json({ error: 'Internal Server Error' });
