@@ -1,10 +1,19 @@
-import { useEffect, useState, useRef } from 'react';
-import GetTextsMap from '../components/get-texts-map';
-import FeaturedProjectsItemItem from './featured-projects-item-item';
+import { useEffect, useState } from 'react';
+import GetTextsMap from '../../components/get-texts-map';
 
-export default function FeaturedProjectsItem({ isFullStack = false, category = "websites" }) {
-  const [projectsToShow, setProjectsToShow] = useState([])
-  const [txtInfo, setTxtInfo] = useState({})
+export default function FeaturedProject(
+  { 
+    isFullStack = false,
+    category = "websites",
+    projectName = "nheek",
+  } : 
+  {
+    readonly isFullStack?: boolean,
+    readonly category?: string,
+    readonly projectName?: string
+  }
+) {
+  
   const projects = {
     websites: [
       { name: 'nheek', desc: 'this portfolio website', link: 'https://www.nheek.com/', image: '/featured-projects/nheek.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek.", deployedWith: ["docker", "github actions"] },
@@ -147,6 +156,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/contributions/pin.png', mobileImage: '/featured-projects/mobile/contributions/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'fribyte', desc: 'landingsside for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/contributions/fribyte.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
       { name: 'fribyte ctf', desc: 'fribyte sin capture the flag plattform', link: 'https://ctf.fribyte.no/', image: '/featured-projects/contributions/fribyte-ctf.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-ctf.png', techstack: ['ViteJS', 'ReactJS', 'TypeScript', '.NET', 'CSS'], onGithub: "https://github.com/fribyte-code/friByte.capture-the-flag" },
+      { name: 'fribyte gaming', desc: 'fribyte {her_står_nøkkelen} gaming side', link: 'https://blogs.mtdv.me/watch?v=her_staar_noekkelen', image: '/featured-projects/contributions/fribyte-wiki.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-wiki.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/wiki" },
       { name: 'fribyte wiki', desc: 'fribyte sin interne wiki', link: 'https://wiki.fribyte.no/', image: '/featured-projects/contributions/fribyte-wiki.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-wiki.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/wiki" },
       { name: 'kledeli', desc: 'abonnementsplattform for barneklær', link: 'https://kledeli.nheek.com/', image: '/featured-projects/contributions/kledeli.png', mobileImage: '/featured-projects/mobile/contributions/m-kledeli.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'homing', desc: 'sosiale medie melding webapp', link: 'https://www.lukasry.no/', image: '/featured-projects/contributions/homing.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
@@ -184,56 +194,21 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
     default: wwwDefault
   };
   const textsMap = GetTextsMap(domainPairs);
-  const divRef = useRef(null);
-  const itemsPerPage = 10;
-  const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    setProjectsToShow(textsMap.projectsToShowMap[category].slice(startIndex, endIndex));
-    setTxtInfo(textsMap);
-  }, [isFullStack, category, currentPage]);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [category]);
-
-  const totalPages = Math.ceil(textsMap.projectsToShowMap[category].length / itemsPerPage);
-  useEffect(() => {
-    if (currentPage > 1 && divRef.current) {
-      divRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [currentPage]);
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
-
+  // console.log(textsMap.projectsToShowMap[category].map((project) => (
+  //   project.name == projectName ? project.name : ""
+  // )))
   return (
-    <>
-      <div ref={divRef} className="relative text-3xl leading-snug flex flex-col md:flex-row items-center justify-center gap-[7%] flex-wrap">
-          <span className="text-lg -mb-8 md:mb-0 mt-4 md:absolute top-0 italic opacity-60">
-          {txtInfo[category] || ""}
-        </span>
-        {projectsToShow.map((project, index) => (
-          <FeaturedProjectsItemItem key={index} category={category} project={project} txtInfo={txtInfo} />
-        ))}
-      </div>
-      {totalPages > 1 && (
-        <div className="flex gap-4 justify-center mt-12">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index}
-              className={`h-8 w-8 hover:bg-white hover:text-blue-950 border-2 border-solid border-opacity-50 rounded-full ${
-                currentPage === index + 1 ? "bg-white text-blue-950" : ""
-              }`}
-              onClick={() => handlePageChange(index + 1)}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
-      )}
-    </>
-  );
+    <div>
+      {
+        textsMap.projectsToShowMap[category]?.map((project) => (
+          project.name === projectName && 
+          <>
+            <h1> { project.name } </h1>
+            <img src={project.image} alt="" />
+          </>
+        ))
+      }
+    </div>
+  );  
 }
