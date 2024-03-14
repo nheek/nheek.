@@ -3,10 +3,12 @@ import getTextsMap from '../get-texts-map';
 export default function Links() {
   const links = [
     { name: "Mathias", link: "https://mathiash98.github.io/", desc: "Portfolio website of Mathias (member of fribyte)" },
+    { name: "Bergen Font", link: "https://bergenfont.no", desc: "Font Archive by Erik G. Ingebrigtsen (member of fribyte)" },
   ]
 
   const links_no = [
     { name: "Mathias", link: "https://mathiash98.github.io/", desc: "Nettsiden til Mathias (fribyte medlem)" },
+    { name: "Bergen Font", link: "https://bergenfont.no", desc: "Font Arkiv av Erik G. Ingebrigtsen (fribyte medlem)" },
   ]
 
   const wwwNheekNo = {
