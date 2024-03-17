@@ -2,8 +2,8 @@ import getTextsMap from '../get-texts-map';
 
 export default function Links() {
   const links = [
-    { name: "Mathias", link: "https://mathiash98.github.io/", desc: "Portfolio website of Mathias (member of fribyte)" },
-    { name: "Bergen Font", link: "https://bergenfont.no", desc: "Font Archive by Erik G. Ingebrigtsen (member of fribyte)" },
+    { name: "Mathias", link: "https://mathiash98.github.io/", desc: "Portfolio website of Mathias (fribyte member)" },
+    { name: "Bergen Font", link: "https://bergenfont.no", desc: "Font Archive by Erik G. Ingebrigtsen (fribyte member)" },
   ]
 
   const links_no = [
@@ -34,13 +34,14 @@ export default function Links() {
           {textsMap.txtLinks}
         </hgroup>
         <div className="flex flex-wrap gap-4 text-lg w-full md:w-[90%] mt-16 m-auto leading-8">
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-8">
             {
               textsMap.links.map((link, index) => (
-                <li>
+                <li key={index}>
                   <a
                     className="shadow-inner-blue inset-y-0 inset-x-0 p-4 rounded-3xl !no-underline"
                     href={link.link}
+                    target='_blank'
                   >
                     {`${link.name} - ${link.desc}`}
                   </a>

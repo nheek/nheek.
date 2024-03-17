@@ -7,7 +7,7 @@ export default function Layout() {
 
   return (
     <div className={"bg-[#1C2951] min-h-screen h-full text-white"}>
-      <Header customHeaderText="fun" />
+      <Header customHeaderText="links" />
       <Navigate underPage={true} />
       <Main />
       <Footer />

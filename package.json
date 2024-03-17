@@ -9,20 +9,23 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "canvas": "^2.11.2",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
+    "dotenv": "^16.4.1",
     "framer-motion": "^10.18.0",
     "gray-matter": "^4.0.3",
+    "konva": "^9.3.6",
     "marked": "^9.1.0",
     "mysql2": "latest",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "^9.5.3",
+    "react-konva": "^18.2.10",
     "react-markdown": "^9.0.0",
     "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "dotenv": "^16.4.1"
+    "remark-html": "^16.0.1"
   },
   "engines": {
     "node": ">=18"

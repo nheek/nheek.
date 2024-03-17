@@ -1,13 +1,13 @@
 import Head from 'next/head';
-import Layout from '../components/fun/layout';
+import Layout from '../components/logbook/layout';
 import getTextsMap from '../components/get-texts-map';
 
-export default function Links() {
+export default function Logbook() {
   const wwwNheekNo = {
-    sitename: "links | nheek no"
+    sitename: "loggbok | nheek no"
   };
   const wwwDefault = {
-    sitename: "links | nheek"
+    sitename: "logbook | nheek"
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo, 
