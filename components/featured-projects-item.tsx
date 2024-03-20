@@ -31,6 +31,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'fribyte', desc: 'landing page for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/contributions/fribyte.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
       { name: 'fribyte ctf', desc: 'fribyte\'s own capture the flag platform', link: 'https://ctf.fribyte.no/', image: '/featured-projects/contributions/fribyte-ctf.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-ctf.png', techstack: ['ViteJS', 'ReactJS', 'TypeScript', '.NET', 'CSS'], onGithub: "https://github.com/fribyte-code/friByte.capture-the-flag" },
       { name: 'fribyte wiki', desc: 'fribyte\'s internal wiki', link: 'https://wiki.fribyte.no/', image: '/featured-projects/contributions/fribyte-wiki.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-wiki.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/wiki" },
+      { name: 'root', desc: 'computer and it student organisation in hvl bergen', link: 'https://www.rootlinjeforening.no/', image: '/featured-projects/contributions/root.png', mobileImage: '/featured-projects/mobile/contributions/m-root.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS', 'Sanity'], onGithub: "https://github.com/Project-insert-name/root-website" },
       { name: 'kledeli', desc: 'children clothing subscription platform', link: 'https://kledeli.nheek.com/', image: '/featured-projects/contributions/kledeli.png', mobileImage: '/featured-projects/mobile/contributions/m-kledeli.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
     ],
     static: [
@@ -39,7 +40,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
     ],
     template: [
       { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'video production agency landing page', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -69,6 +70,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'fribyte', desc: 'landingsside for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/contributions/fribyte.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
       { name: 'fribyte ctf', desc: 'fribyte sin capture the flag plattform', link: 'https://ctf.fribyte.no/', image: '/featured-projects/contributions/fribyte-ctf.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-ctf.png', techstack: ['ViteJS', 'ReactJS', 'TypeScript', '.NET', 'CSS'], onGithub: "https://github.com/fribyte-code/friByte.capture-the-flag" },
       { name: 'fribyte wiki', desc: 'fribyte sin interne wiki', link: 'https://wiki.fribyte.no/', image: '/featured-projects/contributions/fribyte-wiki.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-wiki.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/wiki" },
+      { name: 'root', desc: 'linjeforening for data og it ved hvl bergen', link: 'https://www.rootlinjeforening.no/', image: '/featured-projects/contributions/root.png', mobileImage: '/featured-projects/mobile/contributions/m-root.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS', 'Sanity'], onGithub: "https://github.com/Project-insert-name/root-website" },
       { name: 'kledeli', desc: 'abonnementsplattform for barneklær', link: 'https://kledeli.nheek.com/', image: '/featured-projects/contributions/kledeli.png', mobileImage: '/featured-projects/mobile/contributions/m-kledeli.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
     ],
     static: [
@@ -77,7 +79,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
     ],
     template: [
       { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'landingsside for videoproduksjonsbyrå', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -108,6 +110,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'fribyte', desc: 'landing page for fribyte', link: 'https://fribyte.no/', image: '/featured-projects/contributions/fribyte.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/fribyte.no" },
       { name: 'fribyte ctf', desc: 'fribyte\'s own capture the flag platform', link: 'https://ctf.fribyte.no/', image: '/featured-projects/contributions/fribyte-ctf.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-ctf.png', techstack: ['ViteJS', 'ReactJS', 'TypeScript', '.NET', 'CSS'], onGithub: "https://github.com/fribyte-code/friByte.capture-the-flag" },
       { name: 'fribyte wiki', desc: 'fribyte\'s internal wiki', link: 'https://wiki.fribyte.no/', image: '/featured-projects/contributions/fribyte-wiki.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-wiki.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/wiki" },
+      { name: 'root', desc: 'computer and it student organisation in hvl bergen', link: 'https://www.rootlinjeforening.no/', image: '/featured-projects/contributions/root.png', mobileImage: '/featured-projects/mobile/contributions/m-root.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS', 'Sanity'], onGithub: "https://github.com/Project-insert-name/root-website" },
       { name: 'kledeli', desc: 'children clothing subscription platform', link: 'https://kledeli.nheek.com/', image: '/featured-projects/contributions/kledeli.png', mobileImage: '/featured-projects/mobile/contributions/m-kledeli.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'homing', desc: 'social media messaging web app', link: 'https://homing.lukasry.no/', image: '/featured-projects/contributions/homing.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
     ],
@@ -118,7 +121,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
     ],
     template: [
       { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'video production agency landing page', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -149,6 +152,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'fribyte ctf', desc: 'fribyte sin capture the flag plattform', link: 'https://ctf.fribyte.no/', image: '/featured-projects/contributions/fribyte-ctf.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-ctf.png', techstack: ['ViteJS', 'ReactJS', 'TypeScript', '.NET', 'CSS'], onGithub: "https://github.com/fribyte-code/friByte.capture-the-flag" },
       { name: 'fribyte gaming', desc: 'fribyte {her_staar_noekkelen} gaming side', link: 'https://blogs.mtdv.me/watch?v=her_staar_noekkelen', image: '/featured-projects/contributions/fribyte-wiki.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-wiki.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/wiki" },
       { name: 'fribyte wiki', desc: 'fribyte sin interne wiki', link: 'https://wiki.fribyte.no/', image: '/featured-projects/contributions/fribyte-wiki.png', mobileImage: '/featured-projects/mobile/contributions/m-fribyte-wiki.png', techstack: ['Zola', 'SCSS'], onGithub: "https://github.com/fribyte-code/wiki" },
+      { name: 'root', desc: 'linjeforening for data og it ved hvl bergen', link: 'https://www.rootlinjeforening.no/', image: '/featured-projects/contributions/root.png', mobileImage: '/featured-projects/mobile/contributions/m-root.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS', 'Sanity'], onGithub: "https://github.com/Project-insert-name/root-website" },
       { name: 'kledeli', desc: 'abonnementsplattform for barneklær', link: 'https://kledeli.nheek.com/', image: '/featured-projects/contributions/kledeli.png', mobileImage: '/featured-projects/mobile/contributions/m-kledeli.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'homing', desc: 'sosiale medie melding webapp', link: 'https://homing.lukasry.no/', image: '/featured-projects/contributions/homing.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
     ],
@@ -159,7 +163,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
     ],
     template: [
       { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'landingsside for videoproduksjonsbyrå', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };

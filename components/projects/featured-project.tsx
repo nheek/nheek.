@@ -48,7 +48,7 @@ export default function FeaturedProject(
     ],
     template: [
       { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'video production agency landing page', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -86,7 +86,7 @@ export default function FeaturedProject(
     ],
     template: [
       { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'landingsside for videoproduksjonsbyrå', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -127,7 +127,7 @@ export default function FeaturedProject(
     ],
     template: [
       { name: 'hexrovk', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'video production agency landing page', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -168,7 +168,7 @@ export default function FeaturedProject(
     ],
     template: [
       { name: 'hexrovk', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
-      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
       { name: 'grownoo', desc: 'landingsside for videoproduksjonsbyrå', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
