@@ -37,7 +37,7 @@ export default function FeaturedProjects({isFullStack}) {
   return (
 
     <section className="px-4 pt-[20%] md:pt-[10%]">
-      <hgroup className="text-4xl md:text-[4rem] xl:text-[8rem]">
+      <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
         {textsMap.featuredProjects}
       </hgroup>
       <section className="mt-8 md:mt-14 md:ml-6">

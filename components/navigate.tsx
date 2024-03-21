@@ -27,7 +27,7 @@ export default function Navigate({ underPage = false }) {
   ]
   return (
     <div className={`${underPage && "!p-0"} px-4 pt-[25%] md:pt-[15%] min-h-max`}>
-        <section className={`${underPage ? "hidden" : "block"} text-4xl md:text-[4rem] xl:text-[8rem]`}>
+        <section className={`${underPage ? "hidden" : "block"} text-4xl md:text-[4rem] xl:text-[6rem]`}>
           {textsMap.txtSkills}
         </section>
         <section className={`${underPage && "justify-center"} flex flex-wrap gap-4 text-md w-[90%] mt-8 md:mt-14 m-auto`}>
