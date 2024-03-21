@@ -28,13 +28,17 @@ export default function SocialLinks() {
           socials.map((social, index) => (
             <div 
               key={index}
-              className="w-1/3 text-center">
+              className="group w-[25%] text-center">
               <a href={social.link} target="_blank" className="!no-underline">
-                <button className="w-[75%] h-10 md:h-[unset] flex gap-2 items-center justify-center p-4 m-auto border-2 border-solid border-gray-200 text-center text-xl leading-[normal] rounded-3xl hover:bg-gray-200 hover:text-blue-950 duration-500">
+                <button className="w-[75%] h-10 md:h-[unset] flex gap-2 items-center justify-center p-4 m-auto border-2 border-solid border-gray-200 text-center text-xl leading-[normal] rounded-3xl group-hover:bg-gray-200 duration-500">
                   <div>
-                    <img src={social.icon} alt={social.name + ' icon'} />
+                    <img
+                      className="group-hover:hidden"
+                      src={social.icon}
+                      alt={social.name + ' icon'}
+                    />
                   </div>
-                  <div className="hidden md:block !no-underline">
+                  <div className="hidden md:block !no-underline group-hover:text-blue-950">
                     {social.name}
                   </div>
                 </button>
