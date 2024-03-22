@@ -1,15 +1,16 @@
+// 'use client'
 import { useState, useEffect } from 'react';
 import { Stage, Layer, Line } from 'react-konva';
 
 export default function Logbook() {
-  const [isBrowser, setIsBrowser] = useState(false);
+  // const [isBrowser, setIsBrowser] = useState(false);
   const [stageWidth, setStageWidth] = useState(0);
   const [stageHeight, setStageHeight] = useState(0);
   const [lines, setLines] = useState([]);
   const [isDrawing, setIsDrawing] = useState(false);
 
   useEffect(() => {
-    setIsBrowser(true);
+    // setIsBrowser(true);
 
     const handleResize = () => {
       setStageWidth(window.innerWidth * 0.9525);
@@ -46,9 +47,9 @@ export default function Logbook() {
     setIsDrawing(false);
   };
 
-  if (!isBrowser) {
-    return null; // Render nothing on the server
-  }
+  // if (!isBrowser) {
+  //   return null; // Render nothing on the server
+  // }
 
   return (
     <Stage

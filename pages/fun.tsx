@@ -22,7 +22,7 @@ export default function Fun() {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Links of websites, services, or just anything that I want to showcase"
+          content="Random fun things that I want to showcase on my website like my Spotify playlists."
         />
         <meta
           property="og:image"

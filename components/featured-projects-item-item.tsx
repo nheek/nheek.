@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ImageLoader from './utils/image-loader';
 
 export default function FeaturedProjectsItemItem ({category = null, project = null, txtInfo = null}) {
     const [projectImage, setProjectImage] = useState(project.image);
@@ -33,7 +34,11 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
 
     return (
         <div className="w-full md:w-[40%] md:h-[500px] mt-16">
-            <img className="max-h-[400px] rounded-xl shadow-lg mx-auto" src={projectImage} alt={project.name} />
+            <ImageLoader
+                src={projectImage}
+                alt={project.name}
+                className="max-h-[400px] rounded-xl shadow-lg mx-auto"
+            />
             <div className="mt-2 text-lg opacity-60">{project.desc}</div>
             <div className={`${project.onGithub || project.mobileImage || websiteStatus != null ? "flex gap-4" : ""} mt-1 text-3xl`}>
                 <a href={project.link}>
