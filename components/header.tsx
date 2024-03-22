@@ -37,16 +37,21 @@ export default function Header({isFullStack = null, setIsFullStack = null, custo
   }
   return (
     <header className="flex h-[10vh] items-center justify-center">
-      <nav className="w-[33%]">
+      <nav className="w-[25%]">
         <ul>
           <li className="cursor-pointer">
-            <button onClick={handleFullStack}>{textsMap.fullStack}</button>
+            <button
+              className="text-left"
+              onClick={handleFullStack}
+            >
+              {textsMap.fullStack}
+            </button>
           </li>
         </ul>
       </nav>
 
-      <div className="w-[30%] text-6xl text-center">{customHeaderText}</div>
-      <nav className="w-[33%] text-right">
+      <div className="w-[45%] text-4xl text-center">{customHeaderText}</div>
+      <nav className="w-[25%] text-right">
         <ul>
           <li>
             <Link
