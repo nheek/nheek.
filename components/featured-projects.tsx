@@ -5,7 +5,7 @@ import getTextsMap from '../components/get-texts-map';
 export default function FeaturedProjects({isFullStack}) {
   const [selectedComponent, setSelectedComponent] = useState(<FeaturedProjectsItem isFullStack={isFullStack} />);
   const [currentCategory, setCurrentCategory] = useState("websites");
-  const categories = ["websites", "apps", "contributions", "static", "template"];
+  const categories = ["websites", "desktopApps", "mobileApps", "contributions", "static", "template"];
 
   const handleItemClick = (component, category) => {
     setSelectedComponent(component);
@@ -15,7 +15,8 @@ export default function FeaturedProjects({isFullStack}) {
   const wwwNheekNo = {
     featuredProjects: "utvalgte prosjekter",
     websites: "Nettsteder",
-    apps: "Apper",
+    desktopApps: "Desktop Apper",
+    mobileApps: "Mobile Apper",
     contributions: "Contributions",
     static: "Statisk",
     template: "Mal"
@@ -23,7 +24,8 @@ export default function FeaturedProjects({isFullStack}) {
   const wwwDefault = {
     featuredProjects: "featured projects",
     websites: "Websites",
-    apps: "Apps",
+    desktopApps: "Desktop Apps",
+    mobileApps: "Mobile Apps",
     contributions: "Contributions",
     static: "Static",
     template: "Template"

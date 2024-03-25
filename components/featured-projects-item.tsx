@@ -21,10 +21,13 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'poetree', desc: 'google-inspired poetry library', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtual ai assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
-    apps: [
-      { name: 'simple calculator', desc: 'simple calculator application', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/python/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'weather', desc: 'minimalistic weather application', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/python/weather.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    desktopApps: [
+      { name: 'simple calculator', desc: 'simple calculator application', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/desktop-apps/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'weather', desc: 'minimalistic weather application', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/desktop-apps/weather.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    ],
+    mobileApps: [
+      { name: 'filebox (static)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
       { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/contributions/pin.png', mobileImage: '/featured-projects/mobile/contributions/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
@@ -61,10 +64,13 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'poetree', desc: 'google-inspirert poesibibliotek', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtuell ki-assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
-    apps: [
-      { name: 'enkel kalkulator', desc: 'enkel kalkulator applikasjon', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/python/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'vær', desc: 'minimalistisk vær applikasjon', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/python/weather.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    desktopApps: [
+      { name: 'enkel kalkulator', desc: 'enkel kalkulator applikasjon', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/desktop-apps/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'vær', desc: 'minimalistisk vær applikasjon', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/desktop-apps/weather.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    ],
+    mobileApps: [
+      { name: 'filebox (statisk)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
       { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/contributions/pin.png', mobileImage: '/featured-projects/mobile/contributions/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
@@ -102,10 +108,13 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'poetree', desc: 'google-inspired poetry library', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtual ai assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
-    apps: [
-      { name: 'simple calculator', desc: 'simple calculator application', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/python/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'weather', desc: 'minimalistic weather application', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/python/weather.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    desktopApps: [
+      { name: 'simple calculator', desc: 'simple calculator application', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/desktop-apps/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'weather', desc: 'minimalistic weather application', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/desktop-apps/weather.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    ],
+    mobileApps: [
+      { name: 'filebox (static)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
       { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/contributions/pin.png', mobileImage: '/featured-projects/mobile/contributions/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
@@ -144,10 +153,13 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'poetree', desc: 'google-inspirert poesibibliotek', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtuell ki-assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
     ],
-    apps: [
-      { name: 'enkel kalkulator', desc: 'enkel kalkulator applikasjon', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/python/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'vær', desc: 'minimalistisk vær applikasjon', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/python/weather.png', techstack: ['Python', 'PyQt6'] },
-      { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/python/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    desktopApps: [
+      { name: 'enkel kalkulator', desc: 'enkel kalkulator applikasjon', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/desktop-apps/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'vær', desc: 'minimalistisk vær applikasjon', link: 'https://python.nheek.com/codes/weather?from_nheek=true', image: '/featured-projects/desktop-apps/weather.png', techstack: ['Python', 'PyQt6'] },
+      { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
+    ],
+    mobileApps: [
+      { name: 'filebox (statisk)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
       { name: '<pin/>', desc: 'landingsside for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/contributions/pin.png', mobileImage: '/featured-projects/mobile/contributions/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
