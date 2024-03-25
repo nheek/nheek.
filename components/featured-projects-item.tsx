@@ -27,7 +27,8 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
     ],
     mobileApps: [
-      { name: 'filebox (static)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
+      { name: 'filebox (static)', desc: 'file explorer/manager', image: ['/featured-projects/mobile-apps/filebox.png'], techstack: ['React Native', 'ReactJS'] },
+      { name: 'vereefy (static)', desc: 'simple id verification', image: ['/featured-projects/mobile-apps/vereefy/vereefy-login.png', '/featured-projects/mobile-apps/vereefy/vereefy-id.png', '/featured-projects/mobile-apps/vereefy/vereefy-option-prompt.png'], techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
       { name: '<pin/>', desc: 'landing page for <pin/>', link: 'https://pin.rootlinjeforening.no/', image: '/featured-projects/contributions/pin.png', mobileImage: '/featured-projects/mobile/contributions/m-pin.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/Project-insert-name/PIN", collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },

@@ -4,7 +4,8 @@ import ImageLoader from './utils/image-loader';
 export default function FeaturedProjectsItemItem ({category = null, project = null, txtInfo = null}) {
     const [projectImage, setProjectImage] = useState(project.image);
     const [websiteStatus, setWebsiteStatus] = useState(null);
-
+    const [mobileAppImageIndex, setMobileAppImageIndex] = useState(0);
+    
     useEffect(() => {
         // Update the projectImage state when project.image changes
         setProjectImage(project.image);
@@ -32,19 +33,50 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
         }
     };
 
+    /* For handling  mobile apps images */
+    const handlePreviousImage = () => {
+        if (mobileAppImageIndex > 0) {
+            setMobileAppImageIndex(mobileAppImageIndex - 1);
+        }
+    };
+
+    /* For handling  mobile apps images */
+    const handleNextImage = () => {
+        if (mobileAppImageIndex < projectImage.length - 1) {
+            setMobileAppImageIndex(mobileAppImageIndex + 1);
+        }
+    };
+
     return (
         <div className="w-full md:w-[40%] md:h-[500px] mt-16">
-            <ImageLoader
-                src={projectImage}
-                alt={project.name}
-                className="max-h-[400px] rounded-xl shadow-lg mx-auto"
-            />
+            <div className="relative">
+                <ImageLoader
+                    src={category == 'mobileApps' ? projectImage[mobileAppImageIndex] : projectImage}
+                    alt={project.name}
+                    className="max-h-[400px] rounded-xl shadow-lg mx-auto"
+                />
+                {category == 'mobileApps' && projectImage.length > 1 &&
+                    <>
+                        <button
+                            onClick={handlePreviousImage}
+                            className="absolute top-1/2 transform -translate-y-1/2"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 8l-4 4 4 4M16 12H9" /></svg>
+                        </button><button
+                            onClick={handleNextImage}
+                            className="absolute top-1/2 right-0 transform -translate-y-1/2"
+                        >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 8l4 4-4 4M8 12h7" /></svg>
+                        </button>
+                    </>
+                }
+            </div>
             <div className="mt-2 text-lg opacity-60">{project.desc}</div>
             <div className={`${project.onGithub || project.mobileImage || websiteStatus != null ? "flex gap-4" : ""} mt-1 text-3xl`}>
                 <a href={project.link}>
                     <span>{project.name}</span>
                 </a>
-                { category != "apps" &&
+                { !["desktopApps", "mobileApps"].includes(category)  &&
                   <div className={`h-2 w-2 rounded-full my-auto animate-pulse ${websiteStatus === true ? "bg-green-400" : "bg-red-400"}`}></div>
                 }
                 <a 
