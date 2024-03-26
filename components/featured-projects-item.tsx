@@ -71,7 +71,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
     ],
     mobileApps: [
-      { name: 'filebox (statisk)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
+      { name: 'filebox (statisk)', desc: 'file explorer/manager', image: ['/featured-projects/mobile-apps/filebox.png'], techstack: ['React Native', 'ReactJS'] },
       { name: 'vereefy (statisk)', desc: 'enkel id-verifisering', image: ['/featured-projects/mobile-apps/vereefy/vereefy-login.png', '/featured-projects/mobile-apps/vereefy/vereefy-id.png', '/featured-projects/mobile-apps/vereefy/vereefy-option-prompt.png'], techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
@@ -116,7 +116,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'password generator', desc: 'secure password generator application', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
     ],
     mobileApps: [
-      { name: 'filebox (static)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
+      { name: 'filebox (static)', desc: 'file explorer/manager', image: ['/featured-projects/mobile-apps/filebox.png'], techstack: ['React Native', 'ReactJS'] },
       { name: 'vereefy (static)', desc: 'simple id verification', image: ['/featured-projects/mobile-apps/vereefy/vereefy-login.png', '/featured-projects/mobile-apps/vereefy/vereefy-id.png', '/featured-projects/mobile-apps/vereefy/vereefy-option-prompt.png'], techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
@@ -162,7 +162,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'passordgenerering', desc: 'sikker passordgenerering applikasjon', link: '#', image: '/featured-projects/desktop-apps/password_generator.png', techstack: ['Python', 'PyQt6'] },
     ],
     mobileApps: [
-      { name: 'filebox (statisk)', desc: 'file explorer/manager', image: '/featured-projects/mobile-apps/filebox.png', techstack: ['React Native', 'ReactJS'] },
+      { name: 'filebox (statisk)', desc: 'file explorer/manager', image: ['/featured-projects/mobile-apps/filebox.png'], techstack: ['React Native', 'ReactJS'] },
       { name: 'vereefy (statisk)', desc: 'enkel id-verifisering', image: ['/featured-projects/mobile-apps/vereefy/vereefy-login.png', '/featured-projects/mobile-apps/vereefy/vereefy-id.png', '/featured-projects/mobile-apps/vereefy/vereefy-option-prompt.png'], techstack: ['React Native', 'ReactJS'] },
     ],
     contributions: [
