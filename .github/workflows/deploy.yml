@@ -38,13 +38,15 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            # Change to the appropriate directory..
-            cd apps/nheek/
+            cd apps
+            mkdir nheek
+            cd nheek
             
             # Pull the Docker Compose project on the remote server
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
             docker pull mysql
 
+            rm -rf .env
             echo "MYSQL_PORT=${{ secrets.MYSQL_PORT }}" >> .env
             echo "MYSQL_HOST=${{ secrets.MYSQL_HOST }}" >> .env
             echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
@@ -54,6 +56,11 @@ jobs:
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
 
+            mkdir .custom_sql_settings
+            cd .custom_sql_settings
+            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/.custom_sql_settings/my.cnf
+
+            cd ..
             mkdir .sql_data
             cd .sql_data
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/.sql_data/create_database.sql

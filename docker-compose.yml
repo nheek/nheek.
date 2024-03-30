@@ -5,7 +5,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "3004:3004"
+      - "3000:3000"
     depends_on:
       - mysql-db
     env_file:
@@ -18,10 +18,11 @@ services:
     image: mysql:latest
     restart: unless-stopped
     ports:
-      - "4004:3306"
+      - "4000:3306"
     env_file:
       - .env
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes:
       - .sql_data:/docker-entrypoint-initdb.d/
+      - .custom_sql_settings:/etc/mysql/conf.d/
