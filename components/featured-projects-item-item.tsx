@@ -77,6 +77,12 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                         <div className="absolute z-20 bottom-1 right-1 text-lg text-black">Bug</div>
                     </>
                 }
+                {
+                    project.status && 
+                        <div className="absolute z-20 bottom-0 right-0 w-full bg-yellow-950 bg-opacity-50 px-4 py-2 text-xl text-white text-center rounded-b-xl">
+                            { project.status }
+                        </div>
+                }
             </div>
             <div className="mt-2 text-lg opacity-60">{project.desc}</div>
             <div className={`${project.onGithub || project.mobileImage || websiteStatus != null ? "flex gap-4" : ""} mt-1 text-3xl`}>
