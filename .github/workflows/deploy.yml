@@ -56,6 +56,8 @@ jobs:
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
 
+            mkdir mysql_db_data
+
             mkdir .custom_sql_settings
             cd .custom_sql_settings
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/.custom_sql_settings/my.cnf
