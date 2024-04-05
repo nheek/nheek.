@@ -28,8 +28,8 @@ jobs:
       - name: Build and Push Docker Images
         run: |
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker-compose build
-          docker-compose push
+          docker compose build
+          docker compose push
 
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
@@ -65,5 +65,5 @@ jobs:
             cd .sql_data
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/.sql_data/create_database.sql
 
-            docker-compose up -d
+            docker compose up -d
   
