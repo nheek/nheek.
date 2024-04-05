@@ -3,6 +3,10 @@ import getTextsMap from '../get-texts-map';
 export default function Spotify() {
   const spotify = [
     { 
+      name: 'april playlist',
+      code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5y9ov2vQOzb2Socv0JOSwE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+    },
+    { 
       name: 'march playlist',
       code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/10A91swxxdfEXvRHcXtGce?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
     },
@@ -17,6 +21,10 @@ export default function Spotify() {
   ]
 
   const spotify_no = [
+    { 
+      name: 'april spilleliste',
+      code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5y9ov2vQOzb2Socv0JOSwE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+    },
     { 
       name: 'mars spilleliste',
       code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/10A91swxxdfEXvRHcXtGce?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`

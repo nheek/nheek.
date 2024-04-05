@@ -37,9 +37,11 @@ export default function Links() {
           <ul className="flex flex-col gap-8">
             {
               textsMap.links.map((link, index) => (
-                <li key={index}>
+                <li
+                key={index}
+                className="shadow-inner-blue inset-y-0 inset-x-0 p-4 rounded-3xl !no-underline"
+                >
                   <a
-                    className="shadow-inner-blue inset-y-0 inset-x-0 p-4 rounded-3xl !no-underline"
                     href={link.link}
                     target='_blank'
                   >
