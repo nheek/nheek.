@@ -23,7 +23,7 @@ export default function Skills() {
     "HTML", "Java", "JavaScript", "jQuery", "MySQL", "NextJS",
     "NGINX", "NodeJS", "PHP", "Python", "PyQT",
     "ReactJS", "RemixJS", "RESTful API", "Socket.IO",
-    "React Native", "Expo Go", "PostgreSQL"
+    "React Native", "Expo Go", "PostgreSQL", "Vite"
   ];
   let middleSkills = [
     "Zola", "Django", "AstroJS", "Git", "Flutter", "JPA"
@@ -31,9 +31,13 @@ export default function Skills() {
   let orangeSkills = [
     "SCSS", "Swift", "Go", "C++", "C#"
   ]
+  let upcomingSkills = [
+    "Vue.js"
+  ]
   skills.sort();
   middleSkills.sort();
   orangeSkills.sort();
+  upcomingSkills.sort();
 
   return (
     <section className="px-4 pt-[25%] md:pt-[15%] min-h-max">
@@ -55,6 +59,11 @@ export default function Skills() {
             {
               orangeSkills.map((skill, index) => (
                 <li key={index} className="bg-yellow-600 bg-opacity-50 px-3 py-1 rounded-3xl duration-500">{skill}</li>
+              ))
+            }
+            {
+              upcomingSkills.map((skill, index) => (
+                <li key={index} className="px-3 py-1 rounded-3xl border-2 border-opacity-50 border-white duration-500">{skill}</li>
               ))
             }
           </ul>
