@@ -43,6 +43,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'lady', desc: 'food service online platform', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
       { name: 'techie', desc: 'tech product landing page', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/static/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie" },
       { name: 'arch', desc: 'interior design landing page', link: 'https://arch.nheek.com/', image: '/featured-projects/static/arch.png', techstack: ['ReactJS', 'ViteJS', 'TypeScript', 'CSS'] },
+      { name: 'truhvel', desc: 'underwater exploration landing page', link: 'https://truhvel.nheek.com/', image: '/featured-projects/static/truhvel.png', techstack: ['VueJS', 'ViteJS', 'TypeScript', 'CSS'] },
     ],
     template: [
       { name: 'hexrovk', status: 'maintenance', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
@@ -88,6 +89,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'lady', desc: 'nettbasert matserveringstjeneste', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
       { name: 'techie', desc: 'landingsside for tech-produkter', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/static/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie" },
       { name: 'arch', desc: 'landingsside for interiørdesign', link: 'https://arch.nheek.com/', image: '/featured-projects/static/arch.png', techstack: ['ReactJS', 'ViteJS', 'TypeScript', 'CSS'] },
+      { name: 'truhvel', desc: 'landingsside for undervannsutforskning', link: 'https://truhvel.nheek.com/', image: '/featured-projects/static/truhvel.png', techstack: ['VueJS', 'ViteJS', 'TypeScript', 'CSS'] },
     ],
     template: [
       { name: 'hexrovk', status: 'vedlikehold', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
@@ -133,6 +135,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'lady', desc: 'food service online platform', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
       { name: 'techie', desc: 'tech product landing page', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/static/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie" },
       { name: 'arch', desc: 'interior design landing page', link: 'https://arch.nheek.com/', image: '/featured-projects/static/arch.png', techstack: ['ReactJS', 'ViteJS', 'TypeScript', 'CSS'] },
+      { name: 'truhvel', desc: 'underwater exploration landing page', link: 'https://truhvel.nheek.com/', image: '/featured-projects/static/truhvel.png', techstack: ['VueJS', 'ViteJS', 'TypeScript', 'CSS'] },
       { name: 'connect', desc: 'organisation all around platform', link: 'https://connect.nheek.com/', image: '/featured-projects/static/connect.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
     ],
     template: [
@@ -179,6 +182,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       { name: 'lady', desc: 'nettbasert matserveringstjeneste', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
       { name: 'techie', desc: 'landingsside for tech-produkter', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/static/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie" },
       { name: 'arch', desc: 'landingsside for interiørdesign', link: 'https://arch.nheek.com/', image: '/featured-projects/static/arch.png', techstack: ['ReactJS', 'ViteJS', 'TypeScript', 'CSS'] },
+      { name: 'truhvel', desc: 'landingsside for undervannsutforskning', link: 'https://truhvel.nheek.com/', image: '/featured-projects/static/truhvel.png', techstack: ['VueJS', 'ViteJS', 'TypeScript', 'CSS'] },
       { name: 'connect', desc: 'organisajon all around plattform', link: 'https://connect.nheek.com/', image: '/featured-projects/static/connect.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
     ],
     template: [
