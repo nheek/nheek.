@@ -23,7 +23,8 @@ export default function Skills() {
     "HTML", "Java", "JavaScript", "jQuery", "MySQL", "NextJS",
     "NGINX", "NodeJS", "PHP", "Python", "PyQT",
     "ReactJS", "RemixJS", "RESTful API", "Socket.IO",
-    "React Native", "Expo Go", "PostgreSQL", "Vite"
+    "React Native", "Expo Go", "PostgreSQL", "Vite", "JUnit",
+    "Docker Hub"
   ];
   let middleSkills = [
     "Zola", "Django", "AstroJS", "Git", "Flutter", "JPA"
