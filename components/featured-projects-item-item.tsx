@@ -55,6 +55,14 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                     alt={project.name}
                     className="max-h-[400px] rounded-xl shadow-lg mx-auto"
                 />
+                {project.new &&
+                    <div
+                        title="deployed within the past 14 days"
+                        className="absolute -top-5 -right-5 bg-green-600 rounded-full px-2 py-3 text-lg"
+                    >
+                        new
+                    </div>
+                }
                 {category == 'mobileApps' && projectImage.length > 1 &&
                     <>
                         <button
