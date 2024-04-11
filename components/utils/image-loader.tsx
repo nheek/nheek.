@@ -12,6 +12,7 @@ export default function ImageLoader({ src, alt, className="", width=null, qualit
       alt={alt}
       placeholder="blur"
       className={className}
+      title={alt}
     />
   );
 }

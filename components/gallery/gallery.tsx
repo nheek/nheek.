@@ -2,7 +2,8 @@ import ImageLoader from '../../components/utils/image-loader';
 
 const images = [
   { src: "https://i.imgur.com/EWUtwBQ.png", alt: "picture of nheek"},
-  { src: "https://i.imgur.com/5PEbiLz.jpeg", alt: "shes keeping the thumb"}
+  { src: "https://i.imgur.com/d2AFjlV.jpeg", alt: "nheek holding his first painting"},
+  { src: "https://i.imgur.com/5PEbiLz.jpeg", alt: "shes keeping the thumb"},
 ]
 
 export default function Gallery() {
@@ -14,6 +15,7 @@ export default function Gallery() {
             <ImageLoader
               src={image.src}
               alt={image.alt}
+              className="rounded-xl"
             />
           </div>
         ))

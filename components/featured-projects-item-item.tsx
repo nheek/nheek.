@@ -55,10 +55,13 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                     alt={project.name}
                     className="max-h-[400px] rounded-xl shadow-lg mx-auto"
                 />
-                {project.new &&
+
+                { 
+                /* The "new" banner */
+                project.new &&
                     <div
                         title="deployed within the past 14 days"
-                        className="absolute -top-5 -right-5 bg-green-600 rounded-full px-2 py-3 text-lg"
+                        className="absolute -top-5 left-1/2 md:left-[unset] md:-right-5 transform -translate-x-1/2 md:transform-none bg-green-600 rounded-full px-2 py-3 text-lg"
                     >
                         new
                     </div>
@@ -79,13 +82,15 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                     </>
                 }
                 {
+                    /* currently unused, shows a badge for when a website has a bug */
                     project.bug && 
                     <>
                         <div className="absolute bottom-0 right-0 w-0 h-0 border-solid border-t-[75px] border-r-[75px] border-transparent border-r-red-200"></div>
                         <div className="absolute z-20 bottom-1 right-1 text-lg text-black">Bug</div>
                     </>
                 }
-                {
+                {   
+                    /* shows a banner for website status, for example "under maintenance" */
                     project.status && 
                         <div className="absolute z-20 bottom-0 right-0 w-full bg-yellow-950 bg-opacity-50 px-4 py-2 text-xl text-white text-center rounded-b-xl">
                             { project.status }
@@ -125,8 +130,9 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                 </ul>
             </div>
             {
+                /* shows the text "deployed with" under the images */
                 project.deployedWith && (
-                    <div className="flex gap-1 items-center mt-2 ml-1 opacity-80">
+                    <div className="flex gap-1 items-center mt-3 ml-1 opacity-80">
                         <span className="text-xs">{txtInfo["deployedWith"]}</span>
                         <ul className="flex flex-wrap text-xs gap-2">
                         {
@@ -142,8 +148,10 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                     </div>
                 )
             }
-            {project.collaborators && (
-                <div className="flex gap-1 items-center mt-1 ml-2 opacity-80">
+            {
+                /* shows the project collaborators */
+                project.collaborators && (
+                <div className={`${project.deployedWith ? "mt-0" : "mt-1"} flex gap-1 items-center ml-1 opacity-80`}>
                     <span className='text-xs'>{txtInfo["with"]}</span>
                     <ul className="flex flex-wrap text-xs gap-2">
                         {project.collaborators.map((person, index) => (

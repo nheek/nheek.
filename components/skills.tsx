@@ -3,10 +3,12 @@ import getTextsMap from '../components/get-texts-map';
 export default function Skills() {
   const wwwNheekNo = {
     txtSkills: 'ferdigheter',
+    txtCurrentlyLearning: 'lærer for tiden',
   };
   
   const wwwDefault = {
     txtSkills: 'skills',
+    txtCurrentlyLearning: 'currently learning',
   };
   
   const domainPairs = {
@@ -24,16 +26,16 @@ export default function Skills() {
     "NGINX", "NodeJS", "PHP", "Python", "PyQT",
     "ReactJS", "RemixJS", "RESTful API", "Socket.IO",
     "React Native", "Expo Go", "PostgreSQL", "Vite", "JUnit",
-    "Docker Hub"
+    "Docker Hub", "AstroJS"
   ];
   let middleSkills = [
-    "Zola", "Django", "AstroJS", "Git", "Flutter", "JPA"
+    "Zola", "Django", "Git", "Flutter", "JPA", "C#"
   ]
   let orangeSkills = [
-    "SCSS", "Swift", "Go", "C++", "C#"
+    "SCSS", "Swift", "Go", "C++"
   ]
   let upcomingSkills = [
-    "Vue.js"
+    "Vue.js", "Spring Boot", "Angular", ".NET", "Blazor"
   ]
   skills.sort();
   middleSkills.sort();
@@ -43,9 +45,14 @@ export default function Skills() {
   return (
     <section className="px-4 pt-[25%] md:pt-[15%] min-h-max">
         <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
-          {textsMap.txtSkills}
+          { textsMap.txtSkills }
         </hgroup>
-        <div className="text-md w-[90%] mt-4 md:mt-10 m-auto">
+        <div 
+          className="w-max bg-opacity-50 mt-4 ml-4 md:ml-[3.25rem] border-2 border-opacity-50 border-white px-3 py-1 rounded-3xl duration-500"
+        >
+          { textsMap.txtCurrentlyLearning }
+        </div>
+        <div className="text-md w-[90%] mt-8 md:mt-10 m-auto">
           <ul className="flex flex-wrap gap-3">
             {
               skills.map((skill, index) => (
