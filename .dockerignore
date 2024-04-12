@@ -1,2 +1,25 @@
-/node_modules
+# Ignore Node.js modules
+node_modules
+
+# Ignore build artifacts
+.next
+
+# Ignore development-related files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore coverage reports
+coverage
+
+# Ignore OS and editor-specific files
+.DS_Store
+*.log
+*.swp
+
+# Ignore version control directories
 .git
+
+# Ignore GitHub-specific files
+.github

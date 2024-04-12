@@ -56,22 +56,22 @@ export default function Skills() {
           <ul className="flex flex-wrap gap-3">
             {
               skills.map((skill, index) => (
-                <li key={index} className="bg-green-600 bg-opacity-50 px-3 py-1 rounded-3xl duration-500">{skill}</li>
+                <li key={"skills"+index} className="bg-green-600 bg-opacity-50 px-3 py-1 rounded-3xl duration-500">{skill}</li>
               ))
             }
             {
               middleSkills.map((skill, index) => (
-                <li key={index} className="bg-gradient-to-br from-green-600/50 to-yellow-600/50 px-3 py-1 rounded-3xl duration-500">{skill}</li>
+                <li key={"middleSkills"+index} className="bg-gradient-to-br from-green-600/50 to-yellow-600/50 px-3 py-1 rounded-3xl duration-500">{skill}</li>
               ))
             }
             {
               orangeSkills.map((skill, index) => (
-                <li key={index} className="bg-yellow-600 bg-opacity-50 px-3 py-1 rounded-3xl duration-500">{skill}</li>
+                <li key={"orangeSkills"+index} className="bg-yellow-600 bg-opacity-50 px-3 py-1 rounded-3xl duration-500">{skill}</li>
               ))
             }
             {
               upcomingSkills.map((skill, index) => (
-                <li key={index} className="px-3 py-1 rounded-3xl border-2 border-opacity-50 border-white duration-500">{skill}</li>
+                <li key={"upcomingSkills"+index} className="px-3 py-1 rounded-3xl border-2 border-opacity-50 border-white duration-500">{skill}</li>
               ))
             }
           </ul>
