@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import getTextsMap from '../components/get-texts-map';
 
 export default function Navigate({ underPage = false }) {
@@ -23,8 +24,9 @@ export default function Navigate({ underPage = false }) {
     { name: "cv", link: "/cv" }, // add page for your cv
     { name: "fun", link: "/fun" }, // post your spotify playlists here maybe or favourite shows or anything really
     { name: "links", link: "/links" }, // add links you want to add on your portfolio, like a friend's portfolio website
-    { name: "logbook", link: "/logbook" } // add something that allows visitor to submit something to show that they've been on my website
+    { name: "logbook", link: "/logbook" }, // add something that allows visitor to submit something to show that they've been on my website
   ]
+
   return (
     <div className={`${underPage && "!p-0"} px-4 pt-[25%] md:pt-[15%] min-h-max`}>
         <section className={`${underPage ? "hidden" : "block"} text-4xl md:text-[4rem] xl:text-[6rem]`}>
@@ -35,13 +37,14 @@ export default function Navigate({ underPage = false }) {
             navLinks.map((link, index) => (
               <div
                 className="w-max hover:bg-gray-200 hover:text-blue-950 cursor-pointer border-2 border-gray-200 rounded-3xl px-4 py-2 duration-500"
-                key={index}
+                key={"navlinks" + index}
               >
-                <a
+                <Link
                   className="!no-underline"
-                  href={link.link}>
+                  href={link.link}
+                >
                   {link.name}
-                </a>
+                </Link>
               </div>
             ))
           }
