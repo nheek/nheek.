@@ -61,7 +61,7 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                 project.new &&
                     <div
                         title="deployed within the past 14 days"
-                        className="absolute -top-5 left-1/2 md:left-[unset] md:-right-5 transform -translate-x-1/2 md:-translate-x-0 rotate-12 bg-green-600 rounded-full px-2 py-3 text-lg"
+                        className="absolute -top-5 left-1/2 md:left-[unset] md:-right-5 transform -translate-x-1/2 md:-translate-x-0 md:rotate-12 bg-green-600 rounded-full px-2 py-3 text-lg"
                     >
                         new
                     </div>
