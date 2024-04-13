@@ -19,7 +19,8 @@ export default function FeaturedProjects({isFullStack}) {
     mobileApps: "Mobile Apper",
     contributions: "Contributions",
     static: "Statisk",
-    template: "Mal"
+    template: "Mal",
+    new: "nytt"
   };
   const wwwDefault = {
     featuredProjects: "featured projects",
@@ -28,13 +29,17 @@ export default function FeaturedProjects({isFullStack}) {
     mobileApps: "Mobile Apps",
     contributions: "Contributions",
     static: "Static",
-    template: "Template"
+    template: "Template",
+    new: "new"
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo, 
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
+
+  // if there is a new project under a category, put the category here
+  const newProjects = [textsMap.websites, textsMap.contributions, textsMap.static];
 
   return (
 
@@ -47,10 +52,16 @@ export default function FeaturedProjects({isFullStack}) {
           {categories.map(category => (
             <li
               key={category}
-              className={`${currentCategory === category ? "bg-gray-400 text-blue-950" : ""} border border-1 border-gray-400 px-3 py-2 rounded-3xl hover:bg-gray-400 hover:text-blue-950 cursor-pointer`}
-              onClick={() => handleItemClick(<FeaturedProjectsItem isFullStack={isFullStack} category={category} />, category)}
+              className={`${currentCategory === category ? "bg-gray-400 text-blue-950" : ""} border border-1 border-gray-400 rounded-3xl hover:bg-gray-400 hover:text-blue-950 cursor-pointer`}
             >
-              {textsMap[category]}
+              <button
+                className="relative w-full h-full px-3 py-2"
+                onClick={() => handleItemClick(<FeaturedProjectsItem isFullStack={isFullStack} category={category} />, category)}>
+                {textsMap[category]}
+                { newProjects.includes(textsMap[category]) && 
+                  <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 px-1 py-2 rounded-full text-xs">{ textsMap.new }</div>
+                }
+              </button>
             </li>
           ))}
         </ul>
