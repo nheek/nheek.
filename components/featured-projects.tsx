@@ -59,7 +59,7 @@ export default function FeaturedProjects({isFullStack}) {
                 onClick={() => handleItemClick(<FeaturedProjectsItem isFullStack={isFullStack} category={category} />, category)}>
                 {textsMap[category]}
                 { newProjects.includes(textsMap[category]) && 
-                  <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 px-1 py-2 rounded-full text-xs">{ textsMap.new }</div>
+                  <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 transform rotate-12 px-1 py-2 rounded-full text-xs">{ textsMap.new }</div>
                 }
               </button>
             </li>
