@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ImageLoader from './utils/image-loader';
+import IsTwoWeeksApart from './utils/IsTwoWeeksApart';
 
 export default function FeaturedProjectsItemItem ({category = null, project = null, txtInfo = null}) {
     const [projectImage, setProjectImage] = useState(project.image);
@@ -46,7 +47,7 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
             setMobileAppImageIndex(mobileAppImageIndex + 1);
         }
     };
-
+    
     return (
         <div className="w-full md:w-[40%] md:h-[500px] mt-16">
             <div className="relative">
@@ -58,12 +59,12 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
 
                 { 
                 /* The "new" banner */
-                project.new &&
+                !IsTwoWeeksApart(project.dateAdded) &&
                     <div
                         title="deployed within the past 14 days"
                         className="absolute -top-5 left-1/2 md:left-[unset] md:-right-5 transform -translate-x-1/2 md:-translate-x-0 md:rotate-12 bg-green-600 rounded-full px-2 py-3 text-lg"
                     >
-                        new
+                        new {IsTwoWeeksApart(project.dateAdded)}
                     </div>
                 }
                 {category == 'mobileApps' && projectImage.length > 1 &&
