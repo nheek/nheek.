@@ -1,6 +1,7 @@
+import dynamic from "next/dynamic";
 import Profile from "./profile";
-import Volunteer from "./volunteer";
-import Work from "./work";
+const Volunteer = dynamic(() => import("./volunteer"));
+const Work = dynamic(() => import("./work"));
 
 export default function Main() {
   return (

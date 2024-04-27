@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Layout from '../components/fun/layout';
-import getTextsMap from '../components/get-texts-map';
+import Layout from '../../components/fun/layout';
+import getTextsMap from '../../components/get-texts-map';
 
 export default function Fun() {
   const wwwNheekNo = {

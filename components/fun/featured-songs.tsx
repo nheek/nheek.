@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import getTextsMap from '../get-texts-map';
 
 export default function FeaturedSongs() {
@@ -53,6 +54,12 @@ export default function FeaturedSongs() {
               ))
             }
         </div>
+        <Link
+          href="/fun/featured-songs-history"
+          className="block w-max hover:bg-gray-200 hover:text-blue-950 my-6 mx-auto py-2 px-4 text-center border-2 border-solid border-gray-200 rounded-3xl !no-underline duration-500"
+        >
+          See history
+        </Link>
     </section>
   );
 }
