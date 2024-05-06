@@ -39,7 +39,7 @@ export default function FeaturedProjects({isFullStack}) {
   const textsMap = getTextsMap(domainPairs);
 
   // if there is a new project under a category, put the category here
-  const newProjects = [textsMap.websites, textsMap.contributions, textsMap.static];
+  const newProjects = [];
 
   return (
 
