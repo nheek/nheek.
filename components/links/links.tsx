@@ -2,13 +2,15 @@ import getTextsMap from '../get-texts-map';
 
 export default function Links() {
   const links = [
-    { name: "Mathias", link: "https://mathiash98.github.io/", desc: "Portfolio website of Mathias (fribyte member)" },
-    { name: "Bergen Font", link: "https://bergenfont.no", desc: "Font Archive by Erik G. Ingebrigtsen (fribyte member)" },
+    { name: "mathias' portfolio", link: "https://mathiash98.github.io/", desc: "portfolio website of mathias haugsbø (fribyte member)" },
+    { name: "bergen font", link: "https://bergenfont.no", desc: "font archive by erik g. ingebrigtsen (fribyte member)" },
+    { name: "moldescriptor", link: "https://moldescriptor.com/", desc: "input molecules to calculate various descriptors by johannes lysne (fribyte member)" },
   ]
 
   const links_no = [
-    { name: "Mathias", link: "https://mathiash98.github.io/", desc: "Nettsiden til Mathias (fribyte medlem)" },
-    { name: "Bergen Font", link: "https://bergenfont.no", desc: "Font Arkiv av Erik G. Ingebrigtsen (fribyte medlem)" },
+    { name: "mathias portefølje", link: "https://mathiash98.github.io/", desc: "nettsiden til mathias haugsbæ (fribyte medlem)" },
+    { name: "bergen font", link: "https://bergenfont.no", desc: "font arkiv av erik g. ingebrigtsen (fribyte medlem)" },
+    { name: "moldescriptor", link: "https://moldescriptor.com/", desc: "input molecules to calculate various descriptors by johannes lysne (fribyte member)" },
   ]
 
   const wwwNheekNo = {

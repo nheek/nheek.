@@ -21,11 +21,11 @@ export default function FooterHero() {
 
   return (
     <>
-      <section className="px-4 pt-[25%] md:pt-[15%] min-h-max h-[30vh] md:h-[40vh]">
+      <section className="px-4 pt-[25%] md:pt-[15%] min-h-max h-[30vh] sm:h-[40vh] md:min-h-[50vh] md:h-[40vh]">
           <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
             {textsMap.txtFooterHero}
           </hgroup>
-          <div className="text-lg md:text-3xl leading-snug w-[90%] text-right mt-6 md:mt-10 mx-auto">
+          <div className="w-[90%] text-lg md:text-3xl leading-snug text-right mt-6 md:mt-10 mx-auto">
           {textsMap.txtFooterContent}
           </div>
       </section>

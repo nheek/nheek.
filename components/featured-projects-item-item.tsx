@@ -49,7 +49,7 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
     };
     
     return (
-        <div className="w-full md:w-[40%] md:h-[500px] mt-16">
+        <div className="w-full md:w-[40%] h-[500px] md:h-[450px] lg:h-[500px] mt-16 md:mt-0 lg:mt-16">
             <div className="relative">
                 <ImageLoader
                     src={category == 'mobileApps' ? projectImage[mobileAppImageIndex] : projectImage}
