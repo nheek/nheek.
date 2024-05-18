@@ -1,6 +1,7 @@
 import ImageLoader from '../../components/utils/image-loader';
 
 const images = [
+  { src: "https://i.imgur.com/BvJjU8V.jpeg", alt: "17th of may"},
   { src: "https://i.imgur.com/EWUtwBQ.png", alt: "picture of me"},
   { src: "https://i.imgur.com/d2AFjlV.jpeg", alt: "me holding my arguably first painting"},
   { src: "https://i.imgur.com/5PEbiLz.jpeg", alt: "shes keeping the thumb"},
