@@ -1,4 +1,4 @@
-import getTextsMap from '../../components/get-texts-map';
+import getTextsMap from '../GetTextsMap';
 
 export default function Work() {
   const wwwNheekNo = {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import getCurrentDomain from '../components/get-current-domain';
+import getCurrentDomain from './GetCurrentDomain';
 
 export default function ContactForm() {
   const [inputFields, setInputFields] = useState([]);

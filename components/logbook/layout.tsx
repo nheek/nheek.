@@ -2,8 +2,8 @@ import dynamic from 'next/dynamic';
 import Header from '../Header';
 import Navigate from '../navigate';
 import Main from './main';
-const Footer = dynamic(() => import("../FooterC"));
-import getTextsMap from '../get-texts-map';
+const Footer = dynamic(() => import("../Footer"));
+import getTextsMap from '../GetTextsMap';
 
 export default function Layout() {
   const wwwNheekNo = {

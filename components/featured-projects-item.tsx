@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import GetTextsMap from '../components/get-texts-map';
+import GetTextsMap from './GetTextsMap';
 import FeaturedProjectsItemItem from './featured-projects-item-item';
 
 export default function FeaturedProjectsItem({ isFullStack = false, category = "websites" }) {

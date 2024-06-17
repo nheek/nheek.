@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Layout from '../components/gallery/layout';
-import getTextsMap from '../components/get-texts-map';
+import getTextsMap from '../components/GetTextsMap';
 
 export default function Gallery() {
   const wwwNheekNo = {

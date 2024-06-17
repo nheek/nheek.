@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Layout from '../../components/fun/layout';
-import getTextsMap from '../../components/get-texts-map';
+import getTextsMap from '../../components/GetTextsMap';
 
 export default function Fun() {
   const wwwNheekNo = {
@@ -10,11 +10,11 @@ export default function Fun() {
     sitename: "fun | nheek"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
-  
+
   return (
     <>
       <Head>

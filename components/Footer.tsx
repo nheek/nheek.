@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import getTextsMap from './get-texts-map';
+import getTextsMap from './GetTextsMap';
 
 export default function Footer() {
   const wwwNheekNo = {

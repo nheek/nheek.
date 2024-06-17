@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 import Head from "next/head";
-const Footer = dynamic(() => import("../../components/FooterC"));
+const Footer = dynamic(() => import("../../components/Footer"));
 import Header from "../../components/Header";
 import Navigate from "../../components/navigate";
-import getTextsMap from "../../components/get-texts-map";
+import getTextsMap from "../../components/GetTextsMap";
 const FeaturedSongsHistory = dynamic(() => import("../../components/fun/featured-songs-history/featured-songs-history"));
 
 export default function FunFeaturedSongs() {

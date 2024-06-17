@@ -26,8 +26,8 @@ export default function SocialLinks() {
       <div className="mt-20 px-4 py-4 flex items-center justify-center">
         {
           socials.map((social, index) => (
-            <div 
-              key={index}
+            <div
+              key={"socials-" + index}
               className="group w-[25%] text-center">
               <a href={social.link} target="_blank" className="!no-underline">
                 <button className="w-[75%] h-10 md:h-[unset] flex gap-2 items-center justify-center p-4 m-auto border-2 border-solid border-gray-200 text-center text-xl leading-[normal] rounded-3xl group-hover:bg-gray-200 duration-500">

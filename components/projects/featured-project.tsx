@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import GetTextsMap from '../../components/get-texts-map';
+import GetTextsMap from '../GetTextsMap';
 
 export default function FeaturedProject(
   { 

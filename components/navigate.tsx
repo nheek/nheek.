@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import getTextsMap from '../components/get-texts-map';
+import getTextsMap from './GetTextsMap';
 
 export default function Navigate({ underPage = false }) {
   const wwwNheekNo = {
