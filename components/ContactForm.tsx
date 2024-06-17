@@ -64,7 +64,7 @@ export default function ContactForm() {
             <input
               key={field}
               className="h-[25%] rounded-xl md:rounded-3xl pl-4 text-gray-900"
-              type={field in ['email', 'epost'] ? 'email' : 'text'}
+              type={['email', 'epost'].includes(field) ? 'email' : 'text'}
               name={field}
               placeholder={field}
               value={formData[field]}

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Header from '../components/header';
-import Main from '../components/main';
-const Footer = dynamic(() => import('../components/footer'));
+import Header from './Header';
+import Main from './main';
+const Footer = dynamic(() => import('./Footer'));
 
 export default function Layout() {
   const [isFullStack, setIsFullStack] = useState(false);

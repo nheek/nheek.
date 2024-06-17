@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import getTextsMap from '../components/get-texts-map';
 
 export default function Home() {
@@ -10,11 +10,11 @@ export default function Home() {
     sitename: "nheek"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
-  
+
   return (
     <>
       <Head>

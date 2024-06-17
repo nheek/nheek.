@@ -1,4 +1,4 @@
-import ImageLoader from '../../components/utils/image-loader';
+import ImageLoader from '../utils/ImageLoader';
 
 const images = [
   { src: "https://i.imgur.com/BvJjU8V.jpeg", alt: "17th of may"},

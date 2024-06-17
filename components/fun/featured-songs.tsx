@@ -38,7 +38,7 @@ export default function FeaturedSongs() {
   };
   
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   }
 
@@ -56,7 +56,7 @@ export default function FeaturedSongs() {
             {
               textsMap.links[0].collection.map((spotifyItem, index) => (
                 <div
-                  key={index} 
+                  key={"spotify-item-" + index}
                   className="w-full"
                 >
                   <div dangerouslySetInnerHTML={{ __html: spotifyItem.code }} />

@@ -1,10 +1,14 @@
 import Link from 'next/link';
-import getTextsMap from '../components/get-texts-map';
+import getTextsMap from './get-texts-map';
 import { useState } from 'react';
 
 export const siteTitle = 'nheek';
 
-export default function Header({isFullStack = null, setIsFullStack = null, customHeaderText=""}) {
+export default function Header({
+  isFullStack = null,
+  setIsFullStack = null,
+  customHeaderText = ""
+}) {
   const wwwNheekNo = {
     fullStack: "fullstack utvikler",
     sitename: "nheek no",
@@ -18,7 +22,7 @@ export default function Header({isFullStack = null, setIsFullStack = null, custo
     link: "https://www.nheek.no"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
@@ -29,11 +33,7 @@ export default function Header({isFullStack = null, setIsFullStack = null, custo
     if (fullStackCounter == 3) {
       setIsFullStack(true);
       setIsFullStackCounter(fullStackCounter + 1);
-      console.log("nicr")
-      console.log(isFullStack)
     }
-    console.log(isFullStack)
-
   }
   return (
     <header className="flex h-[10vh] items-center justify-center">

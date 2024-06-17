@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ImageLoader from './utils/image-loader';
+import ImageLoader from './utils/ImageLoader';
 import IsTwoWeeksApart from './utils/IsTwoWeeksApart';
 
 export default function FeaturedProjectsItemItem ({category = null, project = null, txtInfo = null}) {

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import getTextsMap from '../components/get-texts-map';
+import getTextsMap from './get-texts-map';
 
 export default function Footer() {
   const wwwNheekNo = {
@@ -27,7 +27,7 @@ export default function Footer() {
     }
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);

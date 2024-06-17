@@ -18,7 +18,7 @@ RUN apk add --no-cache \
     pango-dev \
     libjpeg-turbo-dev \
     giflib-dev
-    
+
 RUN npm install --only=production
 # Install canvas and its dependencies
 RUN npm install canvas@latest

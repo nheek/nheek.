@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import Header from "../header";
+import Header from "../Header";
 import Main from "./main";
-const Footer = dynamic(() => import("../footer"));
+const Footer = dynamic(() => import("../Footer"));
 import Navigate from "../navigate";
 import getTextsMap from "../get-texts-map";
 

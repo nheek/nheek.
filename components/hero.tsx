@@ -1,7 +1,6 @@
-import { text } from 'stream/consumers';
-import getTextsMap from '../components/get-texts-map';
+import getTextsMap from './get-texts-map';
 
-export default function Hero({isFullStack}) {
+export default function Hero({ isFullStack }) {
   const wwwNheekNo = {
     sitename: "nheek no",
     heroText: "hei! jeg er nheek. kodene mine gir liv til nettsider og applikasjoner. la dine ideer bli virkelighet.",
@@ -13,13 +12,12 @@ export default function Hero({isFullStack}) {
     realName: "real name is nick",
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
 
   return (
-    
     <div className="px-4 pb-4 pt-20 min-h-max">
       <section
         title={textsMap.realName}

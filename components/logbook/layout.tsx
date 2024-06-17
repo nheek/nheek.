@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
-import Header from '../header';
+import Header from '../Header';
 import Navigate from '../navigate';
 import Main from './main';
-const Footer = dynamic(() => import("../footer"));
+const Footer = dynamic(() => import("../Footer"));
 import getTextsMap from '../get-texts-map';
 
 export default function Layout() {

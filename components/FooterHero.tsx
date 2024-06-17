@@ -1,5 +1,5 @@
-import ContactForm from '../components/contact-form';
-import getTextsMap from '../components/get-texts-map';
+import ContactForm from './ContactForm';
+import getTextsMap from './get-texts-map';
 
 export default function FooterHero() {
   const wwwNheekNo = {

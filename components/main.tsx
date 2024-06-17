@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic';
-import Hero from '../components/hero';
+import Hero from './Hero';
 import SocialLinks from '../components/social-links';
 const Navigate = dynamic(() => import("../components/navigate"));
-const FooterHero = dynamic(() => import("../components/footer-hero"));
+const FooterHero = dynamic(() => import("./FooterHero"));
 const Skills = dynamic(() => import("../components/skills"));
-const FeaturedProjects = dynamic(() => import("../components/featured-projects"));
+const FeaturedProjects = dynamic(() => import("./FeaturedProjects"));
 
 export default function Main({isFullStack}) {
   return (

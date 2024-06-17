@@ -17,4 +17,4 @@ CREATE TABLE IF NOT EXISTS ContactForm (
     email VARCHAR(100),
     subject VARCHAR(100),
     message TEXT
-)
+);

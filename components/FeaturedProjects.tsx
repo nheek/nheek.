@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import FeaturedProjectsItem from '../components/featured-projects-item';
-import getTextsMap from '../components/get-texts-map';
+import FeaturedProjectsItem from './featured-projects-item';
+import getTextsMap from './get-texts-map';
 
-export default function FeaturedProjects({isFullStack}) {
+export default function FeaturedProjects({ isFullStack }) {
   const [selectedComponent, setSelectedComponent] = useState(<FeaturedProjectsItem isFullStack={isFullStack} />);
   const [currentCategory, setCurrentCategory] = useState("websites");
   const categories = ["websites", "desktopApps", "mobileApps", "contributions", "static", "template"];
@@ -33,7 +33,7 @@ export default function FeaturedProjects({isFullStack}) {
     new: "new"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
@@ -42,7 +42,6 @@ export default function FeaturedProjects({isFullStack}) {
   const newProjects = [];
 
   return (
-
     <section className="px-4 pt-[20%] md:pt-[10%]">
       <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
         {textsMap.featuredProjects}
@@ -58,7 +57,7 @@ export default function FeaturedProjects({isFullStack}) {
                 className="relative w-full h-full px-3 py-2"
                 onClick={() => handleItemClick(<FeaturedProjectsItem isFullStack={isFullStack} category={category} />, category)}>
                 {textsMap[category]}
-                { newProjects.includes(textsMap[category]) && 
+                { newProjects && newProjects.includes(textsMap[category]) &&
                   <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 transform rotate-12 px-1 py-2 rounded-full text-xs">{ textsMap.new }</div>
                 }
               </button>

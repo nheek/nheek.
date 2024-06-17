@@ -5,20 +5,20 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
       - mysql-db
     env_file:
       - .env
     environment:
       - PLACEHOLDER=YES
-    image: "nheek/nheek:latest" 
+    image: "nheek/nheek:latest"
 
   mysql-db:
     image: mysql:latest
     restart: unless-stopped
     ports:
-      - "4000:3306"
+      - 4000:3306
     env_file:
       - .env
     environment:

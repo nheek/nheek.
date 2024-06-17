@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head';
-import Layout from '../../components/layout';
+import Layout from '../../components/Layout';
 import getTextsMap from '../../components/get-texts-map';
 // import FeaturedProjectsItem from '../../components/featured-projects-item';
 import FeaturedProject from '../../components/projects/featured-project';
-import Header from '../../components/header';
+import Header from '../../components/Header';
 import Navigate from '../../components/navigate';
 
 export default function Home() {

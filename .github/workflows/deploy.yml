@@ -41,7 +41,7 @@ jobs:
             cd apps
             mkdir nheek
             cd nheek
-            
+
             # Pull the Docker Compose project on the remote server
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
             docker pull mysql
@@ -66,4 +66,3 @@ jobs:
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/.sql_data/create_database.sql
 
             docker compose up -d
-  
