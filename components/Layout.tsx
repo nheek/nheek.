@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Header from './HeaderC';
+import Header from './Header';
 import Main from './main';
 const Footer = dynamic(() => import('./FooterC'));
 

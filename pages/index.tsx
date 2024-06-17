@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../components/LayoutC';
+import Layout from '../components/Layout';
 import getTextsMap from '../components/get-texts-map';
 
 export default function Home() {

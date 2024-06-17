@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import Hero from './HeroC';
+import Hero from './Hero';
 import SocialLinks from '../components/social-links';
 const Navigate = dynamic(() => import("../components/navigate"));
 const FooterHero = dynamic(() => import("./FooterHero"));
