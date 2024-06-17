@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
-import Header from '../Header';
+import Header from '../HeaderC';
 import Navigate from '../navigate';
 import Main from './main';
-const Footer = dynamic(() => import("../Footer"));
+const Footer = dynamic(() => import("../FooterC"));
 
 export default function Layout() {
   return (
