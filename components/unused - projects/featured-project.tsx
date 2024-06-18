@@ -3,7 +3,6 @@ import FeaturedProjects from '../FeaturedProjects';
 
 export default function FeaturedProject(
   {
-    isFullStack = false,
     category = "websites",
     projectName = "nheek",
   } : FeaturedProjectsProps
@@ -168,7 +167,7 @@ export default function FeaturedProject(
   };
 
   const wwwNheekNo = {
-    projectsToShowMap: isFullStack ? projects_no_fullstack : projects_no,
+    projectsToShowMap: projects_no,
     contributions: "disse er prosjekter jeg har bidratt til",
     static: "disse er ikke funksjonelle nettsteder/apper",
     template: "disse er nettsteder/apper jeg delvis har kodet",
@@ -176,7 +175,7 @@ export default function FeaturedProject(
     with: "med"
   };
   const wwwDefault = {
-    projectsToShowMap: isFullStack ? projects_fullstack : projects,
+    projectsToShowMap: projects,
     contributions: "these are projects i have contributed to",
     static: "these are non-functional websites/applications",
     template: "these are websites/apps i partially coded",
@@ -208,7 +207,6 @@ export default function FeaturedProject(
 }
 
 interface FeaturedProjectsProps {
-  isFullStack?: boolean,
   category?: string,
   projectName?: string
 }

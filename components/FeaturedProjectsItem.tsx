@@ -3,7 +3,6 @@ import GetTextsMap from './GetTextsMap';
 import FeaturedProjectsItemItem from './FeaturedProjectsItemItem';
 
 export default function FeaturedProjectsItem({
-  isFullStack = false,
   category = "websites"
 }: FeaturedProjectsItemProps) {
   const [projectsToShow, setProjectsToShow] = useState([])
@@ -44,6 +43,7 @@ export default function FeaturedProjectsItem({
       { name: 'kledeli', desc: 'children clothing subscription platform', link: 'https://kledeli.nheek.com/', image: '/featured-projects/contributions/kledeli.png', mobileImage: '/featured-projects/mobile/contributions/m-kledeli.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}], deployedWith: ["docker", "github actions"] },
       { name: 'homing', status: 'under construction', desc: 'social media messaging web app', link: 'https://homing.lukasry.no/', image: '/featured-projects/contributions/homing.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}], deployedWith: ["docker", "github actions"] },
       { name: 'kvarteret', dateAdded: '13.04.2024', status: 'under construction', desc: 'student culture center', link: 'https://kvarteret.no/', image: '/featured-projects/contributions/kvarteret.png', mobileImage: '/featured-projects/mobile/contributions/m-kvarteret.png', techstack: ['AstroJS', 'ReactJS', 'GraphQL', 'Directus', 'CSS'] },
+      { name: 'bergen light rail quiz', dateAdded: '19.06.2024', desc: 'quiz game based on bergen\'s light rail', link: 'https://bybane-quiz.nheek.com/', image: '/featured-projects/contributions/bybane-quiz.png', mobileImage: '/featured-projects/mobile/contributions/m-bybane-quiz.png', techstack: ['AstroJS', 'NodeJS', 'CSS'], collaborators: [{name: "Aggi", link: "https://github.com/aggicreative555"}, {name: "Ole Martin Amundsen", link: "https://github.com/671454"}], deployedWith: ["docker", "github actions"] },
     ],
     static: [
       { name: 'lady', desc: 'food service online platform', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
@@ -93,6 +93,7 @@ export default function FeaturedProjectsItem({
       { name: 'kledeli', desc: 'abonnementsplattform for barneklær', link: 'https://kledeli.nheek.com/', image: '/featured-projects/contributions/kledeli.png', mobileImage: '/featured-projects/mobile/contributions/m-kledeli.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL', 'TailwindCSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'homing', status: 'under arbeid', desc: 'sosiale medie melding webapp', link: 'https://homing.lukasry.no/', image: '/featured-projects/contributions/homing.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'], collaborators: [{name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal"}] },
       { name: 'kvarteret', dateAdded: '13.04.2024', status: 'under arbeid', desc: 'studentkulturhuset', link: 'https://kvarteret.no/', image: '/featured-projects/contributions/kvarteret.png', mobileImage: '/featured-projects/mobile/contributions/m-kvarteret.png', techstack: ['AstroJS', 'ReactJS', 'GraphQL', 'Directus', 'CSS'] },
+      { name: 'bybane quiz', dateAdded: '19.06.2024', desc: 'quiz spill basert på bybane', link: 'https://bybane-quiz.nheek.no/', image: '/featured-projects/contributions/bybane-quiz.png', mobileImage: '/featured-projects/mobile/contributions/m-bybane-quiz.png', techstack: ['AstroJS', 'NodeJS', 'CSS'], collaborators: [{name: "Aggi", link: "https://github.com/aggicreative555"}, {name: "Ole Martin Amundsen", link: "https://github.com/671454"}], deployedWith: ["docker", "github actions"] },
     ],
     static: [
       { name: 'lady', desc: 'nettbasert matserveringstjeneste', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
@@ -137,7 +138,7 @@ export default function FeaturedProjectsItem({
     const endIndex = startIndex + itemsPerPage;
     setProjectsToShow(textsMap.projectsToShowMap[category].slice(startIndex, endIndex));
     setTxtInfo(textsMap);
-  }, [isFullStack, category, currentPage]);
+  }, [category, currentPage]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -183,6 +184,5 @@ export default function FeaturedProjectsItem({
 }
 
 interface FeaturedProjectsItemProps {
- isFullStack?: boolean;
  category?: string;
 }

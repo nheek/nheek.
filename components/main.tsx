@@ -6,13 +6,13 @@ const FooterHero = dynamic(() => import("./FooterHero"));
 const Skills = dynamic(() => import("../components/skills"));
 const FeaturedProjects = dynamic(() => import("./FeaturedProjects"));
 
-export default function Main({isFullStack}) {
+export default function Main() {
   return (
     <main>
-      <Hero isFullStack={isFullStack}/>
+      <Hero />
       <SocialLinks />
       <Navigate />
-      <FeaturedProjects isFullStack={isFullStack} />
+      <FeaturedProjects />
       <Skills />
       <FooterHero />
     </main>

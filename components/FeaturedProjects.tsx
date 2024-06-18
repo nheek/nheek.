@@ -2,8 +2,8 @@ import { useState } from 'react';
 import FeaturedProjectsItem from './FeaturedProjectsItem';
 import getTextsMap from './GetTextsMap';
 
-export default function FeaturedProjects({ isFullStack }) {
-  const [selectedComponent, setSelectedComponent] = useState(<FeaturedProjectsItem isFullStack={isFullStack} />);
+export default function FeaturedProjects() {
+  const [selectedComponent, setSelectedComponent] = useState(<FeaturedProjectsItem />);
   const [currentCategory, setCurrentCategory] = useState("websites");
   const categories = ["websites", "desktopApps", "mobileApps", "contributions", "static", "template"];
 
@@ -39,7 +39,7 @@ export default function FeaturedProjects({ isFullStack }) {
   const textsMap = getTextsMap(domainPairs);
 
   // if there is a new project under a category, put the category here
-  const newProjects = [];
+  const newProjects = ["Contributions"];
 
   return (
     <section className="px-4 pt-[20%] md:pt-[10%]">
@@ -55,7 +55,7 @@ export default function FeaturedProjects({ isFullStack }) {
             >
               <button
                 className="relative w-full h-full px-3 py-2"
-                onClick={() => handleItemClick(<FeaturedProjectsItem isFullStack={isFullStack} category={category} />, category)}>
+                onClick={() => handleItemClick(<FeaturedProjectsItem category={category} />, category)}>
                 {textsMap[category]}
                 { newProjects && newProjects.includes(textsMap[category]) &&
                   <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 transform rotate-12 px-1 py-2 rounded-full text-xs">{ textsMap.new }</div>

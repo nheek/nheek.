@@ -5,8 +5,6 @@ import { useState } from 'react';
 export const siteTitle = 'nheek';
 
 export default function Header({
-  isFullStack = null,
-  setIsFullStack = null,
   customHeaderText = ""
 }) {
   const wwwNheekNo = {
@@ -26,26 +24,16 @@ export default function Header({
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
-  const [fullStackCounter, setIsFullStackCounter] = useState(0);
-
-  const handleFullStack = () => {
-    setIsFullStackCounter(fullStackCounter + 1);
-    if (fullStackCounter == 3) {
-      setIsFullStack(true);
-      setIsFullStackCounter(fullStackCounter + 1);
-    }
-  }
   return (
     <header className="flex h-[10vh] items-center justify-center">
       <nav className="w-[25%]">
         <ul>
           <li className="cursor-pointer">
-            <button
+            <span
               className="text-left"
-              onClick={handleFullStack}
             >
               {textsMap.fullStack}
-            </button>
+            </span>
           </li>
         </ul>
       </nav>
