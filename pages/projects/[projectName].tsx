@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 // import getTextsMap from '../../components/GetTextsMap';
-import FeaturedProject from '../../components/projects/featured-project';
+import FeaturedProject from '../../components/unused - projects/featured-project';
 import Header from '../../components/Header';
 import Navigate from '../../components/navigate';
 

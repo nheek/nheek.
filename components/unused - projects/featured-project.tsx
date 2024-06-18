@@ -1,19 +1,13 @@
-import { useEffect, useState } from 'react';
 import GetTextsMap from '../GetTextsMap';
+import FeaturedProjects from '../FeaturedProjects';
 
 export default function FeaturedProject(
-  { 
+  {
     isFullStack = false,
     category = "websites",
     projectName = "nheek",
-  } : 
-  {
-    readonly isFullStack?: boolean,
-    readonly category?: string,
-    readonly projectName?: string
-  }
+  } : FeaturedProjectsProps
 ) {
-  
   const projects = {
     websites: [
       { name: 'nheek', desc: 'this portfolio website', link: 'https://www.nheek.com/', image: '/featured-projects/nheek.png', mobileImage: '/featured-projects/mobile/m-nheek.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], onGithub: "https://github.com/nheek/nheek.", deployedWith: ["docker", "github actions"] },
@@ -190,7 +184,7 @@ export default function FeaturedProject(
     with: "with"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = GetTextsMap(domainPairs);
@@ -202,7 +196,7 @@ export default function FeaturedProject(
     <div>
       {
         textsMap.projectsToShowMap[category]?.map((project) => (
-          project.name === projectName && 
+          project.name === projectName &&
           <>
             <h1> { project.name } </h1>
             <img src={project.image} alt="" />
@@ -210,5 +204,11 @@ export default function FeaturedProject(
         ))
       }
     </div>
-  );  
+  );
+}
+
+interface FeaturedProjectsProps {
+  isFullStack?: boolean,
+  category?: string,
+  projectName?: string
 }

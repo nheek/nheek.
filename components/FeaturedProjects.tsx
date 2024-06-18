@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import FeaturedProjectsItem from './featured-projects-item';
+import FeaturedProjectsItem from './FeaturedProjectsItem';
 import getTextsMap from './GetTextsMap';
 
 export default function FeaturedProjects({ isFullStack }) {

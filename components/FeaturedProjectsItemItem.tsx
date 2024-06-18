@@ -6,7 +6,7 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
     const [projectImage, setProjectImage] = useState(project.image);
     const [websiteStatus, setWebsiteStatus] = useState(null);
     const [mobileAppImageIndex, setMobileAppImageIndex] = useState(0);
-    
+
     useEffect(() => {
         // Update the projectImage state when project.image changes
         setProjectImage(project.image);
@@ -47,7 +47,7 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
             setMobileAppImageIndex(mobileAppImageIndex + 1);
         }
     };
-    
+
     return (
         <div className="w-full md:w-[40%] h-[500px] md:h-[450px] lg:h-[500px] mt-16 md:mt-0 lg:mt-16">
             <div className="relative">
@@ -57,7 +57,7 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                     className="max-h-[400px] rounded-xl shadow-lg mx-auto"
                 />
 
-                { 
+                {
                 /* The "new" banner */
                 !IsTwoWeeksApart(project.dateAdded) &&
                     <div
@@ -104,9 +104,9 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                     <span>{project.name}</span>
                 </a>
                 { !["desktopApps", "mobileApps"].includes(category)  &&
-                  <div className={`h-2 w-2 rounded-full my-auto animate-pulse ${websiteStatus === true ? "bg-green-400" : "bg-red-400"}`}></div>
+                    <div className={`h-2 w-2 rounded-full my-auto animate-pulse ${websiteStatus === true ? "bg-green-400" : "bg-red-400"}`}></div>
                 }
-                <a 
+                <a
                     title="Github link"
                     className={`${project.onGithub ? "block" : "hidden"} flex items-center`}
                     href={project.onGithub}

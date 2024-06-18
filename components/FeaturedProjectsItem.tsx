@@ -1,8 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
 import GetTextsMap from './GetTextsMap';
-import FeaturedProjectsItemItem from './featured-projects-item-item';
+import FeaturedProjectsItemItem from './FeaturedProjectsItemItem';
 
-export default function FeaturedProjectsItem({ isFullStack = false, category = "websites" }) {
+export default function FeaturedProjectsItem({
+  isFullStack = false,
+  category = "websites"
+}: FeaturedProjectsItemProps) {
   const [projectsToShow, setProjectsToShow] = useState([])
   const [txtInfo, setTxtInfo] = useState({})
   const projects = {
@@ -121,7 +124,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
     with: "with"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = GetTextsMap(domainPairs);
@@ -157,7 +160,7 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
           {txtInfo[category] || ""}
         </span>
         {projectsToShow.map((project, index) => (
-          <FeaturedProjectsItemItem key={index} category={category} project={project} txtInfo={txtInfo} />
+          <FeaturedProjectsItemItem key={"projects-to-show-" + index} category={category} project={project} txtInfo={txtInfo} />
         ))}
       </div>
       {totalPages > 1 && (
@@ -177,4 +180,9 @@ export default function FeaturedProjectsItem({ isFullStack = false, category = "
       )}
     </>
   );
+}
+
+interface FeaturedProjectsItemProps {
+ isFullStack?: boolean;
+ category?: string;
 }
