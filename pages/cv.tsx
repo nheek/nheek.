@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../components/cv/LayoutC';
+import Layout from '../components/cv/Layout';
 import getTextsMap from '../components/GetTextsMap';
 
 export default function CV() {
