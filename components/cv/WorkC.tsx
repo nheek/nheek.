@@ -4,13 +4,13 @@ export default function Work() {
   const wwwNheekNo = {
     txtWork: 'arbeid',
   };
-  
+
   const wwwDefault = {
     txtWork: 'work',
   };
-  
+
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   }
 
@@ -39,8 +39,8 @@ export default function Work() {
         {
           workList.map((work, index) => (
             <div
-              className="mb-14" 
-              key={index}
+              className="mb-14"
+              key={"work-" + index}
             >
               <div className="flex flex-col md:flex-row flex-wrap md:items-center text-2xl w-full md:w-[90%] mt-8 m-auto">
                 <h2 className="">{work.title}</h2>
@@ -63,7 +63,7 @@ export default function Work() {
                     work.tasks.map((task, index) => (
                       <li
                         className="shadow-inner-blue inset-y-0 inset-x-0 p-4 rounded-3xl"
-                        key={index}
+                        key={"work-task-" + index}
                       >
                         {task}
                       </li>

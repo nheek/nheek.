@@ -4,13 +4,13 @@ export default function Profile() {
   const wwwNheekNo = {
     txtProfile: 'profil',
   };
-  
+
   const wwwDefault = {
     txtProfile: 'profile',
   };
-  
+
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   }
 

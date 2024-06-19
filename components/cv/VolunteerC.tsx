@@ -4,13 +4,13 @@ export default function Volunteer() {
   const wwwNheekNo = {
     txtVolunteer: 'frivillig',
   };
-  
+
   const wwwDefault = {
     txtVolunteer: 'volunteer',
   };
-  
+
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   }
 
@@ -78,7 +78,7 @@ export default function Volunteer() {
         {
           volunteerList.map((volunteer, index) => (
             <div
-              className="mb-14" 
+              className="mb-14"
               key={index}
             >
               <div className="flex flex-col md:flex-row flex-wrap md:items-center text-2xl w-full md:w-[90%] mt-8 m-auto">
@@ -102,7 +102,7 @@ export default function Volunteer() {
                     volunteer.tasks.map((task, index) => (
                       <li
                         className="shadow-inner-blue inset-y-0 inset-x-0 p-4 rounded-3xl"
-                        key={index}
+                        key={"volunteer-task-" + index}
                       >
                         {task}
                       </li>
