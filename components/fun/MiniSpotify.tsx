@@ -1,4 +1,3 @@
-import DOMPurify from 'dompurify';
 import getTextsMap from '../GetTextsMap';
 
 export default function MiniSpotify() {
@@ -46,7 +45,7 @@ export default function MiniSpotify() {
                   className="w-full"
                 >
                   <h2>{spotifyItem.name}</h2>
-                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(spotifyItem.code) }} />
+                  <div dangerouslySetInnerHTML={{ __html: spotifyItem.code }} />
                 </div>
               ))
             }

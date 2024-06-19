@@ -1,4 +1,3 @@
-import DOMPurify from 'dompurify';
 import getTextsMap from '../../GetTextsMap';
 
 export default function FeaturedSongsHistory() {
@@ -60,7 +59,7 @@ export default function FeaturedSongsHistory() {
                     {spotifyItem.collection.map((spotify, index) => (
                       <div
                         key={"spotify-" + index}
-                        className="w-full h-[90px]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(spotify.code) }} />
+                        className="w-full h-[90px]" dangerouslySetInnerHTML={{ __html: spotify.code }} />
                     ))}
                   </div>
                 </div>

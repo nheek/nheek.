@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import DOMPurify from 'dompurify';
 import getTextsMap from '../GetTextsMap';
 
 export default function FeaturedSongs() {
@@ -60,7 +59,7 @@ export default function FeaturedSongs() {
                   key={"spotify-item-" + index}
                   className="w-full"
                 >
-                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(spotifyItem.code) }} />
+                  <div dangerouslySetInnerHTML={{ __html: spotifyItem.code }} />
                 </div>
               ))
             }
