@@ -1,4 +1,4 @@
-import pool from './ConfigC';
+import pool from './Config';
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {

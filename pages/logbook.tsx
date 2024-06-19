@@ -10,11 +10,11 @@ export default function Logbook() {
     sitename: "logbook | nheek"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
-  
+
   return (
     <>
       <Head>
