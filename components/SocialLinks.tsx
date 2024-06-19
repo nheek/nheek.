@@ -2,7 +2,7 @@ export default function SocialLinks() {
   const socials = [
     {
       "name": "facebook",
-      "link": "https://www.facebook.com/nheek.mmrdl",
+      "link": "https://www.facebook.com/nick.james.1622",
       "icon": "social-links/facebook-iconx.svg"
     },
     {
