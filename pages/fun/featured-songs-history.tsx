@@ -4,7 +4,7 @@ const Footer = dynamic(() => import("../../components/Footer"));
 import Header from "../../components/Header";
 import Navigate from "../../components/navigate";
 import getTextsMap from "../../components/GetTextsMap";
-const FeaturedSongsHistory = dynamic(() => import("../../components/fun/featured-songs-history/featured-songs-history"));
+const FeaturedSongsHistory = dynamic(() => import("../../components/fun/featured-songs-history/FeaturedSongsHistory"));
 
 export default function FunFeaturedSongs() {
     const wwwNheekNo = {

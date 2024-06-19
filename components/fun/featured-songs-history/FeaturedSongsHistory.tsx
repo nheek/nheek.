@@ -1,11 +1,12 @@
+import DOMPurify from 'dompurify';
 import getTextsMap from '../../GetTextsMap';
 
 export default function FeaturedSongsHistory() {
   const spotify = [
     { title: "march 2024",
-      collection: 
+      collection:
       [
-        { 
+        {
           code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/51ZQ1vr10ffzbwIjDCwqm4?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
         },
         {
@@ -28,14 +29,14 @@ export default function FeaturedSongsHistory() {
     txtSpotify: 'utvalgte låter historikk',
     links: spotify,
   };
-  
+
   const wwwDefault = {
     txtSpotify: 'featured songs history',
     links: spotify,
   };
-  
+
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   }
 
@@ -49,14 +50,17 @@ export default function FeaturedSongsHistory() {
         <div className="flex flex-wrap justify-center gap-14 text-lg w-full md:w-[90%] mt-16 m-auto leading-8">
             {
               textsMap.links.map((spotifyItem, index) => (
-                <div className="w-[45%]">
+                <div
+                  key={"spotify-item-" + index}
+                  className="w-[45%]">
                   <div>{spotifyItem.title}</div>
                   <div
-                    key={index}
                     className="flex flex-col items-center"
                   >
                     {spotifyItem.collection.map((spotify, index) => (
-                      <div className="w-full h-[90px]" dangerouslySetInnerHTML={{ __html: spotify.code }} />
+                      <div
+                        key={"spotify-" + index}
+                        className="w-full h-[90px]" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(spotify.code) }} />
                     ))}
                   </div>
                 </div>

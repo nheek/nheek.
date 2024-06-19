@@ -1,12 +1,13 @@
 import Link from 'next/link';
+import DOMPurify from 'dompurify';
 import getTextsMap from '../GetTextsMap';
 
 export default function FeaturedSongs() {
   const spotify = [
     { title: "28 april 2024",
-      collection: 
+      collection:
       [
-        { 
+        {
           code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5og4Qzt92jJzVDkOtSEilb?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
         },
         {
@@ -30,13 +31,13 @@ export default function FeaturedSongs() {
     dateChanged: "dato endret",
     links: spotify,
   };
-  
+
   const wwwDefault = {
     txtSpotify: "featured songs",
     dateChanged: "date changed",
     links: spotify,
   };
-  
+
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
     default: wwwDefault
@@ -59,7 +60,7 @@ export default function FeaturedSongs() {
                   key={"spotify-item-" + index}
                   className="w-full"
                 >
-                  <div dangerouslySetInnerHTML={{ __html: spotifyItem.code }} />
+                  <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(spotifyItem.code) }} />
                 </div>
               ))
             }

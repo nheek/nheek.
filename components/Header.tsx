@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import getTextsMap from './GetTextsMap';
-import { useState } from 'react';
 
 export const siteTitle = 'nheek';
 
