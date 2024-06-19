@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Layout from '../../components/fun/LayoutC';
+import Layout from '../../components/fun/Layout';
 import getTextsMap from '../../components/GetTextsMap';
 
 export default function Fun() {
