@@ -13,15 +13,15 @@ export default function Layout() {
     pageName: "gallery"
   };
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   };
   const textsMap = getTextsMap(domainPairs);
-  
+
   return (
     <div className={"bg-[#1C2951] min-h-screen h-full text-white"}>
       <Header customHeaderText={textsMap.pageName} />
-      <Navigate underPage={true} />
+      <Navigate />
       <Main />
       <Footer />
     </div >
