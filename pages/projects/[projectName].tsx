@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 // import getTextsMap from '../../components/GetTextsMap';
 import FeaturedProject from '../../components/unused - projects/featured-project';
 import Header from '../../components/Header';
-import Navigate from '../../components/navigate';
+import Navigate from '../../components/NavigateC';
 
 export default function Home() {
   const router = useRouter();

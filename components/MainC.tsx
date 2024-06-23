@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic';
 import Hero from './Hero';
 import SocialLinks from './SocialLinks';
-const Navigate = dynamic(() => import("../components/navigate"));
+const Navigate = dynamic(() => import("./NavigateC"));
 const FooterHero = dynamic(() => import("./FooterHero"));
-const Skills = dynamic(() => import("../components/skills"));
+const Skills = dynamic(() => import("./skills"));
 const FeaturedProjects = dynamic(() => import("./FeaturedProjects"));
 
 export default function Main() {

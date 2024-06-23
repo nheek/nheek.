@@ -5,13 +5,13 @@ export default function Navigate({ underPage = false }) {
   const wwwNheekNo = {
     txtSkills: 'naviger',
   };
-  
+
   const wwwDefault = {
     txtSkills: 'navigate',
   };
-  
+
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   }
 

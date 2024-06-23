@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Header from './Header';
-import Main from './main';
+import Main from './MainC';
 const Footer = dynamic(() => import('./Footer'));
 
 export default function Layout() {

@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 const Footer = dynamic(() => import("../../components/Footer"));
 import Header from "../../components/Header";
-import Navigate from "../../components/navigate";
+import Navigate from "../../components/NavigateC";
 import getTextsMap from "../../components/GetTextsMap";
 const FeaturedSongsHistory = dynamic(() => import("../../components/fun/featured-songs-history/FeaturedSongsHistory"));
 

@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import Header from '../Header';
-import Navigate from '../navigate';
+import Navigate from '../NavigateC';
 import Main from './Main';
 const Footer = dynamic(() => import("../Footer"));
 
