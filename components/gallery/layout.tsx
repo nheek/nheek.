@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Header from "../Header";
 import Main from "./main";
 const Footer = dynamic(() => import("../Footer"));
-import Navigate from "../NavigateC";
+import Navigate from "../Navigate";
 import getTextsMap from "../GetTextsMap";
 
 export default function Layout() {

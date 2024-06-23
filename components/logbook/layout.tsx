@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import Header from '../Header';
-import Navigate from '../NavigateC';
+import Navigate from '../Navigate';
 import Main from './main';
 const Footer = dynamic(() => import("../Footer"));
 import getTextsMap from '../GetTextsMap';
