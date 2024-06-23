@@ -2,6 +2,26 @@ import getTextsMap from '../../GetTextsMap';
 
 export default function FeaturedSongsHistory() {
   const spotify = [
+    { title: "28 april 2024",
+      collection:
+      [
+        {
+          code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5og4Qzt92jJzVDkOtSEilb?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+        },
+        {
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7Mts0OfPorF4iwOomvfqn1?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+        },
+        {
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0W0iAC1VGlB82PI6elxFYf?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+        },
+        {
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2OzhQlSqBEmt7hmkYxfT6m?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+        },
+        {
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2F3N9tdombb64aW6VtZOdo?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+        }
+      ]
+    },
     { title: "march 2024",
       collection:
       [

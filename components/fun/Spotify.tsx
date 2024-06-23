@@ -3,6 +3,14 @@ import getTextsMap from '../GetTextsMap';
 export default function Spotify() {
   const spotify = [
     {
+      name: "june playlist",
+      code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6qBSI6bjrkiMWntO6hRyGx?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+    },
+    {
+      name: "may playlist",
+      code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/26T9Ll2nWSRhAjATTAUYZU?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+    },
+    {
       name: "april tay playlist",
       code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6GQNb17tAv7F0dq05jPOha?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
     },
@@ -25,6 +33,14 @@ export default function Spotify() {
   ]
 
   const spotify_no = [
+    {
+      name: "juni spilleliste",
+      code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6qBSI6bjrkiMWntO6hRyGx?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+    },
+    {
+      name: "mai spilleliste",
+      code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/26T9Ll2nWSRhAjATTAUYZU?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+    },
     {
       name: "april tay spilleliste",
       code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6GQNb17tAv7F0dq05jPOha?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`

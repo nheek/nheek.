@@ -3,23 +3,23 @@ import getTextsMap from '../GetTextsMap';
 
 export default function FeaturedSongs() {
   const spotify = [
-    { title: "28 april 2024",
+    { title: "23 june 2024",
       collection:
       [
         {
-          code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5og4Qzt92jJzVDkOtSEilb?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+          code:  `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0hhzNPE68LWLfgZwdpxVdR?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
         },
         {
-          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7Mts0OfPorF4iwOomvfqn1?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/73c7iqH4lCVqu4tm66i0tY?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
         },
         {
-          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0W0iAC1VGlB82PI6elxFYf?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5MPi9e7z46wopyad10R6qx?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
         },
         {
-          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2OzhQlSqBEmt7hmkYxfT6m?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5N3hjp1WNayUPZrA8kJmJP?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
         },
         {
-          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2F3N9tdombb64aW6VtZOdo?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
+          code: `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5Jh1i0no3vJ9u4deXkb4aV?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
         }
       ]
     }
