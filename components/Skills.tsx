@@ -5,14 +5,14 @@ export default function Skills() {
     txtSkills: 'ferdigheter',
     txtCurrentlyLearning: 'lærer for tiden',
   };
-  
+
   const wwwDefault = {
     txtSkills: 'skills',
     txtCurrentlyLearning: 'currently learning',
   };
-  
+
   const domainPairs = {
-    "www.nheek.no": wwwNheekNo, 
+    "www.nheek.no": wwwNheekNo,
     default: wwwDefault
   }
 
@@ -20,7 +20,7 @@ export default function Skills() {
 
   let skills = [
     "CSS", "CloudFlare", "Firebase",
-    "Docker", "Docker Compose", "TailwindCSS", "TypeScript", 
+    "Docker", "Docker Compose", "TailwindCSS", "TypeScript",
     "ExpressJS", "GitHub", "GitHub Actions", "WordPress",
     "HTML", "Java", "JavaScript", "jQuery", "MySQL", "NextJS",
     "NGINX", "NodeJS", "PHP", "Python", "PyQT",
@@ -47,7 +47,7 @@ export default function Skills() {
         <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
           { textsMap.txtSkills }
         </hgroup>
-        <div 
+        <div
           className="w-max bg-opacity-50 mt-4 ml-4 md:ml-[3.25rem] border-2 border-opacity-50 border-white px-3 py-1 rounded-3xl duration-500"
         >
           { textsMap.txtCurrentlyLearning }
