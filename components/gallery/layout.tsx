@@ -21,7 +21,7 @@ export default function Layout() {
   return (
     <div className={"bg-[#1C2951] min-h-screen h-full text-white"}>
       <Header customHeaderText={textsMap.pageName} />
-      <Navigate />
+      <Navigate underPage />
       <Main />
       <Footer />
     </div >
