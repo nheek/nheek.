@@ -39,7 +39,7 @@ export default function FeaturedProjects() {
   const textsMap = getTextsMap(domainPairs);
 
   // if there is a new project under a category, put the category here
-  const newProjects = ["Contributions"];
+  const newProjects = [];
 
   return (
     <section className="px-4 pt-[20%] md:pt-[10%]">
