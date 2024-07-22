@@ -49,7 +49,7 @@ export default function FeaturedProjectsItem({
       { name: 'lady', desc: 'food service online platform', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'techie', desc: 'tech product landing page', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/static/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie", deployedWith: ["docker", "github actions"] },
       { name: 'arch', desc: 'interior design landing page', link: 'https://arch.nheek.com/', image: '/featured-projects/static/arch.png', techstack: ['ReactJS', 'ViteJS', 'TypeScript', 'CSS'], deployedWith: ["docker", "github actions"] },
-      { name: 'ingo', desc: 'overseas travel tracker', link: 'https://ingo.nheek.com/', image: '/featured-projects/static/ingo.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
+      { name: 'ingo', dateAdded: '23.07.2024', desc: 'overseas travel tracker', link: 'https://ingo.nheek.com/', image: '/featured-projects/static/ingo.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'truhvel', dateAdded: '09.04.2024', desc: 'underwater exploration landing page', link: 'https://truhvel.nheek.com/', image: '/featured-projects/static/truhvel.png', techstack: ['VueJS', 'ViteJS', 'TypeScript', 'CSS'], deployedWith: ["docker", "github actions"] },
     ],
     template: [
@@ -100,7 +100,7 @@ export default function FeaturedProjectsItem({
       { name: 'lady', desc: 'nettbasert matserveringstjeneste', link: 'https://lady.nheek.com/', image: '/featured-projects/static/lady.png', mobileImage: '/featured-projects/mobile/static/m-lady.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'] },
       { name: 'techie', desc: 'landingsside for tech-produkter', link: 'https://techie.nheek.com/', image: '/featured-projects/static/techie.png', mobileImage: '/featured-projects/mobile/static/m-techie.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], onGithub: "https://github.com/nheek/techie" },
       { name: 'arch', desc: 'landingsside for interiørdesign', link: 'https://arch.nheek.com/', image: '/featured-projects/static/arch.png', techstack: ['ReactJS', 'ViteJS', 'TypeScript', 'CSS'] },
-      { name: 'ingo', desc: 'utenlands reisesporing', link: 'https://ingo.nheek.com/', image: '/featured-projects/static/ingo.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
+      { name: 'ingo', dateAdded: '23.07.2024', desc: 'utenlands reisesporing', link: 'https://ingo.nheek.com/', image: '/featured-projects/static/ingo.png', techstack: ['NextJS', 'ReactJS', 'TypeScript', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'truhvel', dateAdded: '09.04.2024', desc: 'landingsside for undervannsutforskning', link: 'https://truhvel.nheek.com/', image: '/featured-projects/static/truhvel.png', techstack: ['VueJS', 'ViteJS', 'TypeScript', 'CSS'] },
     ],
     template: [
