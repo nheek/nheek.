@@ -24,6 +24,7 @@ export default function FeaturedProjectsItem({
       { name: 'poetree', desc: 'google-inspired poetry library', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'], deployedWith: ["docker", "github actions"] },
       { name: 'malky', desc: 'intelligent virtual ai assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
       { name: 'free', dateAdded: '14.04.2024', desc: 'anonymous freedom wall', link: 'https://free.nheek.com/', image: '/featured-projects/free.png',  mobileImage: '/featured-projects/mobile/m-free.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
+      { name: 'recreate', dateAdded: '23.07.2024', status: "early access", desc: '90\'s webpage builder', link: 'https://recreate.nheek.com/', image: '/featured-projects/recreate.png',  mobileImage: '/featured-projects/mobile/m-recreate.png', techstack: ['HTML', 'JavaScript', 'REST API'], deployedWith: ["docker", "github actions"] },
     ],
     desktopApps: [
       { name: 'simple calculator', desc: 'simple calculator application', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/desktop-apps/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
@@ -75,6 +76,7 @@ export default function FeaturedProjectsItem({
       { name: 'poetree', desc: 'google-inspirert poesibibliotek', link: 'https://poetree.nheek.com/', image: '/featured-projects/poetree.png', techstack: ['PHP', 'JavaScript', 'jQuery', 'MySQL'] },
       { name: 'malky', desc: 'intelligent virtuell ki-assistant', link: 'https://malky.nheek.com/', image: '/featured-projects/malky.png',  mobileImage: '/featured-projects/mobile/m-malky.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'TailwindCSS'] },
       { name: 'free', dateAdded: '14.04.2024', desc: 'anonymt freedom wall', link: 'https://free.nheek.com/', image: '/featured-projects/free.png',  mobileImage: '/featured-projects/mobile/m-free.png', techstack: ['NextJS', 'ReactJS', 'NodeJS', 'TypeScript', 'MySQL', 'TailwindCSS'], deployedWith: ["docker", "github actions"] },
+      { name: 'recreate', dateAdded: '23.07.2024', status: "early access", desc: '90-talls nettsidebygger', link: 'https://recreate.nheek.com/', image: '/featured-projects/recreate.png',  mobileImage: '/featured-projects/mobile/m-recreate.png', techstack: ['HTML', 'JavaScript', 'REST API'], deployedWith: ["docker", "github actions"] },
     ],
     desktopApps: [
       { name: 'enkel kalkulator', desc: 'enkel kalkulator applikasjon', link: 'https://python.nheek.com/codes/simple_calculator?from_nheek=true', image: '/featured-projects/desktop-apps/simple_calculator.png', techstack: ['Python', 'PyQt6'] },
