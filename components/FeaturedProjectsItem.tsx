@@ -56,6 +56,7 @@ export default function FeaturedProjectsItem({
     template: [
       { name: 'hexrovk', status: 'maintenance', desc: 'social media platform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
       { name: 'yloizah', desc: 'executive virtual assistant portfolio', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'], deployedWith: ["docker", "github actions"] },
+      { name: 'wine', dateAdded: '02.08.2024', desc: 'fashion blog', link: 'https://wine.nheek.com/', image: '/featured-projects/template/wine.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'], deployedWith: ["docker", "github actions"] },
       { name: 'grownoo', status: 'maintenance', desc: 'video production agency landing page', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
@@ -108,6 +109,7 @@ export default function FeaturedProjectsItem({
     template: [
       { name: 'hexrovk', status: 'vedlikehold', desc: 'sosial medieplattform', link: 'https://hexrovk.nheek.com/', image: '/featured-projects/template/hexrovk.png', mobileImage: '/featured-projects/mobile/template/m-hexrovk.png', techstack: ['PHP', 'JavaScript', 'MySQL', 'JQuery', 'CSS'] },
       { name: 'yloizah', desc: 'portefølje for virtuell lederassistent', link: 'https://yloizah.nheek.com/', image: '/featured-projects/template/yloizah.png', mobileImage: '/featured-projects/mobile/template/m-yloizah.png', techstack: ['NextJS', 'ReactJS', 'Bootstrap', 'SCSS'] },
+      { name: 'wine', dateAdded: '02.08.2024', desc: 'moteblogg', link: 'https://wine.nheek.com/', image: '/featured-projects/template/wine.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'], deployedWith: ["docker", "github actions"]  },
       { name: 'grownoo', status: 'vedlikehold', desc: 'landingsside for videoproduksjonsbyrå', link: 'https://grownoo.nheek.com/', image: '/featured-projects/template/grownoo.png', mobileImage: '/featured-projects/mobile/template/m-grownoo.png', techstack: ['WordPress', 'PHP', 'JavaScript', 'CSS'] },
     ],
   };
