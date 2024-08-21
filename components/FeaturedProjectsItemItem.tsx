@@ -51,11 +51,13 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
     return (
         <div className="w-full md:w-[40%] h-[500px] md:h-[450px] lg:h-[500px] mt-16 md:mt-0 lg:mt-16">
             <div className="relative">
-                <ImageLoader
-                    src={category == 'mobileApps' ? projectImage[mobileAppImageIndex] : projectImage}
-                    alt={project.name}
-                    className="max-h-[400px] rounded-xl shadow-lg mx-auto"
-                />
+                <a href={project.link} target="_blank">
+                    <ImageLoader
+                        src={category == 'mobileApps' ? projectImage[mobileAppImageIndex] : projectImage}
+                        alt={project.name}
+                        className="max-h-[400px] rounded-xl shadow-lg mx-auto"
+                    />
+                </a>
 
                 {
                 /* The "new" banner */
@@ -84,15 +86,15 @@ export default function FeaturedProjectsItemItem ({category = null, project = nu
                 }
                 {
                     /* currently unused, shows a badge for when a website has a bug */
-                    project.bug && 
+                    project.bug &&
                     <>
                         <div className="absolute bottom-0 right-0 w-0 h-0 border-solid border-t-[75px] border-r-[75px] border-transparent border-r-red-200"></div>
                         <div className="absolute z-20 bottom-1 right-1 text-lg text-black">Bug</div>
                     </>
                 }
-                {   
+                {
                     /* shows a banner for website status, for example "under maintenance" */
-                    project.status && 
+                    project.status &&
                         <div className="absolute z-20 bottom-0 right-0 w-full bg-yellow-950 bg-opacity-50 px-4 py-2 text-xl text-white text-center rounded-b-xl">
                             { project.status }
                         </div>
