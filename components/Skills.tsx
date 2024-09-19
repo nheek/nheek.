@@ -26,10 +26,10 @@ export default function Skills() {
     "NGINX", "NodeJS", "PHP", "Python", "PyQT",
     "ReactJS", "RemixJS", "RESTful API", "Socket.IO",
     "React Native", "Expo Go", "PostgreSQL", "Vite", "JUnit",
-    "Docker Hub", "AstroJS"
+    "Docker Hub", "AstroJS", "Zola"
   ];
   let middleSkills = [
-    "Zola", "Django", "Git", "Flutter", "JPA", "C#"
+    "Django", "Git", "Flutter", "JPA", "C#"
   ]
   let orangeSkills = [
     "SCSS", "Swift", "Go", "C++"
