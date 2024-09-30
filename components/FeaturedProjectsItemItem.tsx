@@ -147,7 +147,7 @@ export default function FeaturedProjectsItemItem({
       <div
         className={`${project.onGithub || project.mobileImage || websiteStatus != null ? "flex gap-4" : ""} mt-1 text-3xl`}
       >
-        <a href={project.link}>
+        <a href={project.link} target="_blank">
           <span>{project.name}</span>
         </a>
         {!["desktopApps", "mobileApps"].includes(category) && (
