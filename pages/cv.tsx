@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Layout from '../components/cv/Layout';
-import getTextsMap from '../components/GetTextsMap';
+import Head from "next/head";
+import Layout from "../components/cv/Layout";
+import getTextsMap from "../components/GetTextsMap";
 
 export default function CV() {
   const wwwNheekNo = {
-    sitename: "cv | nheek no"
+    sitename: "cv | nheek no",
   };
   const wwwDefault = {
-    sitename: "cv | nheek"
+    sitename: "cv | nheek",
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
-    default: wwwDefault
+    default: wwwDefault,
   };
   const textsMap = getTextsMap(domainPairs);
 
@@ -20,10 +20,7 @@ export default function CV() {
       <Head>
         <title>{textsMap.sitename}</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Contains CV/Resume of nheek"
-        />
+        <meta name="description" content="Contains CV/Resume of nheek" />
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
@@ -36,4 +33,4 @@ export default function CV() {
       <Layout />
     </>
   );
-};
+}

@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Layout from '../components/logbook/layout';
-import getTextsMap from '../components/GetTextsMap';
+import Head from "next/head";
+import Layout from "../components/logbook/layout";
+import getTextsMap from "../components/GetTextsMap";
 
 export default function Logbook() {
   const wwwNheekNo = {
-    sitename: "loggbok | nheek no"
+    sitename: "loggbok | nheek no",
   };
   const wwwDefault = {
-    sitename: "logbook | nheek"
+    sitename: "logbook | nheek",
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
-    default: wwwDefault
+    default: wwwDefault,
   };
   const textsMap = getTextsMap(domainPairs);
 
@@ -36,4 +36,4 @@ export default function Logbook() {
       <Layout />
     </>
   );
-};
+}

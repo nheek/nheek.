@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Layout from '../components/links/layout';
-import getTextsMap from '../components/GetTextsMap';
+import Head from "next/head";
+import Layout from "../components/links/layout";
+import getTextsMap from "../components/GetTextsMap";
 
 export default function Links() {
   const wwwNheekNo = {
-    sitename: "links | nheek no"
+    sitename: "links | nheek no",
   };
   const wwwDefault = {
-    sitename: "links | nheek"
+    sitename: "links | nheek",
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
-    default: wwwDefault
+    default: wwwDefault,
   };
   const textsMap = getTextsMap(domainPairs);
 
@@ -36,4 +36,4 @@ export default function Links() {
       <Layout />
     </>
   );
-};
+}

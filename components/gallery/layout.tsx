@@ -7,14 +7,14 @@ import getTextsMap from "../GetTextsMap";
 
 export default function Layout() {
   const wwwNheekNo = {
-    pageName: "galleri"
+    pageName: "galleri",
   };
   const wwwDefault = {
-    pageName: "gallery"
+    pageName: "gallery",
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
-    default: wwwDefault
+    default: wwwDefault,
   };
   const textsMap = getTextsMap(domainPairs);
 
@@ -24,6 +24,6 @@ export default function Layout() {
       <Navigate underPage />
       <Main />
       <Footer />
-    </div >
+    </div>
   );
 }

@@ -1,7 +1,7 @@
-import dynamic from 'next/dynamic';
-import Header from '../Header';
-import Navigate from '../Navigate';
-import Main from './Main';
+import dynamic from "next/dynamic";
+import Header from "../Header";
+import Navigate from "../Navigate";
+import Main from "./Main";
 const Footer = dynamic(() => import("../Footer"));
 
 export default function Layout() {
@@ -11,6 +11,6 @@ export default function Layout() {
       <Navigate underPage />
       <Main />
       <Footer />
-    </div >
+    </div>
   );
 }

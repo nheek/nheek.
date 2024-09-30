@@ -1,19 +1,21 @@
-import getTextsMap from './GetTextsMap';
+import getTextsMap from "./GetTextsMap";
 
 export default function Hero() {
   const wwwNheekNo = {
     sitename: "nheek no",
-    heroText: "hei! jeg er nheek. kodene mine gir liv til nettsider og applikasjoner. la dine ideer bli virkelighet.",
+    heroText:
+      "hei! jeg er nheek. kodene mine gir liv til nettsider og applikasjoner. la dine ideer bli virkelighet.",
     realName: "heter egentlig nick",
   };
   const wwwDefault = {
     sitename: "nheek",
-    heroText: "hi! im nheek. my codes breathe life to websites and applications. let your ideas come to life.",
+    heroText:
+      "hi! im nheek. my codes breathe life to websites and applications. let your ideas come to life.",
     realName: "real name is nick",
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
-    default: wwwDefault
+    default: wwwDefault,
   };
   const textsMap = getTextsMap(domainPairs);
 

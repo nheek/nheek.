@@ -1,6 +1,6 @@
 // 'use client'
-import { useState, useEffect } from 'react';
-import { Stage, Layer, Line } from 'react-konva';
+import { useState, useEffect } from "react";
+import { Stage, Layer, Line } from "react-konva";
 
 export default function Logbook() {
   // const [isBrowser, setIsBrowser] = useState(false);
@@ -17,12 +17,12 @@ export default function Logbook() {
       setStageHeight(window.innerHeight * 0.75);
     };
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setStageWidth(window.innerWidth * 0.9525);
       setStageHeight(window.innerHeight * 0.75);
-      window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
 
-      return () => window.removeEventListener('resize', handleResize);
+      return () => window.removeEventListener("resize", handleResize);
     }
   }, []);
 

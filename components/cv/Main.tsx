@@ -6,9 +6,9 @@ const Work = dynamic(() => import("./Work"));
 export default function Main() {
   return (
     <main>
-        <Profile />
-        <Work />
-        <Volunteer />
+      <Profile />
+      <Work />
+      <Volunteer />
     </main>
   );
 }

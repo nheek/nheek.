@@ -5,11 +5,11 @@ function imageLoaderHere({ src, width, quality }) {
 }
 
 export default function ImageLoader({
-  src="",
-  alt="",
-  className="",
-  width=null,
-  quality=100
+  src = "",
+  alt = "",
+  className = "",
+  width = null,
+  quality = 100,
 }) {
   return (
     <Image

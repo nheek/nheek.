@@ -1,20 +1,20 @@
-import dynamic from 'next/dynamic';
-import Header from '../Header';
-import Main from './main';
+import dynamic from "next/dynamic";
+import Header from "../Header";
+import Main from "./main";
 const Footer = dynamic(() => import("../Footer"));
-import Navigate from '../Navigate';
-import getTextsMap from '../GetTextsMap';
+import Navigate from "../Navigate";
+import getTextsMap from "../GetTextsMap";
 
 export default function Layout() {
   const wwwNheekNo = {
-    pageName: "lenker"
+    pageName: "lenker",
   };
   const wwwDefault = {
-      pageName: "links"
+    pageName: "links",
   };
   const domainPairs = {
-      "www.nheek.no": wwwNheekNo, 
-      default: wwwDefault
+    "www.nheek.no": wwwNheekNo,
+    default: wwwDefault,
   };
   const textsMap = getTextsMap(domainPairs);
 
@@ -24,6 +24,6 @@ export default function Layout() {
       <Navigate underPage={true} />
       <Main />
       <Footer />
-    </div >
+    </div>
   );
 }

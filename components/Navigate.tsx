@@ -1,19 +1,19 @@
-import Link from 'next/link';
-import getTextsMap from './GetTextsMap';
+import Link from "next/link";
+import getTextsMap from "./GetTextsMap";
 
 export default function Navigate({ underPage = false }) {
   const wwwNheekNo = {
-    txtSkills: 'naviger',
+    txtSkills: "naviger",
   };
 
   const wwwDefault = {
-    txtSkills: 'navigate',
+    txtSkills: "navigate",
   };
 
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
-    default: wwwDefault
-  }
+    default: wwwDefault,
+  };
 
   let textsMap = getTextsMap(domainPairs);
 
@@ -25,30 +25,31 @@ export default function Navigate({ underPage = false }) {
     { name: "fun", link: "/fun" }, // post your spotify playlists here maybe or favourite shows or anything really
     { name: "links", link: "/links" }, // add links you want to add on your portfolio, like a friend's portfolio website
     { name: "logbook", link: "/logbook" }, // add something that allows visitor to submit something to show that they've been on my website
-  ]
+  ];
 
   return (
-    <div className={`${underPage && "!p-0"} px-4 pt-[25%] md:pt-[15%] min-h-max`}>
-        <section className={`${underPage ? "hidden" : "block"} text-4xl md:text-[4rem] xl:text-[6rem]`}>
-          {textsMap.txtSkills}
-        </section>
-        <section className={`${underPage && "justify-center"} flex flex-wrap gap-4 text-md w-[90%] mt-8 md:mt-14 m-auto`}>
-          {
-            navLinks.map((link, index) => (
-              <div
-                className="w-max hover:bg-gray-200 hover:text-blue-950 cursor-pointer border-2 border-gray-200 rounded-3xl px-4 py-2 duration-500"
-                key={"navlinks" + index}
-              >
-                <Link
-                  className="!no-underline"
-                  href={link.link}
-                >
-                  {link.name}
-                </Link>
-              </div>
-            ))
-          }
-        </section>
+    <div
+      className={`${underPage && "!p-0"} px-4 pt-[25%] md:pt-[15%] min-h-max`}
+    >
+      <section
+        className={`${underPage ? "hidden" : "block"} text-4xl md:text-[4rem] xl:text-[6rem]`}
+      >
+        {textsMap.txtSkills}
+      </section>
+      <section
+        className={`${underPage && "justify-center"} flex flex-wrap gap-4 text-md w-[90%] mt-8 md:mt-14 m-auto`}
+      >
+        {navLinks.map((link, index) => (
+          <div
+            className="w-max hover:bg-gray-200 hover:text-blue-950 cursor-pointer border-2 border-gray-200 rounded-3xl px-4 py-2 duration-500"
+            key={"navlinks" + index}
+          >
+            <Link className="!no-underline" href={link.link}>
+              {link.name}
+            </Link>
+          </div>
+        ))}
+      </section>
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import getCurrentDomain from './GetCurrentDomain';
+import getCurrentDomain from "./GetCurrentDomain";
 
 export default function GetTextsMap(keyValuePairs) {
-    const domain = getCurrentDomain();
+  const domain = getCurrentDomain();
 
-    return keyValuePairs[domain] || keyValuePairs.default;
+  return keyValuePairs[domain] || keyValuePairs.default;
 }

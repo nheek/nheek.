@@ -30,21 +30,21 @@ The installation is pretty straightforward, just follow the steps below and you 
 
 1. Clone the repository:
 
-    ```bash
-    git clone https://github.com/nheek/nheek..git your-project
-    ```
+   ```bash
+   git clone https://github.com/nheek/nheek..git your-project
+   ```
 
 2. Change into the project directory:
 
-    ```bash
-    cd your-project
-    ```
+   ```bash
+   cd your-project
+   ```
 
 3. Install dependencies:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 ### Development <a name="development"></a>
 
@@ -61,7 +61,7 @@ Nheek can be used to store your projects and have a hook for potential employers
 ### Deployment <a name="deployment"></a>
 
 1. Build the project files
-   
+
 ```bash
 npm run build
 ```

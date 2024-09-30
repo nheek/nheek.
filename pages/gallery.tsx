@@ -1,17 +1,17 @@
-import Head from 'next/head';
-import Layout from '../components/gallery/layout';
-import getTextsMap from '../components/GetTextsMap';
+import Head from "next/head";
+import Layout from "../components/gallery/layout";
+import getTextsMap from "../components/GetTextsMap";
 
 export default function Gallery() {
   const wwwNheekNo = {
-    sitename: "galleri | nheek no"
+    sitename: "galleri | nheek no",
   };
   const wwwDefault = {
-    sitename: "gallery | nheek"
+    sitename: "gallery | nheek",
   };
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
-    default: wwwDefault
+    default: wwwDefault,
   };
   const textsMap = getTextsMap(domainPairs);
 
@@ -36,4 +36,4 @@ export default function Gallery() {
       <Layout />
     </>
   );
-};
+}
