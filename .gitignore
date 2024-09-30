@@ -134,7 +134,6 @@ dist
 .htaccess
 
 # IDE and editor files
-.vscode/
 .idea/
 
 # Environment variables

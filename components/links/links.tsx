@@ -3,7 +3,7 @@ import getTextsMap from "../GetTextsMap";
 export default function Links() {
   const links = [
     {
-      name: "mathias' portfolio",
+      name: "mathias haugsbø",
       link: "https://mathiash98.github.io/",
       desc: "portfolio website of mathias haugsbø (fribyte member)",
     },
@@ -17,13 +17,18 @@ export default function Links() {
       link: "https://moldescriptor.com/",
       desc: "input molecules to calculate various descriptors by johannes lysne (fribyte member)",
     },
+    {
+      name: "sindre kjelsrud",
+      link: "https://kjelsrud.dev/",
+      desc: "portfolio website of sindre kjelsrud (fribyte member)",
+    },
   ];
 
   const links_no = [
     {
-      name: "mathias portefølje",
+      name: "mathias haugsbø",
       link: "https://mathiash98.github.io/",
-      desc: "nettsiden til mathias haugsbæ (fribyte medlem)",
+      desc: "nettsiden til mathias haugsbø (fribyte medlem)",
     },
     {
       name: "bergen font",
@@ -34,6 +39,11 @@ export default function Links() {
       name: "moldescriptor",
       link: "https://moldescriptor.com/",
       desc: "input molecules to calculate various descriptors by johannes lysne (fribyte member)",
+    },
+    {
+      name: "sindre kjelsrud",
+      link: "https://kjelsrud.dev/",
+      desc: "nettsiden til sindre kjelsrud (fribyte medlem)",
     },
   ];
 
@@ -63,7 +73,7 @@ export default function Links() {
         <ul className="flex flex-col gap-8">
           {textsMap.links.map((link, index) => (
             <li
-              key={index}
+              key={"link" + index}
               className="shadow-inner-blue inset-y-0 inset-x-0 p-4 rounded-3xl !no-underline"
             >
               <a href={link.link} target="_blank">
