@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "../components/cv/Layout";
 import getTextsMap from "../components/GetTextsMap";
+import React from "react";
 
 export default function CV() {
   const wwwNheekNo = {

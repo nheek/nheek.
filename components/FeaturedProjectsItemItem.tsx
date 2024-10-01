@@ -94,9 +94,9 @@ export default function FeaturedProjectsItemItem({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 8l-4 4 4 4M16 12H9" />
@@ -113,9 +113,9 @@ export default function FeaturedProjectsItemItem({
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 8l4 4-4 4M8 12h7" />
@@ -189,7 +189,7 @@ export default function FeaturedProjectsItemItem({
             <span className="text-xs">{txtInfo["deployedWith"]}</span>
             <ul className="flex flex-wrap text-xs gap-2">
               {project.deployedWith.map((deploy, index) => (
-                <li key={index}>
+                <li key={"deployed-with" + index}>
                   {deploy}
                   {project.deployedWith.length > 1 &&
                   index !== project.deployedWith.length - 1
@@ -210,7 +210,7 @@ export default function FeaturedProjectsItemItem({
             <span className="text-xs">{txtInfo["with"]}</span>
             <ul className="flex flex-wrap text-xs gap-2">
               {project.collaborators.map((person, index) => (
-                <li key={index} className="py-2 cursor-pointer">
+                <li key={"collaborators" + index} className="py-2 cursor-pointer">
                   <a href={person.link} target="_blank">
                     {person.name}
                   </a>
