@@ -55,7 +55,7 @@ export default function FeaturedProjects() {
       <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
         {textsMap.featuredProjects}
       </hgroup>
-      <section className="mt-8 md:mt-14 md:ml-6">
+      <section className="my-8 md:mt-14 md:ml-6">
         <ul className="flex flex-wrap gap-2">
           {categories.map((category) => (
             <li

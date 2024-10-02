@@ -56,7 +56,7 @@ export default function FeaturedProjectsItemItem({
   };
 
   return (
-    <div className="w-full md:w-[40%] h-[500px] md:h-[450px] lg:h-[500px] mt-16 md:mt-0 lg:mt-16">
+    <div className="w-full md:w-[40%] h-[500px] md:h-[450px] lg:h-[500px] mt-0 lg:mt-16">
       <div className="relative">
         <a href={project.link} target="_blank">
           <ImageLoader

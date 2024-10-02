@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import GetTextsMap from "./GetTextsMap";
 import FeaturedProjectsItemItem from "./FeaturedProjectsItemItem";
+import React from "react";
 
 export default function FeaturedProjectsItem({
   category = "websites",
@@ -349,7 +350,7 @@ export default function FeaturedProjectsItem({
         status: "under construction",
         desc: "social media messaging web app",
         link: "https://homing.lukasry.no/",
-        image: "/featured-projects/contributions/homing.png",
+        image: "https://uppy.nheek.com/uploads/b9564db0-e952-4a5b-9f18-f268c1a3f8a2.png",
         techstack: ["PHP", "JavaScript", "MySQL", "JQuery", "CSS"],
         collaborators: [
           { name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal" },
@@ -818,7 +819,7 @@ export default function FeaturedProjectsItem({
         status: "under arbeid",
         desc: "sosiale medie melding webapp",
         link: "https://homing.lukasry.no/",
-        image: "/featured-projects/contributions/homing.png",
+        image: "https://uppy.nheek.com/uploads/b9564db0-e952-4a5b-9f18-f268c1a3f8a2.png",
         techstack: ["PHP", "JavaScript", "MySQL", "JQuery", "CSS"],
         collaborators: [
           { name: "Lukas Rysjedal", link: "https://github.com/LukasRysjedal" },
