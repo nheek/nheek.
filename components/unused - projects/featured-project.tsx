@@ -1121,9 +1121,6 @@ export default function FeaturedProject({
   };
   const textsMap = GetTextsMap(domainPairs);
 
-  // console.log(textsMap.projectsToShowMap[category].map((project) => (
-  //   project.name == projectName ? project.name : ""
-  // )))
   return (
     <div>
       {textsMap.projectsToShowMap[category]?.map(

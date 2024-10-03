@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ImageLoader from "./utils/ImageLoader";
 import IsTwoWeeksApart from "./utils/IsTwoWeeksApart";
-import React from "react";
 
 export default function FeaturedProjectsItemItem({
   category = null,
