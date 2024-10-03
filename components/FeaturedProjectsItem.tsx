@@ -440,6 +440,16 @@ export default function FeaturedProjectsItem({
         deployedWith: ["docker", "github actions"],
       },
       {
+        name: "hvltopia",
+        dateAdded: "03.10.2024",
+        status: "early access",
+        desc: "sustainable energy - environment landing page",
+        link: "https://hvltopia.nheek.com/",
+        image: "https://uppy.nheek.com/uploads/f12a4224-ff77-4bae-a040-e7c0052be9b3.png",
+        techstack: ["HTML", "CSS"],
+        deployedWith: ["github actions"],
+      },
+      {
         name: "truhvel",
         dateAdded: "09.04.2024",
         desc: "underwater exploration landing page",
@@ -902,6 +912,16 @@ export default function FeaturedProjectsItem({
         image: "/featured-projects/static/ingo.png",
         techstack: ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
         deployedWith: ["docker", "github actions"],
+      },
+      {
+        name: "hvltopia",
+        dateAdded: "03.10.2024",
+        status: "early access",
+        desc: "landingsside for bærekraftig energi – miljø",
+        link: "https://hvltopia.nheek.no/",
+        image: "https://uppy.nheek.com/uploads/f12a4224-ff77-4bae-a040-e7c0052be9b3.png",
+        techstack: ["HTML", "CSS"],
+        deployedWith: ["github actions"],
       },
       {
         name: "truhvel",
