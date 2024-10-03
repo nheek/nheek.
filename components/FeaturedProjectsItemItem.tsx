@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ImageLoader from "./utils/ImageLoader";
 import IsTwoWeeksApart from "./utils/IsTwoWeeksApart";
+import React from "react";
 
 export default function FeaturedProjectsItemItem({
   category = null,
@@ -159,6 +160,7 @@ export default function FeaturedProjectsItemItem({
           title="Github link"
           className={`${project.onGithub ? "block" : "hidden"} flex items-center`}
           href={project.onGithub}
+          target="_blank"
         >
           <img src="/social-links/github-iconx.svg" alt="github icon logo" />
         </a>
