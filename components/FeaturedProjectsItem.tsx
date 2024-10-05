@@ -71,6 +71,21 @@ export default function FeaturedProjectsItem({
         deployedWith: ["docker", "github actions"],
       },
       {
+        name: "enfee",
+        desc: "NPC conversation simulator",
+        dateAdded: "05.10.2024",
+        link: "https://enfee.nheek.com/",
+        image: "https://uppy.nheek.com/uploads/e5ad6ca3-9c5f-443d-b7aa-f80d7b2a9cf2.png",
+        mobileImage: "https://uppy.nheek.com/uploads/447ccc21-5cb6-4ae3-af4a-d7f6b1f6fba4.png",
+        techstack: [
+          "NextJS",
+          "ReactJS",
+          "NodeJS",
+          "TypeScript",
+          "TailwindCSS",
+        ],
+      },
+      {
         name: "shareme",
         desc: "no-login todo list web app",
         link: "https://shareme.nheek.com/",
@@ -559,6 +574,21 @@ export default function FeaturedProjectsItem({
           "TailwindCSS",
         ],
         deployedWith: ["docker", "github actions"],
+      },
+      {
+        name: "enfee",
+        desc: "NPC samtalesimulator",
+        dateAdded: "05.10.2024",
+        link: "https://enfee.nheek.com/",
+        image: "https://uppy.nheek.com/uploads/e5ad6ca3-9c5f-443d-b7aa-f80d7b2a9cf2.png",
+        mobileImage: "https://uppy.nheek.com/uploads/447ccc21-5cb6-4ae3-af4a-d7f6b1f6fba4.png",
+        techstack: [
+          "NextJS",
+          "ReactJS",
+          "NodeJS",
+          "TypeScript",
+          "TailwindCSS",
+        ],
       },
       {
         name: "shareme",
