@@ -1059,7 +1059,7 @@ export default function FeaturedProjectsItem({
         ref={divRef}
         className="relative text-3xl leading-snug flex flex-col md:flex-row items-center justify-center gap-[7%] flex-wrap"
       >
-        <span className="text-lg -mb-8 md:mb-0 mt-4 md:absolute top-0 italic opacity-60">
+        <span className="text-lg mb-8 md:mb-0 mt-4 md:mt-0 md:absolute top-0 italic opacity-60">
           {txtInfo[category] || ""}
         </span>
         {projectsToShow.map((project, index) => (

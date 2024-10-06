@@ -74,7 +74,7 @@ export default function Links() {
           {textsMap.links.map((link, index) => (
             <li
               key={"link" + index}
-              className="shadow-inner-blue inset-y-0 inset-x-0 p-4 rounded-3xl !no-underline"
+              className="border-l-4 border-gray-300 border-opacity-50 px-4 py-2 !no-underline"
             >
               <a href={link.link} target="_blank">
                 {`${link.name} - ${link.desc}`}
