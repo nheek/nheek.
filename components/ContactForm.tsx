@@ -70,16 +70,16 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="px-4 min-h-max h-[70vh] md:h-[50vh] md:mt-16">
+    <div className="px-4 min-h-max h-[60vh] md:h-[40vh] md:mt-16">
       <form
-        className="h-full flex flex-col md:flex-row items-center justify-center gap-0 md:gap-[5%] mt-8 md:mt-0"
+        className="h-[80%] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-[5%] mt-8 md:mt-0"
         onSubmit={handleSubmit}
       >
         <div className="w-full md:w-[40%] h-full flex flex-col justify-center gap-[6%] md:gap-[5%] text-lg">
           {inputFields.map((field) => (
             <input
               key={field}
-              className="h-[25%] rounded-xl md:rounded-3xl pl-4 text-gray-900"
+              className="h-1/3 rounded-xl md:rounded-3xl pl-4 text-gray-900"
               type={["email", "epost"].includes(field) ? "email" : "text"}
               name={field}
               placeholder={field}
@@ -88,16 +88,16 @@ export default function ContactForm() {
             />
           ))}
         </div>
-        <div className="w-full md:w-[40%] h-full flex flex-col md:justify-center gap-[6%] md:gap-[5%] text-lg">
+        <div className="w-full md:w-[40%] h-full flex flex-col md:justify-center gap-[6%] md:gap-[5%] mt-3 md:mt-0 text-lg">
           <textarea
-            className="rounded-xl md:rounded-3xl pl-4 h-[60%] pt-5 text-gray-900"
+            className="rounded-xl md:rounded-3xl pl-4 h-full pt-5 text-gray-900"
             name="message"
             placeholder={txtContactMessage}
             value={formData.message}
             onChange={handleChange}
           />
           <button
-            className="border-2 border-solid border-gray-200 p-4 rounded-xl md:rounded-3xl hover:bg-gray-200 hover:text-black duration-500"
+            className="bg-[#1C2951] brightness-125 hover:brightness-[unset] p-4 rounded-xl md:rounded-3xl hover:bg-gray-200 hover:text-blue-950 duration-500"
             type="submit"
             disabled={loading}
           >

@@ -41,7 +41,7 @@ export default function Navigate({ underPage = false }) {
       >
         {navLinks.map((link, index) => (
           <div
-            className="w-max hover:bg-gray-200 hover:text-blue-950 cursor-pointer border-2 border-gray-200 rounded-3xl px-4 py-2 duration-500"
+            className="w-max bg-[#1C2951] brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 cursor-pointer rounded-3xl hover:mx-4 hover:scale-105 px-4 py-2 duration-500 hover:translateZ(0)"
             key={"navlinks" + index}
           >
             <Link className="!no-underline" href={link.link}>

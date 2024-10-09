@@ -36,14 +36,12 @@ export default function Footer() {
     <footer
       className={
         textsMap.addStyles.footer +
-        ` md:h-[20vh] mt-[30%] md:mt-[8%] flex flex-col md:flex-row gap-[10%] items-center justify-center`
+        ` md:h-[20vh] mt-[30%] md:mt-[8%] pb-8 flex flex-col md:flex-row gap-[10%] items-center justify-center md:items-end`
       }
     >
-      <nav className={textsMap.addStyles.nav1}>
-        <ul>
-          <li>{textsMap.fullStack}</li>
-        </ul>
-      </nav>
+      <ul className={textsMap.addStyles.nav1}>
+        <li>{textsMap.fullStack}</li>
+      </ul>
 
       <Link
         href="/"
@@ -55,15 +53,13 @@ export default function Footer() {
         <h1>{textsMap.sitename}</h1>
       </Link>
 
-      <nav className={textsMap.addStyles.nav2 + ` text-right`}>
-        <ul>
-          <li>
-            <Link className="!no-underline" href={textsMap.link}>
-              {textsMap.currentLang}
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <ul className={textsMap.addStyles.nav2 + ` text-right`}>
+        <li>
+          <Link className="!no-underline" href={textsMap.link}>
+            {textsMap.currentLang}
+          </Link>
+        </li>
+      </ul>
     </footer>
   );
 }

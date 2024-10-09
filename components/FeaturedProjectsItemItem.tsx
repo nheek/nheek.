@@ -175,8 +175,8 @@ export default function FeaturedProjectsItemItem({
         <ul className="flex flex-wrap text-xs gap-2">
           {project.techstack.map((tech, index) => (
             <li
-              key={index}
-              className="border border-1 border-gray-400 px-2 py-1 rounded-xl hover:bg-gray-400"
+              key={"techstack" + index}
+              className="pr-2 py-1"
             >
               <span>{tech}</span>
             </li>
@@ -186,7 +186,7 @@ export default function FeaturedProjectsItemItem({
       {
         /* shows the text "deployed with" under the images */
         project.deployedWith && (
-          <div className="flex gap-1 items-center mt-3 ml-1 opacity-80">
+          <div className="flex gap-1 items-center mt-3 opacity-80">
             <span className="text-xs">{txtInfo["deployedWith"]}</span>
             <ul className="flex flex-wrap text-xs gap-2">
               {project.deployedWith.map((deploy, index) => (

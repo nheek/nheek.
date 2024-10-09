@@ -27,15 +27,15 @@ export default function SocialLinks() {
       {socials.map((social, index) => (
         <div key={"socials-" + index} className="group w-[25%] text-center">
           <a href={social.link} target="_blank" className="!no-underline">
-            <button className="w-[75%] h-10 md:h-[unset] flex gap-2 items-center justify-center p-4 m-auto border-2 border-solid border-gray-200 text-center text-xl leading-[normal] rounded-3xl group-hover:bg-gray-200 duration-500">
+            <button className="w-[60%] h-10 md:h-[unset] flex gap-2 group-hover:gap-5 items-center justify-center px-2 py-4 m-auto text-center text-xl leading-[normal] duration-200">
               <div>
                 <img
-                  className="group-hover:hidden"
+                  className=""
                   src={social.icon}
                   alt={social.name + " icon"}
                 />
               </div>
-              <div className="hidden md:block !no-underline group-hover:text-blue-950">
+              <div className="hidden md:block !no-underline">
                 {social.name}
               </div>
             </button>
