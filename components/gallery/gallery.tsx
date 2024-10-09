@@ -38,7 +38,7 @@ const images = [
     alt: "coconut farm near my hometown",
   },
   { src: "https://uppy.nheek.com/uploads/f9dcb669-32e0-43a3-ae46-27624a87bc2f.jpg", alt: "a friend's car" },
-  { src: "https://uppy.nheek.com/uploads/f9dcb669-32e0-43a3-ae46-27624a87bc2f.jpg", alt: "17th of may" },
+  { src: "https://uppy.nheek.com/uploads/9f1057f6-e9f8-4811-8e5f-b895e13bc866.jpeg", alt: "17th of may" },
   { src: "https://uppy.nheek.com/uploads/e717a9bb-5694-4b19-8a2f-10f30a149700.png", alt: "picture of me" },
   {
     src: "https://uppy.nheek.com/uploads/c473d7c3-2e46-4002-b736-58d9931eeff6.jpeg",

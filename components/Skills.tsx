@@ -67,7 +67,7 @@ export default function Skills() {
       <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
         {textsMap.txtSkills}
       </hgroup>
-      <div className="w-max bg-opacity-50 mt-4 ml-4 md:ml-[3.25rem] border-2 border-opacity-50 border-white px-3 py-1 rounded-3xl duration-500">
+      <div className="w-max bg-[#1C2951] brightness-125 hover:brightness-[unset] mt-6 ml-4 md:ml-[3.25rem] px-3 py-1 rounded-3xl duration-500">
         {textsMap.txtCurrentlyLearning}
       </div>
       <div className="text-md w-[90%] mt-8 md:mt-10 m-auto">
@@ -75,7 +75,7 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <li
               key={"skills" + index}
-              className="bg-green-600 bg-opacity-50 px-3 py-1 rounded-3xl duration-500"
+              className="bg-green-600 bg-opacity-50 px-3 py-1 rounded-3xl hover:scale-105 hover:mx-3 duration-200"
             >
               {skill}
             </li>
@@ -83,7 +83,7 @@ export default function Skills() {
           {middleSkills.map((skill, index) => (
             <li
               key={"middleSkills" + index}
-              className="bg-gradient-to-br from-green-600/50 to-yellow-600/50 px-3 py-1 rounded-3xl duration-500"
+              className="bg-gradient-to-br from-green-600/50 to-yellow-600/50 px-3 py-1 rounded-3xl hover:scale-105 hover:mx-3 duration-200"
             >
               {skill}
             </li>
@@ -91,7 +91,7 @@ export default function Skills() {
           {orangeSkills.map((skill, index) => (
             <li
               key={"orangeSkills" + index}
-              className="bg-yellow-600 bg-opacity-50 px-3 py-1 rounded-3xl duration-500"
+              className="bg-yellow-600 bg-opacity-50 px-3 py-1 rounded-3xl hover:scale-105 hover:mx-3 duration-200"
             >
               {skill}
             </li>
@@ -99,7 +99,7 @@ export default function Skills() {
           {upcomingSkills.map((skill, index) => (
             <li
               key={"upcomingSkills" + index}
-              className="px-3 py-1 rounded-3xl border-2 border-opacity-50 border-white duration-500"
+              className="bg-[#1C2951] brightness-125 px-3 py-1 rounded-3xl hover:scale-105 hover:mx-3 duration-200"
             >
               {skill}
             </li>

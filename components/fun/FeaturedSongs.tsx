@@ -61,7 +61,7 @@ export default function FeaturedSongs() {
       </div>
       <Link
         href="/fun/featured-songs-history"
-        className="block w-max hover:bg-gray-200 hover:text-blue-950 my-6 mx-auto py-2 px-4 text-center border-2 border-solid border-gray-200 rounded-3xl !no-underline duration-500"
+        className="block w-max bg-[#1C2951] brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 my-6 mx-auto py-2 px-4 text-center rounded-3xl !no-underline duration-500"
       >
         See history
       </Link>

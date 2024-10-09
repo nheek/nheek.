@@ -22,6 +22,11 @@ export default function Links() {
       link: "https://kjelsrud.dev/",
       desc: "portfolio website of sindre kjelsrud (fribyte member)",
     },
+    {
+      name: "adam remøy",
+      link: "https://www.aadam.no/",
+      desc: "portfolio website of adam remøy (root and fribyte member)",
+    },
   ];
 
   const links_no = [
@@ -45,7 +50,16 @@ export default function Links() {
       link: "https://kjelsrud.dev/",
       desc: "nettsiden til sindre kjelsrud (fribyte medlem)",
     },
+    {
+      name: "adam remøy",
+      link: "https://www.aadam.no/",
+      desc: "nettsiden til adam remøy (root og fribyte medlem)",
+    },
   ];
+
+  // Sort the links by name in ascending order
+  links.sort((a, b) => a.name.localeCompare(b.name));
+  links_no.sort((a, b) => a.name.localeCompare(b.name));
 
   const wwwNheekNo = {
     txtLinks: "lenker",
@@ -76,7 +90,7 @@ export default function Links() {
               key={"link" + index}
               className="border-l-4 border-gray-300 border-opacity-50 px-4 py-2 !no-underline"
             >
-              <a href={link.link} target="_blank">
+              <a href={link.link} target="_blank" rel="noopener noreferrer">
                 {`${link.name} - ${link.desc}`}
               </a>
             </li>
