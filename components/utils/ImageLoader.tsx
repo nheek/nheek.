@@ -1,32 +1,29 @@
 import Image from "next/image";
 
-function imageLoaderHere({ src, width, quality }) {
-  return `${src}?w=${width}&q=${quality}`;
-}
-
-export default function ImageLoader({
-  src = "",
-  alt = "",
-  className = "",
-  width = null,
-  quality = 100,
-}) {
-  return (
-    <Image
-      loader={imageLoaderHere.bind(null, { src, width, quality })}
-      src={src}
-      alt={alt}
-      placeholder="blur"
-      className={className}
-      title={alt}
-    />
-  );
-}
-
 interface ImageLoaderProps {
   src: string;
   alt: string;
-  className: string;
-  width: null | number;
-  quality: number;
+  className?: string; // className is optional
+  width?: number; // width is optional
+  height?: number; // height is optional
+}
+
+export default function ImageLoader({
+  src,
+  alt,
+  className = "",
+  width = 500,
+  height = 500,
+}: ImageLoaderProps) {
+  return (
+    <Image
+      width={width}
+      height={height}
+      src={src}
+      alt={alt}
+      className={className}
+      title={alt}
+      loading="lazy" // Optional: Add lazy loading
+    />
+  );
 }
