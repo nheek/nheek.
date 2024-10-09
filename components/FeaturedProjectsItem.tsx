@@ -14,8 +14,8 @@ export default function FeaturedProjectsItem({
         name: "nheek",
         desc: "this portfolio website",
         link: "https://www.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/b609bdf7-83e9-415b-8a38-6beb0f0b39a0.png",
-        mobileImage: "https://uppy.nheek.com/uploads/94d17b5a-817a-4494-aaa7-e6260de31a5a.png",
+        image: "https://uppy.nheek.com/uploads/823f41d5-1685-4cca-98d3-d923ef322bd3.png",
+        mobileImage: "https://uppy.nheek.com/uploads/4e852c83-b510-4696-9d15-db461e41a632.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -520,8 +520,8 @@ export default function FeaturedProjectsItem({
         name: "nheek",
         desc: "denne portefølje nettsiden",
         link: "https://www.nheek.no/",
-        image: "/featured-projects/nheek-no.png",
-        mobileImage: "/featured-projects/mobile/m-nheek.png",
+        image: "https://uppy.nheek.com/uploads/30175fb9-8978-4cd1-a5f1-e45da901bc6d.png",
+        mobileImage: "https://uppy.nheek.com/uploads/66e01f98-d33b-4e37-b76c-e8cc535a0206.png",
         techstack: [
           "NextJS",
           "ReactJS",
