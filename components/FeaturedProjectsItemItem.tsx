@@ -66,7 +66,7 @@ export default function FeaturedProjectsItemItem({
                 : projectImage
             }
             alt={project.name}
-            className="max-h-[400px] rounded-xl shadow-lg mx-auto"
+            className="max-h-[400px] !rounded-xl shadow-lg mx-auto"
           />
         </a>
 

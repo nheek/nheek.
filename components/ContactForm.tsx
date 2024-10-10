@@ -72,7 +72,7 @@ export default function ContactForm() {
   return (
     <div className="px-4 min-h-max h-[60vh] md:h-[40vh] md:mt-16">
       <form
-        className="h-[80%] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-[5%] mt-8 md:mt-0"
+        className="h-[80%] flex flex-col md:flex-row items-center justify-center gap-0 md:gap-[5%] mt-12 md:mt-0"
         onSubmit={handleSubmit}
       >
         <div className="w-full md:w-[40%] h-full flex flex-col justify-center gap-[6%] md:gap-[5%] text-lg">
