@@ -144,7 +144,7 @@ export default function FeaturedProjectsItem({
         link: "https://lookatme.nheek.com/",
         image: "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
         mobileImage: "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
-        techstack: ["ExpressJS", "MySQL", "TailwindCSS", "Socket.IO"],
+        techstack: ["ExpressJS", "PostgreSQL", "TailwindCSS", "Socket.IO"],
         deployedWith: ["docker", "github actions"],
       },
       {
@@ -643,10 +643,11 @@ export default function FeaturedProjectsItem({
       {
         name: "lookatme",
         desc: "real-time statistikk underholdningsplattform",
-        link: "https://lookatme.nheek.com/",
+        link: "https://lookatme.nheek.no/",
         image: "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
         mobileImage: "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
-        techstack: ["ExpressJS", "MySQL", "TailwindCSS", "Socket.IO"],
+        techstack: ["ExpressJS", "PostgreSQL", "TailwindCSS", "Socket.IO"],
+        deployedWith: ["docker", "github actions"],
       },
       {
         name: "swiftgoss",
