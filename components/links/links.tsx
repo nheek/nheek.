@@ -27,6 +27,21 @@ export default function Links() {
       link: "https://www.aadam.no/",
       desc: "portfolio website of adam remøy (root and fribyte member)",
     },
+    {
+      name: "christian engelsen",
+      link: "https://cengelsen.no/",
+      desc: "portfolio website of christian engelsen (fribyte member)",
+    },
+    {
+      name: "rolf glomsrud",
+      link: "https://polsevev.dev/",
+      desc: "portfolio website of rolf glomsrud (fribyte member)",
+    },
+    {
+      name: "simen strømsnes",
+      link: "https://simsine.no/",
+      desc: "portfolio website of simen strømsnes (root and fribyte member)",
+    },
   ];
 
   const links_no = [
@@ -54,6 +69,21 @@ export default function Links() {
       name: "adam remøy",
       link: "https://www.aadam.no/",
       desc: "nettsiden til adam remøy (root og fribyte medlem)",
+    },
+    {
+      name: "christian engelsen",
+      link: "https://cengelsen.no/",
+      desc: "nettsiden til christian engelsen (fribyte medlem)",
+    },
+    {
+      name: "rolf glomsrud",
+      link: "https://polsevev.dev/",
+      desc: "nettsiden til rolf glomsrud (fribyte medlem)",
+    },
+    {
+      name: "simen strømsnes",
+      link: "https://simsine.no/",
+      desc: "nettsiden til simen strømsnes (root og fribyte medlem)",
     },
   ];
 
@@ -91,7 +121,8 @@ export default function Links() {
               className="border-l-4 border-gray-300 border-opacity-50 px-4 py-2 !no-underline"
             >
               <a href={link.link} target="_blank" rel="noopener noreferrer">
-                {`${link.name} - ${link.desc}`}
+                {link.name} -
+                <span className="opacity-60"> {link.desc}</span>
               </a>
             </li>
           ))}
