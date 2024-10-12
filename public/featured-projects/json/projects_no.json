@@ -545,6 +545,11 @@
         "ReactJS",
         "TypeScript",
         "TailwindCSS"
+      ],
+      "deployedWith": [
+        "github actions",
+        "docker",
+        "kubernetes"
       ]
     },
     {
@@ -559,6 +564,11 @@
         "TypeScript",
         "TailwindCSS"
       ],
+      "deployedWith": [
+        "github actions",
+        "docker",
+        "kubernetes"
+      ],
       "onGithub": "https://github.com/nheek/techie"
     },
     {
@@ -571,6 +581,11 @@
         "ViteJS",
         "TypeScript",
         "CSS"
+      ],
+      "deployedWith": [
+        "github actions",
+        "docker",
+        "kubernetes"
       ]
     },
     {
@@ -584,6 +599,11 @@
         "NodeJS",
         "TypeScript",
         "TailwindCSS"
+      ],
+      "deployedWith": [
+        "github actions",
+        "docker",
+        "kubernetes"
       ],
       "onGithub": "https://github.com/nheek/bould"
     },
@@ -599,8 +619,9 @@
         "CSS"
       ],
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -616,8 +637,9 @@
         "TailwindCSS"
       ],
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -647,6 +669,11 @@
         "ViteJS",
         "TypeScript",
         "CSS"
+      ],
+      "deployedWith": [
+        "github actions",
+        "docker",
+        "kubernetes"
       ]
     }
   ],

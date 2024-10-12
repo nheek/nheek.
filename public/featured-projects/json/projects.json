@@ -591,8 +591,9 @@
         "TailwindCSS"
       ],
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -609,8 +610,9 @@
       ],
       "onGithub": "https://github.com/nheek/techie",
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -625,8 +627,9 @@
         "CSS"
       ],
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -643,8 +646,9 @@
       ],
       "onGithub": "https://github.com/nheek/bould",
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -659,8 +663,9 @@
         "CSS"
       ],
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -676,8 +681,9 @@
         "TailwindCSS"
       ],
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     },
     {
@@ -709,8 +715,9 @@
         "CSS"
       ],
       "deployedWith": [
+        "github actions",
         "docker",
-        "github actions"
+        "kubernetes"
       ]
     }
   ],
