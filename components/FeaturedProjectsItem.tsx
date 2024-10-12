@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import GetTextsMap from "./GetTextsMap";
 import FeaturedProjectsItemItem from "./FeaturedProjectsItemItem";
 
@@ -6,7 +6,6 @@ export default function FeaturedProjectsItem({
   category = "websites",
 }: Readonly<FeaturedProjectsItemProps>) {
   const [projectsToShow, setProjectsToShow] = useState([]);
-  const [txtInfo, setTxtInfo] = useState({});
   const [projects, setProjects] = useState([]);
   const [projectsNo, setProjectsNo] = useState([]);
 
@@ -14,13 +13,13 @@ export default function FeaturedProjectsItem({
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("/featured-projects/json/projects.json"); // Update with the correct path
+        const response = await fetch("/featured-projects/json/projects.json");
         const data = await response.json();
         setProjects(data);
 
         const responseNo = await fetch(
-          "/featured-projects/json/projects_no.json",
-        ); // Update with the correct path
+          "/featured-projects/json/projects_no.json"
+        );
         const dataNo = await responseNo.json();
         setProjectsNo(dataNo);
       } catch (error) {
@@ -32,7 +31,7 @@ export default function FeaturedProjectsItem({
   }, []);
 
   const wwwNheekNo = {
-    projectsToShowMap: projectsNo, // Use the fetched projects_no
+    projectsToShowMap: projectsNo,
     contributions: "disse er prosjekter jeg har bidratt til",
     static: "disse er ikke funksjonelle nettsteder/apper",
     template: "disse er nettsteder/apper jeg delvis har kodet",
@@ -41,7 +40,7 @@ export default function FeaturedProjectsItem({
   };
 
   const wwwDefault = {
-    projectsToShowMap: projects, // Use the fetched projects
+    projectsToShowMap: projects,
     contributions: "these are projects i have contributed to",
     static: "these are non-functional websites/applications",
     template: "these are websites/apps i partially coded",
@@ -54,37 +53,35 @@ export default function FeaturedProjectsItem({
     default: wwwDefault,
   };
 
-  const textsMap = GetTextsMap(domainPairs);
+  const textsMap = useMemo(() => GetTextsMap(domainPairs), [projects, projectsNo]);
+
   const divRef = useRef(null);
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Updated useEffect for setting projectsToShow and txtInfo
+  // Updated useEffect for setting projectsToShow
   useEffect(() => {
-    if (textsMap.projectsToShowMap[category]) {
+    if (textsMap?.projectsToShowMap?.[category]) {
       const startIndex = (currentPage - 1) * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
 
-      // Safely get the projectsToShow
       const projectsToShow =
-        textsMap.projectsToShowMap[category]?.slice(startIndex, endIndex) || [];
+        textsMap?.projectsToShowMap?.[category]?.slice(startIndex, endIndex) ||
+        [];
       setProjectsToShow(projectsToShow);
-      setTxtInfo(textsMap);
     } else {
-      // Handle the case when category is not found
-      console.warn(
-        `Category "${category}" not found in textsMap.projectsToShowMap`,
-      );
+      console.warn(`Category "${category}" not found in projectsToShowMap`);
     }
-  }, [category, currentPage, textsMap]); // Ensure textsMap is included as a dependency
+  }, [category, currentPage, textsMap]);
 
   useEffect(() => {
     setCurrentPage(1);
   }, [category]);
 
-  const totalPages = Math.ceil(
-    (textsMap.projectsToShowMap[category]?.length || 0) / itemsPerPage,
-  );
+  const totalPages = useMemo(() => {
+    const projectsInCategory = textsMap?.projectsToShowMap?.[category] || [];
+    return Math.ceil(projectsInCategory.length / itemsPerPage);
+  }, [textsMap, category, itemsPerPage]);
 
   useEffect(() => {
     if (currentPage > 1 && divRef.current) {
@@ -103,14 +100,14 @@ export default function FeaturedProjectsItem({
         className="relative text-3xl leading-snug flex flex-col md:flex-row items-center justify-center gap-[7%] flex-wrap"
       >
         <span className="text-lg mb-8 md:mb-0 mt-4 md:mt-0 md:absolute top-0 italic opacity-60">
-          {txtInfo[category] || ""}
+          {textsMap?.[category]?.contributions || ""}
         </span>
         {projectsToShow.map((project, index) => (
           <FeaturedProjectsItemItem
             key={"projects-to-show-" + index}
             category={category}
             project={project}
-            txtInfo={txtInfo}
+            txtInfo={textsMap}
           />
         ))}
       </div>

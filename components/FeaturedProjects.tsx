@@ -3,9 +3,6 @@ import FeaturedProjectsItem from "./FeaturedProjectsItem";
 import getTextsMap from "./GetTextsMap";
 
 export default function FeaturedProjects() {
-  const [selectedComponent, setSelectedComponent] = useState(
-    <FeaturedProjectsItem />,
-  );
   const [currentCategory, setCurrentCategory] = useState("websites");
   const categories = [
     "websites",
@@ -16,8 +13,7 @@ export default function FeaturedProjects() {
     "template",
   ];
 
-  const handleItemClick = (component, category) => {
-    setSelectedComponent(component);
+  const handleItemClick = (category) => {
     setCurrentCategory(category);
   };
 
@@ -70,12 +66,7 @@ export default function FeaturedProjects() {
             >
               <button
                 className="relative w-full h-full px-3 py-2"
-                onClick={() =>
-                  handleItemClick(
-                    <FeaturedProjectsItem category={category} />,
-                    category,
-                  )
-                }
+                onClick={() => handleItemClick(category)}
               >
                 {textsMap[category]}
                 {newProjects && newProjects.includes(textsMap[category]) && (
@@ -88,7 +79,7 @@ export default function FeaturedProjects() {
           ))}
         </ul>
       </section>
-      {selectedComponent}
+      <FeaturedProjectsItem category={currentCategory} />
     </section>
   );
 }
