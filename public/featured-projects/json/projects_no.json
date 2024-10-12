@@ -1,4 +1,4 @@
- {
+{
   "websites": [
     {
       "name": "nheek",
@@ -15,10 +15,7 @@
         "TailwindCSS"
       ],
       "onGithub": "https://github.com/nheek/nheek.",
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "raincheck",
@@ -26,12 +23,7 @@
       "link": "https://raincheck.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
       "mobileImage": "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
-      "techstack": [
-        "Django",
-        "Python",
-        "JavaScript",
-        "TailwindCSS"
-      ]
+      "techstack": ["Django", "Python", "JavaScript", "TailwindCSS"]
     },
     {
       "name": "wee",
@@ -47,10 +39,7 @@
         "PostgreSQL",
         "TailwindCSS"
       ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "uppy",
@@ -68,10 +57,7 @@
         "PostgreSQL",
         "TailwindCSS"
       ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "enfee",
@@ -80,13 +66,7 @@
       "link": "https://enfee.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/e5ad6ca3-9c5f-443d-b7aa-f80d7b2a9cf2.png",
       "mobileImage": "https://uppy.nheek.com/uploads/447ccc21-5cb6-4ae3-af4a-d7f6b1f6fba4.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "NodeJS",
-        "TypeScript",
-        "TailwindCSS"
-      ]
+      "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"]
     },
     {
       "name": "shareme",
@@ -94,13 +74,7 @@
       "link": "https://shareme.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
       "mobileImage": "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
-      "techstack": [
-        "PHP",
-        "JavaScript",
-        "jQuery",
-        "MySQL",
-        "TailwindCSS"
-      ],
+      "techstack": ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/shareme"
     },
     {
@@ -118,10 +92,7 @@
         "PostgreSQL",
         "TailwindCSS"
       ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "notasrare",
@@ -144,13 +115,7 @@
       "link": "https://motto.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
       "mobileImage": "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "NodeJS",
-        "TypeScript",
-        "TailwindCSS"
-      ],
+      "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/motto"
     },
     {
@@ -159,16 +124,8 @@
       "link": "https://lookatme.nheek.no/",
       "image": "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
       "mobileImage": "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
-      "techstack": [
-        "ExpressJS",
-        "PostgreSQL",
-        "TailwindCSS",
-        "Socket.IO"
-      ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "techstack": ["ExpressJS", "PostgreSQL", "TailwindCSS", "Socket.IO"],
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "swiftgoss",
@@ -176,12 +133,7 @@
       "link": "https://swiftgoss.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
       "mobileImage": "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
-      "techstack": [
-        "PHP",
-        "JavaScript",
-        "jQuery",
-        "MySQL"
-      ]
+      "techstack": ["PHP", "JavaScript", "jQuery", "MySQL"]
     },
     {
       "name": "studently",
@@ -189,12 +141,7 @@
       "link": "https://studently.nheek.com/",
       "image": "/featured-projects/studently.png",
       "mobileImage": "/featured-projects/mobile/m-studently.png",
-      "techstack": [
-        "PHP",
-        "JavaScript",
-        "jQuery",
-        "MySQL"
-      ]
+      "techstack": ["PHP", "JavaScript", "jQuery", "MySQL"]
     },
     {
       "name": "confy",
@@ -215,12 +162,7 @@
       "desc": "google-inspirert poesibibliotek",
       "link": "https://poetree.nheek.com/",
       "image": "/featured-projects/poetree.png",
-      "techstack": [
-        "PHP",
-        "JavaScript",
-        "jQuery",
-        "MySQL"
-      ]
+      "techstack": ["PHP", "JavaScript", "jQuery", "MySQL"]
     },
     {
       "name": "malky",
@@ -228,13 +170,7 @@
       "link": "https://malky.nheek.com/",
       "image": "/featured-projects/malky.png",
       "mobileImage": "/featured-projects/mobile/m-malky.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "NodeJS",
-        "TypeScript",
-        "TailwindCSS"
-      ]
+      "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"]
     },
     {
       "name": "free",
@@ -251,10 +187,7 @@
         "MySQL",
         "TailwindCSS"
       ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "recreate",
@@ -264,15 +197,8 @@
       "link": "https://recreate.nheek.com/",
       "image": "/featured-projects/recreate.png",
       "mobileImage": "/featured-projects/mobile/m-recreate.png",
-      "techstack": [
-        "HTML",
-        "JavaScript",
-        "REST API"
-      ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "techstack": ["HTML", "JavaScript", "REST API"],
+      "deployedWith": ["docker", "github actions"]
     }
   ],
   "desktopApps": [
@@ -281,43 +207,29 @@
       "desc": "enkel kalkulator applikasjon",
       "link": "https://python.nheek.com/codes/simple_calculator?from_nheek=true",
       "image": "/featured-projects/desktop-apps/simple_calculator.png",
-      "techstack": [
-        "Python",
-        "PyQt6"
-      ]
+      "techstack": ["Python", "PyQt6"]
     },
     {
       "name": "vær",
       "desc": "minimalistisk vær applikasjon",
       "link": "https://python.nheek.com/codes/weather?from_nheek=true",
       "image": "/featured-projects/desktop-apps/weather.png",
-      "techstack": [
-        "Python",
-        "PyQt6"
-      ]
+      "techstack": ["Python", "PyQt6"]
     },
     {
       "name": "passordgenerering",
       "desc": "sikker passordgenerering applikasjon",
       "link": "#",
       "image": "/featured-projects/desktop-apps/password_generator.png",
-      "techstack": [
-        "Python",
-        "PyQt6"
-      ]
+      "techstack": ["Python", "PyQt6"]
     }
   ],
   "mobileApps": [
     {
       "name": "filebox (statisk)",
       "desc": "file explorer/manager",
-      "image": [
-        "/featured-projects/mobile-apps/filebox.png"
-      ],
-      "techstack": [
-        "React Native",
-        "ReactJS"
-      ]
+      "image": ["/featured-projects/mobile-apps/filebox.png"],
+      "techstack": ["React Native", "ReactJS"]
     },
     {
       "name": "vereefy (statisk)",
@@ -327,10 +239,7 @@
         "/featured-projects/mobile-apps/vereefy/vereefy-id.png",
         "/featured-projects/mobile-apps/vereefy/vereefy-option-prompt.png"
       ],
-      "techstack": [
-        "React Native",
-        "ReactJS"
-      ]
+      "techstack": ["React Native", "ReactJS"]
     }
   ],
   "contributions": [
@@ -340,12 +249,7 @@
       "link": "https://pin.rootlinjeforening.no/",
       "image": "/featured-projects/contributions/pin.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-pin.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "TypeScript",
-        "TailwindCSS"
-      ],
+      "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/Project-insert-name/PIN",
       "collaborators": [
         {
@@ -360,10 +264,7 @@
       "link": "https://fribyte.no/",
       "image": "/featured-projects/contributions/fribyte.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-fribyte.png",
-      "techstack": [
-        "Zola",
-        "SCSS"
-      ],
+      "techstack": ["Zola", "SCSS"],
       "onGithub": "https://github.com/fribyte-code/fribyte.no"
     },
     {
@@ -372,13 +273,7 @@
       "link": "https://ctf.fribyte.no/",
       "image": "/featured-projects/contributions/fribyte-ctf.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-fribyte-ctf.png",
-      "techstack": [
-        "ViteJS",
-        "ReactJS",
-        "TypeScript",
-        ".NET",
-        "CSS"
-      ],
+      "techstack": ["ViteJS", "ReactJS", "TypeScript", ".NET", "CSS"],
       "onGithub": "https://github.com/fribyte-code/friByte.capture-the-flag"
     },
     {
@@ -388,12 +283,7 @@
       "link": "https://boskonf.no/",
       "image": "/featured-projects/contributions/boskonf.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-boskonf.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "TypeScript",
-        "CSS"
-      ],
+      "techstack": ["NextJS", "ReactJS", "TypeScript", "CSS"],
       "onGithub": "https://github.com/fribyte-code/boskonf.no"
     },
     {
@@ -402,10 +292,7 @@
       "link": "https://wiki.fribyte.no/",
       "image": "/featured-projects/contributions/fribyte-wiki.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-fribyte-wiki.png",
-      "techstack": [
-        "Zola",
-        "SCSS"
-      ],
+      "techstack": ["Zola", "SCSS"],
       "onGithub": "https://github.com/fribyte-code/wiki"
     },
     {
@@ -414,13 +301,7 @@
       "link": "https://www.rootlinjeforening.no/",
       "image": "/featured-projects/contributions/root.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-root.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "TypeScript",
-        "TailwindCSS",
-        "Sanity"
-      ],
+      "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS", "Sanity"],
       "onGithub": "https://github.com/Project-insert-name/root-website"
     },
     {
@@ -429,13 +310,7 @@
       "link": "https://kledeli.nheek.com/",
       "image": "/featured-projects/contributions/kledeli.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-kledeli.png",
-      "techstack": [
-        "PHP",
-        "JavaScript",
-        "jQuery",
-        "MySQL",
-        "TailwindCSS"
-      ],
+      "techstack": ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
       "collaborators": [
         {
           "name": "Lukas Rysjedal",
@@ -464,10 +339,7 @@
           "link": "https://github.com/pthormodsen"
         }
       ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "homing",
@@ -475,13 +347,7 @@
       "desc": "sosiale medie melding webapp",
       "link": "https://homing.lukasry.no/",
       "image": "https://uppy.nheek.com/uploads/b9564db0-e952-4a5b-9f18-f268c1a3f8a2.png",
-      "techstack": [
-        "PHP",
-        "JavaScript",
-        "MySQL",
-        "JQuery",
-        "CSS"
-      ],
+      "techstack": ["PHP", "JavaScript", "MySQL", "JQuery", "CSS"],
       "collaborators": [
         {
           "name": "Lukas Rysjedal",
@@ -497,13 +363,7 @@
       "link": "https://kvarteret.no/",
       "image": "/featured-projects/contributions/kvarteret.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-kvarteret.png",
-      "techstack": [
-        "AstroJS",
-        "ReactJS",
-        "GraphQL",
-        "Directus",
-        "CSS"
-      ]
+      "techstack": ["AstroJS", "ReactJS", "GraphQL", "Directus", "CSS"]
     },
     {
       "name": "bybane quiz",
@@ -512,11 +372,7 @@
       "link": "https://bybane-quiz.nheek.no/",
       "image": "/featured-projects/contributions/bybane-quiz.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-bybane-quiz.png",
-      "techstack": [
-        "AstroJS",
-        "NodeJS",
-        "CSS"
-      ],
+      "techstack": ["AstroJS", "NodeJS", "CSS"],
       "collaborators": [
         {
           "name": "Aggi",
@@ -527,10 +383,7 @@
           "link": "https://github.com/671454"
         }
       ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "deployedWith": ["docker", "github actions"]
     }
   ],
   "static": [
@@ -540,17 +393,8 @@
       "link": "https://lady.nheek.com/",
       "image": "/featured-projects/static/lady.png",
       "mobileImage": "/featured-projects/mobile/static/m-lady.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "TypeScript",
-        "TailwindCSS"
-      ],
-      "deployedWith": [
-        "github actions",
-        "docker",
-        "kubernetes"
-      ]
+      "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
+      "deployedWith": ["github actions", "docker", "kubernetes"]
     },
     {
       "name": "techie",
@@ -558,17 +402,8 @@
       "link": "https://techie.nheek.com/",
       "image": "/featured-projects/static/techie.png",
       "mobileImage": "/featured-projects/mobile/static/m-techie.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "TypeScript",
-        "TailwindCSS"
-      ],
-      "deployedWith": [
-        "github actions",
-        "docker",
-        "kubernetes"
-      ],
+      "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
+      "deployedWith": ["github actions", "docker", "kubernetes"],
       "onGithub": "https://github.com/nheek/techie"
     },
     {
@@ -576,17 +411,8 @@
       "desc": "landingsside for interiørdesign",
       "link": "https://arch.nheek.com/",
       "image": "/featured-projects/static/arch.png",
-      "techstack": [
-        "ReactJS",
-        "ViteJS",
-        "TypeScript",
-        "CSS"
-      ],
-      "deployedWith": [
-        "github actions",
-        "docker",
-        "kubernetes"
-      ]
+      "techstack": ["ReactJS", "ViteJS", "TypeScript", "CSS"],
+      "deployedWith": ["github actions", "docker", "kubernetes"]
     },
     {
       "name": "bould",
@@ -594,17 +420,8 @@
       "link": "https://bould.nheek.com/",
       "image": "/featured-projects/bould.png",
       "mobileImage": "/featured-projects/mobile/m-bould.png",
-      "techstack": [
-        "AstroJS",
-        "NodeJS",
-        "TypeScript",
-        "TailwindCSS"
-      ],
-      "deployedWith": [
-        "github actions",
-        "docker",
-        "kubernetes"
-      ],
+      "techstack": ["AstroJS", "NodeJS", "TypeScript", "TailwindCSS"],
+      "deployedWith": ["github actions", "docker", "kubernetes"],
       "onGithub": "https://github.com/nheek/bould"
     },
     {
@@ -613,16 +430,8 @@
       "desc": "barnehage landingsside",
       "link": "https://kinder.nheek.com/",
       "image": "/featured-projects/static/kinder.png",
-      "techstack": [
-        "SvelteKit",
-        "TypeScript",
-        "CSS"
-      ],
-      "deployedWith": [
-        "github actions",
-        "docker",
-        "kubernetes"
-      ]
+      "techstack": ["SvelteKit", "TypeScript", "CSS"],
+      "deployedWith": ["github actions", "docker", "kubernetes"]
     },
     {
       "name": "ingo",
@@ -630,17 +439,8 @@
       "desc": "utenlands reisesporing",
       "link": "https://ingo.nheek.com/",
       "image": "/featured-projects/static/ingo.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "TypeScript",
-        "TailwindCSS"
-      ],
-      "deployedWith": [
-        "github actions",
-        "docker",
-        "kubernetes"
-      ]
+      "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
+      "deployedWith": ["github actions", "docker", "kubernetes"]
     },
     {
       "name": "hvltopia",
@@ -650,13 +450,8 @@
       "link": "https://hvltopia.nheek.no/",
       "image": "https://uppy.nheek.com/uploads/f12a4224-ff77-4bae-a040-e7c0052be9b3.png",
       "onGithub": "https://github.com/nheek/hvltopia",
-      "techstack": [
-        "HTML",
-        "CSS"
-      ],
-      "deployedWith": [
-        "github actions"
-      ]
+      "techstack": ["HTML", "CSS"],
+      "deployedWith": ["github actions"]
     },
     {
       "name": "truhvel",
@@ -664,17 +459,8 @@
       "desc": "landingsside for undervannsutforskning",
       "link": "https://truhvel.nheek.com/",
       "image": "/featured-projects/static/truhvel.png",
-      "techstack": [
-        "VueJS",
-        "ViteJS",
-        "TypeScript",
-        "CSS"
-      ],
-      "deployedWith": [
-        "github actions",
-        "docker",
-        "kubernetes"
-      ]
+      "techstack": ["VueJS", "ViteJS", "TypeScript", "CSS"],
+      "deployedWith": ["github actions", "docker", "kubernetes"]
     }
   ],
   "template": [
@@ -685,13 +471,7 @@
       "link": "https://hexrovk.nheek.com/",
       "image": "/featured-projects/template/hexrovk.png",
       "mobileImage": "/featured-projects/mobile/template/m-hexrovk.png",
-      "techstack": [
-        "PHP",
-        "JavaScript",
-        "MySQL",
-        "JQuery",
-        "CSS"
-      ]
+      "techstack": ["PHP", "JavaScript", "MySQL", "JQuery", "CSS"]
     },
     {
       "name": "yloizah",
@@ -699,12 +479,7 @@
       "link": "https://yloizah.nheek.com/",
       "image": "/featured-projects/template/yloizah.png",
       "mobileImage": "/featured-projects/mobile/template/m-yloizah.png",
-      "techstack": [
-        "NextJS",
-        "ReactJS",
-        "Bootstrap",
-        "SCSS"
-      ]
+      "techstack": ["NextJS", "ReactJS", "Bootstrap", "SCSS"]
     },
     {
       "name": "wine",
@@ -712,16 +487,8 @@
       "desc": "moteblogg",
       "link": "https://wine.nheek.com/",
       "image": "/featured-projects/template/wine.png",
-      "techstack": [
-        "WordPress",
-        "PHP",
-        "JavaScript",
-        "CSS"
-      ],
-      "deployedWith": [
-        "docker",
-        "github actions"
-      ]
+      "techstack": ["WordPress", "PHP", "JavaScript", "CSS"],
+      "deployedWith": ["docker", "github actions"]
     },
     {
       "name": "grownoo",
@@ -730,12 +497,7 @@
       "link": "https://grownoo.nheek.com/",
       "image": "/featured-projects/template/grownoo.png",
       "mobileImage": "/featured-projects/mobile/template/m-grownoo.png",
-      "techstack": [
-        "WordPress",
-        "PHP",
-        "JavaScript",
-        "CSS"
-      ]
+      "techstack": ["WordPress", "PHP", "JavaScript", "CSS"]
     }
   ]
 }

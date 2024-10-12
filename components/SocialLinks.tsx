@@ -35,9 +35,7 @@ export default function SocialLinks() {
                   alt={social.name + " icon"}
                 />
               </div>
-              <div className="hidden md:block !no-underline">
-                {social.name}
-              </div>
+              <div className="hidden md:block !no-underline">{social.name}</div>
             </button>
           </a>
         </div>

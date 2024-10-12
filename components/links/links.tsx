@@ -121,8 +121,7 @@ export default function Links() {
               className="border-l-4 border-gray-300 border-opacity-50 px-4 py-2 !no-underline"
             >
               <a href={link.link} target="_blank" rel="noopener noreferrer">
-                {link.name} -
-                <span className="opacity-60"> {link.desc}</span>
+                {link.name} -<span className="opacity-60"> {link.desc}</span>
               </a>
             </li>
           ))}

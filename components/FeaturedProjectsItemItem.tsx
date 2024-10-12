@@ -174,10 +174,7 @@ export default function FeaturedProjectsItemItem({
       <div className="mt-2 opacity-80">
         <ul className="flex flex-wrap text-xs gap-2">
           {project.techstack.map((tech, index) => (
-            <li
-              key={"techstack" + index}
-              className="pr-2 py-1"
-            >
+            <li key={"techstack" + index} className="pr-2 py-1">
               <span>{tech}</span>
             </li>
           ))}
@@ -211,7 +208,10 @@ export default function FeaturedProjectsItemItem({
             <span className="text-xs">{txtInfo["with"]}</span>
             <ul className="flex flex-wrap text-xs gap-2">
               {project.collaborators.map((person, index) => (
-                <li key={"collaborators" + index} className="py-2 cursor-pointer">
+                <li
+                  key={"collaborators" + index}
+                  className="py-2 cursor-pointer"
+                >
                   <a href={person.link} target="_blank">
                     {person.name}
                   </a>

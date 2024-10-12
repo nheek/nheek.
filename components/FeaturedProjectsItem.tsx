@@ -7,22 +7,22 @@ export default function FeaturedProjectsItem({
 }: Readonly<FeaturedProjectsItemProps>) {
   const [projectsToShow, setProjectsToShow] = useState([]);
   const [txtInfo, setTxtInfo] = useState({});
-  const [projectsNo, setProjectsNo] = useState([]); // State for projects_no
-  const [projects, setProjects] = useState([]); // State for projects
+  const [projects, setProjects] = useState([]);
+  const [projectsNo, setProjectsNo] = useState([]);
 
   // Fetch projects_no and projects data
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const responseNo = await fetch("/featured-projects/json/projects_no.json"); // Update with the correct path
-        const dataNo = await responseNo.json();
-        setProjectsNo(dataNo); // Set the fetched projects_no
-        console.log("projects_no.json data:", dataNo); // Log the data
-
         const response = await fetch("/featured-projects/json/projects.json"); // Update with the correct path
         const data = await response.json();
-        setProjects(data); // Set the fetched projects
-        console.log("projects.json data:", data); // Log the data
+        setProjects(data);
+
+        const responseNo = await fetch(
+          "/featured-projects/json/projects_no.json",
+        ); // Update with the correct path
+        const dataNo = await responseNo.json();
+        setProjectsNo(dataNo);
       } catch (error) {
         console.error("Error fetching projects:", error);
       }
@@ -66,12 +66,15 @@ export default function FeaturedProjectsItem({
       const endIndex = startIndex + itemsPerPage;
 
       // Safely get the projectsToShow
-      const projectsToShow = textsMap.projectsToShowMap[category]?.slice(startIndex, endIndex) || [];
+      const projectsToShow =
+        textsMap.projectsToShowMap[category]?.slice(startIndex, endIndex) || [];
       setProjectsToShow(projectsToShow);
       setTxtInfo(textsMap);
     } else {
       // Handle the case when category is not found
-      console.warn(`Category "${category}" not found in textsMap.projectsToShowMap`);
+      console.warn(
+        `Category "${category}" not found in textsMap.projectsToShowMap`,
+      );
     }
   }, [category, currentPage, textsMap]); // Ensure textsMap is included as a dependency
 
@@ -80,9 +83,8 @@ export default function FeaturedProjectsItem({
   }, [category]);
 
   const totalPages = Math.ceil(
-    (textsMap.projectsToShowMap[category]?.length || 0) / itemsPerPage
+    (textsMap.projectsToShowMap[category]?.length || 0) / itemsPerPage,
   );
-  
 
   useEffect(() => {
     if (currentPage > 1 && divRef.current) {

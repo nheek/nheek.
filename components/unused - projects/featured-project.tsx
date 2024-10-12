@@ -28,16 +28,20 @@ export default function FeaturedProject({
         name: "raincheck",
         desc: "weather web app",
         link: "https://raincheck.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
-        mobileImage: "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
+        image:
+          "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
         techstack: ["Django", "Python", "JavaScript", "TailwindCSS"],
       },
       {
         name: "wee",
         desc: "link shortening platform",
         link: "https://wee.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
-        mobileImage: "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
+        image:
+          "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -52,8 +56,10 @@ export default function FeaturedProject({
         name: "shareme",
         desc: "no-login todo list web app",
         link: "https://shareme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
-        mobileImage: "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
+        image:
+          "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
         onGithub: "https://github.com/nheek/shareme",
       },
@@ -61,8 +67,10 @@ export default function FeaturedProject({
         name: "notasrare",
         desc: "public poll platform",
         link: "https://notasrare.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
-        mobileImage: "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
+        image:
+          "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -76,8 +84,10 @@ export default function FeaturedProject({
         name: "motto",
         desc: "virtual friend app",
         link: "https://motto.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
+        image:
+          "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
         techstack: ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
         onGithub: "https://github.com/nheek/motto",
       },
@@ -85,8 +95,10 @@ export default function FeaturedProject({
         name: "lookatme",
         desc: "real-time statistics entertainment platform",
         link: "https://lookatme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
-        mobileImage: "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
+        image:
+          "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
         techstack: ["ExpressJS", "MySQL", "TailwindCSS", "Socket.IO"],
       },
       {
@@ -102,8 +114,10 @@ export default function FeaturedProject({
         name: "swiftgoss",
         desc: "anonymous social media platform",
         link: "https://swiftgoss.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
+        image:
+          "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL"],
       },
       {
@@ -290,16 +304,20 @@ export default function FeaturedProject({
         name: "raincheck",
         desc: "vær web app",
         link: "https://raincheck.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
-        mobileImage: "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
+        image:
+          "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
         techstack: ["Django", "Python", "JavaScript", "TailwindCSS"],
       },
       {
         name: "wee",
         desc: "lenkeforkortingsplattform",
         link: "https://wee.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
-        mobileImage: "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
+        image:
+          "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -314,8 +332,10 @@ export default function FeaturedProject({
         name: "shareme",
         desc: "no-login todo list web app",
         link: "https://shareme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
-        mobileImage: "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
+        image:
+          "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
         onGithub: "https://github.com/nheek/shareme",
       },
@@ -323,8 +343,10 @@ export default function FeaturedProject({
         name: "notasrare",
         desc: "offentlig avstemningsplattform",
         link: "https://notasrare.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
-        mobileImage: "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
+        image:
+          "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -338,8 +360,10 @@ export default function FeaturedProject({
         name: "motto",
         desc: "virtuell venn app",
         link: "https://motto.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
+        image:
+          "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
         techstack: ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
         onGithub: "https://github.com/nheek/motto",
       },
@@ -347,8 +371,10 @@ export default function FeaturedProject({
         name: "lookatme",
         desc: "real-time statistikk underholdningsplattform",
         link: "https://lookatme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
-        mobileImage: "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
+        image:
+          "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
         techstack: ["ExpressJS", "MySQL", "TailwindCSS", "Socket.IO"],
       },
       {
@@ -364,8 +390,10 @@ export default function FeaturedProject({
         name: "swiftgoss",
         desc: "anonym sosiale medie",
         link: "https://swiftgoss.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
+        image:
+          "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL"],
       },
       {
@@ -553,16 +581,20 @@ export default function FeaturedProject({
         name: "raincheck",
         desc: "weather web app",
         link: "https://raincheck.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
-        mobileImage: "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
+        image:
+          "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
         techstack: ["Django", "Python", "JavaScript", "TailwindCSS"],
       },
       {
         name: "wee",
         desc: "link shortening platform",
         link: "https://wee.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
-        mobileImage: "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
+        image:
+          "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -577,8 +609,10 @@ export default function FeaturedProject({
         name: "shareme",
         desc: "no-login todo list web app",
         link: "https://shareme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
-        mobileImage: "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
+        image:
+          "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
         onGithub: "https://github.com/nheek/shareme",
       },
@@ -586,8 +620,10 @@ export default function FeaturedProject({
         name: "notasrare",
         desc: "public poll platform",
         link: "https://notasrare.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
-        mobileImage: "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
+        image:
+          "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -601,8 +637,10 @@ export default function FeaturedProject({
         name: "motto",
         desc: "virtual friend app",
         link: "https://motto.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
+        image:
+          "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
         techstack: ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
         onGithub: "https://github.com/nheek/motto",
       },
@@ -610,8 +648,10 @@ export default function FeaturedProject({
         name: "lookatme",
         desc: "real-time statistics entertainment platform",
         link: "https://lookatme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
-        mobileImage: "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
+        image:
+          "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
         techstack: ["ExpressJS", "MySQL", "TailwindCSS", "Socket.IO"],
       },
       {
@@ -627,8 +667,10 @@ export default function FeaturedProject({
         name: "swiftgoss",
         desc: "anonymous social media platform",
         link: "https://swiftgoss.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
+        image:
+          "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL"],
       },
       {
@@ -832,16 +874,20 @@ export default function FeaturedProject({
         name: "raincheck",
         desc: "vær web app",
         link: "https://raincheck.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
-        mobileImage: "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
+        image:
+          "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
         techstack: ["Django", "Python", "JavaScript", "TailwindCSS"],
       },
       {
         name: "wee",
         desc: "lenkeforkortingsplattform",
         link: "https://wee.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
-        mobileImage: "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
+        image:
+          "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -856,8 +902,10 @@ export default function FeaturedProject({
         name: "shareme",
         desc: "no-login todo list web app",
         link: "https://shareme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
-        mobileImage: "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
+        image:
+          "https://uppy.nheek.com/uploads/f4bab468-2415-45c9-84d9-b1c92472c787.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/8bdfa8ef-d302-41cd-825b-45e9fe3f2831.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
         onGithub: "https://github.com/nheek/shareme",
       },
@@ -865,8 +913,10 @@ export default function FeaturedProject({
         name: "notasrare",
         desc: "offentlig avstemningsplattform",
         link: "https://notasrare.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
-        mobileImage: "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
+        image:
+          "https://uppy.nheek.com/uploads/78658685-4a64-4704-a53b-e50d6f29366b.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/0c767bba-d50b-4972-aa7c-e395e8120005.png",
         techstack: [
           "NextJS",
           "ReactJS",
@@ -880,8 +930,10 @@ export default function FeaturedProject({
         name: "motto",
         desc: "virtuell venn app",
         link: "https://motto.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
+        image:
+          "https://uppy.nheek.com/uploads/0efebd08-b026-434a-9ea1-5646b150319e.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
         techstack: ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
         onGithub: "https://github.com/nheek/motto",
       },
@@ -889,8 +941,10 @@ export default function FeaturedProject({
         name: "lookatme",
         desc: "real-time statistikk underholdningsplattform",
         link: "https://lookatme.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
-        mobileImage: "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
+        image:
+          "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
         techstack: ["ExpressJS", "MySQL", "TailwindCSS", "Socket.IO"],
       },
       {
@@ -906,8 +960,10 @@ export default function FeaturedProject({
         name: "swiftgoss",
         desc: "anonym sosiale medie",
         link: "https://swiftgoss.nheek.com/",
-        image: "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
-        mobileImage: "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
+        image:
+          "https://uppy.nheek.com/uploads/ec0c9f1f-af8b-4943-96d0-4a1aa6113b72.png",
+        mobileImage:
+          "https://uppy.nheek.com/uploads/a8f3eea8-bfb4-4f13-a847-591e736e33c4.png",
         techstack: ["PHP", "JavaScript", "jQuery", "MySQL"],
       },
       {
