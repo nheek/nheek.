@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS ContactForm (
+CREATE TABLE IF NOT EXISTS "ContactForm" (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100),
