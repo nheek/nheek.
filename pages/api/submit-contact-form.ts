@@ -16,14 +16,14 @@ export default async function handler(req, res) {
 
       // Handle the form data (e.g., save to a database)
       // Use pool.query directly for the SQL query
-      const [insertResult] = await pool.query(
-        "INSERT INTO ContactForm (name, email, subject, message) VALUES (?, ?, ?, ?)",
-        [name, email, subject, message],
-      );
+      const insertQuery = `
+        INSERT INTO "ContactForm" ("name", "email", "subject", "message") 
+        VALUES ($1, $2, $3, $4) RETURNING id
+      `;
+      const { rows } = await pool.query(insertQuery, [name, email, subject, message]);
 
-      res.status(200).json({ message: "Form data received successfully" });
+      res.status(200).json({ message: "Form data received successfully", id: rows[0].id });
 
-      // Respond with a success message or other appropriate response
     } catch (error) {
       console.error("Error processing form data:", error);
       res.status(500).json({ error: "Internal Server Error" });
