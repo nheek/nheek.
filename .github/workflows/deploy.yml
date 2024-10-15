@@ -36,10 +36,6 @@ jobs:
         run: |
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-      - name: Pull the existing Docker image
-        run: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest || echo "No existing image found."
-
       - name: Build and Push Docker Image
         run: |
           docker buildx build --cache-from ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest --cache-to type=local,dest=/tmp/.buildx-cache --push -t ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest .
