@@ -109,7 +109,8 @@
         "TypeScript",
         "MySQL",
         "TailwindCSS"
-      ]
+      ],
+      "deployedWith": ["github actions", "docker", "kubernetes"]
     },
     {
       "name": "motto",

@@ -159,3 +159,6 @@ dist
 yarn.lock
 package-lock.json
 npm-shrinkwrap.json
+
+public/featured-projects/
+!public/featured-projects/json/

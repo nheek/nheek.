@@ -111,7 +111,7 @@
         "MySQL",
         "TailwindCSS"
       ],
-      "deployedWith": ["docker", "github actions"]
+      "deployedWith": ["github actions", "docker", "kubernetes"]
     },
     {
       "name": "motto",
