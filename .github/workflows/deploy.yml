@@ -18,51 +18,26 @@ jobs:
 
       - name: Generate .env file
         run: |
-          echo "MYSQL_PORT=${{ secrets.MYSQL_PORT }}" >> .env
-          echo "MYSQL_HOST=${{ secrets.MYSQL_HOST }}" >> .env
-          echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
-          echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
-          echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> .env
+          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+          echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
 
-      - name: Build and Push Docker Images
+      - name: Build and Push Docker Image
         run: |
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker compose build
-          docker compose push
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest -f Dockerfile .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
 
-      - name: Deploy to Server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            cd apps
-            mkdir nheek
-            cd nheek
-
-            # Pull the Docker Compose project on the remote server
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
-            docker pull mysql
-
-            rm -rf .env
-            echo "MYSQL_PORT=${{ secrets.MYSQL_PORT }}" >> .env
-            echo "MYSQL_HOST=${{ secrets.MYSQL_HOST }}" >> .env
-            echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
-            echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
-            echo "MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}" >> .env
-            echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
-            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
-            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
-
-            mkdir .custom_sql_settings
-            cd .custom_sql_settings
-            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/.custom_sql_settings/my.cnf
-
-            cd ..
-            mkdir .sql_data
-            cd .sql_data
-            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/.sql_data/create_database.sql
-
-            docker compose up -d
+      - name: Set up kubectl
+        run: |
+          mkdir -p $HOME/.kube
+          echo "${{ secrets.DO_KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+      
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
+          kubectl apply -f k8s/ingress.yaml
+          kubectl apply -f k8s/hpa.yaml

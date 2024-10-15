@@ -6,7 +6,7 @@
     "dev": "next dev",
     "setup-database": "mysql -u nheek -p < create_database.sql",
     "start": "wait-for-it mysql-db:3306 -- npm run start-app",
-    "start-app": "next start -p 3000",
+    "start-app": "next start",
     "prettier": "prettier --write ."
   },
   "dependencies": {
@@ -15,8 +15,8 @@
     "clsx": "^2.1.0",
     "dotenv": "^16.4.5",
     "konva": "^9.3.15",
-    "mysql2": "latest",
     "next": "latest",
+    "pg": "^8.13.0",
     "react": "latest",
     "react-dom": "18.3.1",
     "react-intersection-observer": "^9.13.1",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@types/node": "22.7.5",
+    "@types/pg": "^8.11.1",
     "@types/react": "18.3.11",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",

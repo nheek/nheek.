@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nheek-deployment
+  namespace: cloudnative-pg
+  labels:
+    app: nheek
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nheek
+  template:
+    metadata:
+      labels:
+        app: nheek
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: nheek
+          image: nheek/nheek:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            limits:
+              memory: "100Mi"
