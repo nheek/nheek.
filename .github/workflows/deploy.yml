@@ -42,3 +42,6 @@ jobs:
           kubectl apply -f k8s/ingress.yaml
           kubectl apply -f k8s/hpa.yaml
           kubectl apply -f k8s/vpa.yaml
+
+          # Force a rollout by annotating the deployment
+          kubectl annotate deployment nheek kubernetes.io/change-cause="Force rollout at $(date +%Y-%m-%d %H:%M:%S)" --overwrite
