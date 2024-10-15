@@ -42,5 +42,5 @@ jobs:
           kubectl apply -f k8s/ingress.yaml
           kubectl apply -f k8s/hpa.yaml
           kubectl apply -f k8s/vpa.yaml
-          
-          kubectl set image deployment/nheek-deployment nheek=${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest -n cloudnative-pg
+
+          kubectl rollout restart deployment nheek-deployment
