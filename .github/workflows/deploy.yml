@@ -16,14 +16,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Cache Docker layers
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-buildx-
-
       - name: Generate .env file
         run: |
           echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
@@ -32,13 +24,11 @@ jobs:
           echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
 
-      - name: Log in to Docker Hub
-        run: |
-          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-
       - name: Build and Push Docker Image
         run: |
-          docker buildx build --cache-from ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest --cache-to type=local,dest=/tmp/.buildx-cache --push -t ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest .
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest -f Dockerfile .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
 
       - name: Set up kubectl
         run: |
