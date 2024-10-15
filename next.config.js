@@ -1,7 +1,13 @@
 module.exports = {
   compress: true,
   images: {
-    domains: ["uppy.nheek.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'uppy.nheek.com',
+        pathname: '/**', // Allows all image paths from the domain
+      },
+    ],
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
