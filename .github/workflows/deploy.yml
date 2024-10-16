@@ -42,6 +42,5 @@ jobs:
           kubectl apply -f k8s/service.yaml
           kubectl apply -f k8s/ingress.yaml
           kubectl apply -f k8s/hpa.yaml
-          kubectl apply -f k8s/vpa.yaml
-
+          # kubectl apply -f k8s/vpa.yaml
           kubectl rollout restart deployment -n cloudnative-pg nheek-d

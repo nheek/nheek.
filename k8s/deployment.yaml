@@ -25,4 +25,4 @@ spec:
             - containerPort: 3000
           resources:
             requests:
-              memory: "50Mi"
+              memory: "40Mi"
