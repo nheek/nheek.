@@ -15,6 +15,7 @@ spec:
       labels:
         app: nheek
     spec:
+      priorityClassName: high-priority
       imagePullSecrets:
         - name: regcred
       containers:
