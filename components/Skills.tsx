@@ -36,7 +36,6 @@ export default function Skills() {
     "jQuery",
     "MySQL",
     "NextJS",
-    "NGINX",
     "NodeJS",
     "PHP",
     "Python",
@@ -53,14 +52,15 @@ export default function Skills() {
     "Docker Hub",
     "AstroJS",
     "Zola",
+    "nginx"
   ];
-  let middleSkills = ["Django", "Git", "Flutter", "JPA", "C#", "JWT"];
-  let orangeSkills = ["SCSS", "Swift", "Go", "C++"];
+  let middleSkills = ["Django", "Git", "Flutter", "JPA", "C#", "JWT", "Kubernetes"];
+  let orangeSkills = ["SCSS", "Swift", "Go", "C++", "SQLite"];
   let upcomingSkills = ["Vue.js", "Spring Boot", "Angular", ".NET", "Blazor"];
-  skills.sort();
-  middleSkills.sort();
-  orangeSkills.sort();
-  upcomingSkills.sort();
+  skills.sort((a, b) => a.localeCompare(b));
+  middleSkills.sort((a, b) => a.localeCompare(b));
+  orangeSkills.sort((a, b) => a.localeCompare(b));
+  upcomingSkills.sort((a, b) => a.localeCompare(b));
 
   return (
     <section className="px-4 pt-[25%] md:pt-[15%] min-h-max">

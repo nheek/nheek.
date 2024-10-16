@@ -183,7 +183,7 @@ export default function FeaturedProjectsItemItem({
       {
         /* shows the text "deployed with" under the images */
         project.deployedWith && (
-          <div className="flex gap-1 items-center mt-3 opacity-80">
+          <div className="flex gap-1 items-center mt-2 opacity-80">
             <span className="text-xs">{txtInfo["deployedWith"]}</span>
             <ul className="flex flex-wrap text-xs gap-2">
               {project.deployedWith.map((deploy, index) => (
@@ -203,7 +203,7 @@ export default function FeaturedProjectsItemItem({
         /* shows the project collaborators */
         project.collaborators && (
           <div
-            className={`${project.deployedWith ? "mt-0" : "mt-1"} flex gap-1 items-center ml-1 opacity-80`}
+            className={`${project.deployedWith ? "mt-1" : "mt-2"} flex gap-1 items-center opacity-80`}
           >
             <span className="text-xs">{txtInfo["with"]}</span>
             <ul className="flex flex-wrap text-xs gap-2">

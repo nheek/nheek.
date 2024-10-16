@@ -11,6 +11,7 @@ export default function FeaturedProjects() {
     "contributions",
     "static",
     "template",
+    "utility"
   ];
 
   const handleItemClick = (category) => {
@@ -25,6 +26,7 @@ export default function FeaturedProjects() {
     contributions: "Contributions",
     static: "Statisk",
     template: "Mal",
+    utility: "Verktøy",
     new: "nytt",
   };
   const wwwDefault = {
@@ -35,6 +37,7 @@ export default function FeaturedProjects() {
     contributions: "Contributions",
     static: "Static",
     template: "Template",
+    utility: "Utility",
     new: "new",
   };
   const domainPairs = {
@@ -47,9 +50,10 @@ export default function FeaturedProjects() {
   const newProjects = [
     "Websites",
     "Nettsteder",
-    "Contributions",
     "Static",
     "Statisk",
+    "Utility",
+    "Verktøy"
   ];
 
   return (
