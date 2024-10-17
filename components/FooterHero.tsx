@@ -23,7 +23,7 @@ export default function FooterHero() {
 
   return (
     <>
-      <section className="px-4 pt-[25%] md:pt-[15%] min-h-max h-[30vh] sm:h-[40vh] md:min-h-[50vh] md:h-[40vh]">
+      <section className="px-4 pt-[25%] md:pt-[15%] min-h-max h-[30vh] sm:h-[40vh] md:min-h-[55vh] md:h-[40vh]">
         <hgroup className="text-4xl md:text-[4rem] xl:text-[6rem]">
           {textsMap.txtFooterHero}
         </hgroup>
@@ -31,7 +31,13 @@ export default function FooterHero() {
           {textsMap.txtFooterContent}
         </div>
       </section>
-      <ContactForm />
+      <a
+        className="w-1/4 block bg-[#1C2951] mx-auto text-center text-2xl brightness-125 hover:brightness-[unset] hover:-rotate-6 mt-4 p-4 rounded-3xl hover:bg-gray-200 hover:text-blue-950 duration-500 !no-underline"
+        href="mailto:nickjameshipol@gmail.com"
+        target="_blank"
+      >
+        Send email
+      </a>
     </>
   );
 }

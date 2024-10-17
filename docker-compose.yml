@@ -6,27 +6,8 @@ services:
     restart: unless-stopped
     ports:
       - 3000:3000
-    depends_on:
-      - mysql-db
     env_file:
       - .env
     environment:
       - PLACEHOLDER=YES
     image: "nheek/nheek:latest"
-
-  mysql-db:
-    image: mysql:latest
-    restart: unless-stopped
-    ports:
-      - 4000:3306
-    env_file:
-      - .env
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-    volumes:
-      - mysql_db_data:/var/lib/mysql
-      - .sql_data:/docker-entrypoint-initdb.d/
-      - .custom_sql_settings:/etc/mysql/conf.d/
-
-volumes:
-  mysql_db_data:

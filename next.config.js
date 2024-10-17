@@ -3,9 +3,9 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'uppy.nheek.com',
-        pathname: '/**', // Allows all image paths from the domain
+        protocol: "https",
+        hostname: "uppy.nheek.com",
+        pathname: "/**", // Allows all image paths from the domain
       },
     ],
   },

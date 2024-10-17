@@ -52,9 +52,17 @@ export default function Skills() {
     "Docker Hub",
     "AstroJS",
     "Zola",
-    "nginx"
+    "nginx",
   ];
-  let middleSkills = ["Django", "Git", "Flutter", "JPA", "C#", "JWT", "Kubernetes"];
+  let middleSkills = [
+    "Django",
+    "Git",
+    "Flutter",
+    "JPA",
+    "C#",
+    "JWT",
+    "Kubernetes",
+  ];
   let orangeSkills = ["SCSS", "Swift", "Go", "C++", "SQLite"];
   let upcomingSkills = ["Vue.js", "Spring Boot", "Angular", ".NET", "Blazor"];
   skills.sort((a, b) => a.localeCompare(b));

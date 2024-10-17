@@ -11,7 +11,7 @@ export default function FeaturedProjects() {
     "contributions",
     "static",
     "template",
-    "utility"
+    "utility",
   ];
 
   const handleItemClick = (category) => {
@@ -53,7 +53,7 @@ export default function FeaturedProjects() {
     "Static",
     "Statisk",
     "Utility",
-    "Verktøy"
+    "Verktøy",
   ];
 
   return (

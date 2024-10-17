@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.DO_KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
-      
+
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f k8s/priority.yaml

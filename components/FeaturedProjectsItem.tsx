@@ -18,7 +18,7 @@ export default function FeaturedProjectsItem({
         setProjects(data);
 
         const responseNo = await fetch(
-          "/featured-projects/json/projects_no.json"
+          "/featured-projects/json/projects_no.json",
         );
         const dataNo = await responseNo.json();
         setProjectsNo(dataNo);
@@ -53,7 +53,10 @@ export default function FeaturedProjectsItem({
     default: wwwDefault,
   };
 
-  const textsMap = useMemo(() => GetTextsMap(domainPairs), [projects, projectsNo]);
+  const textsMap = useMemo(
+    () => GetTextsMap(domainPairs),
+    [projects, projectsNo],
+  );
 
   const divRef = useRef(null);
   const itemsPerPage = 10;
