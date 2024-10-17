@@ -25,5 +25,3 @@ spec:
           resources:
             requests:
               memory: "30Mi"
-            limits:
-              memory: "70Mi"
