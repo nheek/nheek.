@@ -2,7 +2,6 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: nheek-hpa
-  namespace: cloudnative-pg
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
