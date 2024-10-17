@@ -514,6 +514,18 @@
     }
   ],
   "utility": [
+
+    {
+      "name": "trck",
+      "desc": "privacy-focused analytics platform",
+      "dateAdded": "18.10.2024",
+      "link": "https://trck.nheek.com/login",
+      "image": "https://uppy.nheek.com/uploads/dc94af08-8e19-4224-92b6-86e1d547d26b.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/dc8e37ac-f4e3-4031-a235-e27c4a111cf4.png",
+      "techstack": ["TypeScript", "PostgreSQL", "CSS"],
+      "deployedWith": ["github actions", "docker"],
+      "onGithub": "https://github.com/umami-software/umami"
+    },
     {
       "name": "memos",
       "desc": "private or public notes platform",
@@ -522,7 +534,7 @@
       "image": "https://uppy.nheek.com/uploads/6a63ab58-75ac-4da2-980c-01989deaa1db.png",
       "mobileImage": "https://uppy.nheek.com/uploads/a727e84e-9997-41aa-a63a-44287276d358.png",
       "techstack": ["React", "Go", "SQLite", "CSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"],
+      "deployedWith": ["github actions", "docker"],
       "onGithub": "https://github.com/usememos/memos"
     }
   ]
