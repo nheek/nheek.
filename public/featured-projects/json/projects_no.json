@@ -508,6 +508,17 @@
   ],
   "utility": [
     {
+      "name": "grit",
+      "desc": "ekstern git for enkle og robuste prosjekter",
+      "dateAdded": "18.10.2024",
+      "link": "https://grit.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/7e38c984-36c2-4715-a377-df446abf693c.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/3a2266d3-d4f8-4fb0-bf5f-9c86bb032a8f.png",
+      "techstack": ["Go", "Maven", "Vue.js", "PostgreSQL", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/go-gitea/gitea"
+    },
+    {
       "name": "trck",
       "desc": "personvernfokusert analyseplattform",
       "dateAdded": "18.10.2024",
@@ -515,7 +526,7 @@
       "image": "https://uppy.nheek.com/uploads/dc94af08-8e19-4224-92b6-86e1d547d26b.png",
       "mobileImage": "https://uppy.nheek.com/uploads/dc8e37ac-f4e3-4031-a235-e27c4a111cf4.png",
       "techstack": ["TypeScript", "PostgreSQL", "CSS"],
-      "deployedWith": ["github actions", "docker"],
+      "deployedWith": ["docker"],
       "onGithub": "https://github.com/umami-software/umami"
     },
     {
@@ -526,7 +537,7 @@
       "image": "https://uppy.nheek.com/uploads/6a63ab58-75ac-4da2-980c-01989deaa1db.png",
       "mobileImage": "https://uppy.nheek.com/uploads/a727e84e-9997-41aa-a63a-44287276d358.png",
       "techstack": ["React", "Go", "SQLite", "CSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"],
+      "deployedWith": ["docker"],
       "onGithub": "https://github.com/usememos/memos"
     }
   ]
