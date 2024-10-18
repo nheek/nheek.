@@ -511,7 +511,7 @@
       "name": "trck",
       "desc": "personvernfokusert analyseplattform",
       "dateAdded": "18.10.2024",
-      "link": "https://trck.nheek.no/login",
+      "link": "https://trck.nheek.no/dashboard",
       "image": "https://uppy.nheek.com/uploads/dc94af08-8e19-4224-92b6-86e1d547d26b.png",
       "mobileImage": "https://uppy.nheek.com/uploads/dc8e37ac-f4e3-4031-a235-e27c4a111cf4.png",
       "techstack": ["TypeScript", "PostgreSQL", "CSS"],
