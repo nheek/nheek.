@@ -42,4 +42,5 @@ jobs:
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
 
+            docker compose pull
             docker compose up -d
