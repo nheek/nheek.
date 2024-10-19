@@ -546,6 +546,27 @@
       "techstack": ["React", "Go", "SQLite", "CSS"],
       "deployedWith": ["docker"],
       "onGithub": "https://github.com/usememos/memos"
+    },
+    {
+      "name": "vault",
+      "desc": "secure password manager",
+      "dateAdded": "19.10.2024",
+      "link": "https://vault.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/eb88fff5-ba42-4aae-84a8-d4328996e324.png",
+      "techstack": ["Rust", "Rocket", "SQLite", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/dani-garcia/vaultwarden"
+    },
+    {
+      "name": "up",
+      "desc": "easy-to-use fancy monitoring tool",
+      "dateAdded": "19.10.2024",
+      "link": "https://up.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/acd15102-1d10-48db-a70c-c293871d76e5.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/77a32229-42eb-4f6c-bba3-c0d62ed5d6e5.png",
+      "techstack": ["Rust", "Rocket", "SQLite", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/dani-garcia/vaultwarden"
     }
   ]
 }

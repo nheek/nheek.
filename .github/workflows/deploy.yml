@@ -1,4 +1,4 @@
-name: Build, Push, and Deploy Docker Compose
+name: Production - Build, Push, and Deploy Docker Compose
 
 on:
   push:
@@ -18,28 +18,28 @@ jobs:
 
       - name: Generate .env file
         run: |
-          echo "DB_HOST=${{ secrets.DB_HOST }}" >> .env
-          echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
-          echo "DB_PASS=${{ secrets.DB_PASS }}" >> .env
-          echo "DB_USER=${{ secrets.DB_USER }}" >> .env
           echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
 
-      - name: Build and Push Docker Image
+      - name: Build and Push Docker Images
         run: |
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest -f Dockerfile .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/nheek:latest
+          docker compose build
+          docker compose push
 
-      - name: Set up kubectl
-        run: |
-          mkdir -p $HOME/.kube
-          echo "${{ secrets.DO_KUBECONFIG }}" | base64 --decode > $HOME/.kube/config
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            cd apps
+            mkdir nheek
+            cd nheek
 
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl apply -f k3s/priority.yaml
-          kubectl apply -f k3s/deployment.yaml
-          kubectl apply -f k3s/service.yaml
-          kubectl apply -f k3s/ingress.yaml
-          kubectl apply -f k3s/hpa.yaml
-          kubectl rollout restart deployment nheek-d
+            rm -rf .env
+            echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
+            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
+            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
+
+            docker compose up -d
