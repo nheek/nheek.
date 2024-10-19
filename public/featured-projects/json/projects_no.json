@@ -15,7 +15,7 @@
         "TailwindCSS"
       ],
       "onGithub": "https://github.com/nheek/nheek.",
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["github actions", "docker"]
     },
     {
       "name": "raincheck",
@@ -24,7 +24,7 @@
       "image": "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
       "mobileImage": "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
       "techstack": ["Django", "Python", "JavaScript", "TailwindCSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     },
     {
       "name": "wee",
@@ -68,7 +68,7 @@
       "image": "https://uppy.nheek.com/uploads/e5ad6ca3-9c5f-443d-b7aa-f80d7b2a9cf2.png",
       "mobileImage": "https://uppy.nheek.com/uploads/447ccc21-5cb6-4ae3-af4a-d7f6b1f6fba4.png",
       "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     },
     {
       "name": "shareme",
@@ -120,7 +120,7 @@
       "mobileImage": "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
       "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/motto",
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     },
     {
       "name": "lookatme",
@@ -176,7 +176,7 @@
       "image": "/featured-projects/malky.png",
       "mobileImage": "/featured-projects/mobile/m-malky.png",
       "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     },
     {
       "name": "free",
@@ -204,7 +204,7 @@
       "image": "/featured-projects/recreate.png",
       "mobileImage": "/featured-projects/mobile/m-recreate.png",
       "techstack": ["HTML", "JavaScript", "REST API"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     }
   ],
   "desktopApps": [
@@ -400,7 +400,7 @@
       "image": "/featured-projects/static/lady.png",
       "mobileImage": "/featured-projects/mobile/static/m-lady.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     },
     {
       "name": "techie",
@@ -409,7 +409,7 @@
       "image": "/featured-projects/static/techie.png",
       "mobileImage": "/featured-projects/mobile/static/m-techie.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"],
+      "deployedWith": ["vercel"],
       "onGithub": "https://github.com/nheek/techie"
     },
     {
@@ -418,7 +418,7 @@
       "link": "https://arch.nheek.com/",
       "image": "/featured-projects/static/arch.png",
       "techstack": ["ReactJS", "ViteJS", "TypeScript", "CSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     },
     {
       "name": "bould",
@@ -427,7 +427,7 @@
       "image": "/featured-projects/bould.png",
       "mobileImage": "/featured-projects/mobile/m-bould.png",
       "techstack": ["AstroJS", "NodeJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"],
+      "deployedWith": ["vercel"],
       "onGithub": "https://github.com/nheek/bould"
     },
     {
@@ -446,7 +446,7 @@
       "link": "https://ingo.nheek.com/",
       "image": "/featured-projects/static/ingo.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     },
     {
       "name": "hvltopia",
@@ -466,7 +466,7 @@
       "link": "https://truhvel.nheek.com/",
       "image": "/featured-projects/static/truhvel.png",
       "techstack": ["VueJS", "ViteJS", "TypeScript", "CSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["vercel"]
     }
   ],
   "template": [
@@ -495,15 +495,6 @@
       "image": "/featured-projects/template/wine.png",
       "techstack": ["WordPress", "PHP", "JavaScript", "CSS"],
       "deployedWith": ["docker", "github actions"]
-    },
-    {
-      "name": "grownoo",
-      "status": "vedlikehold",
-      "desc": "landingsside for videoproduksjonsbyrå",
-      "link": "https://grownoo.nheek.com/",
-      "image": "/featured-projects/template/grownoo.png",
-      "mobileImage": "/featured-projects/mobile/template/m-grownoo.png",
-      "techstack": ["WordPress", "PHP", "JavaScript", "CSS"]
     }
   ],
   "utility": [
