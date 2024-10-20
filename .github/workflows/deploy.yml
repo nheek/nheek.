@@ -43,4 +43,4 @@ jobs:
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
 
             docker compose pull
-            docker compose up -d
+            docker compose up -d && curl -d "nheek deployed successfully" https://ntfy.nheek.com/${{ secrets.NTFY_TOPIC }}
