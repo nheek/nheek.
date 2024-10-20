@@ -557,7 +557,39 @@
       "mobileImage": "https://uppy.nheek.com/uploads/77a32229-42eb-4f6c-bba3-c0d62ed5d6e5.png",
       "techstack": ["Rust", "Rocket", "SQLite", "CSS"],
       "deployedWith": ["docker"],
-      "onGithub": "https://github.com/dani-garcia/vaultwarden"
+      "onGithub": "https://github.com/louislam/uptime-kuma"
+    },
+    {
+      "name": "archive",
+      "desc": "web archiving tool",
+      "dateAdded": "20.10.2024",
+      "link": "https://archive.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/0baf35ad-e9a9-4881-8b22-390601392481.png",
+      "techstack": ["Django", "Python", "SQLite", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/ArchiveBox/ArchiveBox"
+    },
+    {
+      "name": "subs",
+      "desc": "personal subscription tracker",
+      "dateAdded": "20.10.2024",
+      "link": "https://subs.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/1ede0c7c-3bc4-4cfe-b04e-6c4c5d45b20d.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/b14422b2-833f-4817-8b30-01d037f4e8fd.png",
+      "techstack": ["Flask", "Python", "SQLite", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/ellite/Wallos"
+    },
+    {
+      "name": "pasty",
+      "desc": "end-to-end encrypted pastebin",
+      "dateAdded": "20.10.2024",
+      "link": "https://pasty.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/0af1e370-c847-4cef-8ea1-9d3131af3d38.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/f145f627-58ab-469c-bcb8-b912e7748763.png",
+      "techstack": ["PHP", "JavaScript", "SQLite", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/PrivateBin"
     }
   ]
 }
