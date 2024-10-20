@@ -48,10 +48,6 @@ export default function FeaturedProjects() {
 
   // if there is a new project under a category, put the category here
   const newProjects = [
-    "Websites",
-    "Nettsteder",
-    "Static",
-    "Statisk",
     "Utility",
     "Verktøy",
   ];

@@ -563,6 +563,17 @@
       "onGithub": "https://github.com/ArchiveBox/ArchiveBox"
     },
     {
+      "name": "faarm",
+      "desc": "oppretting av skjemaer og undersøkelser",
+      "dateAdded": "21.10.2024",
+      "link": "https://faarm.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/eef11105-f82b-4b81-af0a-716da39d65eb.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/298cb381-6029-4efb-a179-b2aca511ada2.png",
+      "techstack": ["Laravel", "PHP", "PostgreSQL", "NuxtJS", "TypeScript", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/JhumanJ/OpnForm"
+    },
+    {
       "name": "subs",
       "desc": "personlig abonnementsporing",
       "dateAdded": "20.10.2024",
