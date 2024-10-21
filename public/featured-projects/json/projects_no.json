@@ -313,7 +313,7 @@
     {
       "name": "kledeli",
       "desc": "abonnementsplattform for barneklær",
-      "link": "https://kledeli.nheek.com/",
+      "link": "https://kledeli.nheek.no/",
       "image": "/featured-projects/contributions/kledeli.png",
       "mobileImage": "/featured-projects/mobile/contributions/m-kledeli.png",
       "techstack": ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
@@ -475,24 +475,25 @@
       "status": "vedlikehold",
       "desc": "sosial medieplattform",
       "link": "https://hexrovk.nheek.com/",
-      "image": "/featured-projects/template/hexrovk.png",
-      "mobileImage": "/featured-projects/mobile/template/m-hexrovk.png",
+      "image": "https://uppy.nheek.com/uploads/0d0f299e-5bf5-433e-999d-0dec1ef07665.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/4f974b3c-c8a5-4358-b206-994785929310.png",
       "techstack": ["PHP", "JavaScript", "MySQL", "JQuery", "CSS"]
     },
     {
       "name": "yloizah",
       "desc": "portefølje for virtuell lederassistent",
-      "link": "https://yloizah.nheek.com/",
-      "image": "/featured-projects/template/yloizah.png",
-      "mobileImage": "/featured-projects/mobile/template/m-yloizah.png",
+      "link": "https://yloizah.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/8fb5ff17-cb9f-4de4-83a8-a010101309e9.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/1feb98ab-3ed2-4e05-9aaf-317774405d84.png",
       "techstack": ["NextJS", "ReactJS", "Bootstrap", "SCSS"]
     },
     {
       "name": "wine",
       "dateAdded": "02.08.2024",
       "desc": "moteblogg",
-      "link": "https://wine.nheek.com/",
-      "image": "/featured-projects/template/wine.png",
+      "link": "https://wine.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/d89f0b5a-c3f3-482d-a24c-e0922ac8765a.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/f7839fce-cfa5-415c-9932-6ae2661950fc.png",
       "techstack": ["WordPress", "PHP", "JavaScript", "CSS"],
       "deployedWith": ["docker", "github actions"]
     }
