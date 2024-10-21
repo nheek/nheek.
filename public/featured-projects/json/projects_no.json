@@ -576,6 +576,17 @@
       "onGithub": "https://github.com/JhumanJ/OpnForm"
     },
     {
+      "name": "ntfy",
+      "desc": "send push-varsler til dine enheter",
+      "dateAdded": "22.10.2024",
+      "link": "https://ntfy.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/8bad0110-8176-46a2-8169-3d15afb8ad86.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/02aa2156-f052-4afd-b466-013e3a5332e9.png",
+      "techstack": ["Go", "SQLite", "JavaScript", "Firebase", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/binwiederhier/ntfy"
+    },
+    {
       "name": "subs",
       "desc": "personlig abonnementsporing",
       "dateAdded": "20.10.2024",

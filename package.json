@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.2.5",
+  "version": "0.3.0",
   "scripts": {
     "build": "npm run prettier && next build",
     "dev": "next dev",

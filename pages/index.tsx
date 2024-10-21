@@ -29,7 +29,11 @@ export default function Home() {
         />
         <meta name="og:title" content={textsMap.sitename} />
         <meta name="twitter:card" content="summary_large_image" />
-        <script defer src="https://trck.nheek.com/script.js" data-website-id="74e002f4-f2a6-43b6-9045-840f9632e53a"></script>
+        <script
+          defer
+          src="https://trck.nheek.com/script.js"
+          data-website-id="74e002f4-f2a6-43b6-9045-840f9632e53a"
+        ></script>
       </Head>
       <Layout />
     </>

@@ -1,13 +1,7 @@
-version: "3"
-
 services:
   node-app:
     build: .
     restart: unless-stopped
     ports:
       - 3000:3000
-    env_file:
-      - .env
-    environment:
-      - PLACEHOLDER=YES
     image: "nheek/nheek:latest"
