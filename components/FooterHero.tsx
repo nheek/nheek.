@@ -1,4 +1,3 @@
-import ContactForm from "./ContactForm";
 import getTextsMap from "./GetTextsMap";
 
 export default function FooterHero() {
