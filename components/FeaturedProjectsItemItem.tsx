@@ -163,6 +163,14 @@ export default function FeaturedProjectsItemItem({
         >
           <img src="/social-links/github-iconx.svg" alt="github icon logo" />
         </a>
+        <a
+          title="Grit link"
+          className={`${project.onGrit ? "block" : "hidden"} flex items-center`}
+          href={project.onGrit}
+          target="_blank"
+        >
+          <img src="/icons/grit.svg" alt="grit icon logo" />
+        </a>
         <button
           onClick={changeImage}
           title="Change image"

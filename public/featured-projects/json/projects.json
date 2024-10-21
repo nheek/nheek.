@@ -403,8 +403,8 @@
       "name": "lady",
       "desc": "food service online platform",
       "link": "https://lady.nheek.com/",
-      "image": "/featured-projects/static/lady.png",
-      "mobileImage": "/featured-projects/mobile/static/m-lady.png",
+      "image": "https://uppy.nheek.com/uploads/0122a9ff-95ff-4464-9212-3c17f66cf01c.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/a5e113b2-e37d-4e49-a8b2-756f676f4df1.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
       "deployedWith": ["vercel"]
     },
@@ -412,8 +412,8 @@
       "name": "techie",
       "desc": "tech product landing page",
       "link": "https://techie.nheek.com/",
-      "image": "/featured-projects/static/techie.png",
-      "mobileImage": "/featured-projects/mobile/static/m-techie.png",
+      "image": "https://uppy.nheek.com/uploads/7905e040-52be-420d-99ae-ded12bb0b997.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/28f40011-3ed9-4f7f-a019-aff5c8f71346.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/techie",
       "deployedWith": ["vercel"]
@@ -422,7 +422,7 @@
       "name": "arch",
       "desc": "interior design landing page",
       "link": "https://arch.nheek.com/",
-      "image": "/featured-projects/static/arch.png",
+      "image": "https://uppy.nheek.com/uploads/0bbf447b-eae2-4c81-a3b5-4d3d8a082d46.png",
       "techstack": ["ReactJS", "ViteJS", "TypeScript", "CSS"],
       "deployedWith": ["vercel"]
     },
@@ -430,8 +430,8 @@
       "name": "bould",
       "desc": "cover photo focused blog platform",
       "link": "https://bould.nheek.com/",
-      "image": "/featured-projects/bould.png",
-      "mobileImage": "/featured-projects/mobile/m-bould.png",
+      "image": "https://uppy.nheek.com/uploads/e38965d7-e3aa-4afb-ac5a-7083c80bf65c.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/75be59de-6d35-4f85-85e0-921b68b45011.png",
       "techstack": ["AstroJS", "NodeJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/bould",
       "deployedWith": ["vercel"]
@@ -441,16 +441,17 @@
       "dateAdded": "03.08.2024",
       "desc": "children kindergarten",
       "link": "https://kinder.nheek.com/",
-      "image": "/featured-projects/static/kinder.png",
+      "image": "https://uppy.nheek.com/uploads/79739532-4816-4aec-8116-8f252bbd927a.png",
       "techstack": ["SvelteKit", "TypeScript", "CSS"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["github actions", "docker"],
+      "onGrit": "https://grit.nheek.com/nheek/kinder"
     },
     {
       "name": "ingo",
       "dateAdded": "23.07.2024",
       "desc": "overseas travel tracker",
       "link": "https://ingo.nheek.com/",
-      "image": "/featured-projects/static/ingo.png",
+      "image": "https://uppy.nheek.com/uploads/77af7d52-cf9c-4197-ae74-037ff87e81b4.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
       "deployedWith": ["vercel"]
     },
@@ -470,7 +471,7 @@
       "dateAdded": "09.04.2024",
       "desc": "underwater exploration landing page",
       "link": "https://truhvel.nheek.com/",
-      "image": "/featured-projects/static/truhvel.png",
+      "image": "https://uppy.nheek.com/uploads/f841666d-a2f6-4b2f-b04f-59e7a7daf4ee.png",
       "techstack": ["VueJS", "ViteJS", "TypeScript", "CSS"],
       "deployedWith": ["vercel"]
     }
