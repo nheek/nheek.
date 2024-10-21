@@ -53,7 +53,7 @@ export default function Skills() {
     "AstroJS",
     "Zola",
     "nginx",
-    "Linux"
+    "Linux",
   ];
   let middleSkills = [
     "Django",
