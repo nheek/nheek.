@@ -53,6 +53,7 @@ export default function Skills() {
     "AstroJS",
     "Zola",
     "nginx",
+    "Linux"
   ];
   let middleSkills = [
     "Django",
@@ -62,9 +63,12 @@ export default function Skills() {
     "C#",
     "JWT",
     "Kubernetes",
+    "SCSS",
+    "Svelte",
+    "SvelteKit",
   ];
-  let orangeSkills = ["SCSS", "Swift", "Go", "C++", "SQLite"];
-  let upcomingSkills = ["Vue.js", "Spring Boot", "Angular", ".NET", "Blazor"];
+  let orangeSkills = ["Swift", "Go", "C++", "SQLite", "Vue.js"];
+  let upcomingSkills = ["Spring Boot", "Angular", ".NET", "Blazor"];
   skills.sort((a, b) => a.localeCompare(b));
   middleSkills.sort((a, b) => a.localeCompare(b));
   orangeSkills.sort((a, b) => a.localeCompare(b));
