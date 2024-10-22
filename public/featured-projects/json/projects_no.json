@@ -30,8 +30,8 @@
       "name": "wee",
       "desc": "lenkeforkortingsplattform",
       "link": "https://wee.nheek.com/",
-      "image": "https://uppy.nheek.com/uploads/cad381cd-d697-4f93-a551-aeab784fe386.png",
-      "mobileImage": "https://uppy.nheek.com/uploads/e1812085-2069-41c4-abfe-7b213fc7ff83.png",
+      "image": "https://uppy.nheek.com/uploads/5d7c710f-c98c-4dd7-a2a4-aafd74ca2143.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/d6768ed0-8fcb-48c7-b37d-fd0bd561648e.png",
       "techstack": [
         "NextJS",
         "ReactJS",
@@ -40,7 +40,7 @@
         "PostgreSQL",
         "TailwindCSS"
       ],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["github actions", "docker"]
     },
     {
       "name": "uppy",
@@ -110,7 +110,7 @@
         "MySQL",
         "TailwindCSS"
       ],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["github actions", "docker"]
     },
     {
       "name": "motto",
@@ -129,7 +129,7 @@
       "image": "https://uppy.nheek.com/uploads/839ad939-799e-41ac-a2e5-fb1bc97835c2.png",
       "mobileImage": "https://uppy.nheek.com/uploads/187967f1-92c7-45c7-9c99-96e59c382d2b.png",
       "techstack": ["ExpressJS", "PostgreSQL", "TailwindCSS", "Socket.IO"],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["github actions", "docker"]
     },
     {
       "name": "swiftgoss",
@@ -160,7 +160,7 @@
         "PostgreSQL",
         "TailwindCSS"
       ],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["github actions", "docker"]
     },
     {
       "name": "poetree",
@@ -389,7 +389,7 @@
           "link": "https://github.com/671454"
         }
       ],
-      "deployedWith": ["github actions", "docker", "kubernetes"]
+      "deployedWith": ["github actions", "docker"]
     }
   ],
   "static": [
