@@ -3,5 +3,5 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - 3000:3000
+      - 4000:3000
     image: "nheek/nheek:latest"
