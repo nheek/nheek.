@@ -587,6 +587,17 @@
       "onGithub": "https://github.com/binwiederhier/ntfy"
     },
     {
+      "name": "tox",
+      "desc": "online programmeringsverktøy",
+      "dateAdded": "24.10.2024",
+      "link": "https://tox.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/6266f51b-4953-4c23-b5a8-b26bfb767283.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/329c1905-38c6-4b38-99c3-31feaa38b760.png",
+      "techstack": ["ReactJS", "ViteJS", "TypeScript", "TailwindCSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/CorentinTh/it-tools"
+    },
+    {
       "name": "subs",
       "desc": "personlig abonnementsporing",
       "dateAdded": "20.10.2024",
