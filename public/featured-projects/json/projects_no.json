@@ -48,8 +48,8 @@
       "status": "early access",
       "desc": "fildelingsplattform",
       "link": "https://uppy.nheek.no/",
-      "image": "https://uppy.nheek.com/uploads/94962cb1-d12e-4ae1-83be-2d226f38501a.png",
-      "mobileImage": "https://uppy.nheek.com/uploads/60d78d76-99ec-4d02-b10f-9b1ba71b0163.png",
+      "image": "https://uppy.nheek.com/uploads/31b37d52-ea6b-4655-9552-ac6037c61eea.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/c24c5b7b-16b0-40ae-882c-f9f4c1c7ee5f.png",
       "onGithub": "https://github.com/nheek/uppy",
       "techstack": [
         "NextJS",
