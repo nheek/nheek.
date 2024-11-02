@@ -45,7 +45,6 @@
     {
       "name": "uppy",
       "dateAdded": "01.10.2024",
-      "status": "early access",
       "desc": "fildelingsplattform",
       "link": "https://uppy.nheek.no/",
       "image": "https://uppy.nheek.com/uploads/31b37d52-ea6b-4655-9552-ac6037c61eea.png",
@@ -57,6 +56,26 @@
         "NodeJS",
         "TypeScript",
         "PostgreSQL",
+        "TailwindCSS"
+      ],
+      "deployedWith": ["docker", "github actions"]
+    },
+    {
+      "name": "appdock",
+      "dateAdded": "02.11.2024",
+      "desc": "web app launcher",
+      "link": "https://appdock.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/8780e4c6-0244-455c-96a6-56bbf95cbd41.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/2bd03583-abd4-430c-b015-e931a109b920.png",
+      "techstack": [
+        "NextJS",
+        "ReactJS",
+        "NodeJS",
+        "TypeScript",
+        "tRPC",
+        "PostgreSQL",
+        "Prisma",
+        "NextAuth.js",
         "TailwindCSS"
       ],
       "deployedWith": ["docker", "github actions"]
