@@ -543,17 +543,6 @@
       "onGithub": "https://github.com/umami-software/umami"
     },
     {
-      "name": "memos",
-      "desc": "privat eller offentlig notatplattform",
-      "dateAdded": "16.10.2024",
-      "link": "https://memos.nheek.com/",
-      "image": "https://uppy.nheek.com/uploads/6a63ab58-75ac-4da2-980c-01989deaa1db.png",
-      "mobileImage": "https://uppy.nheek.com/uploads/a727e84e-9997-41aa-a63a-44287276d358.png",
-      "techstack": ["React", "Go", "SQLite", "CSS"],
-      "deployedWith": ["docker"],
-      "onGithub": "https://github.com/usememos/memos"
-    },
-    {
       "name": "vault",
       "desc": "sikker passordbehandling",
       "dateAdded": "19.10.2024",
@@ -562,6 +551,17 @@
       "techstack": ["Rust", "Rocket", "SQLite", "CSS"],
       "deployedWith": ["docker"],
       "onGithub": "https://github.com/dani-garcia/vaultwarden"
+    },
+    {
+      "name": "ntfy",
+      "desc": "send push-varsler til dine enheter",
+      "dateAdded": "22.10.2024",
+      "link": "https://ntfy.nheek.no/",
+      "image": "https://uppy.nheek.com/uploads/8bad0110-8176-46a2-8169-3d15afb8ad86.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/02aa2156-f052-4afd-b466-013e3a5332e9.png",
+      "techstack": ["Go", "SQLite", "JavaScript", "Firebase", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/binwiederhier/ntfy"
     },
     {
       "name": "up",
@@ -573,6 +573,17 @@
       "techstack": ["Rust", "Rocket", "SQLite", "CSS"],
       "deployedWith": ["docker"],
       "onGithub": "https://github.com/louislam/uptime-kuma"
+    },
+    {
+      "name": "paper",
+      "desc": "personlig søkbart nettarkiv",
+      "dateAdded": "02.11.2024",
+      "link": "https://paper.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/7a58b8b8-1f11-47ee-8814-8964fc9b2f07.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/427787ff-04ca-41a9-8939-ec981a62d59e.png",
+      "techstack": ["Django", "Python", "Angular", "TypeScript", "PostgreSQL", "Redis", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/paperless-ngx/paperless-ngx"
     },
     {
       "name": "archive",
@@ -596,15 +607,15 @@
       "onGithub": "https://github.com/JhumanJ/OpnForm"
     },
     {
-      "name": "ntfy",
-      "desc": "send push-varsler til dine enheter",
-      "dateAdded": "22.10.2024",
-      "link": "https://ntfy.nheek.no/",
-      "image": "https://uppy.nheek.com/uploads/8bad0110-8176-46a2-8169-3d15afb8ad86.png",
-      "mobileImage": "https://uppy.nheek.com/uploads/02aa2156-f052-4afd-b466-013e3a5332e9.png",
-      "techstack": ["Go", "SQLite", "JavaScript", "Firebase", "CSS"],
+      "name": "memos",
+      "desc": "privat eller offentlig notatplattform",
+      "dateAdded": "16.10.2024",
+      "link": "https://memos.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/6a63ab58-75ac-4da2-980c-01989deaa1db.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/a727e84e-9997-41aa-a63a-44287276d358.png",
+      "techstack": ["React", "Go", "SQLite", "CSS"],
       "deployedWith": ["docker"],
-      "onGithub": "https://github.com/binwiederhier/ntfy"
+      "onGithub": "https://github.com/usememos/memos"
     },
     {
       "name": "tox",
