@@ -37,7 +37,6 @@ jobs:
             mkdir nheek
             cd nheek
 
-            curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/Dockerfile
             curl -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
 
             docker compose pull
