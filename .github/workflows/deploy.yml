@@ -16,13 +16,9 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Generate .env file
-        run: |
-          echo "DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}" >> .env
-
       - name: Build and Push Docker Images
         run: |
-          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          echo "${{ secrets.REG_PASSWORD }}" | docker login ${{ secrets.REG_REGISTRY }} -u ${{ secrets.REG_USERNAME }} --password-stdin
           docker compose build
           docker compose push
 
