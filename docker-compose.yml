@@ -4,4 +4,4 @@ services:
     restart: unless-stopped
     ports:
       - 4000:3000
-    image: "reg.nheek.com/nheek/nheek.:latest"
+    image: "reg.nheek.com/nheek/nheek-port:latest"
