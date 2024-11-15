@@ -630,14 +630,14 @@
     },
     {
       "name": "sign",
-      "desc": "privat eller offentlig notatplattform",
-      "dateAdded": "16.10.2024",
-      "link": "https://memos.nheek.com/",
-      "image": "https://uppy.nheek.com/uploads/6a63ab58-75ac-4da2-980c-01989deaa1db.png",
-      "mobileImage": "https://uppy.nheek.com/uploads/a727e84e-9997-41aa-a63a-44287276d358.png",
-      "techstack": ["React", "Go", "SQLite", "CSS"],
+      "desc": "plattform for dokumentsignering",
+      "dateAdded": "15.11.2024",
+      "link": "https://sign.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/d15d0ca9-d88a-4875-bc18-06b34cf7517c.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/178dccf7-19ea-466e-813c-00c76bcc9c23.png",
+      "techstack": ["Ruby on Rails", "ReactJS", "PostgreSQL", "CSS"],
       "deployedWith": ["docker"],
-      "onGithub": "https://github.com/usememos/memos"
+      "onGithub": "https://github.com/docusealco/docuseal"
     },
     {
       "name": "memos",
