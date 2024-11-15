@@ -564,6 +564,17 @@
       "onGithub": "https://github.com/binwiederhier/ntfy"
     },
     {
+      "name": "reg",
+      "desc": "container registeret",
+      "dateAdded": "15.11.2024",
+      "link": "https://reg.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/de43426a-8faf-4fa0-b1b9-1c5946dc1242.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/1bded3f4-074e-4cbd-b1d5-bf1c6a790bac.png",
+      "techstack": ["Go", "PostgreSQL", "Angular", "Redis", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/goharbor/harbor"
+    },
+    {
       "name": "codify",
       "desc": "skjermbilde til kode",
       "dateAdded": "15.11.2024",
@@ -616,6 +627,17 @@
       "techstack": ["Laravel", "PHP", "PostgreSQL", "NuxtJS", "TypeScript", "CSS"],
       "deployedWith": ["docker"],
       "onGithub": "https://github.com/JhumanJ/OpnForm"
+    },
+    {
+      "name": "sign",
+      "desc": "privat eller offentlig notatplattform",
+      "dateAdded": "16.10.2024",
+      "link": "https://memos.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/6a63ab58-75ac-4da2-980c-01989deaa1db.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/a727e84e-9997-41aa-a63a-44287276d358.png",
+      "techstack": ["React", "Go", "SQLite", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/usememos/memos"
     },
     {
       "name": "memos",

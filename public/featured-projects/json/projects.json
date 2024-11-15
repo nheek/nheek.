@@ -571,6 +571,17 @@
       "onGithub": "https://github.com/binwiederhier/ntfy"
     },
     {
+      "name": "reg",
+      "desc": "container registry",
+      "dateAdded": "15.11.2024",
+      "link": "https://reg.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/de43426a-8faf-4fa0-b1b9-1c5946dc1242.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/1bded3f4-074e-4cbd-b1d5-bf1c6a790bac.png",
+      "techstack": ["Go", "PostgreSQL", "Angular", "Redis", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/goharbor/harbor"
+    },
+    {
       "name": "codify",
       "desc": "screenshot to code",
       "dateAdded": "15.11.2024",
@@ -623,6 +634,17 @@
       "techstack": ["Laravel", "PHP", "PostgreSQL", "NuxtJS", "TypeScript", "CSS"],
       "deployedWith": ["docker"],
       "onGithub": "https://github.com/JhumanJ/OpnForm"
+    },
+    {
+      "name": "sign",
+      "desc": "document signing platform",
+      "dateAdded": "15.11.2024",
+      "link": "https://sign.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/d15d0ca9-d88a-4875-bc18-06b34cf7517c.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/178dccf7-19ea-466e-813c-00c76bcc9c23.png",
+      "techstack": ["Ruby on Rails", "ReactJS", "PostgreSQL", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/docusealco/docuseal"
     },
     {
       "name": "memos",
