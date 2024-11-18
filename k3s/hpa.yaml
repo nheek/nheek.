@@ -1,0 +1,24 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: nheek-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: nheek-d
+  minReplicas: 1
+  maxReplicas: 3
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+       -  type: Percent
+          value: 50
+          periodSeconds: 15
+    scaleUp:
+      stabilizationWindowSeconds: 0
+      policies:
+       -  type: Percent
+          value: 500
+          periodSeconds: 5

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nheek-d
+  labels:
+    app: nheek
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nheek
+  template:
+    metadata:
+      labels:
+        app: nheek
+    spec:
+      imagePullSecrets:
+        - name: regcrednheek
+      containers:
+        - name: nheek
+          image: reg.nheek.com/nheek/nheek:latest
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "40Mi"
+              cpu: "40m"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            timeoutSeconds: 2
+            failureThreshold: 10
+            successThreshold: 1
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 2
+            failureThreshold: 10
