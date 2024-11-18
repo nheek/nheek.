@@ -18,7 +18,7 @@ spec:
         - name: regcrednheek
       containers:
         - name: nheek
-          image: reg.nheek.com/nheek/nheek:latest
+          image: reg.nheek.com/nheek/nheek-port:latest
           ports:
             - containerPort: 3000
           resources:
