@@ -1,5 +1,6 @@
 module.exports = {
   compress: true,
+  output: "standalone",
   images: {
     remotePatterns: [
       {
