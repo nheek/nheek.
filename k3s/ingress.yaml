@@ -2,12 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nheek-ingress
-  annotations:
-    # Optional: Add Traefik-specific annotations if needed
-    # traefik.ingress.kubernetes.io/router.entrypoints: web
-    # traefik.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: traefik
+  ingressClassName: nginx
   rules:
   - host: www.nheek.com
     http:
