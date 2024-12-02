@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nheek
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nheek
@@ -23,8 +23,8 @@ spec:
             - containerPort: 3000
           resources:
             requests:
-              memory: "40Mi"
-              cpu: "40m"
+              memory: "150Mi"
+              cpu: "150m"
           readinessProbe:
             httpGet:
               path: /
