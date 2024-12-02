@@ -7,7 +7,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: nheek-d
-  minReplicas: 1
+  minReplicas: 2
   maxReplicas: 5
   behavior:
     scaleDown:
@@ -20,5 +20,5 @@ spec:
       stabilizationWindowSeconds: 0
       policies:
        -  type: Percent
-          value: 200
+          value: 500
           periodSeconds: 5
