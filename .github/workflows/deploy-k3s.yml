@@ -1,0 +1,33 @@
+name: Production - Build, Push, and Deploy Docker Compose
+
+on:
+  push:
+    branches:
+      - none
+
+jobs:
+  build-push-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and Push Docker Images
+        run: |
+          echo "${{ secrets.REG_PASSWORD }}" | docker login ${{ secrets.REG_REGISTRY }} -u ${{ secrets.REG_USERNAME }} --password-stdin
+          docker compose build
+          docker compose push
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.K3S_IP }}
+          username: ${{ secrets.K3S_USERNAME }}
+          key: ${{ secrets.K3S_SSH_KEY }}
+          script: |
+            kubectl rollout restart deployment -d default nheek-d &&
+            curl -d "nheek deployed successfully" https://ntfy.nheek.com/${{ secrets.NTFY_TOPIC }}
