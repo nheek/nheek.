@@ -3,7 +3,7 @@ name: Production - Build, Push, and Deploy Docker Compose
 on:
   push:
     branches:
-      - none
+      - main
 
 jobs:
   build-push-and-deploy:
@@ -25,9 +25,10 @@ jobs:
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.K3S_IP }}
-          username: ${{ secrets.K3S_USERNAME }}
-          key: ${{ secrets.K3S_SSH_KEY }}
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            kubectl rollout restart deployment -d default nheek-d &&
+            sshdemiurge
+            kubectl rollout restart deployment -n default nheek-d &&
             curl -d "nheek deployed successfully" https://ntfy.nheek.com/${{ secrets.NTFY_TOPIC }}
