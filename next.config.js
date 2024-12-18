@@ -8,6 +8,11 @@ module.exports = {
         hostname: "uppy.nheek.com",
         pathname: "/**", // Allows all image paths from the domain
       },
+      {
+        protocol: "https",
+        hostname: "next.nheek.com",
+        pathname: "/**", // Allows all image paths from the domain
+      },
     ],
   },
   webpack: (config, { isServer }) => {

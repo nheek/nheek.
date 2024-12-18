@@ -272,6 +272,16 @@
       "techstack": ["React Native", "ReactJS"]
     }
   ],
+  "consulting": [
+    {
+      "name": "svendsen realfag",
+      "dateAdded": "18.12.2024",
+      "desc": "nettundervisning for realfag",
+      "link": "https://www.svendsen-realfag.no/",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/qNgaAfS44JnSraw?file=/&fileId=797&x=2880&y=1800&a=true&etag=786ed7b6087f43c5f92bcd10bdc7d3d3",
+      "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"]
+    }
+  ],
   "contributions": [
     {
       "name": "<pin/>",
@@ -569,6 +579,17 @@
       "techstack": ["Go", "SQLite", "JavaScript", "Firebase", "CSS"],
       "deployedWith": ["docker"],
       "onGithub": "https://github.com/binwiederhier/ntfy"
+    },
+    {
+      "name": "apollo",
+      "desc": "media system",
+      "dateAdded": "18.12.2024",
+      "link": "https://apollo.nheek.com/",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/mHt3FbmiiSEHmTP?file=/&fileId=807&x=2880&y=1800&a=true&etag=c949948c97610d66511d34ff1422eeac",
+      "mobileImage": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/kGT6exPXQmoC3LL?file=/&fileId=817&x=2880&y=1800&a=true&etag=d44e022bfcbcafb24c7d2f53b1f9a16a",
+      "techstack": ["C#", ".NET", "PostgreSQL", "ReactJS", "TypeScript", "CSS"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/jellyfin/jellyfin"
     },
     {
       "name": "reg",

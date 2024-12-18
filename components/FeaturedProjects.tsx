@@ -8,6 +8,7 @@ export default function FeaturedProjects() {
     "websites",
     "desktopApps",
     "mobileApps",
+    "consulting",
     "contributions",
     "static",
     "template",
@@ -23,6 +24,7 @@ export default function FeaturedProjects() {
     websites: "Nettsteder",
     desktopApps: "Desktop Apper",
     mobileApps: "Mobile Apper",
+    consulting: "Konsulent",
     contributions: "Contributions",
     static: "Statisk",
     template: "Mal",
@@ -34,6 +36,7 @@ export default function FeaturedProjects() {
     websites: "Websites",
     desktopApps: "Desktop Apps",
     mobileApps: "Mobile Apps",
+    consulting: "Consulting",
     contributions: "Contributions",
     static: "Static",
     template: "Template",
@@ -47,7 +50,7 @@ export default function FeaturedProjects() {
   const textsMap = getTextsMap(domainPairs);
 
   // if there is a new project under a category, put the category here
-  const newProjects = [];
+  const newProjects = ["Consulting", "Utility"];
 
   return (
     <section className="px-4 pt-[20%] md:pt-[10%]">
