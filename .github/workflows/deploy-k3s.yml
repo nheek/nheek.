@@ -7,6 +7,7 @@ on:
 
 jobs:
   build-push:
+    name: Build and Push Docker Images
     runs-on: ubuntu-latest
 
     steps:
@@ -35,6 +36,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            echo "hi" > hi.txt
             sshdemiurge
             kubectl rollout restart deployment -n default nheek-d &&
             curl -d "nheek deployed successfully" https://ntfy.nheek.com/${{ secrets.NTFY_TOPIC }}
