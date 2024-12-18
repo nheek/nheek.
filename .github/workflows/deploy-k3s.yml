@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            echo "hi" > hi.txt
+            shopt -s expand_aliases
             sshdemiurge
             kubectl rollout restart deployment -n default nheek-d &&
             curl -d "nheek deployed successfully" https://ntfy.nheek.com/${{ secrets.NTFY_TOPIC }}
