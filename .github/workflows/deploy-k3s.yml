@@ -36,7 +36,6 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            shopt -s expand_aliases
-            sshdemiurge
+            ssh ${{ secrets.K3S_USERNAME }}@${{ secrets.K3S_IP }}
             kubectl rollout restart deployment -n default nheek-d &&
             curl -d "nheek deployed successfully" https://ntfy.nheek.com/${{ secrets.NTFY_TOPIC }}
