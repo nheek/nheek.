@@ -23,7 +23,7 @@ export default function FeaturedProjectsItemItem({
   }, [project.link]);
 
   const changeImage = () => {
-    let imageToSet =
+    const imageToSet =
       projectImage === project.image ? project.mobileImage : project.image;
     setProjectImage(imageToSet);
   };

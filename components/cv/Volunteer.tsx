@@ -14,7 +14,7 @@ export default function Volunteer() {
     default: wwwDefault,
   };
 
-  let textsMap = getTextsMap(domainPairs);
+  const textsMap = getTextsMap(domainPairs);
 
   const volunteerList = [
     {

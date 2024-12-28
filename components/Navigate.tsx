@@ -15,9 +15,9 @@ export default function Navigate({ underPage = false }) {
     default: wwwDefault,
   };
 
-  let textsMap = getTextsMap(domainPairs);
+  const textsMap = getTextsMap(domainPairs);
 
-  let navLinks = [
+  const navLinks = [
     { name: "home", link: "/" },
     { name: "blog", link: "#" }, // blog about very small random things to very specific big things
     { name: "gallery", link: "/gallery" }, // maybe add a gallery page where i can showcase some of my favourite pictures

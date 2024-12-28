@@ -16,9 +16,9 @@ export default function Skills() {
     default: wwwDefault,
   };
 
-  let textsMap = getTextsMap(domainPairs);
+  const textsMap = getTextsMap(domainPairs);
 
-  let skills = [
+  const skills = [
     "CSS",
     "CloudFlare",
     "Firebase",
@@ -55,7 +55,7 @@ export default function Skills() {
     "nginx",
     "Linux",
   ];
-  let middleSkills = [
+  const middleSkills = [
     "Django",
     "Git",
     "Flutter",
@@ -67,8 +67,8 @@ export default function Skills() {
     "Svelte",
     "SvelteKit",
   ];
-  let orangeSkills = ["Swift", "Go", "C++", "SQLite", "Vue.js"];
-  let upcomingSkills = ["Spring Boot", "Angular", ".NET", "Blazor"];
+  const orangeSkills = ["Swift", "Go", "C++", "SQLite", "Vue.js"];
+  const upcomingSkills = ["Spring Boot", "Angular", ".NET", "Blazor"];
   skills.sort((a, b) => a.localeCompare(b));
   middleSkills.sort((a, b) => a.localeCompare(b));
   orangeSkills.sort((a, b) => a.localeCompare(b));

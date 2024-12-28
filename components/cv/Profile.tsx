@@ -14,7 +14,7 @@ export default function Profile() {
     default: wwwDefault,
   };
 
-  let textsMap = getTextsMap(domainPairs);
+  const textsMap = getTextsMap(domainPairs);
 
   return (
     <section className="px-4 pt-[25%] md:pt-[15%] min-h-max">

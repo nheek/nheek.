@@ -5,13 +5,13 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: www.nheek.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: nheek-service
-            port:
-              number: 30080
+    - host: www.nheek.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nheek-service
+                port:
+                  number: 30080

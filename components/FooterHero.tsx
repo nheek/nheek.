@@ -18,7 +18,7 @@ export default function FooterHero() {
     default: wwwDefault,
   };
 
-  let textsMap = getTextsMap(domainPairs);
+  const textsMap = getTextsMap(domainPairs);
 
   return (
     <>
