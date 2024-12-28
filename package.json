@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.3.2",
+  "version": "0.3.4",
   "scripts": {
     "build": "npm run prettier && next build",
     "dev": "next dev",
@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
-    "canvas": "^2.11.2",
-    "clsx": "^2.1.0",
-    "dotenv": "^16.4.5",
-    "konva": "^9.3.15",
-    "next": "latest",
-    "react": "latest",
+    "canvas": "^3.0.0",
+    "clsx": "^2.1.1",
+    "dotenv": "^16.4.7",
+    "konva": "^9.3.18",
+    "next": "15.1.3",
+    "react": "^19.0.0",
     "react-dom": "19.0.0",
     "react-intersection-observer": "^9.14.0",
     "react-konva": "^19.0.1",
