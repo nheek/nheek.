@@ -1,4 +1,4 @@
-import getTextsMap from "../../GetTextsMap";
+import getTextsMap from "../../utils/GetTextsMap";
 
 export default function FeaturedSongsHistory() {
   const spotify = [

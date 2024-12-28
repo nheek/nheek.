@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Layout from "../../components/fun/Layout";
-import getTextsMap from "../../components/GetTextsMap";
+import getTextsMap from "../../components/utils/GetTextsMap";
 import React from "react";
 
 export default function Fun() {

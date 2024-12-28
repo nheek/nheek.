@@ -3,7 +3,7 @@ import Header from "../Header";
 import Navigate from "../Navigate";
 import Main from "./main";
 const Footer = dynamic(() => import("../Footer"));
-import getTextsMap from "../GetTextsMap";
+import getTextsMap from "../utils/GetTextsMap";
 
 export default function Layout() {
   const wwwNheekNo = {

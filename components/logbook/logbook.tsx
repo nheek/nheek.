@@ -1,5 +1,5 @@
 // import { useState, useEffect } from "react";
-import getTextsMap from "../GetTextsMap";
+import getTextsMap from "../utils/GetTextsMap";
 // import { Stage, Layer, Line } from "react-konva";
 import DrawingPad from "./drawing-pad";
 

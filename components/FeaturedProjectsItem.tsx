@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from "react";
-import GetTextsMap from "./GetTextsMap";
+import GetTextsMap from "./utils/GetTextsMap";
 import FeaturedProjectsItemItem from "./FeaturedProjectsItemItem";
 
 export default function FeaturedProjectsItem({
@@ -9,14 +9,13 @@ export default function FeaturedProjectsItem({
   const [projects, setProjects] = useState([]);
   const [projectsNo, setProjectsNo] = useState([]);
 
-  // Fetch projects_no and projects data
+  // fetch projects_no and projects data
   useEffect(() => {
     const fetchProjects = async () => {
       try {
         const response = await fetch("/featured-projects/json/projects.json");
         const data = await response.json();
         setProjects(data);
-
         const responseNo = await fetch(
           "/featured-projects/json/projects_no.json",
         );
@@ -38,7 +37,6 @@ export default function FeaturedProjectsItem({
     deployedWith: "deployert med",
     with: "med",
   };
-
   const wwwDefault = {
     projectsToShowMap: projects,
     contributions: "these are projects i have contributed to",
@@ -47,22 +45,18 @@ export default function FeaturedProjectsItem({
     deployedWith: "deployed with",
     with: "with",
   };
-
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
     default: wwwDefault,
   };
-
   const textsMap = useMemo(
     () => GetTextsMap(domainPairs),
     [projects, projectsNo],
   );
-
   const divRef = useRef(null);
   const itemsPerPage = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Updated useEffect for setting projectsToShow
   useEffect(() => {
     if (textsMap?.projectsToShowMap?.[category]) {
       const startIndex = (currentPage - 1) * itemsPerPage;

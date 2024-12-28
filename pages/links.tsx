@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Layout from "../components/links/layout";
-import getTextsMap from "../components/GetTextsMap";
+import getTextsMap from "../components/utils/GetTextsMap";
 
 export default function Links() {
   const wwwNheekNo = {

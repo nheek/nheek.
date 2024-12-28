@@ -1,22 +1,18 @@
 import Link from "next/link";
-import getTextsMap from "./GetTextsMap";
+import getTextsMap from "./utils/GetTextsMap";
 
 export default function Navigate({ underPage = false }) {
   const wwwNheekNo = {
     txtSkills: "naviger",
   };
-
   const wwwDefault = {
     txtSkills: "navigate",
   };
-
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
     default: wwwDefault,
   };
-
   const textsMap = getTextsMap(domainPairs);
-
   const navLinks = [
     { name: "home", link: "/" },
     { name: "blog", link: "#" }, // blog about very small random things to very specific big things

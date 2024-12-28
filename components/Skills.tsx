@@ -1,23 +1,19 @@
-import getTextsMap from "./GetTextsMap";
+import getTextsMap from "./utils/GetTextsMap";
 
 export default function Skills() {
   const wwwNheekNo = {
     txtSkills: "ferdigheter",
     txtCurrentlyLearning: "lærer for tiden",
   };
-
   const wwwDefault = {
     txtSkills: "skills",
     txtCurrentlyLearning: "currently learning",
   };
-
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
     default: wwwDefault,
   };
-
   const textsMap = getTextsMap(domainPairs);
-
   const skills = [
     "CSS",
     "CloudFlare",
@@ -66,9 +62,10 @@ export default function Skills() {
     "SCSS",
     "Svelte",
     "SvelteKit",
+    "Spring Boot",
   ];
   const orangeSkills = ["Swift", "Go", "C++", "SQLite", "Vue.js"];
-  const upcomingSkills = ["Spring Boot", "Angular", ".NET", "Blazor"];
+  const upcomingSkills = ["Angular", ".NET", "Blazor"];
   skills.sort((a, b) => a.localeCompare(b));
   middleSkills.sort((a, b) => a.localeCompare(b));
   orangeSkills.sort((a, b) => a.localeCompare(b));

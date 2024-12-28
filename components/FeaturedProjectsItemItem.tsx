@@ -12,7 +12,6 @@ export default function FeaturedProjectsItemItem({
   const [mobileAppImageIndex, setMobileAppImageIndex] = useState(0);
 
   useEffect(() => {
-    // Update the projectImage state when project.image changes
     setProjectImage(project.image);
   }, [project.image]);
 
@@ -27,8 +26,7 @@ export default function FeaturedProjectsItemItem({
       projectImage === project.image ? project.mobileImage : project.image;
     setProjectImage(imageToSet);
   };
-
-  const checkWebsiteStatus = async (url) => {
+  const checkWebsiteStatus = async (url: string) => {
     try {
       const response = await fetch(
         `/api/website-status?url=${encodeURIComponent(url)}`,
@@ -41,14 +39,14 @@ export default function FeaturedProjectsItemItem({
     }
   };
 
-  /* For handling  mobile apps images */
+  /* for handling  mobile apps images */
   const handlePreviousImage = () => {
     if (mobileAppImageIndex > 0) {
       setMobileAppImageIndex(mobileAppImageIndex - 1);
     }
   };
 
-  /* For handling  mobile apps images */
+  /* for handling  mobile apps images */
   const handleNextImage = () => {
     if (mobileAppImageIndex < projectImage.length - 1) {
       setMobileAppImageIndex(mobileAppImageIndex + 1);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FeaturedProjectsItem from "./FeaturedProjectsItem";
-import getTextsMap from "./GetTextsMap";
+import getTextsMap from "./utils/GetTextsMap";
 
 export default function FeaturedProjects() {
   const [currentCategory, setCurrentCategory] = useState("websites");
@@ -14,11 +14,9 @@ export default function FeaturedProjects() {
     "template",
     "utility",
   ];
-
-  const handleItemClick = (category) => {
+  const handleItemClick = (category: string): void => {
     setCurrentCategory(category);
   };
-
   const wwwNheekNo = {
     featuredProjects: "utvalgte prosjekter",
     websites: "Nettsteder",

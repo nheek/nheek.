@@ -1,4 +1,4 @@
-import getTextsMap from "./GetTextsMap";
+import getTextsMap from "./utils/GetTextsMap";
 
 export default function FooterHero() {
   const wwwNheekNo = {
@@ -6,18 +6,15 @@ export default function FooterHero() {
     txtFooterContent:
       "jeg tror at det å anvende brukervennlig og likevel tiltalende design er veien å gå. enig? ta kontakt nå.",
   };
-
   const wwwDefault = {
     txtFooterHero: "get in touch",
     txtFooterContent:
       "i believe that incorporating user-friendly and yet appealing design is the way to go. agree? reach out below.",
   };
-
   const domainPairs = {
     "www.nheek.no": wwwNheekNo,
     default: wwwDefault,
   };
-
   const textsMap = getTextsMap(domainPairs);
 
   return (
