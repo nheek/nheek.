@@ -1,4 +1,3 @@
-import { useState } from "react";
 import dynamic from "next/dynamic";
 import Header from "./Header";
 import Main from "./Main";

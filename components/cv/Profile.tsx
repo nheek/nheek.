@@ -23,11 +23,11 @@ export default function Profile() {
       </hgroup>
       <div className="flex flex-wrap gap-4 text-lg w-[90%] mt-8 m-auto leading-8">
         <p>
-          I've been passionate about coding and programming since I was younger.
+          {`I've been passionate about coding and programming since I was younger.
           It all started when I tried making my first website with Strikingly, a
           website builder with blogs functionality. Then moved on to Blogger,
           then to WordPress.com, then to WordPress.org where I first probably
-          saw actual codes.
+          saw actual codes.`}
         </p>
         <p>
           Fast forward to now. A fullstack developer whose range of techstack is

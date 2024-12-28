@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import getTextsMap from "../GetTextsMap";
-import { Stage, Layer, Line } from "react-konva";
+// import { Stage, Layer, Line } from "react-konva";
 import DrawingPad from "./drawing-pad";
 
 export default function Logbook() {
