@@ -652,6 +652,16 @@
       "onGithub": "https://github.com/pufferpanel/pufferpanel"
     },
     {
+      "name": "detect",
+      "desc": "website change detection",
+      "dateAdded": "02.01.2025",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/CaFFGxHJdDgGmjG?file=/&fileId=5424&x=2880&y=1864&a=true&etag=2857e593f6f6044116fd4948144fc4db",
+      "mobileImage": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/jCZbF54eSgnoP4Q?file=/&fileId=5415&x=2880&y=1864&a=true&etag=bcf57ded313113f7306e7a6227400053",
+      "techstack": ["Flask", "Python", "HTML", "JavaScript", "CSS"],
+      "deployedWith": ["kubernetes"],
+      "onGithub": "https://github.com/dgtlmoon/changedetection.io"
+    },
+    {
       "name": "paper",
       "desc": "personal searchable online archive",
       "dateAdded": "02.11.2024",
