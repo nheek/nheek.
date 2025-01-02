@@ -642,6 +642,16 @@
       "onGithub": "https://github.com/pufferpanel/pufferpanel"
     },
     {
+      "name": "dock",
+      "desc": "photo and video management platform",
+      "dateAdded": "02.01.2025",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/SRzkzMoZ3ER5AsD?file=/&fileId=5391&x=2880&y=1864&a=true&etag=9dc48dd6ac415558e600a4d2d77ce0c9",
+      "mobileImage": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/HpM7bPboTSFJ9bW?file=/&fileId=5400&x=2880&y=1864&a=true&etag=d0c980b0c46972a2b600c71ddc1be2e6",
+      "techstack": ["TypeScript", "NestJS", "Redis", "Python", "PostgreSQL", "SvelteKit", "TailwindCSS", "Dart", "Flutter"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/pufferpanel/pufferpanel"
+    },
+    {
       "name": "paper",
       "desc": "personal searchable online archive",
       "dateAdded": "02.11.2024",
