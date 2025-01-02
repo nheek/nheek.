@@ -24,7 +24,7 @@
       "image": "https://uppy.nheek.com/uploads/7692a65c-2419-4723-84cf-4811f766e1a4.png",
       "mobileImage": "https://uppy.nheek.com/uploads/4af41197-df9b-4f2d-a12f-353d921d53a3.png",
       "techstack": ["Django", "Python", "JavaScript", "TailwindCSS"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "wee",
@@ -88,7 +88,7 @@
       "image": "https://uppy.nheek.com/uploads/e5ad6ca3-9c5f-443d-b7aa-f80d7b2a9cf2.png",
       "mobileImage": "https://uppy.nheek.com/uploads/447ccc21-5cb6-4ae3-af4a-d7f6b1f6fba4.png",
       "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "shareme",
@@ -141,7 +141,7 @@
       "mobileImage": "https://uppy.nheek.com/uploads/a950f0c6-0a1b-4aca-a731-3cb8286ebd1e.png",
       "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/motto",
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "lookatme",
@@ -200,7 +200,7 @@
       "image": "/featured-projects/malky.png",
       "mobileImage": "/featured-projects/mobile/m-malky.png",
       "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "free",
@@ -228,7 +228,7 @@
       "image": "/featured-projects/recreate.png",
       "mobileImage": "/featured-projects/mobile/m-recreate.png",
       "techstack": ["HTML", "JavaScript", "REST API"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     }
   ],
   "desktopApps": [
@@ -436,7 +436,7 @@
       "image": "https://uppy.nheek.com/uploads/0122a9ff-95ff-4464-9212-3c17f66cf01c.png",
       "mobileImage": "https://uppy.nheek.com/uploads/a5e113b2-e37d-4e49-a8b2-756f676f4df1.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "techie",
@@ -446,7 +446,7 @@
       "mobileImage": "https://uppy.nheek.com/uploads/28f40011-3ed9-4f7f-a019-aff5c8f71346.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/techie",
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "arch",
@@ -454,7 +454,7 @@
       "link": "https://arch.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/0bbf447b-eae2-4c81-a3b5-4d3d8a082d46.png",
       "techstack": ["ReactJS", "ViteJS", "TypeScript", "CSS"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "bould",
@@ -464,7 +464,7 @@
       "mobileImage": "https://uppy.nheek.com/uploads/75be59de-6d35-4f85-85e0-921b68b45011.png",
       "techstack": ["AstroJS", "NodeJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/nheek/bould",
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "kinder",
@@ -483,7 +483,7 @@
       "link": "https://ingo.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/77af7d52-cf9c-4197-ae74-037ff87e81b4.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     },
     {
       "name": "hvltopia",
@@ -503,7 +503,7 @@
       "link": "https://truhvel.nheek.com/",
       "image": "https://uppy.nheek.com/uploads/f841666d-a2f6-4b2f-b04f-59e7a7daf4ee.png",
       "techstack": ["VueJS", "ViteJS", "TypeScript", "CSS"],
-      "deployedWith": ["vercel"]
+      "deployedWith": ["kubernetes"]
     }
   ],
   "template": [
