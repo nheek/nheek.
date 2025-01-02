@@ -152,7 +152,7 @@ export default function FeaturedProjectsItemItem({
         )}
         {!project.link && <span>{project.name}</span>}
 
-        {!["desktopApps", "mobileApps"].includes(category) && (
+        {!["desktopApps", "mobileApps"].includes(category) && project.link && (
           <div
             className={`h-2 w-2 rounded-full my-auto animate-pulse ${websiteStatus === true ? "bg-green-400" : "bg-red-400"}`}
           ></div>
