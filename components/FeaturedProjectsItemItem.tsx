@@ -145,9 +145,13 @@ export default function FeaturedProjectsItemItem({
       <div
         className={`${project.onGithub || project.mobileImage || websiteStatus != null ? "flex gap-4" : ""} mt-1 text-3xl`}
       >
-        <a href={project.link} target="_blank">
-          <span>{project.name}</span>
-        </a>
+        {project.link && (
+          <a href={project.link} target="_blank">
+            <span>{project.name}</span>
+          </a>
+        )}
+        {!project.link && <span>{project.name}</span>}
+
         {!["desktopApps", "mobileApps"].includes(category) && (
           <div
             className={`h-2 w-2 rounded-full my-auto animate-pulse ${websiteStatus === true ? "bg-green-400" : "bg-red-400"}`}
