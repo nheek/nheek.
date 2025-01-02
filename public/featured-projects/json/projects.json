@@ -705,6 +705,14 @@
       "onGithub": "https://github.com/CorentinTh/it-tools"
     },
     {
+      "name": "creul",
+      "desc": "deployments platform",
+      "dateAdded": "02.01.2025",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/oYijaxHsimj75xg?file=/&fileId=5381&x=2880&y=1864&a=true&etag=1a7a2fd335071c9385882ae01fa9f471",
+      "techstack": ["Laravel", "PHP", "JavaScript", "CSS"],
+      "onGithub": "https://github.com/coollabsio/coolify"
+    },
+    {
       "name": "subs",
       "desc": "personal subscription tracker",
       "dateAdded": "20.10.2024",
