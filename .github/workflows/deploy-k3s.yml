@@ -19,7 +19,8 @@ jobs:
 
       - name: Build and Push Docker Images
         run: |
-          echo "${{ secrets.REG_PASSWORD }}" | docker login ${{ secrets.REG_REGISTRY }} -u ${{ secrets.REG_USERNAME }} --password-stdin
+          echo ${{ secrets.GITHUB_ACCESS_TOKEN }} | docker login ghcr.io -u ${{ secrets.REG_USERNAME }} --password-stdin
+          # echo "${{ secrets.REG_PASSWORD }}" | docker login ${{ secrets.REG_REGISTRY }} -u ${{ secrets.REG_USERNAME }} --password-stdin
           docker compose build
           docker compose push
 

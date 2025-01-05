@@ -15,10 +15,10 @@ spec:
         app: nheek
     spec:
       imagePullSecrets:
-        - name: regcrednheek
+        - name: regcrednheekghcr
       containers:
         - name: nheek
-          image: reg.nheek.com/nheek/nheek-port:latest
+          image: ghcr.io/nheek/nheek:latest
           ports:
             - containerPort: 3000
           resources:

@@ -4,4 +4,5 @@ services:
     restart: unless-stopped
     ports:
       - 4000:3000
-    image: "reg.nheek.com/nheek/nheek-port:latest"
+    image: "ghcr.io/nheek/nheek:latest"
+    platform: linux/amd64
