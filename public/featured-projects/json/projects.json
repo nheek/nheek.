@@ -231,7 +231,7 @@
       "deployedWith": ["kubernetes"]
     }
   ],
-  "desktopApps": [
+  "desktop": [
     {
       "name": "simple calculator",
       "desc": "simple calculator application",
@@ -254,7 +254,7 @@
       "techstack": ["Python", "PyQt6"]
     }
   ],
-  "mobileApps": [
+  "mobile": [
     {
       "name": "filebox (static)",
       "desc": "file explorer/manager",
