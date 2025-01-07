@@ -113,8 +113,8 @@ export default function FeaturedProjectsItem({
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
-              className={`h-8 w-8 bg-[#1C2951] brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 rounded-full ${
-                currentPage === index + 1 ? "bg-gray-400 text-blue-950" : ""
+              className={`h-8 w-8 bg-blue-950 text-gray-50 brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 rounded-full ${
+                currentPage === index + 1 ? "!bg-gray-400 !text-blue-950" : ""
               }`}
               onClick={() => handlePageChange(index + 1)}
             >
