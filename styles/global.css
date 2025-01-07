@@ -9,11 +9,13 @@ body {
   margin: 0;
   line-height: 1.6;
   font-size: 18px;
+  color: #1c2951;
+  background-color: rgba(241, 245, 259);
 }
 
 * {
   box-sizing: border-box;
-  color: rgb(229 231 235);
+  /* color: rgb(229 231 235); */
   font-family: Poppins, sans-serif;
 }
 

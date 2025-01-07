@@ -1,35 +1,45 @@
-import getTextsMap from "./utils/GetTextsMap";
+// import getTextsMap from "./utils/GetTextsMap";
 
 export default function Hero() {
-  const wwwNheekNo = {
-    sitename: "nheek no",
-    heroText:
-      "hei! jeg er nheek. kodene mine gir liv til nettsider og applikasjoner. la dine ideer bli virkelighet.",
-    realName: "heter egentlig nick",
-  };
-  const wwwDefault = {
-    sitename: "nheek",
-    heroText:
-      "hi! im nheek. my codes breathe life to websites and applications. let your ideas come to life.",
-    realName: "real name is nick",
-  };
-  const domainPairs = {
-    "www.nheek.no": wwwNheekNo,
-    default: wwwDefault,
-  };
-  const textsMap = getTextsMap(domainPairs);
-
   return (
-    <div className="px-4 pb-4 pt-20 min-h-max">
-      <section
-        title={textsMap.realName}
-        className="text-8xl md:text-[12rem] text-right"
-      >
-        {textsMap.sitename}
-      </section>
-      <section className="text-xl md:text-3xl leading-snug w-[90%]">
-        {textsMap.heroText}
-      </section>
+    <div className="w-[80%] mx-auto">
+      <div className="flex items-center justify-between mt-20">
+        <span
+          title={"name's nick"}
+          className="text-8xl md:text-[12rem]"
+        >
+          nheek
+        </span>
+        <div className="">
+          <div className="bg-slate-200 rounded-full">
+            <img
+              className="w-40 h-40 p-4 rounded-full"
+              src="https://next.nheek.com/index.php/apps/files_sharing/publicpreview/yqwfafeT4ggzqeB?file=/&fileId=5447&x=3420&y=2214&a=true&etag=2bc50050341c3ad0c7c545913c9fa15a"
+              alt="nheek"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-between px-4">
+        <div>
+          <p className="font-semibold text-3xl">fullstack developer</p>
+          <p>my code breathe life to applications</p>
+        </div>
+        <div className="flex items-center gap-10">
+          <a href="https://github.com/nheek">
+            <img src="/social-links/github.svg" alt="github icon" />
+          </a>
+          <a href="https://www.facebook.com/nick.james.1622">
+            <img src="/social-links/facebook.svg" alt="facebook icon" />
+          </a>
+          <a href="https://github.com/nheek">
+            <img src="/social-links/instagram.svg" alt="instagram icon" />
+          </a>
+          <a href="https://github.com/nheek">
+            <img src="/social-links/linkedin.svg" alt="linkedin icon" />
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
