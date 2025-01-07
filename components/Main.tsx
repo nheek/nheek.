@@ -13,7 +13,7 @@ export default function Main() {
       {/* <SocialLinks /> */}
       <FeaturedProjects />
       <Navigate />
-      <Skills />
+      {/* <Skills /> */}
       <FooterHero />
     </main>
   );
