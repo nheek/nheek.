@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ImageLoader from "./utils/ImageLoader";
+// import ImageLoader from "./utils/ImageLoader";
 import IsTwoWeeksApart from "./utils/IsTwoWeeksApart";
 
 export default function FeaturedProjectsItemItem({
+  id = null,
   category = null,
   project = null,
   txtInfo = null,
@@ -53,11 +54,17 @@ export default function FeaturedProjectsItemItem({
     }
   };
 
+  const isOdd = (number) => {
+    return number % 2 !== 0;
+  };
+
   return (
-    <div className="w-full md:w-[40%] max-h-max mt-0 lg:mt-10">
-      <div className="relative">
+    <div
+      className={`${isOdd(id) ? "flex-row" : "flex-row-reverse"} flex items-center gap-4 w-[90%] max-h-[400px] -mt-5`}
+    >
+      <div className="w-[55%] relative">
         <a href={project.link} target="_blank">
-          <ImageLoader
+          <img
             src={
               category == "mobileApps"
                 ? projectImage[mobileAppImageIndex]
@@ -73,7 +80,7 @@ export default function FeaturedProjectsItemItem({
           !IsTwoWeeksApart(project.dateAdded) && (
             <div
               title="deployed within the past 14 days"
-              className="absolute -top-5 left-1/2 md:left-[unset] md:-right-5 transform -translate-x-1/2 md:-translate-x-0 md:rotate-12 bg-green-600 text-gray-50 rounded-full px-2 py-3 text-lg"
+              className={`${isOdd(id) ? "left-1/2 md:-left-5 md:-rotate-12" : "right-1/2 md:-right-5 md:rotate-12"} absolute -top-5 md:left-[unset] transform -translate-x-1/2 md:-translate-x-0 bg-green-600 text-gray-50 rounded-full px-2 py-3 text-lg`}
             >
               new {IsTwoWeeksApart(project.dateAdded)}
             </div>
@@ -141,10 +148,14 @@ export default function FeaturedProjectsItemItem({
           )
         }
       </div>
-      <div className="mt-2 text-base opacity-60">{project.desc}</div>
       <div
-        className={`${project.onGithub || project.mobileImage || websiteStatus != null ? "flex gap-4 items-center" : ""} mt-1 text-3xl`}
+        className={`${
+          project.onGithub || project.mobileImage || websiteStatus != null
+            ? `flex flex-col ${isOdd(id) ? "items-start" : "items-end"}`
+            : ""
+        } mt-1 text-3xl`}
       >
+        <div className="mt-2 text-base opacity-60">{project.desc}</div>
         {project.link && (
           <a href={project.link} target="_blank">
             <span className="flex text-2xl">{project.name}</span>
@@ -152,27 +163,27 @@ export default function FeaturedProjectsItemItem({
         )}
         {!project.link && <span className="flex text-2xl">{project.name}</span>}
 
-        {!["desktop", "mobile"].includes(category) && project.link && (
+        {/* {!["desktop", "mobile"].includes(category) && project.link && (
           <div
             className={`h-2 w-2 rounded-full my-auto animate-pulse ${websiteStatus === true ? "bg-green-400" : "bg-red-400"}`}
           ></div>
-        )}
-        <a
+        )} */}
+        {/* <a
           title="Github link"
           className={`${project.onGithub ? "block" : "hidden"} flex items-center h-6 w-6`}
           href={project.onGithub}
           target="_blank"
         >
           <img src="/social-links/github.svg" alt="github icon" />
-        </a>
-        <a
+        </a> */}
+        {/* <a
           title="Grit link"
           className={`${project.onGrit ? "block" : "hidden"} flex items-center`}
           href={project.onGrit}
           target="_blank"
         >
           <img src="/icons/grit.svg" alt="grit icon logo" />
-        </a>
+        </a> */}
         {/* <button
           onClick={changeImage}
           title="Change image"

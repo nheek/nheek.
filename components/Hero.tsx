@@ -4,10 +4,7 @@ export default function Hero() {
   return (
     <div className="w-[85%] mx-auto">
       <div className="flex items-center justify-between mt-20">
-        <span
-          title={"name's nick"}
-          className="text-8xl md:text-[12rem]"
-        >
+        <span title={"name's nick"} className="text-8xl md:text-[12rem]">
           nheek
         </span>
         <div className="">

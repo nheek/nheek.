@@ -94,13 +94,14 @@ export default function FeaturedProjectsItem({
     <>
       <div
         ref={divRef}
-        className="relative text-3xl leading-snug flex flex-col md:flex-row items-center justify-center gap-[7%] flex-wrap"
+        className="relative text-3xl leading-snug flex flex-col items-center justify-center gap-[7%] flex-wrap"
       >
         <span className="text-lg mb-8 md:mb-0 mt-4 md:mt-0 md:absolute top-0 italic opacity-60">
           {textsMap?.[category]?.contributions || ""}
         </span>
         {projectsToShow.map((project, index) => (
           <FeaturedProjectsItemItem
+            id={index}
             key={"projects-to-show-" + index}
             category={category}
             project={project}
@@ -113,8 +114,8 @@ export default function FeaturedProjectsItem({
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
-              className={`h-8 w-8 bg-blue-950 text-gray-50 brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 rounded-full ${
-                currentPage === index + 1 ? "!bg-gray-400 !text-blue-950" : ""
+              className={`h-8 w-8 bg-slate-400 text-blue-950 brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 rounded-full ${
+                currentPage === index + 1 ? "!bg-blue-950 !text-gray-50" : ""
               }`}
               onClick={() => handlePageChange(index + 1)}
             >

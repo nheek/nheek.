@@ -7,7 +7,7 @@ export default function FeaturedProjects() {
   const categories = [
     "websites",
     "desktop",
-    "mobile",
+    // "mobile",
     "consulting",
     "contributions",
     "static",
@@ -26,12 +26,12 @@ export default function FeaturedProjects() {
       <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
         featured projects
       </h2>
-      <div className="my-8 md:mt-14">
+      <div className="my-8 md:mt-14 mb-20">
         <ul className="flex flex-wrap justify-center gap-2">
           {categories.map((category) => (
             <li
               key={category}
-              className={`${currentCategory === category ? "bg-gray-300 text-blue-950" : "bg-blue-950 text-slate-50"} rounded-full hover:bg-gray-200 hover:text-blue-950 duration-500`}
+              className={`${currentCategory === category ? "bg-blue-950 text-slate-50" : "bg-gray-400 text-slate-50"} rounded-full hover:bg-gray-200 hover:text-blue-950 duration-500`}
             >
               <button
                 className="relative w-full h-full px-3 py-2"

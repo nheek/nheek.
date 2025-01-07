@@ -11,8 +11,8 @@ export default function Main() {
     <main>
       <Hero />
       {/* <SocialLinks /> */}
-      <Navigate />
       <FeaturedProjects />
+      <Navigate />
       <Skills />
       <FooterHero />
     </main>
