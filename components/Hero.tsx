@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[85%] mx-auto">
       <div className="flex items-center justify-between mt-20">
         <span
           title={"name's nick"}

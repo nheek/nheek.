@@ -1,18 +1,7 @@
 import Link from "next/link";
-import getTextsMap from "./utils/GetTextsMap";
+// import getTextsMap from "./utils/GetTextsMap";
 
 export default function Navigate({ underPage = false }) {
-  const wwwNheekNo = {
-    txtSkills: "naviger",
-  };
-  const wwwDefault = {
-    txtSkills: "navigate",
-  };
-  const domainPairs = {
-    "www.nheek.no": wwwNheekNo,
-    default: wwwDefault,
-  };
-  const textsMap = getTextsMap(domainPairs);
   const navLinks = [
     { name: "home", link: "/" },
     { name: "blog", link: "#" }, // blog about very small random things to very specific big things
@@ -25,19 +14,19 @@ export default function Navigate({ underPage = false }) {
 
   return (
     <div
-      className={`${underPage && "!p-0"} px-4 pt-[25%] md:pt-[15%] min-h-max`}
+      className={`${underPage && "!p-0"} w-[90%] mx-auto`}
     >
-      <section
+      {/* <section
         className={`${underPage ? "hidden" : "block"} text-4xl md:text-[4rem] xl:text-[6rem]`}
       >
-        {textsMap.txtSkills}
-      </section>
+        menu
+      </section> */}
       <section
-        className={`${underPage && "justify-center"} flex flex-wrap gap-4 text-md w-[90%] mt-8 md:mt-14 m-auto`}
+        className={`${underPage && "justify-center"} flex flex-wrap justify-center gap-4 text-md mt-8 md:mt-10`}
       >
         {navLinks.map((link, index) => (
           <div
-            className="w-max bg-[#1C2951] brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 cursor-pointer rounded-3xl hover:mx-4 hover:scale-105 px-4 py-2 duration-500 hover:translateZ(0)"
+            className="w-max bg-blue-950 hover:bg-gray-200 text-white hover:text-blue-950 cursor-pointer rounded-full px-4 py-2 duration-300"
             key={"navlinks" + index}
           >
             <Link className="!no-underline" href={link.link}>
