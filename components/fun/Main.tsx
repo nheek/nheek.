@@ -7,8 +7,8 @@ export default function Main() {
   return (
     <main>
       <FeaturedSongs />
-      <Spotify />
-      <MiniSpotify />
+      {/* <Spotify /> */}
+      {/* <MiniSpotify /> */}
     </main>
   );
 }
