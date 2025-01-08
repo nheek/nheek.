@@ -155,7 +155,7 @@ export default function FeaturedProjectsItemItem({
             : ""
         } mt-1 text-3xl`}
       >
-        <div className={`${isOdd(id) ? "text-right" : "text-left"} mt-2 text-base opacity-60`}>{project.desc}</div>
+        <div className={`${isOdd(id) ? "text-left" : "text-right"} mt-2 text-base opacity-60`}>{project.desc}</div>
         {project.link && (
           <a href={project.link} target="_blank">
             <span className="flex text-2xl">{project.name}</span>
