@@ -27,7 +27,7 @@ export default function FeaturedSongs() {
 
 
   return (
-    <div className="mt-28">
+    <div className="mt-20">
       <h2 className="text-4xl md:text-[4rem] xl:text-[8rem]">
         featured songs
       </h2>
