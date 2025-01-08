@@ -71,7 +71,7 @@ export default function FeaturedProjectsItemItem({
                 : projectImage
             }
             alt={project.name}
-            className="!rounded-xl shadow-lg mx-auto"
+            className="!rounded-xl shadow-2xl mx-auto"
           />
         </a>
 
