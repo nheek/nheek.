@@ -2,7 +2,6 @@ import Navigate from "./Navigate";
 import getTextsMap from "./utils/GetTextsMap";
 
 export default function FooterHero() {
-
   return (
     <>
       <div className="mt-36 text-center">

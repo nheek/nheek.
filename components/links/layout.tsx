@@ -6,7 +6,6 @@ import Navigate from "../Navigate";
 // import getTextsMap from "../utils/GetTextsMap";
 
 export default function Layout() {
-
   return (
     <div className={"w-[80%] mx-auto"}>
       <Header customHeaderText={"links"} />

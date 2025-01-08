@@ -48,7 +48,6 @@ export default function Links() {
   links.sort((a, b) => a.name.localeCompare(b.name));
   // links_no.sort((a, b) => a.name.localeCompare(b.name));
 
-
   return (
     <div className="mt-20">
       <div className="flex flex-wrap gap-4 text-lg w-full md:w-[90%] mt-16 m-auto leading-8">
