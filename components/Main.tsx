@@ -12,9 +12,9 @@ export default function Main() {
       <Hero />
       {/* <SocialLinks /> */}
       <FeaturedProjects />
-      <Navigate />
       {/* <Skills /> */}
       <FooterHero />
+      <Navigate />
     </main>
   );
 }

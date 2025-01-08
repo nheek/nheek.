@@ -13,7 +13,7 @@ export default function Navigate({ underPage = false }) {
   ];
 
   return (
-    <div className={`${underPage && "!p-0"} w-[90%] mt-40 mx-auto`}>
+    <div className={`${underPage && "!p-0"} w-[90%] mt-6 mx-auto`}>
       {/* <section
         className={`${underPage ? "hidden" : "block"} text-4xl md:text-[4rem] xl:text-[6rem]`}
       >
