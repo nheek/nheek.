@@ -19,7 +19,7 @@ export default function Layout() {
   const textsMap = getTextsMap(domainPairs);
 
   return (
-    <div className={"bg-[#1C2951] min-h-screen h-full text-white"}>
+    <div className={"w-[80%] mx-auto min-h-screen h-full"}>
       <Header customHeaderText={textsMap.pageName} />
       <Navigate underPage />
       <Main />
