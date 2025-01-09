@@ -60,7 +60,7 @@ export default function FeaturedProjectsItemItem({
 
   return (
     <div
-      className={`${isOdd(id) ? "flex-row" : "flex-row-reverse"} flex items-center gap-4 w-[90%] max-h-[400px] -mt-5`}
+      className={`${isOdd(id) ? "flex-row" : "flex-row-reverse"} flex items-center gap-4 w-[90%] max-h-[400px] -mt-5 hover:scale-110 duration-300`}
     >
       <div className="w-[55%] relative">
         <a href={project.link} target="_blank">
@@ -142,7 +142,7 @@ export default function FeaturedProjectsItemItem({
         {
           /* shows a banner for website status, for example "under maintenance" */
           project.status && (
-            <div className="absolute z-20 bottom-0 right-0 w-full bg-yellow-950 bg-opacity-50 px-4 py-2 text-xl text-white text-center rounded-b-xl">
+            <div className="absolute bottom-0 right-0 w-full bg-yellow-950 bg-opacity-50 px-4 py-2 text-xl text-white text-center rounded-b-xl">
               {project.status}
             </div>
           )
@@ -155,7 +155,11 @@ export default function FeaturedProjectsItemItem({
             : ""
         } mt-1 text-3xl`}
       >
-        <div className={`${isOdd(id) ? "text-left" : "text-right"} mt-2 text-base opacity-60`}>{project.desc}</div>
+        <div
+          className={`${isOdd(id) ? "text-left" : "text-right"} w-[80%] mt-2 text-base opacity-60`}
+        >
+          {project.desc}
+        </div>
         {project.link && (
           <a href={project.link} target="_blank">
             <span className="flex text-2xl">{project.name}</span>
@@ -164,31 +168,29 @@ export default function FeaturedProjectsItemItem({
         {!project.link && <span className="flex text-2xl">{project.name}</span>}
 
         {
-        /* shows the project collaborators */
-        project.collaborators && (
-          <div
-            className={`flex gap-1 items-center opacity-80`}
-          >
-            <span className="text-xs">{txtInfo["with"]}</span>
-            <ul className="flex flex-wrap text-xs gap-2">
-              {project.collaborators.map((person, index) => (
-                <li
-                  key={"collaborators" + index}
-                  className="py-2 cursor-pointer"
-                >
-                  <a href={person.link} target="_blank">
-                    {person.name}
-                  </a>
-                  {project.collaborators.length > 1 &&
-                  index !== project.collaborators.length - 1
-                    ? ","
-                    : ""}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      }
+          /* shows the project collaborators */
+          project.collaborators && (
+            <div className={`flex gap-1 items-center opacity-80`}>
+              <span className="text-xs">{txtInfo["with"]}</span>
+              <ul className="flex flex-wrap text-xs gap-2">
+                {project.collaborators.map((person, index) => (
+                  <li
+                    key={"collaborators" + index}
+                    className="py-2 cursor-pointer"
+                  >
+                    <a href={person.link} target="_blank">
+                      {person.name}
+                    </a>
+                    {project.collaborators.length > 1 &&
+                    index !== project.collaborators.length - 1
+                      ? ","
+                      : ""}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
         {/* {!["desktop", "mobile"].includes(category) && project.link && (
           <div
             className={`h-2 w-2 rounded-full my-auto animate-pulse ${websiteStatus === true ? "bg-green-400" : "bg-red-400"}`}
