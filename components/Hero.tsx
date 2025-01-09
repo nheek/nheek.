@@ -18,11 +18,9 @@ export default function Hero() {
         </div>
       </div>
       <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-0 items-center justify-between mt-10 md:mt-0 px-4">
-        <div>
+        <div className="text-center md:text-left">
           <p className="font-semibold text-3xl">fullstack developer</p>
-          <p className="text-right md:text-[unset]">
-            my code breathes life into applications
-          </p>
+          <p>my code breathes life into applications</p>
         </div>
         <div className="flex items-center gap-10">
           <a href="https://github.com/nheek">

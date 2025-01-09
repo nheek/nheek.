@@ -14,7 +14,7 @@ export default function Navigate({ underPage = false }) {
 
   return (
     <div
-      className={`${underPage ? "justify-center mt-4 mb-16" : "mt-8 md:mt-10"} flex flex-wrap justify-center gap-4 text-md`}
+      className={`${underPage ? "justify-center mt-4 mb-16" : "mt-8 md:mt-10"} w-[80%] flex flex-wrap justify-center gap-4 mx-auto text-md`}
     >
       {navLinks.map((link, index) => (
         <div

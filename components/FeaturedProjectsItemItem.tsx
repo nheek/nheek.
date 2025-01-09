@@ -60,9 +60,9 @@ export default function FeaturedProjectsItemItem({
 
   return (
     <div
-      className={`${isOdd(id) ? "flex-row" : "flex-row-reverse"} flex items-center gap-4 w-[90%] max-h-[400px] -mt-5 hover:scale-110 duration-300`}
+      className={`${isOdd(id) ? "flex-col md:flex-row" : "flex-col md:flex-row-reverse"} flex items-center gap-4 w-full md:w-[90%] max-h-max md:max-h-[400px] mt-8 md:-mt-5 hover:scale-110 duration-300`}
     >
-      <div className="w-[55%] relative">
+      <div className="md:w-[55%] relative">
         <a href={project.link} target="_blank">
           <img
             src={
@@ -151,12 +151,12 @@ export default function FeaturedProjectsItemItem({
       <div
         className={`${
           project.onGithub || project.mobileImage || websiteStatus != null
-            ? `flex flex-col ${isOdd(id) ? "items-start" : "items-end"}`
+            ? `flex flex-col ${isOdd(id) ? "md:items-start" : "md:items-end"}`
             : ""
-        } mt-1 text-3xl`}
+        } items-center md:mt-1 text-3xl`}
       >
         <div
-          className={`${isOdd(id) ? "text-left" : "text-right"} w-[80%] mt-2 text-base opacity-60`}
+          className={`${isOdd(id) ? "md:text-left" : "md:text-right"} text-center w-full md:w-[80%] -mt-2 md:mt-2 text-base opacity-60`}
         >
           {project.desc}
         </div>

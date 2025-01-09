@@ -26,7 +26,7 @@ export default function FeaturedProjects() {
       <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
         featured projects
       </h2>
-      <div className="my-8 md:mt-14 mb-20">
+      <div className="my-8 md:mt-14 mb-0 md:mb-20">
         <ul className="flex flex-wrap justify-center gap-2">
           {categories.map((category) => (
             <li
