@@ -1,4 +1,4 @@
-import getTextsMap from "../utils/GetTextsMap";
+// import getTextsMap from "../utils/GetTextsMap";
 
 export default function Links() {
   const links = [

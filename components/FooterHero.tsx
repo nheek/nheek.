@@ -1,5 +1,5 @@
-import Navigate from "./Navigate";
-import getTextsMap from "./utils/GetTextsMap";
+// import Navigate from "./Navigate";
+// import getTextsMap from "./utils/GetTextsMap";
 
 export default function FooterHero() {
   return (
@@ -8,7 +8,7 @@ export default function FooterHero() {
         <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
           piqued your interest?
         </h2>
-        <span className="block mt-4 text-xl">there's more...</span>
+        <span className="block mt-4 text-xl">{"there's more..."}</span>
       </div>
       {/* <Navigate /> */}
       {/* <a
