@@ -3,7 +3,7 @@
 export default function Hero() {
   return (
     <div className="w-[85%] mx-auto">
-      <div className="flex items-center justify-between mt-20">
+      <div className="flex flex-col md:flex-row items-center justify-between mt-20">
         <span title={"name's nick"} className="text-8xl md:text-[12rem]">
           nheek
         </span>
@@ -17,10 +17,12 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between px-4">
+      <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-0 items-center justify-between mt-10 md:mt-0 px-4">
         <div>
           <p className="font-semibold text-3xl">fullstack developer</p>
-          <p>my code breathes life into applications</p>
+          <p className="text-right md:text-[unset]">
+            my code breathes life into applications
+          </p>
         </div>
         <div className="flex items-center gap-10">
           <a href="https://github.com/nheek">
