@@ -3,7 +3,7 @@ name: Production - Build, Push, and Deploy Docker Compose
 on:
   push:
     branches:
-      - none
+      - main
 
 jobs:
   build-push:
