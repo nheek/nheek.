@@ -49,9 +49,9 @@ export default function FeaturedSongsHistory() {
       <h2 className="text-4xl md:text-[4rem] xl:text-[8rem]">
         featured songs history
       </h2>
-      <div className="flex flex-wrap justify-center gap-14 text-lg w-full md:w-[90%] mt-16 m-auto leading-8">
+      <div className="flex flex-wrap justify-center gap-14 text-lg w-full md:w-[90%] mt-8 md:mt-16 m-auto leading-8">
         {spotify.map((spotifyItem, index) => (
-          <div key={"spotify-item-" + index} className="w-[45%]">
+          <div key={"spotify-item-" + index} className="md:w-[45%]">
             <div>{spotifyItem.title}</div>
             <div className="flex flex-col items-center">
               {spotifyItem.collection.map((spotify, index) => (
