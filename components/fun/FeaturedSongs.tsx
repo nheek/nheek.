@@ -1,5 +1,5 @@
 import Link from "next/link";
-import getTextsMap from "../utils/GetTextsMap";
+// import getTextsMap from "../utils/GetTextsMap";
 
 export default function FeaturedSongs() {
   const spotify = {

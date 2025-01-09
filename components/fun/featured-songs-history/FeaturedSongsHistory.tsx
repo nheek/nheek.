@@ -1,4 +1,4 @@
-import getTextsMap from "../../utils/GetTextsMap";
+// import getTextsMap from "../../utils/GetTextsMap";
 
 export default function FeaturedSongsHistory() {
   const spotify = [
@@ -44,30 +44,13 @@ export default function FeaturedSongsHistory() {
     },
   ];
 
-  const wwwNheekNo = {
-    txtSpotify: "utvalgte låter historikk",
-    links: spotify,
-  };
-
-  const wwwDefault = {
-    txtSpotify: "featured songs history",
-    links: spotify,
-  };
-
-  const domainPairs = {
-    "www.nheek.no": wwwNheekNo,
-    default: wwwDefault,
-  };
-
-  const textsMap = getTextsMap(domainPairs);
-
   return (
-    <section className="px-4 pt-[25%] md:pt-[15%] min-h-max">
-      <hgroup className="text-4xl md:text-[4rem] xl:text-[8rem]">
-        {textsMap.txtSpotify}
-      </hgroup>
+    <div className="w-[80%] mt-20 mx-auto">
+      <h2 className="text-4xl md:text-[4rem] xl:text-[8rem]">
+        featured songs history
+      </h2>
       <div className="flex flex-wrap justify-center gap-14 text-lg w-full md:w-[90%] mt-16 m-auto leading-8">
-        {textsMap.links.map((spotifyItem, index) => (
+        {spotify.map((spotifyItem, index) => (
           <div key={"spotify-item-" + index} className="w-[45%]">
             <div>{spotifyItem.title}</div>
             <div className="flex flex-col items-center">
@@ -82,6 +65,6 @@ export default function FeaturedSongsHistory() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

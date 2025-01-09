@@ -43,7 +43,7 @@ export default function FunFeaturedSongs() {
         <meta name="og:title" content={textsMap.sitename} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <div className={`bg-[#1C2951] min-h-screen h-full text-white`}>
+      <div className={``}>
         <Header customHeaderText={textsMap.pageName} />
         <Navigate underPage />
         <FeaturedSongsHistory />

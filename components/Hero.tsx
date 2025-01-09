@@ -20,7 +20,7 @@ export default function Hero() {
       <div className="flex items-center justify-between px-4">
         <div>
           <p className="font-semibold text-3xl">fullstack developer</p>
-          <p>my code breathes life to applications</p>
+          <p>my code breathes life into applications</p>
         </div>
         <div className="flex items-center gap-10">
           <a href="https://github.com/nheek">
