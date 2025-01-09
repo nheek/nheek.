@@ -45,7 +45,7 @@ export default function FeaturedSongsHistory() {
   ];
 
   return (
-    <div className="w-[80%] mt-20 mx-auto">
+    <div className="w-[80%] mt-12 md:mt-20 mx-auto">
       <h2 className="text-4xl md:text-[4rem] xl:text-[8rem]">
         featured songs history
       </h2>

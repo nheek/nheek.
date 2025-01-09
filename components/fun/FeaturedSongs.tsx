@@ -23,7 +23,7 @@ export default function FeaturedSongs() {
     ],
   };
   return (
-    <div className="mt-20">
+    <div className="mt-12 md:mt-20">
       <h2 className="text-4xl md:text-[4rem] xl:text-[8rem]">featured songs</h2>
       <h3 className="mt-12 pl-8">{`updated: ${spotify.updated}`}</h3>
       <div className="flex flex-wrap gap-2 text-lg w-full md:w-[90%] mt-4 m-auto leading-8">
