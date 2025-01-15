@@ -5,7 +5,7 @@ export const siteTitle = "nheek";
 
 export default function Header({ customHeaderText = "" }) {
   return (
-    <header className="flex items-center justify-center mt-8">
+    <header className="flex items-center justify-center pt-8">
       <div className="w-[45%] text-4xl text-center">{customHeaderText}</div>
     </header>
   );

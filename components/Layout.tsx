@@ -5,7 +5,7 @@ const Footer = dynamic(() => import("./Footer"));
 
 export default function Layout() {
   return (
-    <div className={"bg-slate-100 min-h-screen h-full"}>
+    <div className={"min-h-screen h-full"}>
       {/* <Header /> */}
       <Main />
       <Footer />

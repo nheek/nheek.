@@ -31,7 +31,7 @@ export default function FeaturedProjects() {
           {categories.map((category) => (
             <li
               key={category}
-              className={`${currentCategory === category ? "bg-blue-950 text-slate-50" : "bg-gray-400 text-slate-50"} rounded-full hover:bg-gray-200 hover:text-blue-950 duration-500`}
+              className={`${currentCategory === category ? "bg-blue-900" : "bg-gray-400 dark:bg-gray-800"} text-slate-50 dark:text-slate-200 rounded-full hover:bg-gray-200 hover:text-blue-950 duration-500`}
             >
               <button
                 className="relative w-full h-full px-3 py-2"

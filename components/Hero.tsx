@@ -3,7 +3,7 @@
 export default function Hero() {
   return (
     <div className="w-[85%] mx-auto">
-      <div className="flex flex-col md:flex-row items-center justify-between mt-20">
+      <div className="flex flex-col md:flex-row items-center justify-between pt-20">
         <span title={"name's nick"} className="text-8xl md:text-[12rem]">
           nheek
         </span>

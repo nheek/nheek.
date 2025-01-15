@@ -13,6 +13,13 @@ body {
   background-color: rgba(241, 245, 259);
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #c3cde5    ;
+    background-color: rgba(24, 20, 16, 1);
+  }
+}
+
 * {
   box-sizing: border-box;
   /* color: rgb(229 231 235); */
