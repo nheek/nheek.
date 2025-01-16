@@ -27,7 +27,7 @@ export default function Poems({
         <meta name="og:title" content={"poems"} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <div className={"w-[80%] mx-auto"}>
+      <div className={"w-[80%] min-h-screen mx-auto"}>
         <Header customHeaderText={"poems"} />
         <Navigate underPage={true} />
         <Main poems={poems} />
@@ -54,7 +54,6 @@ export function Main({ poems }: { poems: { title: string; slug: string }[] }) {
   );
 }
 
-// Fetch poems info using getStaticProps
 import fs from "fs";
 import path from "path";
 
@@ -63,7 +62,7 @@ export async function getStaticProps() {
   const filenames = fs.readdirSync(poemsDir);
 
   const poems = filenames.map((filename) => {
-    const slug = filename.replace(/\.md$/, ""); // Remove file extension
+    const slug = filename.replace(/\.md$/, "");
     const title = slug.split("-").join(" ");
 
     return { slug, title };
