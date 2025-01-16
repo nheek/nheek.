@@ -6,7 +6,7 @@ export default function FeaturedProjects() {
   const [currentCategory, setCurrentCategory] = useState("websites");
   const categories = [
     "websites",
-    "desktop",
+    // "desktop",
     // "mobile",
     "consulting",
     "contributions",
