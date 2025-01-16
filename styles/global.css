@@ -15,7 +15,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: #c3cde5;
+    color: #d1dbf3;
     background-color: rgba(24, 20, 16, 1);
   }
 }
@@ -41,4 +41,61 @@ img {
 
 .no-tailwind {
   all: unset !important;
+}
+
+/* markdown styles */
+
+.markdown-content {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+.markdown-content h1 {
+  font-size: 2em;
+  margin: 1.5rem 0 0.25rem 0;
+}
+.markdown-content h1:first-child {
+  font-size: 2em;
+  margin: 0 0 1.75rem 0;
+}
+.markdown-content h2 {
+  font-size: 1.75em;
+  margin: 1.25rem 0 0 0;
+}
+.markdown-content p {
+  font-size: 1em;
+  margin: 0 0 1.5rem 0;
+}
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 1rem;
+}
+.markdown-content blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1rem;
+  font-style: italic;
+}
+.markdown-content code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #f5f5f5;
+  padding: 2px 4px;
+  border-radius: 1rem;
+}
+.markdown-content pre {
+  background-color: #2d2d2d;
+  color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  overflow-x: auto;
+}
+.markdown-content ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+.markdown-content ol {
+  list-style-type: decimal;
+  padding-left: 2rem;
+}
+.markdown-content li {
+  margin-bottom: 0.25rem;
 }
