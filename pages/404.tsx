@@ -4,7 +4,7 @@ export default function Custom404() {
   return (
     <main
       className={
-        "flex flex-col items-center justify-center bg-[#1C2951] min-h-screen h-full text-white"
+        "flex flex-col items-center justify-center min-h-screen h-full"
       }
     >
       <h1 className="block text-5xl w-[70%] h-1/2">
