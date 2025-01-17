@@ -1,5 +1,3 @@
-// import getTextsMap from "./utils/GetTextsMap";
-
 export default function Hero() {
   return (
     <div className="w-[85%] mx-auto">

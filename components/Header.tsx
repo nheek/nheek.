@@ -1,6 +1,3 @@
-// import Link from "next/link";
-// import getTextsMap from "./utils/GetTextsMap";
-
 export const siteTitle = "nheek";
 
 export default function Header({ customHeaderText = "" }) {

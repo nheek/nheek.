@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import getTextsMap from "./utils/GetTextsMap";
 
 export default function Navigate({ underPage = false }) {
   const navLinks = [

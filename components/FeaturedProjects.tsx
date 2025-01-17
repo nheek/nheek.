@@ -1,6 +1,5 @@
 import { useState } from "react";
 import FeaturedProjectsItem from "./FeaturedProjectsItem";
-// import getTextsMap from "./utils/GetTextsMap";
 
 export default function FeaturedProjects() {
   const [currentCategory, setCurrentCategory] = useState("websites");
@@ -19,7 +18,7 @@ export default function FeaturedProjects() {
   };
 
   // if there is a new project under a category, put the category here
-  const newProjects = ["Utility"];
+  const newProjects = [];
 
   return (
     <div className="w-[85%] mt-40 mx-auto">
