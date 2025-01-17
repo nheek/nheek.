@@ -27,7 +27,7 @@ export default function Poems({
         <meta name="og:title" content={"poems"} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <div className={"w-[80%] min-h-screen mx-auto"}>
+      <div className={"w-full md:w-[80%] min-h-screen mx-auto px-4"}>
         <Header customHeaderText={"poems"} />
         <Navigate underPage={true} />
         <Main poems={poems} />

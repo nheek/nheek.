@@ -31,7 +31,7 @@ const TermsPage: React.FC<TermsPageProps> = ({ markdownContent, title }) => {
         <meta name="og:title" content={"poems"} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <div className={"w-[80%] mx-auto"}>
+      <div className={"w-full md:w-[80%] mx-auto px-4"}>
         <Header customHeaderText="poems" />
         <Navigate underPage />
         <MarkdownViewer markdownContent={markdownContent} />
