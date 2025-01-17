@@ -1,24 +1,15 @@
 import Head from "next/head";
-import Layout from "../components/links/layout";
-import getTextsMap from "../components/utils/GetTextsMap";
+import Header from "../components/Header";
+import Navigate from "../components/Navigate";
+// import Main from "../components/Links/Main";
+import Footer from "../components/Footer";
+import Links from "../components/links/links";
 
-export default function Links() {
-  const wwwNheekNo = {
-    sitename: "links | nheek no",
-  };
-  const wwwDefault = {
-    sitename: "links | nheek",
-  };
-  const domainPairs = {
-    "www.nheek.no": wwwNheekNo,
-    default: wwwDefault,
-  };
-  const textsMap = getTextsMap(domainPairs);
-
+export default function LinksIndex() {
   return (
     <>
       <Head>
-        <title>{textsMap.sitename}</title>
+        <title>{"links"}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
@@ -27,13 +18,18 @@ export default function Links() {
         <meta
           property="og:image"
           content={`https://og-image.vercel.app/${encodeURI(
-            textsMap.sitename,
+            "links",
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={textsMap.sitename} />
+        <meta name="og:title" content={"links"} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Layout />
+      <div className={"w-full md:w-[80%] mx-auto px-4"}>
+        <Header customHeaderText={"links"} />
+        <Navigate underPage={true} />
+        <Links />
+        <Footer />
+      </div>
     </>
   );
 }

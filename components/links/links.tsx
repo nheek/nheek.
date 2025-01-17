@@ -1,5 +1,3 @@
-// import getTextsMap from "../utils/GetTextsMap";
-
 export default function Links() {
   const links = [
     {
@@ -43,10 +41,7 @@ export default function Links() {
       desc: "portfolio website of simen strømsnes (root and fribyte member)",
     },
   ];
-
-  // Sort the links by name in ascending order
   links.sort((a, b) => a.name.localeCompare(b.name));
-  // links_no.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="mt-12 md:mt-20">
