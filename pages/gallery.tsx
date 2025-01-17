@@ -1,10 +1,10 @@
 import Head from "next/head";
 import Header from "../components/Header";
-import Main from "../components/gallery/main";
+import Gallery from "../components/gallery/gallery";
 import Footer from "../components/Footer";
 import Navigate from "../components/Navigate";
 
-export default function Gallery() {
+export default function GalleryIndex() {
   return (
     <>
       <Head>
@@ -26,7 +26,7 @@ export default function Gallery() {
       <div className={"w-full md:w-[80%] mx-auto min-h-screen h-full"}>
         <Header customHeaderText={"gallery"} />
         <Navigate underPage />
-        <Main />
+        <Gallery />
         <Footer />
       </div>
     </>
