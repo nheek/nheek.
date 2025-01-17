@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import getTextsMap from "../utils/GetTextsMap";
 
 export default function FeaturedSongs() {
   const spotify = {
@@ -35,7 +34,7 @@ export default function FeaturedSongs() {
       </div>
       <Link
         href="/fun/featured-songs-history"
-        className="block w-max bg-slate-400 brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 mt-8 mx-auto py-2 px-4 text-center rounded-3xl !no-underline duration-300"
+        className="block w-max bg-slate-400 dark:bg-slate-600 brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 mt-8 mx-auto py-2 px-4 text-center rounded-3xl !no-underline duration-300"
       >
         See history
       </Link>

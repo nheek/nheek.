@@ -1,5 +1,3 @@
-// import getTextsMap from "../../utils/GetTextsMap";
-
 export default function FeaturedSongsHistory() {
   const spotify = [
     {
@@ -45,13 +43,13 @@ export default function FeaturedSongsHistory() {
   ];
 
   return (
-    <div className="w-[80%] mt-12 md:mt-20 mx-auto">
+    <div>
       <h2 className="text-4xl md:text-[4rem] xl:text-[8rem]">
         featured songs history
       </h2>
       <div className="flex flex-wrap justify-center gap-14 text-lg w-full md:w-[90%] mt-8 md:mt-16 m-auto leading-8">
         {spotify.map((spotifyItem, index) => (
-          <div key={"spotify-item-" + index} className="md:w-[45%]">
+          <div key={"spotify-item-" + index} className="w-full md:w-[45%]">
             <div>{spotifyItem.title}</div>
             <div className="flex flex-col items-center">
               {spotifyItem.collection.map((spotify, index) => (

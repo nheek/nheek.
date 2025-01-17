@@ -1,12 +1,8 @@
 import Head from "next/head";
-// import Layout from "../components/Layout";
-// import getTextsMap from "../components/utils/GetTextsMap";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
-// import SocialLinks from "../components/SocialLinks";
 import Navigate from "../components/Navigate";
 import FooterHero from "../components/FooterHero";
-// import Skills from "../components/Skills";
 import FeaturedProjects from "../components/FeaturedProjects";
 
 export default function Home() {
@@ -32,9 +28,7 @@ export default function Home() {
       </Head>
       <main>
         <Hero />
-        {/* <SocialLinks /> */}
         <FeaturedProjects />
-        {/* <Skills /> */}
         <FooterHero />
         <Navigate />
       </main>
