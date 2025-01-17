@@ -1,4 +1,4 @@
-FROM alpine:3.19 AS base
+FROM alpine:3.21.2 AS base
 WORKDIR /app
 ENV NODE_ENV="production"
 
@@ -7,15 +7,6 @@ ENV NODE_ENV="production"
 # ===========================
 FROM base AS build
 RUN apk -U add build-base gyp pkgconfig python3 nodejs npm
-# Install required libraries for canvas
-RUN apk add --no-cache \
-    build-base \
-    cairo-dev \
-    pango-dev \
-    jpeg-dev \
-    giflib-dev
-
-
 COPY package.json ./
 RUN npm install --package-lock-only
 RUN npm ci --include=dev

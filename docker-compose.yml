@@ -1,5 +1,5 @@
 services:
-  node-app:
+  nheek:
     build: .
     restart: unless-stopped
     ports:
