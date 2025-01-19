@@ -71,7 +71,6 @@ export default function FeaturedProjectsItem({
           <FeaturedProjectsItemItem
             id={index}
             key={project.id || `projects-to-show-${index}`}
-            category={category}
             project={project}
           />
         ))}
