@@ -171,7 +171,7 @@ export default function FeaturedProjectsItemItem({
           /* shows the project collaborators */
           project.collaborators && (
             <div className={`flex gap-1 items-center opacity-80`}>
-              <span className="text-xs">{txtInfo["with"]}</span>
+              <span className="text-xs">{"with"}</span>
               <ul className="flex flex-wrap text-xs gap-2">
                 {project.collaborators.map((person, index) => (
                   <li
