@@ -23,8 +23,8 @@ spec:
             - containerPort: 3000
           resources:
             requests:
-              memory: "50Mi"
-              cpu: "50m"
+              memory: "100Mi"
+              cpu: "100m"
           readinessProbe:
             httpGet:
               path: /
