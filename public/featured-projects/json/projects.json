@@ -165,7 +165,7 @@
       "name": "studently",
       "desc": "schools forum platform",
       "link": "https://studently.nheek.com/",
-      "image": "/featured-projects/studently.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/tKHSa9ZRb7pwJwx?file=/&fileId=6885&x=3420&y=2214&a=true&etag=457f3cc6109b6e3a20c6a8e2fc53a827",
       "mobileImage": "/featured-projects/mobile/m-studently.png",
       "techstack": ["PHP", "JavaScript", "jQuery", "MySQL"],
       "deployedWith": ["docker", "github actions"]
@@ -174,7 +174,7 @@
       "name": "confy",
       "desc": "anonymous confession site",
       "link": "https://confy.nheek.com/",
-      "image": "/featured-projects/confy.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/kzoDcFA949HBjdn?file=/&fileId=6880&x=3420&y=2214&a=true&etag=d975b0e54c8d619621c61f433ce4c03e",
       "techstack": [
         "RemixJS",
         "ReactJS",
@@ -189,7 +189,7 @@
       "name": "poetree",
       "desc": "google-inspired poetry library",
       "link": "https://poetree.nheek.com/",
-      "image": "/featured-projects/poetree.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/f9WRBqpjezk34cA?file=/&fileId=6881&x=3420&y=2214&a=true&etag=db16f55057641f321f1994f6afc167fd",
       "techstack": ["PHP", "JavaScript", "jQuery", "MySQL"],
       "deployedWith": ["docker", "github actions"]
     },
@@ -197,7 +197,7 @@
       "name": "malky",
       "desc": "intelligent virtual ai friendly assistant",
       "link": "https://malky.nheek.com/",
-      "image": "/featured-projects/malky.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/oQbH3iQF3nLLeEe?file=/&fileId=6883&x=3420&y=2214&a=true&etag=d6a7c71167f02f21d6adf646fba0f748",
       "mobileImage": "/featured-projects/mobile/m-malky.png",
       "techstack": ["NextJS", "ReactJS", "NodeJS", "TypeScript", "TailwindCSS"],
       "deployedWith": ["kubernetes"]
@@ -207,7 +207,7 @@
       "dateAdded": "14.04.2024",
       "desc": "anonymous freedom wall",
       "link": "https://free.nheek.com/",
-      "image": "/featured-projects/free.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/Q26jEpZ2cmJKLdy?file=/&fileId=6884&x=3420&y=2214&a=true&etag=ae1e5461a6858d1ca777cec93e461ab4",
       "mobileImage": "/featured-projects/mobile/m-free.png",
       "techstack": [
         "NextJS",
@@ -225,7 +225,7 @@
       "status": "early access",
       "desc": "90's webpage builder",
       "link": "https://recreate.nheek.com/",
-      "image": "/featured-projects/recreate.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/BimrteqS6PY8Wm4?file=/&fileId=6882&x=3420&y=2214&a=true&etag=17f9db9ae9da45a63073b5ee8944e8ed",
       "mobileImage": "/featured-projects/mobile/m-recreate.png",
       "techstack": ["HTML", "JavaScript", "REST API"],
       "deployedWith": ["kubernetes"]
@@ -287,7 +287,7 @@
       "name": "<pin/>",
       "desc": "landing page for <pin/>",
       "link": "https://pin.rootlinjeforening.no/",
-      "image": "/featured-projects/contributions/pin.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/3z8jy9s5giw7RkW?file=/&fileId=6942&x=3420&y=2214&a=true&etag=f9a326768a530f32db7dc114a1d61256",
       "mobileImage": "/featured-projects/mobile/contributions/m-pin.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS"],
       "onGithub": "https://github.com/Project-insert-name/PIN",
@@ -302,7 +302,7 @@
       "name": "fribyte",
       "desc": "landing page for fribyte",
       "link": "https://fribyte.no/",
-      "image": "/featured-projects/contributions/fribyte.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/NQEXxof9Za6Tc8p?file=/&fileId=6938&x=3420&y=2214&a=true&etag=7fcc8e43677bbcbe4b6ff7905215f662",
       "mobileImage": "/featured-projects/mobile/contributions/m-fribyte.png",
       "techstack": ["Zola", "SCSS"],
       "onGithub": "https://github.com/fribyte-code/fribyte.no"
@@ -311,7 +311,7 @@
       "name": "fribyte ctf",
       "desc": "fribyte's own capture the flag platform",
       "link": "https://ctf.fribyte.no/",
-      "image": "/featured-projects/contributions/fribyte-ctf.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/obpAGEqRzWLkPRG?file=/&fileId=6935&x=3420&y=2214&a=true&etag=4733b95e6540dc1b9131861999c46fc2",
       "mobileImage": "/featured-projects/mobile/contributions/m-fribyte-ctf.png",
       "techstack": ["ViteJS", "ReactJS", "TypeScript", ".NET", "CSS"],
       "onGithub": "https://github.com/fribyte-code/friByte.capture-the-flag"
@@ -321,7 +321,7 @@
       "dateAdded": "02.08.2024",
       "desc": "bergen open source conference",
       "link": "https://boskonf.no/",
-      "image": "/featured-projects/contributions/boskonf.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/LdExFCfocPMCTME?file=/&fileId=6937&x=3420&y=2214&a=true&etag=8a446576e111e6dd3d650759aebbe2d0",
       "mobileImage": "/featured-projects/mobile/contributions/m-boskonf.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "CSS"],
       "onGithub": "https://github.com/fribyte-code/boskonf.no"
@@ -330,7 +330,7 @@
       "name": "fribyte wiki",
       "desc": "fribyte's internal wiki",
       "link": "https://wiki.fribyte.no/",
-      "image": "/featured-projects/contributions/fribyte-wiki.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/9RkjFR5AfGFMB72?file=/&fileId=6936&x=3420&y=2214&a=true&etag=8709d825da73a716d08b0c258f84b0d4",
       "mobileImage": "/featured-projects/mobile/contributions/m-fribyte-wiki.png",
       "techstack": ["Zola", "SCSS"],
       "onGithub": "https://github.com/fribyte-code/wiki"
@@ -339,7 +339,7 @@
       "name": "root",
       "desc": "computer and it student organisation in hvl bergen",
       "link": "https://www.rootlinjeforening.no/",
-      "image": "/featured-projects/contributions/root.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/EnEk35667gaCsML?file=/&fileId=6943&x=3420&y=2214&a=true&etag=18e74aa6d346c40c68864b7de96a9014",
       "mobileImage": "/featured-projects/mobile/contributions/m-root.png",
       "techstack": ["NextJS", "ReactJS", "TypeScript", "TailwindCSS", "Sanity"],
       "onGithub": "https://github.com/Project-insert-name/root-website"
@@ -348,7 +348,7 @@
       "name": "kledeli",
       "desc": "children clothing subscription platform",
       "link": "https://kledeli.nheek.no/",
-      "image": "/featured-projects/contributions/kledeli.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/kGjyNwEwjKbKDLa?file=/&fileId=6941&x=3420&y=2214&a=true&etag=4fecf1e85b14d69f98375420a53af56b",
       "mobileImage": "/featured-projects/mobile/contributions/m-kledeli.png",
       "techstack": ["PHP", "JavaScript", "jQuery", "MySQL", "TailwindCSS"],
       "collaborators": [
@@ -363,8 +363,8 @@
       "name": "sipscore",
       "dateAdded": "22.09.2024",
       "desc": "alcohol consumption tracker",
-      "link": "https://sipscore.patreek.no/",
-      "image": "/featured-projects/contributions/sipscore.png",
+      "link": "https://www.sipscore.no/",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/ZYJ6y56SmQza2nt?file=/&fileId=6967&x=3420&y=2214&a=true&etag=c6f6a34dc037f789d8f1cdbdaea17aac",
       "mobileImage": "/featured-projects/mobile/contributions/m-sipscore.png",
       "techstack": [
         "NextJS",
@@ -387,7 +387,7 @@
       "status": "under construction",
       "desc": "social media messaging web app",
       "link": "https://homing.lukasry.no/",
-      "image": "https://uppy.nheek.com/uploads/b9564db0-e952-4a5b-9f18-f268c1a3f8a2.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/KxBEJ9Ff8466wm8?file=/&fileId=7033&x=3420&y=2214&a=true&etag=3e341235e595c093f89ffd52b9e6b551",
       "techstack": ["PHP", "JavaScript", "MySQL", "JQuery", "CSS"],
       "collaborators": [
         {
@@ -403,7 +403,7 @@
       "status": "under construction",
       "desc": "student culture center",
       "link": "https://kvarteret.no/",
-      "image": "/featured-projects/contributions/kvarteret.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/fZ2SSQsX2qHCgrG?file=/&fileId=6944&x=3420&y=2214&a=true&etag=38ca1ae31135599006836cbe1b526f53",
       "mobileImage": "/featured-projects/mobile/contributions/m-kvarteret.png",
       "techstack": ["AstroJS", "ReactJS", "GraphQL", "Directus", "CSS"]
     },
@@ -412,7 +412,7 @@
       "dateAdded": "19.06.2024",
       "desc": "quiz game based on bergen's light rail",
       "link": "https://bybane-quiz.nheek.com/",
-      "image": "/featured-projects/contributions/bybane-quiz.png",
+      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/RfMmHEqH7YJTjTa?file=/&fileId=6939&x=3420&y=2214&a=true&etag=536840178212b62ab32ccc4b4b7880e9",
       "mobileImage": "/featured-projects/mobile/contributions/m-bybane-quiz.png",
       "techstack": ["AstroJS", "NodeJS", "CSS"],
       "collaborators": [
