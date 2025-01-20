@@ -19,7 +19,7 @@ export default function ImageLoader({
         className={`${className} !relative object-contain`}
         title={alt}
         fill
-        loading="lazy"
+        // loading="lazy"
       />
     </div>
   );
