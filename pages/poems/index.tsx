@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
 import Link from "next/link";
+import isOdd from "../../components/utils/isOdd";
 
 export default function Poems({
   poems,
@@ -40,11 +41,11 @@ export default function Poems({
 export function Main({ poems }: { poems: { title: string; slug: string }[] }) {
   return (
     <main className="flex justify-center text-2xl">
-      <ul className="flex flex-col gap-6">
-        {poems.map((poem) => (
+      <ul className="flex flex-col md:flex-row flex-wrap justify-center gap-6">
+        {poems.map((poem, index) => (
           <li
             key={poem.slug}
-            className="border-l-4 border-gray-300 border-opacity-50 px-4 py-2 !no-underline"
+            className={`${isOdd(index) ? "border-r-4 text-right" : "border-l-4"} md:w-[45%] border-gray-300 border-opacity-50 px-4 py-2 !no-underline`}
           >
             <Link href={`/poems/${poem.slug}`}>{poem.title}</Link>
           </li>

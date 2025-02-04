@@ -1,12 +1,10 @@
 import IsTwoWeeksApart from "./utils/IsTwoWeeksApart";
+import isOdd from "./utils/isOdd";
 
 export default function FeaturedProjectsItemItem({
   id = null,
   project = null,
 }) {
-  const isOdd = (number) => {
-    return number % 2 !== 0;
-  };
 
   return (
     <div
