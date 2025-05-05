@@ -17,14 +17,6 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      # - name: Generate .env file
-      #   run: |
-      #     echo "EMAIL_USER=${{ secrets.EMAIL_USER }}" >> .env
-      #     echo "EMAIL_USER_TO=${{ secrets.EMAIL_USER_TO }}" >> .env
-      #     echo "EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }}" >> .env
-      #     echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
-      #     echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
-
       - name: Build and Push Docker Images
         run: |
           echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | docker login ghcr.io -u ${{ secrets.REG_USERNAME }} --password-stdin

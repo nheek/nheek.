@@ -5,7 +5,6 @@ export default function FeaturedProjectsItemItem({
   id = null,
   project = null,
 }) {
-
   return (
     <div
       className={`${isOdd(id) ? "flex-col md:flex-row" : "flex-col md:flex-row-reverse"} flex items-center gap-4 w-full md:w-[90%] max-h-max md:max-h-[400px] mt-8 md:-mt-5 hover:scale-110 duration-300`}
