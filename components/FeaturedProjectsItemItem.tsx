@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import IsTwoWeeksApart from "./utils/IsTwoWeeksApart";
 import isOdd from "./utils/isOdd";
 
@@ -5,6 +6,34 @@ export default function FeaturedProjectsItemItem({
   id = null,
   project = null,
 }) {
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img) return;
+
+    const timeout = setTimeout(() => {
+      if (img.src !== "https://placehold.co/600x375?text=Image+Not+Found") {
+        img.src = "https://placehold.co/600x375?text=Image+Not+Found";
+      }
+    }, 2000); // 2-second timeout
+
+    const handleLoad = () => clearTimeout(timeout);
+    const handleError = () => {
+      clearTimeout(timeout);
+      img.src = "https://placehold.co/600x375?text=Image+Not+Found";
+    };
+
+    img.addEventListener("load", handleLoad);
+    img.addEventListener("error", handleError);
+
+    return () => {
+      img.removeEventListener("load", handleLoad);
+      img.removeEventListener("error", handleError);
+      clearTimeout(timeout);
+    };
+  }, [project.image]);
+
   return (
     <div
       className={`${isOdd(id) ? "flex-col md:flex-row" : "flex-col md:flex-row-reverse"} flex items-center gap-4 w-full md:w-[90%] max-h-max md:max-h-[400px] mt-8 md:-mt-5 hover:scale-110 duration-300`}
@@ -12,6 +41,7 @@ export default function FeaturedProjectsItemItem({
       <div className="md:w-[55%] relative">
         <a href={project.link} target="_blank">
           <img
+            ref={imgRef}
             src={project.image}
             alt={project.name}
             className="!rounded-xl shadow-2xl mx-auto"
