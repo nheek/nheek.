@@ -1,27 +1,31 @@
-FROM alpine:3.21.2 AS base
+FROM node:23-alpine AS deps
 WORKDIR /app
-ENV NODE_ENV="production"
 
-# ===========================
-# Build Stage
-# ===========================
-FROM base AS build
-RUN apk -U add build-base gyp pkgconfig python3 nodejs npm
+# Copy only package.json first to generate lock file if needed
 COPY package.json ./
-RUN npm install --package-lock-only
-RUN npm ci --include=dev
+
+# Generate package-lock.json if it doesn't exist
+RUN npm install --no-cache --legacy-peer-deps
+
+# Install dependencies
+# RUN npm ci --legacy-peer-deps
+
+# ---- Build stage ----
+FROM node:23-alpine AS builder
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
 RUN npm run build
-RUN npm prune --omit=dev
 
+# ---- Final stage ----
+FROM node:23-alpine AS runner
+WORKDIR /app
 
-# ===========================
-# Runtime Stage
-# ===========================
-FROM base AS run
-RUN apk add --no-cache nodejs
-COPY --from=build /app/.next/standalone /app
-COPY --from=build /app/.next/static /app/.next/static
-COPY --from=build /app/public /app/public
-EXPOSE 3000
-CMD ["node", "server.js"]
+COPY --from=builder /app/.next .next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/node_modules ./node_modules
+
+CMD ["npm", "start"]
