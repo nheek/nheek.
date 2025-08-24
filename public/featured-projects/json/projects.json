@@ -60,6 +60,24 @@
       "deployedWith": ["docker", "github actions"]
     },
     {
+      "name": "profsays",
+      "dateAdded": "20.08.2025",
+      "desc": "lecture bingo",
+      "link": "https://profsays.nheek.com/",
+      "image": "https://uppy.nheek.com/uploads/31b37d52-ea6b-4655-9552-ac6037c61eea.png",
+      "mobileImage": "https://uppy.nheek.com/uploads/c24c5b7b-16b0-40ae-882c-f9f4c1c7ee5f.png",
+      "onGithub": "https://github.com/nheek/uppy",
+      "techstack": [
+        "NextJS",
+        "ReactJS",
+        "NodeJS",
+        "TypeScript",
+        "PostgreSQL",
+        "TailwindCSS"
+      ],
+      "deployedWith": ["docker", "github actions"]
+    },
+    {
       "name": "appdock",
       "dateAdded": "02.11.2024",
       "desc": "web app launcher",

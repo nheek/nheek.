@@ -8,8 +8,8 @@ export default function Hero() {
         <div className="">
           <div className="bg-slate-200 rounded-full">
             <img
-              className="w-40 h-40 p-4 rounded-full"
-              src="https://next.nheek.com/index.php/apps/files_sharing/publicpreview/yqwfafeT4ggzqeB?file=/&fileId=5447&x=3420&y=2214&a=true&etag=2bc50050341c3ad0c7c545913c9fa15a"
+              className="w-40 h-40 p-3 rounded-full"
+              src="https://flies.nheek.com/uploads/nheek/pfp/pfp.jpg"
               alt="nheek"
             />
           </div>
