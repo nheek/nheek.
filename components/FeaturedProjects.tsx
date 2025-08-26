@@ -1,22 +1,76 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import FeaturedProjectsItem from "./FeaturedProjectsItem";
+
+interface Project {
+  name: string;
+  dateAdded?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [key: string]: any;
+}
 
 export default function FeaturedProjects() {
   const [currentCategory, setCurrentCategory] = useState("websites");
-  const categories = [
-    "websites",
-    "consulting",
-    "contributions",
-    "static",
-    "template",
-    "utility",
-  ];
+  const [projects, setProjects] = useState<Record<string, Project[]>>({});
+
+  // Get categories from the projects data
+  const categories = useMemo(() => {
+    return Object.keys(projects).length > 0
+      ? Object.keys(projects)
+      : [
+          "websites",
+          "consulting",
+          "contributions",
+          "static",
+          "template",
+          "utility",
+        ];
+  }, [projects]);
+
   const handleItemClick = (category: string): void => {
     setCurrentCategory(category);
   };
 
-  // if there is a new project under a category, put the category here
-  const newProjects = ["websites"];
+  // Load projects data
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch("/featured-projects/json/projects.json");
+        const data = await response.json();
+        setProjects(data);
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+        setProjects({});
+      }
+    };
+    fetchProjects();
+  }, []);
+
+  // Function to check if a project is new (added within last 30 days)
+  const isProjectNew = (dateAdded?: string): boolean => {
+    if (!dateAdded) return false;
+
+    const today = new Date();
+    const projectDate = new Date(dateAdded.split(".").reverse().join("-")); // Convert DD.MM.YYYY to YYYY-MM-DD
+    const diffTime = today.getTime() - projectDate.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    return diffDays <= 30; // Consider new if added within last 30 days
+  };
+
+  // Get count of new projects for each category
+  const newProjectsCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+
+    Object.entries(projects).forEach(([category, categoryProjects]) => {
+      const newCount = categoryProjects.filter((project) =>
+        isProjectNew(project.dateAdded),
+      ).length;
+      counts[category] = newCount;
+    });
+
+    return counts;
+  }, [projects]);
+
   console.log(currentCategory);
   return (
     <div className="w-[85%] mt-40 mx-auto">
@@ -35,9 +89,9 @@ export default function FeaturedProjects() {
                 onClick={() => handleItemClick(category)}
               >
                 {category}
-                {newProjects && newProjects.includes(category) && (
+                {newProjectsCounts[category] > 0 && (
                   <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 transform rotate-12 px-1 py-2 rounded-full text-xs">
-                    new
+                    {newProjectsCounts[category]} new
                   </div>
                 )}
               </button>
