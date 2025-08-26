@@ -701,6 +701,15 @@
       "onGithub": "https://github.com/louislam/uptime-kuma"
     },
     {
+      "name": "flies",
+      "desc": "simple web file browser",
+      "dateAdded": "26.08.2025",
+      "image": "https://flies.nheek.com/uploads/nheek/flies.png",
+      "techstack": ["Go", "SQLite", "HTML", "CSS", "JavaScript"],
+      "deployedWith": ["docker"],
+      "onGithub": "https://github.com/filebrowser/filebrowser"
+    },
+    {
       "name": "next",
       "desc": "online file sharing/storage platform",
       "dateAdded": "02.01.2025",
