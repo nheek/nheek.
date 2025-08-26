@@ -5,8 +5,6 @@ export default function FeaturedProjects() {
   const [currentCategory, setCurrentCategory] = useState("websites");
   const categories = [
     "websites",
-    // "desktop",
-    // "mobile",
     "consulting",
     "contributions",
     "static",
@@ -18,8 +16,8 @@ export default function FeaturedProjects() {
   };
 
   // if there is a new project under a category, put the category here
-  const newProjects = [];
-
+  const newProjects = ["websites"];
+  console.log(currentCategory);
   return (
     <div className="w-[85%] mt-40 mx-auto">
       <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
@@ -37,7 +35,7 @@ export default function FeaturedProjects() {
                 onClick={() => handleItemClick(category)}
               >
                 {category}
-                {newProjects && newProjects.includes(currentCategory) && (
+                {newProjects && newProjects.includes(category) && (
                   <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 transform rotate-12 px-1 py-2 rounded-full text-xs">
                     new
                   </div>

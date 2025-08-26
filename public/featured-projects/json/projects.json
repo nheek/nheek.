@@ -4,7 +4,7 @@
       "name": "nheek",
       "desc": "this portfolio website",
       "link": "https://www.nheek.com/",
-      "image": "https://next.nheek.com/index.php/apps/files_sharing/publicpreview/Apwr6Lr8b5CQLrz?file=/&fileId=7072&x=3420&y=2214&a=true&etag=d67e101b60afc884f51e3c046d519e4d",
+      "image": "https://flies.nheek.com/uploads/nheek/nheek.png",
       "techstack": [
         "NextJS",
         "ReactJS",
@@ -64,9 +64,7 @@
       "dateAdded": "20.08.2025",
       "desc": "lecture bingo",
       "link": "https://profsays.nheek.com/",
-      "image": "https://uppy.nheek.com/uploads/31b37d52-ea6b-4655-9552-ac6037c61eea.png",
-      "mobileImage": "https://uppy.nheek.com/uploads/c24c5b7b-16b0-40ae-882c-f9f4c1c7ee5f.png",
-      "onGithub": "https://github.com/nheek/uppy",
+      "image": "https://flies.nheek.com/uploads/nheek/profsays.png",
       "techstack": [
         "NextJS",
         "ReactJS",
@@ -93,6 +91,70 @@
         "PostgreSQL",
         "Prisma",
         "NextAuth.js",
+        "TailwindCSS"
+      ],
+      "deployedWith": ["docker", "github actions"]
+    },
+    {
+      "name": "unimates",
+      "dateAdded": "26.08.2025",
+      "desc": "tinder for study buddies",
+      "link": "https://unimates.nheek.com/",
+      "image": "https://flies.nheek.com/uploads/nheek/unimates.png",
+      "techstack": [
+        "NextJS",
+        "ReactJS",
+        "NodeJS",
+        "TypeScript",
+        "PostgreSQL",
+        "TailwindCSS"
+      ],
+      "deployedWith": ["docker", "github actions"]
+    },
+    {
+      "name": "scentvault",
+      "dateAdded": "26.08.2025",
+      "desc": "tinder for study buddies",
+      "link": "https://scentvault.nheek.com/",
+      "image": "https://flies.nheek.com/uploads/nheek/scentvault.png",
+      "techstack": [
+        "NextJS",
+        "ReactJS",
+        "NodeJS",
+        "TypeScript",
+        "PostgreSQL",
+        "TailwindCSS"
+      ],
+      "deployedWith": ["docker", "github actions"]
+    },
+    {
+      "name": "inkwell",
+      "dateAdded": "26.08.2025",
+      "desc": "tinder for study buddies",
+      "link": "https://inkwell.nheek.com/",
+      "image": "https://flies.nheek.com/uploads/nheek/inkwell.png",
+      "techstack": [
+        "NextJS",
+        "ReactJS",
+        "NodeJS",
+        "TypeScript",
+        "PostgreSQL",
+        "TailwindCSS"
+      ],
+      "deployedWith": ["docker", "github actions"]
+    },
+    {
+      "name": "nicenote",
+      "dateAdded": "26.08.2025",
+      "desc": "anonymous compliment wall",
+      "link": "https://nicenote.nheek.com/",
+      "image": "https://flies.nheek.com/uploads/nheek/nicenote.png",
+      "techstack": [
+        "NextJS",
+        "ReactJS",
+        "NodeJS",
+        "TypeScript",
+        "PostgreSQL",
         "TailwindCSS"
       ],
       "deployedWith": ["docker", "github actions"]
