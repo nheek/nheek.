@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState, useRef, useMemo } from "react";
 import FeaturedProjectsItemItem from "./FeaturedProjectsItemItem";
 

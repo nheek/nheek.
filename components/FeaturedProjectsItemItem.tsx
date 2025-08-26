@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import IsTwoWeeksApart from "./utils/IsTwoWeeksApart";
 import isOdd from "./utils/isOdd";
