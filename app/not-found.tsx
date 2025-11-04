@@ -2,11 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main
-      className={
-        "flex flex-col items-center justify-center min-h-screen h-full"
-      }
-    >
+    <main className="flex flex-col items-center justify-center min-h-screen h-full bg-[rgba(24,20,16,1)]">
       <h1 className="block text-5xl w-[70%] h-1/2">
         {"Ooops. Can't find what you're looking for. Fancy going back home?"}
       </h1>

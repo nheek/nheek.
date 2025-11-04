@@ -1,0 +1,48 @@
+{
+  "albums": [
+    {
+      "id": 1,
+      "title": "Your Album Title 1",
+      "coverImage": "https://via.placeholder.com/300",
+      "releaseDate": "2024",
+      "links": {
+        "spotify": "https://open.spotify.com/album/your-album-id",
+        "appleMusic": "https://music.apple.com/album/your-album-id",
+        "youtube": "https://youtube.com/playlist?list=your-playlist-id"
+      },
+      "songs": [
+        {
+          "id": 1,
+          "title": "Song Title 1",
+          "duration": "3:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/your-track-id",
+            "appleMusic": "https://music.apple.com/song/your-song-id",
+            "youtube": "https://youtube.com/watch?v=your-video-id"
+          },
+          "lyrics": "[Verse 1]\nFirst verse lyrics here\nEach line on a new line\n\n[Chorus]\nChorus lyrics here\nCatchy and memorable\n\n[Verse 2]\nSecond verse lyrics\nContinue the story"
+        },
+        {
+          "id": 2,
+          "title": "Song Title 2",
+          "duration": "4:12",
+          "lyrics": "[Verse 1]\nYour lyrics here\n\n[Chorus]\nMore lyrics"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Your Album Title 2",
+      "coverImage": "https://via.placeholder.com/300",
+      "releaseDate": "2023",
+      "songs": [
+        {
+          "id": 3,
+          "title": "Another Song",
+          "duration": "3:55",
+          "lyrics": "[Verse 1]\nLyrics for this song"
+        }
+      ]
+    }
+  ]
+}

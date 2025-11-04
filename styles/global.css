@@ -8,13 +8,11 @@ body {
   line-height: 1.6;
   font-size: 18px;
   color: #1c2951;
-  background-color: rgba(241, 245, 259);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     color: #d1dbf3;
-    background-color: rgba(24, 20, 16, 1);
   }
 }
 

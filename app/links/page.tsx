@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function LinksPage() {
   return (
-    <div className={"w-full md:w-[80%] mx-auto px-4"}>
+    <div className="w-full md:w-[80%] mx-auto px-4 bg-[rgba(24,20,16,1)] min-h-screen">
       <Header customHeaderText={"links"} />
       <Navigate underPage={true} />
       <Links />

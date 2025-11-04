@@ -1,4 +1,11 @@
-export default function Hero() {
+import { TbHandFingerRight, TbHandFingerLeft } from "react-icons/tb";
+
+type HeroProps = {
+  mode: "developer" | "songwriter";
+  onModeChange: (mode: "developer" | "songwriter") => void;
+};
+
+export default function Hero({ mode, onModeChange }: HeroProps) {
   return (
     <div className="w-[85%] mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between pt-20">
@@ -17,8 +24,32 @@ export default function Hero() {
       </div>
       <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-0 items-center justify-between mt-10 md:mt-0 px-4">
         <div className="text-center md:text-left">
-          <p className="font-semibold text-3xl">fullstack developer</p>
-          <p>my code breathes life into applications</p>
+          <div className="flex items-center gap-4 justify-center">
+            <div className="flex gap-2 items-center">
+              <TbHandFingerRight className="text-xl" />
+              <button
+                onClick={() => onModeChange("developer")}
+                className="cursor-pointer font-semibold text-3xl hover:opacity-70 transition-opacity"
+              >
+                fullstack developer
+              </button>
+            </div>
+            {<span className="text-3xl">|</span>}
+            <div className="flex gap-2 items-center">
+              <button
+                onClick={() => onModeChange("songwriter")}
+                className="cursor-pointer font-semibold text-3xl hover:opacity-70 transition-opacity"
+              >
+                songwriter
+              </button>
+              <TbHandFingerLeft className="text-xl" />
+            </div>
+          </div>
+          <p>
+            {mode === "developer"
+              ? "my code breathes life into applications"
+              : "my melodies breathe life into emotions"}
+          </p>
         </div>
         <div className="flex items-center gap-10">
           <a href="https://github.com/nheek">
