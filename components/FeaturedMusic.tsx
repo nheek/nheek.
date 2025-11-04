@@ -120,11 +120,11 @@ export default function FeaturedMusic() {
       <div className="w-[85%] mx-auto my-20">
         <button
           onClick={handleBackToAlbums}
-          className="mb-6 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+          className="mb-14 px-4 py-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors cursor-pointer"
         >
           ← Back to Albums
         </button>
-        <div className="bg-[#2a2a2a] rounded-lg shadow-lg p-8 border border-gray-700">
+        <div className="rounded-lg shadow-lg">
           <div className="flex flex-col md:flex-row gap-8 mb-8">
             <img
               src={selectedAlbum.coverImage}

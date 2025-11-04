@@ -48,7 +48,7 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
           <p>
             {mode === "developer"
               ? "my code breathes life into applications"
-              : "my melodies breathe life into emotions"}
+              : "my lyrics breathe life into emotions"}
           </p>
         </div>
         <div className="flex items-center gap-10">
