@@ -206,7 +206,7 @@ export default function FeaturedMusic() {
   // View: Albums Grid
   return (
     <div className="w-[85%] mx-auto my-20">
-      <h2 className="text-5xl md:text-6xl font-bold mb-10 text-center text-white">
+      <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center mb-8">
         featured music
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -216,18 +216,18 @@ export default function FeaturedMusic() {
             onClick={() => setSelectedAlbum(album)}
             className="group cursor-pointer text-left"
           >
-            <div className="bg-[#2a2a2a] rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-gray-700 hover:border-purple-500">
+            <div className="relative rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all">
               <img
                 src={album.coverImage}
                 alt={album.title}
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-2 text-white group-hover:text-purple-400 transition-colors">
+              <div className="absolute w-full p-4 bottom-0 bg-gradient-to-t from-black to-transparent">
+                <h3 className="text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
                   {album.title}
                 </h3>
-                <p className="text-gray-400 mb-2">{album.releaseDate}</p>
-                <p className="text-sm text-gray-500">
+                <p className="text-gray-400">{album.releaseDate}</p>
+                <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                   {album.songs.length} tracks
                 </p>
               </div>
