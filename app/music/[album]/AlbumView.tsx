@@ -97,7 +97,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
 
       {/* Main Content */}
       <main>
-        <div className="max-w-4xl mx-auto p-8">
+        <div className="max-w-4xl mx-auto p-4">
           <Link
             href="/"
             className="inline-flex items-center text-white/70 hover:text-white mb-8 transition-colors"
@@ -122,16 +122,16 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
               <img
                 src={album.coverImage}
                 alt={album.title}
-                className="w-full md:w-64 h-64 object-cover rounded-lg shadow-md"
+                className="w-full md:w-64 h-full md:h-64 object-cover rounded-lg shadow-md"
               />
               <div className="flex flex-col justify-center">
-                <h2 className="text-5xl font-bold mb-2 text-white">
+                <h2 className="text-3xl md:text-5xl font-bold mb-2 text-white">
                   {album.title}
                 </h2>
-                <p className="text-gray-400 text-xl mb-3">
+                <p className="text-gray-400 text-base md:text-xl mb-3">
                   Released: {album.releaseDate}
                 </p>
-                <p className="text-gray-400 text-lg mb-4">
+                <p className="text-gray-400 text-sm md:text-lg mb-4">
                   {album.songs.length} tracks
                 </p>
 
@@ -171,7 +171,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                 )}
               </div>
             </div>
-            <h3 className="text-2xl font-semibold mb-4 text-white">
+            <h3 className="text-lg md:text-2xl font-semibold mb-4 text-white">
               Tracklist
             </h3>
             <div className="space-y-2">
@@ -180,7 +180,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                   <Link
                     key={song.id}
                     href={`/music/${album.codename}/${song.codename}`}
-                    className="w-full flex items-center justify-between p-4 hover:bg-[#3a3a3a] rounded-lg transition-colors text-left group !no-underline"
+                    className="w-full flex items-center justify-between px-2 md:px-4 py-3 md:py-4 hover:bg-[#3a3a3a] rounded-lg transition-colors text-left group !no-underline"
                   >
                     <div className="flex items-center gap-4">
                       <span className="text-gray-500 font-mono w-8">
