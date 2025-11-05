@@ -6,7 +6,7 @@
       "title": "Petty Plea",
       "featured": false,
       "coverImage": "https://i.scdn.co/image/ab67616d00001e02a35fcf7bc791a8671181b557",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-28 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/6jRLCG0wUXMBFE8jWyLrDr"
       },
@@ -125,7 +125,7 @@
       "id": 2,
       "title": "Origami",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e02099d26c6885d1f98b77b2797",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-24 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/0e5AqTBc1zrTdugt1SCZ6A"
       },
@@ -236,10 +236,11 @@
       "id": 3,
       "title": "BERMUDA TRIANGLE",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e021727153e90239bfc94f62e2e",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-20 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/1sY37kCRxnVIGkaBDClwRU"
       },
+      "featured": true,
       "songs": [
         {
           "id": 24,
@@ -338,10 +339,11 @@
       "id": 4,
       "title": "static flux",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e0259263a23e9211e0d282f9f8a",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-13 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/1WGUBk8kwhxUdWzidmMvC3"
       },
+      "featured": true,
       "songs": [
         {
           "id": 34,
@@ -494,7 +496,7 @@
       "id": 5,
       "title": "Euphoric Eclipse",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e02ad957fbd1517c363bfd729cf",
-      "releaseDate": "2025",
+      "releaseDate": "2025-09-25 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/0Mh5YmaMwn2SPUxbwiYtqc"
       },
@@ -636,7 +638,7 @@
       "id": 6,
       "title": "Reverie",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e023e89aedd5e89d7debba6082b",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-03 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/757sQVBB0H71gmNTkQa64r"
       },
@@ -765,7 +767,7 @@
       "id": 7,
       "title": "narcissistic collapse",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e020bf27f73dd86a441f59677c2",
-      "releaseDate": "2025",
+      "releaseDate": "2025-09-29 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/01AFGbJJlDujumz9Tq4yG7"
       },
@@ -912,7 +914,7 @@
       "id": 8,
       "title": "New City",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e029e532df0f361b45975711752",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-13 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/0YxNV1FuEWHE5uaEZ1qEOQ"
       },
@@ -1014,7 +1016,7 @@
       "id": 9,
       "title": "Down the Café",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e028c6cc9586ee978c6ad93ef6a",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-06 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/245h2dZ2ljDudZOCt31uuQ"
       },
@@ -1119,13 +1121,13 @@
           "codename": "the-story-goes"
         }
       ],
-      "codename": "down-the-caf"
+      "codename": "down-the-cafe"
     },
     {
       "id": 10,
       "title": "WORD",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e02a546010ee1154e8a541e328d",
-      "releaseDate": "2025",
+      "releaseDate": "2025-10-01 00:00",
       "links": {
         "spotify": "https://open.spotify.com/album/1F8lDgNOnrY8hQk9w2HEVa"
       },
@@ -1254,7 +1256,7 @@
       "id": 11,
       "title": "dimlight",
       "coverImage": "https://i.scdn.co/image/ab67616d00001e026747cc5f6239c01f28aec352",
-      "releaseDate": "2025",
+      "releaseDate": "2025-09-23 03:00",
       "links": {
         "spotify": "https://open.spotify.com/album/4B9OH2Ao7JFk5GAXuDhqJl"
       },
@@ -1379,6 +1381,871 @@
         }
       ],
       "codename": "dimlight"
+    },
+    {
+      "id": 12,
+      "codename": "echoes-of-me",
+      "title": "Echoes of Me",
+      "featured": false,
+      "coverImage": "https://i.scdn.co/image/ab67616d00001e021ec1e347f8592a250105404c",
+      "releaseDate": "2025-09-24 00:00",
+      "links": {
+        "spotify": "https://open.spotify.com/album/5lnm78thLa9oAqa9elXihj"
+      },
+      "songs": [
+        {
+          "id": 139,
+          "codename": "please-don-t",
+          "title": "Please Don't",
+          "duration": "2:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3bhj6NXY7UPvaQ65FvhtR2"
+          }
+        },
+        {
+          "id": 140,
+          "codename": "night-of-22",
+          "title": "Night of 22",
+          "duration": "2:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1ABNxx1avnA6r7wE3G5S4j"
+          }
+        },
+        {
+          "id": 141,
+          "codename": "oracle-s-fate",
+          "title": "Oracle's Fate",
+          "duration": "2:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6ir1utYptTcqT0PO8R7iYA"
+          }
+        },
+        {
+          "id": 142,
+          "codename": "four-stars",
+          "title": "Four Stars",
+          "duration": "2:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2B6jjELRSgNXtJr71F3qmL"
+          }
+        },
+        {
+          "id": 143,
+          "codename": "knife",
+          "title": "Knife",
+          "duration": "2:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2NApEHdMZjT4qfeDdmP4sI"
+          }
+        },
+        {
+          "id": 144,
+          "codename": "so-fragile-and-so-brave",
+          "title": "So Fragile and So Brave",
+          "duration": "2:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2BHR7zJlGj2KobugSnAFgp"
+          }
+        },
+        {
+          "id": 145,
+          "codename": "will-you-still-hear-me",
+          "title": "Will You Still Hear Me?",
+          "duration": "2:50",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6PNuZg0GvWqweezAvO9Hng"
+          }
+        },
+        {
+          "id": 146,
+          "codename": "the-tale",
+          "title": "The Tale",
+          "duration": "2:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2NBHAYPYaxuZgb7395BojO"
+          }
+        },
+        {
+          "id": 147,
+          "codename": "fade-in-time",
+          "title": "Fade in Time",
+          "duration": "2:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0duP6Shpfy5KkJ8V62Mala"
+          }
+        },
+        {
+          "id": 148,
+          "codename": "through-your-eyes",
+          "title": "Through Your Eyes",
+          "duration": "2:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/15NOa1HIpAVQqDXn63CYPW"
+          }
+        },
+        {
+          "id": 149,
+          "codename": "hear-my-heartbeat",
+          "title": "Hear My Heartbeat",
+          "duration": "2:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2LdqEbWSIP2ftKr9IQR4qU"
+          }
+        },
+        {
+          "id": 150,
+          "codename": "running-for-two-songs",
+          "title": "Running for Two Songs",
+          "duration": "2:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6UmymRRMM2uwq3ljU8UiZG"
+          }
+        },
+        {
+          "id": 151,
+          "codename": "invisible-strings",
+          "title": "Invisible Strings",
+          "duration": "2:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3EwTmPBpKe0uKBWNtpNni5"
+          }
+        },
+        {
+          "id": 152,
+          "codename": "i-m-now-in-trouble",
+          "title": "I'm Now in Trouble",
+          "duration": "2:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7DVWS4IG2q4LKs5IhD8u7C"
+          }
+        },
+        {
+          "id": 153,
+          "codename": "look-like-a-fool",
+          "title": "Look Like a Fool",
+          "duration": "2:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/17CigF3U04noXpMFGMM1d1"
+          }
+        },
+        {
+          "id": 154,
+          "codename": "i-m-back",
+          "title": "I'm Back",
+          "duration": "2:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1IoK5ZmxY0UwXyMr4wTaYC"
+          }
+        },
+        {
+          "id": 155,
+          "codename": "will-you-still-know-me",
+          "title": "Will You Still Know Me?",
+          "duration": "2:50",
+          "links": {
+            "spotify": "https://open.spotify.com/track/11miRixpoHS84iaIIEDQLE"
+          }
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "codename": "moonlit-labyrinth",
+      "title": "Moonlit Labyrinth",
+      "featured": false,
+      "coverImage": "https://i.scdn.co/image/ab67616d00001e02330b9ca776bbfabf76b35369",
+      "releaseDate": "2025-09-26 00:00",
+      "links": {
+        "spotify": "https://open.spotify.com/album/6UdqA4Ccvcl8PZV74jmeQU"
+      },
+      "songs": [
+        {
+          "id": 156,
+          "codename": "whispers-of-metal",
+          "title": "Whispers of Metal",
+          "duration": "4:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2jR4SR10t1FVJR0v7BDDPM"
+          }
+        },
+        {
+          "id": 157,
+          "codename": "if-all-things-free",
+          "title": "If All Things Free",
+          "duration": "4:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6hCbvfsnIQGMR4Nb9Pv4x7"
+          }
+        },
+        {
+          "id": 158,
+          "codename": "pixel-power",
+          "title": "Pixel Power",
+          "duration": "4:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/71l8Jeq0mpzLL9YwuJ5dYx"
+          }
+        },
+        {
+          "id": 159,
+          "codename": "i-need-a-firefighter",
+          "title": "I Need a Firefighter",
+          "duration": "4:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1w6cxGJUmynqTHAUHqXbc4"
+          }
+        },
+        {
+          "id": 160,
+          "codename": "let-you-go-alone",
+          "title": "Let You Go Alone",
+          "duration": "4:12",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4AKs05mSvejzwaE43gSK9d"
+          }
+        },
+        {
+          "id": 161,
+          "codename": "strangers-with-bones",
+          "title": "Strangers with Bones",
+          "duration": "4:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1fsT6lCEKQG4bR0UP8GI62"
+          }
+        },
+        {
+          "id": 162,
+          "codename": "racing-through-the-pain",
+          "title": "Racing Through the Pain",
+          "duration": "4:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2sWuiCNBAxzpqyj4ualc6C"
+          }
+        },
+        {
+          "id": 163,
+          "codename": "you",
+          "title": "You!",
+          "duration": "4:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3Q8QJTbuZA95e6DjNtL2Jw"
+          }
+        },
+        {
+          "id": 164,
+          "codename": "moonlit-labyrinth",
+          "title": "Moonlit Labyrinth",
+          "duration": "4:32",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5IYAjHklUODnzQXEqFSCt4"
+          }
+        },
+        {
+          "id": 165,
+          "codename": "i-came-searching",
+          "title": "I Came Searching",
+          "duration": "4:29",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5uEX559PY2Cvu38c2dwaCf"
+          }
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "codename": "living-ghost",
+      "title": "Living Ghost",
+      "featured": false,
+      "coverImage": "https://i.scdn.co/image/ab67616d00001e0273dd4dc23c75a08dfe48a2c1",
+      "releaseDate": "2025-09-27 00:00",
+      "links": {
+        "spotify": "https://open.spotify.com/album/5huk7nRLVI5d2GszNZqo5V"
+      },
+      "songs": [
+        {
+          "id": 166,
+          "codename": "chasing-shadows",
+          "title": "Chasing Shadows",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4DUDPehnPYZpZ5TCdK6bPn"
+          }
+        },
+        {
+          "id": 167,
+          "codename": "two-emojis-back",
+          "title": "TWO emojis back",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5TpgXBG6O62lz4r4y9dDCO"
+          }
+        },
+        {
+          "id": 168,
+          "codename": "malicious-mouth",
+          "title": "Malicious Mouth",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4klfe0T9HjL6sBjKNRjGmF"
+          }
+        },
+        {
+          "id": 169,
+          "codename": "could-ve-still-been-us",
+          "title": "Could've Still Been Us",
+          "duration": "3:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5c0oLsoMhsbEvz1gIJeep9"
+          }
+        },
+        {
+          "id": 170,
+          "codename": "living-ghost",
+          "title": "Living Ghost",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5lfSB8vIlF72pIj8QxZcp0"
+          }
+        },
+        {
+          "id": 171,
+          "codename": "fade-into-nothing",
+          "title": "Fade Into Nothing",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6eDm5jwML1CajhCWzGdjnG"
+          }
+        },
+        {
+          "id": 172,
+          "codename": "falling-through-the-silence",
+          "title": "Falling Through the Silence",
+          "duration": "3:32",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5tCU5HU2P0vgVyxrOp6nYj"
+          }
+        },
+        {
+          "id": 173,
+          "codename": "buried-with-your-love",
+          "title": "Buried With Your Love",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4tYQLNWZVowltuWS0PUt3a"
+          }
+        },
+        {
+          "id": 174,
+          "codename": "standing-on-lava",
+          "title": "Standing on Lava",
+          "duration": "3:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4uXBaIoqm6lKUKejgg7GUZ"
+          }
+        },
+        {
+          "id": 175,
+          "codename": "somebody-to-you",
+          "title": "Somebody to You",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7gH2bRNfUR81sQH6w6Kadx"
+          }
+        },
+        {
+          "id": 176,
+          "codename": "tell-me",
+          "title": "Tell Me",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1uaQHn3ifZanjnEx9fGRka"
+          }
+        },
+        {
+          "id": 177,
+          "codename": "midnight-sin",
+          "title": "Midnight Sin",
+          "duration": "3:40",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6w4e71xOdSSsS3Kq3sPthz"
+          }
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "codename": "confetti-parade",
+      "title": "Confetti Parade",
+      "featured": false,
+      "coverImage": "https://i.scdn.co/image/ab67616d00001e027ab5591684c088a82dd92241",
+      "releaseDate": "2025-09-28 02:00",
+      "links": {
+        "spotify": "https://open.spotify.com/album/1RO7w3wBe9Prb0JBjHUjV4"
+      },
+      "songs": [
+        {
+          "id": 178,
+          "codename": "fantasy",
+          "title": "Fantasy",
+          "duration": "2:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3qkHKtOwm7RZzeOvaklgvG"
+          }
+        },
+        {
+          "id": 179,
+          "codename": "colors",
+          "title": "Colors",
+          "duration": "2:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4FlMUsN9xOIZtet43Dn0zM"
+          }
+        },
+        {
+          "id": 180,
+          "codename": "hallway-lights",
+          "title": "Hallway Lights",
+          "duration": "2:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5ccUZ3ZYbZS4Cnp82kAnlX"
+          }
+        },
+        {
+          "id": 181,
+          "codename": "eclipse-and-sunshine",
+          "title": "eclipse! and. sunshine!",
+          "duration": "2:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1oIxG16QfSuE5T9RcXshYq"
+          }
+        },
+        {
+          "id": 182,
+          "codename": "through-the-dark",
+          "title": "Through the Dark",
+          "duration": "2:32",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1qJNAJyW4tkKmVE1OVyWu9"
+          }
+        },
+        {
+          "id": 183,
+          "codename": "nightlights",
+          "title": "Nightlights",
+          "duration": "2:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7gWfkBch7jPR9gXRy7yjdF"
+          }
+        },
+        {
+          "id": 184,
+          "codename": "shine",
+          "title": "Shine",
+          "duration": "2:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7HS1DcY1TYhQdKmN3XZAws"
+          }
+        },
+        {
+          "id": 185,
+          "codename": "roses-fade",
+          "title": "Roses Fade",
+          "duration": "2:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/08gnQRKEYGwVyIOQ7BaJXb"
+          }
+        },
+        {
+          "id": 186,
+          "codename": "glow-so-bright",
+          "title": "Glow So Bright",
+          "duration": "2:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5i82jzecazeqKILmSO3HT8"
+          }
+        },
+        {
+          "id": 187,
+          "codename": "urban-glow",
+          "title": "Urban Glow!",
+          "duration": "2:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3M6kBvoBkJGDlLRSMd1WHo"
+          }
+        },
+        {
+          "id": 188,
+          "codename": "confetti-parade",
+          "title": "Confetti Parade",
+          "duration": "2:37",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7j7sf9fSJS2TEHSxpmesut"
+          }
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "codename": "legacy",
+      "title": "LEGACY",
+      "featured": false,
+      "coverImage": "https://i.scdn.co/image/ab67616d00001e0213ae5fb92c9f67d301e67ac3",
+      "releaseDate": "2025-09-28 01:00",
+      "links": {
+        "spotify": "https://open.spotify.com/album/3rwg1noK2tyyZOZdYgNeXp"
+      },
+      "songs": [
+        {
+          "id": 189,
+          "codename": "core-memories",
+          "title": "Core Memories",
+          "duration": "4:16",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2xUyOn7FRXU4UpVxhiBzRv"
+          }
+        },
+        {
+          "id": 190,
+          "codename": "meteor-falling",
+          "title": "Meteor Falling",
+          "duration": "3:46",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1XaV4xCSeSv4XbYCkm0QoP"
+          }
+        },
+        {
+          "id": 191,
+          "codename": "innocence-of-youth",
+          "title": "Innocence of Youth",
+          "duration": "4:11",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7Amim4ba412tsA8SpQvzbn"
+          }
+        },
+        {
+          "id": 192,
+          "codename": "mother-to-all",
+          "title": "MOTHER TO ALL",
+          "duration": "4:21",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3kbuspDVrCwYj3dAsJCKRy"
+          }
+        },
+        {
+          "id": 193,
+          "codename": "five-more-minutes",
+          "title": "FIVE MORE MINUTES",
+          "duration": "4:10",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3WnVDMdlrvwCsHoumqPiYt"
+          }
+        },
+        {
+          "id": 194,
+          "codename": "the-one-you-loved",
+          "title": "The One You Loved",
+          "duration": "3:47",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0cuXWIEkoEzMteGa2d3WKs"
+          }
+        },
+        {
+          "id": 195,
+          "codename": "spectrum-photograph",
+          "title": "Spectrum Photograph",
+          "duration": "4:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1K8OpxeeKRBexu2mNpuqQq"
+          }
+        },
+        {
+          "id": 196,
+          "codename": "my-name-carved-in-sand",
+          "title": "My Name Carved in Sand",
+          "duration": "4:03",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6lyZyp4rbvENEnVab2Z3yC"
+          }
+        },
+        {
+          "id": 197,
+          "codename": "write-you-a-song",
+          "title": "Write You a Song",
+          "duration": "4:01",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6sUtlBlQPifCDxQXZEVqv0"
+          }
+        },
+        {
+          "id": 198,
+          "codename": "crossroad-driveway",
+          "title": "Crossroad Driveway",
+          "duration": "4:07",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5OLNVU8ekjIxVDTyrU6l0i"
+          }
+        },
+        {
+          "id": 199,
+          "codename": "come-back-to-me",
+          "title": "COME BACK TO ME",
+          "duration": "4:10",
+          "links": {
+            "spotify": "https://open.spotify.com/track/44M9FpQPrY3YZhACCXXoKI"
+          }
+        },
+        {
+          "id": 200,
+          "codename": "please-hold-my-hand",
+          "title": "Please Hold My Hand",
+          "duration": "3:46",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0pL5KHThRs8L4TZ5BL7PHf"
+          }
+        },
+        {
+          "id": 201,
+          "codename": "all-this-time",
+          "title": "All This Time",
+          "duration": "3:19",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3fhsoxrRSfu9jkOuyag3Kc"
+          }
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "codename": "maybe-ignorance-is-mercy",
+      "title": "maybe ignorance is mercy",
+      "featured": false,
+      "coverImage": "https://i.scdn.co/image/ab67616d00001e02cedc94179ca839e570955478",
+      "releaseDate": "2025-09-28 00:00",
+      "links": {
+        "spotify": "https://open.spotify.com/album/2X8RxyuEpFN7vbALXf4cCF"
+      },
+      "songs": [
+        {
+          "id": 202,
+          "codename": "tears-fall",
+          "title": "tears fall",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6S0OP5gsvCZvkGJ3XATO0H"
+          }
+        },
+        {
+          "id": 203,
+          "codename": "homeland-calling",
+          "title": "homeland calling",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2ZxqR9BZH90ZLUIfOuOWJl"
+          }
+        },
+        {
+          "id": 204,
+          "codename": "maybe-ignorance-is-mercy",
+          "title": "maybe ignorance is mercy",
+          "duration": "3:27",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3Bec2Gf3PwlWWNKQxylPl4"
+          }
+        },
+        {
+          "id": 205,
+          "codename": "silence-took-your-hand",
+          "title": "silence took your hand",
+          "duration": "3:26",
+          "links": {
+            "spotify": "https://open.spotify.com/track/00zmPdLhfeSaWi5PSM6Hbl"
+          }
+        },
+        {
+          "id": 206,
+          "codename": "hate-you",
+          "title": "hate you",
+          "duration": "3:39",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3QphLto5UGsPBq6v5hXDAR"
+          }
+        },
+        {
+          "id": 207,
+          "codename": "hold-on-to-this-moment",
+          "title": "hold on to this moment",
+          "duration": "3:33",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5a9P0dlJapsvWklltZ3jag"
+          }
+        },
+        {
+          "id": 208,
+          "codename": "even-if-you-arent-mine",
+          "title": "even if you aren't mine",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/75RDBwmjNgDee2vzX7MILt"
+          }
+        },
+        {
+          "id": 209,
+          "codename": "now-im-not-with-you",
+          "title": "now i'm not with you",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2seUDZJsjsV5p7oQMMHgsM"
+          }
+        },
+        {
+          "id": 210,
+          "codename": "what-just-happened",
+          "title": "what just happened?",
+          "duration": "3:31",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4buNgcpEmWdmNSzS9NTrUx"
+          }
+        },
+        {
+          "id": 211,
+          "codename": "i-wanna-go-home",
+          "title": "i wanna go home",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1RtOXqWPoUWRQoziJ9TeQl"
+          }
+        },
+        {
+          "id": 212,
+          "codename": "walking-home-alone",
+          "title": "walking home alone",
+          "duration": "3:31",
+          "links": {
+            "spotify": "https://open.spotify.com/track/45BeGsm7Qfw4KjCFtO5wxN"
+          }
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "codename": "under-the-stars",
+      "title": "Under the Stars",
+      "featured": false,
+      "coverImage": "https://i.scdn.co/image/ab67616d00001e02a80f58b33bbf9e696bad36b8",
+      "releaseDate": "2025-09-30 00:00",
+      "links": {
+        "spotify": "https://open.spotify.com/album/744Ohbl1upcHxC2lY8IPqW"
+      },
+      "songs": [
+        {
+          "id": 213,
+          "codename": "under-the-stars",
+          "title": "Under the Stars",
+          "duration": "3:17",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1SvDG2MtxPzWYupUfprEXm"
+          }
+        },
+        {
+          "id": 214,
+          "codename": "29th-of-february",
+          "title": "29th of February",
+          "duration": "3:19",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4LKQTwTiNsaLSFbDGOGBIq"
+          }
+        },
+        {
+          "id": 215,
+          "codename": "worth-dying-for",
+          "title": "worth dying for",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/63cPNEp1fQ42FBdSnGCEa0"
+          }
+        },
+        {
+          "id": 216,
+          "codename": "i-dont-wanna-go-home",
+          "title": "i dont wanna go home",
+          "duration": "3:19",
+          "links": {
+            "spotify": "https://open.spotify.com/track/39T1pgZAIHbyNaES0K1o4X"
+          }
+        },
+        {
+          "id": 217,
+          "codename": "peace",
+          "title": "peace",
+          "duration": "3:17",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1LEopxZXgtIsLLwvYr2Zgn"
+          }
+        },
+        {
+          "id": 218,
+          "codename": "the-first-spark",
+          "title": "The First Spark",
+          "duration": "3:19",
+          "links": {
+            "spotify": "https://open.spotify.com/track/55P7vBrA6QiXliFhVxYnyw"
+          }
+        },
+        {
+          "id": 219,
+          "codename": "attached",
+          "title": "attached",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3qNCfDoXxi9LU0zsFxQ3NV"
+          }
+        },
+        {
+          "id": 220,
+          "codename": "year-with-you",
+          "title": "Year With You",
+          "duration": "3:21",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2fd0KYRe8mYSaGQ4mZvSGc"
+          }
+        },
+        {
+          "id": 221,
+          "codename": "diamond-of-hope",
+          "title": "Diamond of Hope",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2D2PH4vKb6tShVtxeSA4GJ"
+          }
+        },
+        {
+          "id": 222,
+          "codename": "no-ones-funeral",
+          "title": "no one's funeral",
+          "duration": "3:44",
+          "links": {
+            "spotify": "https://open.spotify.com/track/27e4FQccs4y775sn1ToBa5"
+          }
+        },
+        {
+          "id": 223,
+          "codename": "crowned-in-flame",
+          "title": "Crowned in Flame",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4GyZ5t9y1Gbi6fWqYSnRaV"
+          }
+        },
+        {
+          "id": 224,
+          "codename": "days-repeat",
+          "title": "Days Repeat",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2HmCw88Xjadnf2MOefeOP5"
+          }
+        }
+      ]
     }
   ]
 }

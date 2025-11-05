@@ -25,7 +25,7 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
       </div>
       <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-0 items-center justify-between mt-10 md:mt-0 px-4">
         <div className="text-center md:text-left">
-          <div className="flex items-center gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
             <div className="flex gap-2 items-center">
               <TbHandFingerRight
                 className={`text-xl transition-colors ${
@@ -34,7 +34,7 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
               />
               <button
                 onClick={() => onModeChange("developer")}
-                className={`cursor-pointer font-semibold text-3xl transition-colors ${
+                className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
                   mode === "developer"
                     ? "text-purple-400 hover:text-purple-300"
                     : "hover:text-purple-400"
@@ -43,11 +43,11 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
                 fullstack developer
               </button>
             </div>
-            {<span className="text-3xl">|</span>}
+            <span className="hidden sm:inline text-3xl">|</span>
             <div className="flex gap-2 items-center">
               <Link
                 href="/music"
-                className={`cursor-pointer font-semibold text-3xl transition-colors ${
+                className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
                   mode === "songwriter"
                     ? "text-purple-400 hover:text-purple-300"
                     : "hover:text-purple-400"

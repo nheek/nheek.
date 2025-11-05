@@ -13,13 +13,12 @@ export default function Header({ compact = false, currentPage = "home" }: Header
     return (
       <div className="w-[85%] mx-auto py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link
-            href="/"
+          <span
             className="text-5xl md:text-6xl hover:opacity-70 transition-opacity"
             title="name's nick"
           >
             nheek
-          </Link>
+          </span>
           <div className="flex items-center gap-6">
             <div className="bg-slate-200 rounded-full">
               <img
@@ -92,13 +91,12 @@ export default function Header({ compact = false, currentPage = "home" }: Header
   return (
     <div className="w-[85%] mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between pt-20">
-        <Link
-          href="/"
-          className="text-8xl md:text-[12rem] hover:opacity-70 transition-opacity"
+        <span
+          className="text-8xl md:text-[12rem]"
           title="name's nick"
         >
           nheek
-        </Link>
+        </span>
         <div>
           <div className="bg-slate-200 rounded-full">
             <img
@@ -111,7 +109,7 @@ export default function Header({ compact = false, currentPage = "home" }: Header
       </div>
       <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-0 items-center justify-between mt-10 md:mt-0 px-4">
         <div className="text-center md:text-left">
-          <div className="flex items-center gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
             <div className="flex gap-2 items-center">
               <TbHandFingerRight
                 className={`text-xl transition-colors ${
@@ -120,7 +118,7 @@ export default function Header({ compact = false, currentPage = "home" }: Header
               />
               <Link
                 href="/"
-                className={`transition-colors text-3xl font-semibold ${
+                className={`transition-colors text-2xl sm:text-3xl font-semibold ${
                   currentPage === "home"
                     ? "text-purple-400 hover:text-purple-300"
                     : "hover:text-purple-400"
@@ -129,11 +127,11 @@ export default function Header({ compact = false, currentPage = "home" }: Header
                 fullstack developer
               </Link>
             </div>
-            <span className="text-3xl">|</span>
+            <span className="hidden sm:inline text-3xl">|</span>
             <div className="flex gap-2 items-center">
               <Link
                 href="/music"
-                className={`transition-colors text-3xl font-semibold ${
+                className={`transition-colors text-2xl sm:text-3xl font-semibold ${
                   currentPage === "music"
                     ? "text-purple-400 hover:text-purple-300"
                     : "hover:text-purple-400"

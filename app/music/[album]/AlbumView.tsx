@@ -82,7 +82,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
         ) : (
           <div className="text-center">
             <div className="text-white text-xl mb-4">Album not found</div>
-            <Link href="/" className="text-purple-400 hover:text-purple-300">
+            <Link href="/music" className="text-purple-400 hover:text-purple-300">
               Back to Albums
             </Link>
           </div>
@@ -99,7 +99,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
       <main>
         <div className="max-w-4xl mx-auto p-4">
           <Link
-            href="/"
+            href="/music"
             className="inline-flex items-center text-white/70 hover:text-white mb-8 transition-colors"
           >
             <svg
