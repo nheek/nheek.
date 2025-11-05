@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Footer from "../../../../components/Footer";
 import FooterHero from "../../../../components/FooterHero";
 import Navigate from "../../../../components/Navigate";
@@ -47,7 +46,6 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
   const [album, setAlbum] = useState<Album | null>(null);
   const [song, setSong] = useState<Song | null>(null);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -60,14 +58,15 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
         const foundAlbum = data.albums.find((a) => a.codename === albumSlug);
 
         if (!foundAlbum) {
-          router.push("/");
+          setLoading(false);
           return;
         }
 
         const foundSong = foundAlbum.songs.find((s) => s.codename === songSlug);
 
         if (!foundSong) {
-          router.push(`/music/${foundAlbum.codename}`);
+          setAlbum(foundAlbum);
+          setLoading(false);
           return;
         }
 
@@ -76,12 +75,12 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
         setLoading(false);
       } catch (error) {
         console.error("Error fetching song data:", error);
-        router.push("/");
+        setLoading(false);
       }
     };
 
     fetchSongData();
-  }, [albumSlug, songSlug, router]);
+  }, [albumSlug, songSlug]);
 
   if (loading) {
     return (
@@ -94,9 +93,44 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
     );
   }
 
-  if (!album || !song) {
-    return null;
+  if (!album) {
+    return (
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ backgroundColor: "#1a1625" }}
+      >
+        <div className="text-center">
+          <div className="text-white text-xl mb-4">Album not found</div>
+          <Link href="/" className="text-purple-400 hover:text-purple-300">
+            Back to Albums
+          </Link>
+        </div>
+      </div>
+    );
   }
+
+  if (!song) {
+    return (
+      <div
+        className="min-h-screen flex items-center justify-center"
+        style={{ backgroundColor: "#1a1625" }}
+      >
+        <div className="text-center">
+          <div className="text-white text-xl mb-4">Song not found</div>
+          <Link
+            href={`/music/${album.codename}`}
+            className="text-purple-400 hover:text-purple-300"
+          >
+            Back to {album.title}
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const currentSongIndex = album.songs.findIndex((s) => s.codename === songSlug);
+  const prevSong = currentSongIndex > 0 ? album.songs[currentSongIndex - 1] : null;
+  const nextSong = currentSongIndex < album.songs.length - 1 ? album.songs[currentSongIndex + 1] : null;
 
   return (
     <div className="min-h-screen bg-[#1a1625]">
@@ -206,7 +240,7 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
             <img
               src={album.coverImage}
               alt={album.title}
-              className="w-full md:w-64 h-64 object-cover rounded-lg shadow-lg"
+              className="w-full md:w-64 h-64 object-cover rounded-lg"
             />
             <div className="flex flex-col justify-center">
               <p className="text-white/50 text-sm mb-2">From {album.title}</p>
@@ -300,6 +334,67 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
               <p className="text-white/50 italic">
                 Lyrics not available for this song.
               </p>
+            )}
+          </div>
+
+          {/* Song Navigation */}
+          <div className="flex justify-between items-center mt-12 pt-8 border-t border-white/10">
+            {prevSong ? (
+              <Link
+                href={`/music/${album.codename}/${prevSong.codename}`}
+                className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+                <div className="text-left">
+                  <p className="text-xs text-white/50">Previous Song</p>
+                  <p className="text-sm font-medium group-hover:text-purple-400">
+                    {prevSong.title}
+                  </p>
+                </div>
+              </Link>
+            ) : (
+              <div></div>
+            )}
+            
+            {nextSong ? (
+              <Link
+                href={`/music/${album.codename}/${nextSong.codename}`}
+                className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
+              >
+                <div className="text-right">
+                  <p className="text-xs text-white/50">Next Song</p>
+                  <p className="text-sm font-medium group-hover:text-purple-400">
+                    {nextSong.title}
+                  </p>
+                </div>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            ) : (
+              <div></div>
             )}
           </div>
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Footer from "../../../components/Footer";
 import FooterHero from "../../../components/FooterHero";
@@ -38,8 +37,8 @@ type AlbumViewProps = {
 
 export default function AlbumView({ albumSlug }: AlbumViewProps) {
   const [album, setAlbum] = useState<Album | null>(null);
+  const [allAlbums, setAllAlbums] = useState<Album[]>([]);
   const [loading, setLoading] = useState(true);
-  const router = useRouter();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -48,25 +47,28 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
       try {
         const response = await fetch("/featured-music/albums.json");
         const data = await response.json();
+        setAllAlbums(data.albums || []);
+        
         const foundAlbum = data.albums.find(
           (a: Album) => a.codename === albumSlug,
         );
 
         if (foundAlbum) {
           setAlbum(foundAlbum);
-        } else {
-          router.push("/");
         }
       } catch (error) {
         console.error("Error fetching album:", error);
-        router.push("/");
       } finally {
         setLoading(false);
       }
     };
 
     fetchAlbum();
-  }, [albumSlug, router]);
+  }, [albumSlug]);
+
+  const currentIndex = allAlbums.findIndex((a) => a.codename === albumSlug);
+  const prevAlbum = currentIndex > 0 ? allAlbums[currentIndex - 1] : null;
+  const nextAlbum = currentIndex < allAlbums.length - 1 ? allAlbums[currentIndex + 1] : null;
 
   if (loading || !album) {
     return (
@@ -74,7 +76,16 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
         className="min-h-screen flex items-center justify-center"
         style={{ backgroundColor: "#1a1625" }}
       >
-        <div className="text-white text-xl">Loading...</div>
+        {loading ? (
+          <div className="text-white text-xl">Loading...</div>
+        ) : (
+          <div className="text-center">
+            <div className="text-white text-xl mb-4">Album not found</div>
+            <Link href="/" className="text-purple-400 hover:text-purple-300">
+              Back to Albums
+            </Link>
+          </div>
+        )}
       </div>
     );
   }
@@ -180,7 +191,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
             </svg>
             Back to Albums
           </Link>
-          <div className="rounded-lg shadow-lg">
+          <div className="rounded-lg">
             <div className="flex flex-col md:flex-row gap-8 mb-8">
               <img
                 src={album.coverImage}
@@ -243,7 +254,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                   <Link
                     key={song.id}
                     href={`/music/${album.codename}/${song.codename}`}
-                    className="w-full flex items-center justify-between p-4 hover:bg-[#3a3a3a] rounded-lg transition-colors text-left group"
+                    className="w-full flex items-center justify-between p-4 hover:bg-[#3a3a3a] rounded-lg transition-colors text-left group !no-underline"
                   >
                     <div className="flex items-center gap-4">
                       <span className="text-gray-500 font-mono w-8">
@@ -257,6 +268,67 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                   </Link>
                 );
               })}
+            </div>
+
+            {/* Album Navigation */}
+            <div className="flex justify-between items-center mt-12 pt-8 border-t border-white/10">
+              {prevAlbum ? (
+                <Link
+                  href={`/music/${prevAlbum.codename}`}
+                  className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                  <div className="text-left">
+                    <p className="text-xs text-white/50">Previous Album</p>
+                    <p className="text-sm font-medium group-hover:text-purple-400">
+                      {prevAlbum.title}
+                    </p>
+                  </div>
+                </Link>
+              ) : (
+                <div></div>
+              )}
+              
+              {nextAlbum ? (
+                <Link
+                  href={`/music/${nextAlbum.codename}`}
+                  className="flex items-center gap-3 text-white/70 hover:text-white transition-colors group"
+                >
+                  <div className="text-right">
+                    <p className="text-xs text-white/50">Next Album</p>
+                    <p className="text-sm font-medium group-hover:text-purple-400">
+                      {nextAlbum.title}
+                    </p>
+                  </div>
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </Link>
+              ) : (
+                <div></div>
+              )}
             </div>
           </div>
         </div>
