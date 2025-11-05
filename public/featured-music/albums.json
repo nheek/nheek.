@@ -2,6 +2,7 @@
   "albums": [
     {
       "id": 1,
+      "codename": "petty-plea",
       "title": "Petty Plea",
       "featured": false,
       "coverImage": "https://i.scdn.co/image/ab67616d00001e02a35fcf7bc791a8671181b557",
@@ -10,18 +11,114 @@
         "spotify": "https://open.spotify.com/album/6jRLCG0wUXMBFE8jWyLrDr"
       },
       "songs": [
-        {"id": 1, "title": "Photo Frames", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/3HmkncSxSIJX78tjahoWAh"}},
-        {"id": 2, "title": "Candle Burns", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/2TBZOd6egtNgDnIzgQHObr"}},
-        {"id": 3, "title": "Hard Pill", "duration": "3:18", "links": {"spotify": "https://open.spotify.com/track/1EU71Lnw7X1kHwGVzXGU5D"}},
-        {"id": 4, "title": "Lyrical Dreamer", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/1a8Uo5wEd1AbSQMcgHT1Hb"}},
-        {"id": 5, "title": "Business Days", "duration": "3:30", "links": {"spotify": "https://open.spotify.com/track/44cAP9or489wMRBMYXsHx7"}},
-        {"id": 6, "title": "Dangerous Game", "duration": "3:12", "links": {"spotify": "https://open.spotify.com/track/5oPUdQ44hOmJKB9oBXc5AO"}},
-        {"id": 7, "title": "Quiet Confidence", "duration": "3:28", "links": {"spotify": "https://open.spotify.com/track/7rezgCojYVeWZhFZICChka"}},
-        {"id": 8, "title": "Battle Scars", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/6BaODDQJvM4TKwMgiSXW44"}},
-        {"id": 9, "title": "Petty Plea", "duration": "3:20", "links": {"spotify": "https://open.spotify.com/track/2Wrm3QDtGJ7qQ9cXb9Kdw4"}},
-        {"id": 10, "title": "Perfect Essence", "duration": "3:40", "links": {"spotify": "https://open.spotify.com/track/0sdxqaiJG7B1Nrj9CrYbi1"}},
-        {"id": 11, "title": "Norway Nights", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/6mOMSvEQKWTN0EconpIVyS"}},
-        {"id": 12, "title": "Future Plans", "duration": "3:20", "links": {"spotify": "https://open.spotify.com/track/51uo1z8NpAAcRmBKP2hGaY"}}
+        {
+          "id": 1,
+          "codename": "photo-frames",
+          "title": "Photo Frames",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3HmkncSxSIJX78tjahoWAh"
+          }
+        },
+        {
+          "id": 2,
+          "codename": "candle-burns",
+          "title": "Candle Burns",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2TBZOd6egtNgDnIzgQHObr"
+          }
+        },
+        {
+          "id": 3,
+          "codename": "hard-pill",
+          "title": "Hard Pill",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1EU71Lnw7X1kHwGVzXGU5D"
+          }
+        },
+        {
+          "id": 4,
+          "codename": "lyrical-dreamer",
+          "title": "Lyrical Dreamer",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1a8Uo5wEd1AbSQMcgHT1Hb"
+          }
+        },
+        {
+          "id": 5,
+          "codename": "business-days",
+          "title": "Business Days",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/44cAP9or489wMRBMYXsHx7"
+          }
+        },
+        {
+          "id": 6,
+          "codename": "dangerous-game",
+          "title": "Dangerous Game",
+          "duration": "3:12",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5oPUdQ44hOmJKB9oBXc5AO"
+          }
+        },
+        {
+          "id": 7,
+          "codename": "quiet-confidence",
+          "title": "Quiet Confidence",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7rezgCojYVeWZhFZICChka"
+          }
+        },
+        {
+          "id": 8,
+          "codename": "battle-scars",
+          "title": "Battle Scars",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6BaODDQJvM4TKwMgiSXW44"
+          }
+        },
+        {
+          "id": 9,
+          "codename": "petty-plea",
+          "title": "Petty Plea",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2Wrm3QDtGJ7qQ9cXb9Kdw4"
+          }
+        },
+        {
+          "id": 10,
+          "codename": "perfect-essence",
+          "title": "Perfect Essence",
+          "duration": "3:40",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0sdxqaiJG7B1Nrj9CrYbi1"
+          }
+        },
+        {
+          "id": 11,
+          "codename": "norway-nights",
+          "title": "Norway Nights",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6mOMSvEQKWTN0EconpIVyS"
+          }
+        },
+        {
+          "id": 12,
+          "codename": "future-plans",
+          "title": "Future Plans",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/51uo1z8NpAAcRmBKP2hGaY"
+          }
+        }
       ]
     },
     {
@@ -33,18 +130,107 @@
         "spotify": "https://open.spotify.com/album/0e5AqTBc1zrTdugt1SCZ6A"
       },
       "songs": [
-        {"id": 13, "title": "Origami", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/1n0Ug5djb54VDRbeBWomsl"}},
-        {"id": 14, "title": "Just Friends", "duration": "3:10", "links": {"spotify": "https://open.spotify.com/track/6rIrbALWIHxT3bKnjV0XSA"}},
-        {"id": 15, "title": "Up, Down", "duration": "3:18", "links": {"spotify": "https://open.spotify.com/track/7kJsq9qNyOUxATbkQv8ypN"}},
-        {"id": 16, "title": "Eyes Say", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/5Dt2gUDSrhdbBfglWp4DHb"}},
-        {"id": 17, "title": "Come So Far", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/27imOnCBh1ACfNCCBHi6qO"}},
-        {"id": 18, "title": "Nine", "duration": "3:12", "links": {"spotify": "https://open.spotify.com/track/1kLhHeRHvVRs2NFbQdR99k"}},
-        {"id": 19, "title": "Call Me Baby", "duration": "3:20", "links": {"spotify": "https://open.spotify.com/track/7yzlbNFNvsCxf2ywkmVtTq"}},
-        {"id": 20, "title": "Netflix and Chill", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/0YJgXzuRhdX9boPBokbrcw"}},
-        {"id": 21, "title": "Lost", "duration": "3:18", "links": {"spotify": "https://open.spotify.com/track/0QsdErgWlfidZXdBYianPM"}},
-        {"id": 22, "title": "Butter", "duration": "3:10", "links": {"spotify": "https://open.spotify.com/track/6lu1U6fjNQrtgNYGLxDqUO"}},
-        {"id": 23, "title": "Did You Like It?", "duration": "3:16", "links": {"spotify": "https://open.spotify.com/track/40LQKFqlpMazlRS3Xsv3qF"}}
-      ]
+        {
+          "id": 13,
+          "title": "Origami",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1n0Ug5djb54VDRbeBWomsl"
+          },
+          "codename": "origami"
+        },
+        {
+          "id": 14,
+          "title": "Just Friends",
+          "duration": "3:10",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6rIrbALWIHxT3bKnjV0XSA"
+          },
+          "codename": "just-friends"
+        },
+        {
+          "id": 15,
+          "title": "Up, Down",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7kJsq9qNyOUxATbkQv8ypN"
+          },
+          "codename": "up-down"
+        },
+        {
+          "id": 16,
+          "title": "Eyes Say",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5Dt2gUDSrhdbBfglWp4DHb"
+          },
+          "codename": "eyes-say"
+        },
+        {
+          "id": 17,
+          "title": "Come So Far",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/27imOnCBh1ACfNCCBHi6qO"
+          },
+          "codename": "come-so-far"
+        },
+        {
+          "id": 18,
+          "title": "Nine",
+          "duration": "3:12",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1kLhHeRHvVRs2NFbQdR99k"
+          },
+          "codename": "nine"
+        },
+        {
+          "id": 19,
+          "title": "Call Me Baby",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7yzlbNFNvsCxf2ywkmVtTq"
+          },
+          "codename": "call-me-baby"
+        },
+        {
+          "id": 20,
+          "title": "Netflix and Chill",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0YJgXzuRhdX9boPBokbrcw"
+          },
+          "codename": "netflix-and-chill"
+        },
+        {
+          "id": 21,
+          "title": "Lost",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0QsdErgWlfidZXdBYianPM"
+          },
+          "codename": "lost"
+        },
+        {
+          "id": 22,
+          "title": "Butter",
+          "duration": "3:10",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6lu1U6fjNQrtgNYGLxDqUO"
+          },
+          "codename": "butter"
+        },
+        {
+          "id": 23,
+          "title": "Did You Like It?",
+          "duration": "3:16",
+          "links": {
+            "spotify": "https://open.spotify.com/track/40LQKFqlpMazlRS3Xsv3qF"
+          },
+          "codename": "did-you-like-it"
+        }
+      ],
+      "codename": "origami"
     },
     {
       "id": 3,
@@ -55,17 +241,98 @@
         "spotify": "https://open.spotify.com/album/1sY37kCRxnVIGkaBDClwRU"
       },
       "songs": [
-        {"id": 24, "title": "SIREN SONG", "duration": "3:28", "links": {"spotify": "https://open.spotify.com/track/6cDXHyGdPvh5kfrW06miqU"}},
-        {"id": 25, "title": "DATE 2 DATE", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/1QPm2xks1bdzm1xhWMTlNk"}},
-        {"id": 26, "title": "BERMUDA TRIANGLE", "duration": "3:42", "links": {"spotify": "https://open.spotify.com/track/5vZ8l9CMBc6GdMahpqvtQa"}},
-        {"id": 27, "title": "SOFT LAUNCH", "duration": "3:30", "links": {"spotify": "https://open.spotify.com/track/3iflvMk9QtbTSJIpOuxfOi"}},
-        {"id": 28, "title": "PRINCESS TREATMENT", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/4YZdAOsTfNNNS635AuIhjG"}},
-        {"id": 29, "title": "SKINNY DIPPING", "duration": "3:38", "links": {"spotify": "https://open.spotify.com/track/1EnpJr85oFfLDNaQ3lb1N6"}},
-        {"id": 30, "title": "40S", "duration": "3:20", "links": {"spotify": "https://open.spotify.com/track/3kONtSUJ7tjT9ovGDyTFvU"}},
-        {"id": 31, "title": "SHALLOWS", "duration": "3:32", "links": {"spotify": "https://open.spotify.com/track/1StSFDMCwRVBhb3PQtqmuk"}},
-        {"id": 32, "title": "143", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/0LJgAHeSiJJriPb0Acqrdg"}},
-        {"id": 33, "title": "SAY SOMETHING", "duration": "3:52", "links": {"spotify": "https://open.spotify.com/track/5dRaMoLWwJFGeFiDP5kRuE"}}
-      ]
+        {
+          "id": 24,
+          "title": "SIREN SONG",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6cDXHyGdPvh5kfrW06miqU"
+          },
+          "codename": "siren-song"
+        },
+        {
+          "id": 25,
+          "title": "DATE 2 DATE",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1QPm2xks1bdzm1xhWMTlNk"
+          },
+          "codename": "date-2-date"
+        },
+        {
+          "id": 26,
+          "title": "BERMUDA TRIANGLE",
+          "duration": "3:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5vZ8l9CMBc6GdMahpqvtQa"
+          },
+          "codename": "bermuda-triangle"
+        },
+        {
+          "id": 27,
+          "title": "SOFT LAUNCH",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3iflvMk9QtbTSJIpOuxfOi"
+          },
+          "codename": "soft-launch"
+        },
+        {
+          "id": 28,
+          "title": "PRINCESS TREATMENT",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4YZdAOsTfNNNS635AuIhjG"
+          },
+          "codename": "princess-treatment"
+        },
+        {
+          "id": 29,
+          "title": "SKINNY DIPPING",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1EnpJr85oFfLDNaQ3lb1N6"
+          },
+          "codename": "skinny-dipping"
+        },
+        {
+          "id": 30,
+          "title": "40S",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3kONtSUJ7tjT9ovGDyTFvU"
+          },
+          "codename": "40s"
+        },
+        {
+          "id": 31,
+          "title": "SHALLOWS",
+          "duration": "3:32",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1StSFDMCwRVBhb3PQtqmuk"
+          },
+          "codename": "shallows"
+        },
+        {
+          "id": 32,
+          "title": "143",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0LJgAHeSiJJriPb0Acqrdg"
+          },
+          "codename": "143"
+        },
+        {
+          "id": 33,
+          "title": "SAY SOMETHING",
+          "duration": "3:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5dRaMoLWwJFGeFiDP5kRuE"
+          },
+          "codename": "say-something"
+        }
+      ],
+      "codename": "bermuda-triangle"
     },
     {
       "id": 4,
@@ -76,23 +343,152 @@
         "spotify": "https://open.spotify.com/album/1WGUBk8kwhxUdWzidmMvC3"
       },
       "songs": [
-        {"id": 34, "title": "almost included", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/3Gzzblp9swcJJodBO2WI3c"}},
-        {"id": 35, "title": "i'm afraid i'm that person", "duration": "3:20", "links": {"spotify": "https://open.spotify.com/track/3wv04t94M0uzpL1aYC7Ri7"}},
-        {"id": 36, "title": "my bed", "duration": "3:18", "links": {"spotify": "https://open.spotify.com/track/2MnQeOmFIjNMcLfVrnRSD4"}},
-        {"id": 37, "title": "bestest friend", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/6mh7EBBXZBamJC6rKLKoqM"}},
-        {"id": 38, "title": "ninety days", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/2NE8IuLHoLCYQCOd1bb4Ei"}},
-        {"id": 39, "title": "girlfriends", "duration": "3:30", "links": {"spotify": "https://open.spotify.com/track/3Cl3aXDLjTUxcVHT6P7zTf"}},
-        {"id": 40, "title": "haiku", "duration": "3:12", "links": {"spotify": "https://open.spotify.com/track/6imlLKtsuhHxjByMj0mkzc"}},
-        {"id": 41, "title": "one night stand", "duration": "3:28", "links": {"spotify": "https://open.spotify.com/track/2YYfyNc6dfXxGEfZlnBadd"}},
-        {"id": 42, "title": "sondre", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/3HpB9ivH1v3x0b8Myfs1BN"}},
-        {"id": 43, "title": "lowkey", "duration": "3:20", "links": {"spotify": "https://open.spotify.com/track/7agPDla0XyFaGweIHuHHMO"}},
-        {"id": 44, "title": "just like that", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/6VvDlfY0xu3D1SMfj3y8xq"}},
-        {"id": 45, "title": "how stupid", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/1UMpKVNNaKdmrhYVDj7bQQ"}},
-        {"id": 46, "title": "trick or treat", "duration": "3:18", "links": {"spotify": "https://open.spotify.com/track/00hGQCBHg4myZnvtWjMmo4"}},
-        {"id": 47, "title": "what if", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/71rO52j7YfF8pCG22aIcFM"}},
-        {"id": 48, "title": "désolée", "duration": "3:30", "links": {"spotify": "https://open.spotify.com/track/2m4hTt1c0YGgIF1QhiKpsJ"}},
-        {"id": 49, "title": "stop it now", "duration": "3:27", "links": {"spotify": "https://open.spotify.com/track/5ShvrZJ9ibC1FZRjYBq5a9"}}
-      ]
+        {
+          "id": 34,
+          "title": "almost included",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3Gzzblp9swcJJodBO2WI3c"
+          },
+          "codename": "almost-included"
+        },
+        {
+          "id": 35,
+          "title": "i'm afraid i'm that person",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3wv04t94M0uzpL1aYC7Ri7"
+          },
+          "codename": "i-m-afraid-i-m-that-person"
+        },
+        {
+          "id": 36,
+          "title": "my bed",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2MnQeOmFIjNMcLfVrnRSD4"
+          },
+          "codename": "my-bed"
+        },
+        {
+          "id": 37,
+          "title": "bestest friend",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6mh7EBBXZBamJC6rKLKoqM"
+          },
+          "codename": "bestest-friend"
+        },
+        {
+          "id": 38,
+          "title": "ninety days",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2NE8IuLHoLCYQCOd1bb4Ei"
+          },
+          "codename": "ninety-days"
+        },
+        {
+          "id": 39,
+          "title": "girlfriends",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3Cl3aXDLjTUxcVHT6P7zTf"
+          },
+          "codename": "girlfriends"
+        },
+        {
+          "id": 40,
+          "title": "haiku",
+          "duration": "3:12",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6imlLKtsuhHxjByMj0mkzc"
+          },
+          "codename": "haiku"
+        },
+        {
+          "id": 41,
+          "title": "one night stand",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2YYfyNc6dfXxGEfZlnBadd"
+          },
+          "codename": "one-night-stand"
+        },
+        {
+          "id": 42,
+          "title": "sondre",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3HpB9ivH1v3x0b8Myfs1BN"
+          },
+          "codename": "sondre"
+        },
+        {
+          "id": 43,
+          "title": "lowkey",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7agPDla0XyFaGweIHuHHMO"
+          },
+          "codename": "lowkey"
+        },
+        {
+          "id": 44,
+          "title": "just like that",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6VvDlfY0xu3D1SMfj3y8xq"
+          },
+          "codename": "just-like-that"
+        },
+        {
+          "id": 45,
+          "title": "how stupid",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1UMpKVNNaKdmrhYVDj7bQQ"
+          },
+          "codename": "how-stupid"
+        },
+        {
+          "id": 46,
+          "title": "trick or treat",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/00hGQCBHg4myZnvtWjMmo4"
+          },
+          "codename": "trick-or-treat"
+        },
+        {
+          "id": 47,
+          "title": "what if",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/71rO52j7YfF8pCG22aIcFM"
+          },
+          "codename": "what-if"
+        },
+        {
+          "id": 48,
+          "title": "désolée",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2m4hTt1c0YGgIF1QhiKpsJ"
+          },
+          "codename": "d-sol-e"
+        },
+        {
+          "id": 49,
+          "title": "stop it now",
+          "duration": "3:27",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5ShvrZJ9ibC1FZRjYBq5a9"
+          },
+          "codename": "stop-it-now"
+        }
+      ],
+      "codename": "static-flux"
     },
     {
       "id": 5,
@@ -103,21 +499,134 @@
         "spotify": "https://open.spotify.com/album/0Mh5YmaMwn2SPUxbwiYtqc"
       },
       "songs": [
-        {"id": 50, "title": "Precious Sunder", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/06NDcKYVRpdwXBZLS14DYm"}},
-        {"id": 51, "title": "A Demon", "duration": "3:30", "links": {"spotify": "https://open.spotify.com/track/3D4YDasTlqpTCOjHLVa88l"}},
-        {"id": 52, "title": "Searching for You", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/20lcsEQX85D8L8Q17Uktt9"}},
-        {"id": 53, "title": "She's Gone", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/0PB9Rrv7IuDfX1N1U47zUM"}},
-        {"id": 54, "title": "Best Stranger", "duration": "3:28", "links": {"spotify": "https://open.spotify.com/track/1JESWPcxUrga2XRHcXEmsb"}},
-        {"id": 55, "title": "Matchmaker", "duration": "3:18", "links": {"spotify": "https://open.spotify.com/track/6ww3pSBwCPzfaGjGEy74cS"}},
-        {"id": 56, "title": "Week Full of Moments", "duration": "3:40", "links": {"spotify": "https://open.spotify.com/track/7u47ohdGjxpAf46ejNqYR6"}},
-        {"id": 57, "title": "Euphoric Eclipse", "duration": "3:32", "links": {"spotify": "https://open.spotify.com/track/2m0uMhby1nbHrNarBFInsJ"}},
-        {"id": 58, "title": "Volcanoes of Your Calls", "duration": "3:45", "links": {"spotify": "https://open.spotify.com/track/3MTeMajdWdLRSR4RHMNCWo"}},
-        {"id": 59, "title": "Whatever", "duration": "3:20", "links": {"spotify": "https://open.spotify.com/track/3lHPtPR2cNBu7pFEpP8Qzx"}},
-        {"id": 60, "title": "Fuck It", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/3CR2DYd9AlBfl5bYHIAdAn"}},
-        {"id": 61, "title": "Hey, Watch Your Mouth", "duration": "3:38", "links": {"spotify": "https://open.spotify.com/track/4YbOgiJ7KZZdva48vbqXYf"}},
-        {"id": 62, "title": "Stranger, Stranger than Me", "duration": "3:42", "links": {"spotify": "https://open.spotify.com/track/7awT3fyJO2LYUUmdkqAtCH"}},
-        {"id": 63, "title": "Losing My Youth", "duration": "3:23", "links": {"spotify": "https://open.spotify.com/track/2Wva3E42a3COCr9aWNKteG"}}
-      ]
+        {
+          "id": 50,
+          "title": "Precious Sunder",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/06NDcKYVRpdwXBZLS14DYm"
+          },
+          "codename": "precious-sunder"
+        },
+        {
+          "id": 51,
+          "title": "A Demon",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3D4YDasTlqpTCOjHLVa88l"
+          },
+          "codename": "a-demon"
+        },
+        {
+          "id": 52,
+          "title": "Searching for You",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/20lcsEQX85D8L8Q17Uktt9"
+          },
+          "codename": "searching-for-you"
+        },
+        {
+          "id": 53,
+          "title": "She's Gone",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0PB9Rrv7IuDfX1N1U47zUM"
+          },
+          "codename": "she-s-gone"
+        },
+        {
+          "id": 54,
+          "title": "Best Stranger",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1JESWPcxUrga2XRHcXEmsb"
+          },
+          "codename": "best-stranger"
+        },
+        {
+          "id": 55,
+          "title": "Matchmaker",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6ww3pSBwCPzfaGjGEy74cS"
+          },
+          "codename": "matchmaker"
+        },
+        {
+          "id": 56,
+          "title": "Week Full of Moments",
+          "duration": "3:40",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7u47ohdGjxpAf46ejNqYR6"
+          },
+          "codename": "week-full-of-moments"
+        },
+        {
+          "id": 57,
+          "title": "Euphoric Eclipse",
+          "duration": "3:32",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2m0uMhby1nbHrNarBFInsJ"
+          },
+          "codename": "euphoric-eclipse"
+        },
+        {
+          "id": 58,
+          "title": "Volcanoes of Your Calls",
+          "duration": "3:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3MTeMajdWdLRSR4RHMNCWo"
+          },
+          "codename": "volcanoes-of-your-calls"
+        },
+        {
+          "id": 59,
+          "title": "Whatever",
+          "duration": "3:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3lHPtPR2cNBu7pFEpP8Qzx"
+          },
+          "codename": "whatever"
+        },
+        {
+          "id": 60,
+          "title": "Fuck It",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3CR2DYd9AlBfl5bYHIAdAn"
+          },
+          "codename": "fuck-it"
+        },
+        {
+          "id": 61,
+          "title": "Hey, Watch Your Mouth",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4YbOgiJ7KZZdva48vbqXYf"
+          },
+          "codename": "hey-watch-your-mouth"
+        },
+        {
+          "id": 62,
+          "title": "Stranger, Stranger than Me",
+          "duration": "3:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7awT3fyJO2LYUUmdkqAtCH"
+          },
+          "codename": "stranger-stranger-than-me"
+        },
+        {
+          "id": 63,
+          "title": "Losing My Youth",
+          "duration": "3:23",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2Wva3E42a3COCr9aWNKteG"
+          },
+          "codename": "losing-my-youth"
+        }
+      ],
+      "codename": "euphoric-eclipse"
     },
     {
       "id": 6,
@@ -128,20 +637,125 @@
         "spotify": "https://open.spotify.com/album/757sQVBB0H71gmNTkQa64r"
       },
       "songs": [
-        {"id": 64, "title": "Missing Puzzle Piece", "duration": "3:55", "links": {"spotify": "https://open.spotify.com/track/5mGhTXYd2RicmsGazMQWix"}},
-        {"id": 65, "title": "Perfume", "duration": "4:02", "links": {"spotify": "https://open.spotify.com/track/6lYigTDKkm9zgELlvTU50h"}},
-        {"id": 66, "title": "Apartment Balcony", "duration": "3:58", "links": {"spotify": "https://open.spotify.com/track/4knnsTDE5Mn994gTqlzNnN"}},
-        {"id": 67, "title": "Superman", "duration": "4:05", "links": {"spotify": "https://open.spotify.com/track/5JcFJy39XkoiCfjzLp0GBo"}},
-        {"id": 68, "title": "Chasing Dreams", "duration": "3:52", "links": {"spotify": "https://open.spotify.com/track/2RqjYxoVGJ9UbFhdL9qc2c"}},
-        {"id": 69, "title": "Burning Me Inside", "duration": "4:10", "links": {"spotify": "https://open.spotify.com/track/4JvhuZLxhGraKzIayHuP4Q"}},
-        {"id": 70, "title": "Hate My Body", "duration": "3:45", "links": {"spotify": "https://open.spotify.com/track/6pqsIsUQlRIjvbYxzlCboo"}},
-        {"id": 71, "title": "Never Cared?", "duration": "3:58", "links": {"spotify": "https://open.spotify.com/track/5pSqbvpIuQFMT1anlIko6v"}},
-        {"id": 72, "title": "Don't Know Where I Stand", "duration": "4:02", "links": {"spotify": "https://open.spotify.com/track/0GJjaCgueYftEAtHSoSrzs"}},
-        {"id": 73, "title": "Wishful Thinking", "duration": "3:50", "links": {"spotify": "https://open.spotify.com/track/0jFyvmUNfmSSqmOZSnlt8s"}},
-        {"id": 74, "title": "Invisible Lines", "duration": "4:08", "links": {"spotify": "https://open.spotify.com/track/4uBA486J7kJLyyPLiFVJeA"}},
-        {"id": 75, "title": "Each Window a Different Tale", "duration": "3:55", "links": {"spotify": "https://open.spotify.com/track/5TsbCxSZcngqiEb4x0IYBm"}},
-        {"id": 76, "title": "Riverflow", "duration": "4:12", "links": {"spotify": "https://open.spotify.com/track/0gVnlsAY3ByeR7l8PDEEjB"}}
-      ]
+        {
+          "id": 64,
+          "title": "Missing Puzzle Piece",
+          "duration": "3:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5mGhTXYd2RicmsGazMQWix"
+          },
+          "codename": "missing-puzzle-piece"
+        },
+        {
+          "id": 65,
+          "title": "Perfume",
+          "duration": "4:02",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6lYigTDKkm9zgELlvTU50h"
+          },
+          "codename": "perfume"
+        },
+        {
+          "id": 66,
+          "title": "Apartment Balcony",
+          "duration": "3:58",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4knnsTDE5Mn994gTqlzNnN"
+          },
+          "codename": "apartment-balcony"
+        },
+        {
+          "id": 67,
+          "title": "Superman",
+          "duration": "4:05",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5JcFJy39XkoiCfjzLp0GBo"
+          },
+          "codename": "superman"
+        },
+        {
+          "id": 68,
+          "title": "Chasing Dreams",
+          "duration": "3:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2RqjYxoVGJ9UbFhdL9qc2c"
+          },
+          "codename": "chasing-dreams"
+        },
+        {
+          "id": 69,
+          "title": "Burning Me Inside",
+          "duration": "4:10",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4JvhuZLxhGraKzIayHuP4Q"
+          },
+          "codename": "burning-me-inside"
+        },
+        {
+          "id": 70,
+          "title": "Hate My Body",
+          "duration": "3:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6pqsIsUQlRIjvbYxzlCboo"
+          },
+          "codename": "hate-my-body"
+        },
+        {
+          "id": 71,
+          "title": "Never Cared?",
+          "duration": "3:58",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5pSqbvpIuQFMT1anlIko6v"
+          },
+          "codename": "never-cared"
+        },
+        {
+          "id": 72,
+          "title": "Don't Know Where I Stand",
+          "duration": "4:02",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0GJjaCgueYftEAtHSoSrzs"
+          },
+          "codename": "don-t-know-where-i-stand"
+        },
+        {
+          "id": 73,
+          "title": "Wishful Thinking",
+          "duration": "3:50",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0jFyvmUNfmSSqmOZSnlt8s"
+          },
+          "codename": "wishful-thinking"
+        },
+        {
+          "id": 74,
+          "title": "Invisible Lines",
+          "duration": "4:08",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4uBA486J7kJLyyPLiFVJeA"
+          },
+          "codename": "invisible-lines"
+        },
+        {
+          "id": 75,
+          "title": "Each Window a Different Tale",
+          "duration": "3:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5TsbCxSZcngqiEb4x0IYBm"
+          },
+          "codename": "each-window-a-different-tale"
+        },
+        {
+          "id": 76,
+          "title": "Riverflow",
+          "duration": "4:12",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0gVnlsAY3ByeR7l8PDEEjB"
+          },
+          "codename": "riverflow"
+        }
+      ],
+      "codename": "reverie"
     },
     {
       "id": 7,
@@ -152,22 +766,143 @@
         "spotify": "https://open.spotify.com/album/01AFGbJJlDujumz9Tq4yG7"
       },
       "songs": [
-        {"id": 77, "title": "wingless bird", "duration": "4:05", "links": {"spotify": "https://open.spotify.com/track/4OaclRee8sfAWmsyJ9ggLN"}},
-        {"id": 78, "title": "quiet crime", "duration": "3:58", "links": {"spotify": "https://open.spotify.com/track/0k7UPWr7q3vw22kskxHgT0"}},
-        {"id": 79, "title": "frozen leaves", "duration": "4:02", "links": {"spotify": "https://open.spotify.com/track/7xsHPmkAHQcaA062qiqPwZ"}},
-        {"id": 80, "title": "jump through the clouds", "duration": "3:55", "links": {"spotify": "https://open.spotify.com/track/3rUJy8bxAy4XQbI6y4DlEo"}},
-        {"id": 81, "title": "you were my brother first", "duration": "4:08", "links": {"spotify": "https://open.spotify.com/track/1Eg6b9NUMzbZ2Tc8VTE4qR"}},
-        {"id": 82, "title": "hot escapade", "duration": "3:52", "links": {"spotify": "https://open.spotify.com/track/2bFOHCgbN4rU38ZfqwjSgM"}},
-        {"id": 83, "title": "nostalgic", "duration": "4:00", "links": {"spotify": "https://open.spotify.com/track/5OsxkfvkgbsFSgVUJXtFrU"}},
-        {"id": 84, "title": "white bead", "duration": "3:48", "links": {"spotify": "https://open.spotify.com/track/0NYfclcbPMVCbpSvOsP9Eq"}},
-        {"id": 85, "title": "on the staircase", "duration": "4:12", "links": {"spotify": "https://open.spotify.com/track/2RJbvcWRzvXau9w37rCKK7"}},
-        {"id": 86, "title": "immutable decree", "duration": "3:58", "links": {"spotify": "https://open.spotify.com/track/2xAiEHMhyOVtA79gKJAewZ"}},
-        {"id": 87, "title": "the sun is darker", "duration": "4:05", "links": {"spotify": "https://open.spotify.com/track/7x860KcLZHcxkpkO8GAheV"}},
-        {"id": 88, "title": "silver lining", "duration": "3:52", "links": {"spotify": "https://open.spotify.com/track/2R3Sh1z6M7G3vfmqAydttS"}},
-        {"id": 89, "title": "narcissistic collapse", "duration": "4:10", "links": {"spotify": "https://open.spotify.com/track/0tAUM77G3L4i9vWcu0Mnrw"}},
-        {"id": 90, "title": "unsafe", "duration": "3:45", "links": {"spotify": "https://open.spotify.com/track/4NYxgedPfMnry4DLpziI6S"}},
-        {"id": 91, "title": "shadows of my soul", "duration": "4:20", "links": {"spotify": "https://open.spotify.com/track/5gjsksCxfkfArquchgwlI9"}}
-      ]
+        {
+          "id": 77,
+          "title": "wingless bird",
+          "duration": "4:05",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4OaclRee8sfAWmsyJ9ggLN"
+          },
+          "codename": "wingless-bird"
+        },
+        {
+          "id": 78,
+          "title": "quiet crime",
+          "duration": "3:58",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0k7UPWr7q3vw22kskxHgT0"
+          },
+          "codename": "quiet-crime"
+        },
+        {
+          "id": 79,
+          "title": "frozen leaves",
+          "duration": "4:02",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7xsHPmkAHQcaA062qiqPwZ"
+          },
+          "codename": "frozen-leaves"
+        },
+        {
+          "id": 80,
+          "title": "jump through the clouds",
+          "duration": "3:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3rUJy8bxAy4XQbI6y4DlEo"
+          },
+          "codename": "jump-through-the-clouds"
+        },
+        {
+          "id": 81,
+          "title": "you were my brother first",
+          "duration": "4:08",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1Eg6b9NUMzbZ2Tc8VTE4qR"
+          },
+          "codename": "you-were-my-brother-first"
+        },
+        {
+          "id": 82,
+          "title": "hot escapade",
+          "duration": "3:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2bFOHCgbN4rU38ZfqwjSgM"
+          },
+          "codename": "hot-escapade"
+        },
+        {
+          "id": 83,
+          "title": "nostalgic",
+          "duration": "4:00",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5OsxkfvkgbsFSgVUJXtFrU"
+          },
+          "codename": "nostalgic"
+        },
+        {
+          "id": 84,
+          "title": "white bead",
+          "duration": "3:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0NYfclcbPMVCbpSvOsP9Eq"
+          },
+          "codename": "white-bead"
+        },
+        {
+          "id": 85,
+          "title": "on the staircase",
+          "duration": "4:12",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2RJbvcWRzvXau9w37rCKK7"
+          },
+          "codename": "on-the-staircase"
+        },
+        {
+          "id": 86,
+          "title": "immutable decree",
+          "duration": "3:58",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2xAiEHMhyOVtA79gKJAewZ"
+          },
+          "codename": "immutable-decree"
+        },
+        {
+          "id": 87,
+          "title": "the sun is darker",
+          "duration": "4:05",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7x860KcLZHcxkpkO8GAheV"
+          },
+          "codename": "the-sun-is-darker"
+        },
+        {
+          "id": 88,
+          "title": "silver lining",
+          "duration": "3:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2R3Sh1z6M7G3vfmqAydttS"
+          },
+          "codename": "silver-lining"
+        },
+        {
+          "id": 89,
+          "title": "narcissistic collapse",
+          "duration": "4:10",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0tAUM77G3L4i9vWcu0Mnrw"
+          },
+          "codename": "narcissistic-collapse"
+        },
+        {
+          "id": 90,
+          "title": "unsafe",
+          "duration": "3:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4NYxgedPfMnry4DLpziI6S"
+          },
+          "codename": "unsafe"
+        },
+        {
+          "id": 91,
+          "title": "shadows of my soul",
+          "duration": "4:20",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5gjsksCxfkfArquchgwlI9"
+          },
+          "codename": "shadows-of-my-soul"
+        }
+      ],
+      "codename": "narcissistic-collapse"
     },
     {
       "id": 8,
@@ -178,17 +913,98 @@
         "spotify": "https://open.spotify.com/album/0YxNV1FuEWHE5uaEZ1qEOQ"
       },
       "songs": [
-        {"id": 92, "title": "Ones Left Out", "duration": "3:42", "links": {"spotify": "https://open.spotify.com/track/7rwqLT7kZU7SJQ4VYCx4KR"}},
-        {"id": 93, "title": "Play the Friend", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/6NCc8cyLu47bZTN1K4dv1R"}},
-        {"id": 94, "title": "Beneath the Rain", "duration": "3:48", "links": {"spotify": "https://open.spotify.com/track/4FeYyy7etEq2NfiKoMp9XM"}},
-        {"id": 95, "title": "New City", "duration": "3:52", "links": {"spotify": "https://open.spotify.com/track/3W8atxNXGjDZn93mO2dz1x"}},
-        {"id": 96, "title": "In Love", "duration": "3:38", "links": {"spotify": "https://open.spotify.com/track/6pwFiDpOVmyYfSalplnO69"}},
-        {"id": 97, "title": "Break the Bed", "duration": "3:45", "links": {"spotify": "https://open.spotify.com/track/4dofM4h4mkY6vQ7KXHpn5B"}},
-        {"id": 98, "title": "Love Song", "duration": "3:32", "links": {"spotify": "https://open.spotify.com/track/1B5D6yd5P5gCgT8fDeMGVq"}},
-        {"id": 99, "title": "Red Eyes", "duration": "3:28", "links": {"spotify": "https://open.spotify.com/track/0ztYPX5udGC4FZDvk1gMZE"}},
-        {"id": 100, "title": "That's Me Baby", "duration": "3:55", "links": {"spotify": "https://open.spotify.com/track/6TCaqFh9Wbh3Gi12uZXfqE"}},
-        {"id": 101, "title": "Sunset", "duration": "3:59", "links": {"spotify": "https://open.spotify.com/track/0zLvAnj52r2Vrn16unAhQD"}}
-      ]
+        {
+          "id": 92,
+          "title": "Ones Left Out",
+          "duration": "3:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7rwqLT7kZU7SJQ4VYCx4KR"
+          },
+          "codename": "ones-left-out"
+        },
+        {
+          "id": 93,
+          "title": "Play the Friend",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6NCc8cyLu47bZTN1K4dv1R"
+          },
+          "codename": "play-the-friend"
+        },
+        {
+          "id": 94,
+          "title": "Beneath the Rain",
+          "duration": "3:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4FeYyy7etEq2NfiKoMp9XM"
+          },
+          "codename": "beneath-the-rain"
+        },
+        {
+          "id": 95,
+          "title": "New City",
+          "duration": "3:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3W8atxNXGjDZn93mO2dz1x"
+          },
+          "codename": "new-city"
+        },
+        {
+          "id": 96,
+          "title": "In Love",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6pwFiDpOVmyYfSalplnO69"
+          },
+          "codename": "in-love"
+        },
+        {
+          "id": 97,
+          "title": "Break the Bed",
+          "duration": "3:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4dofM4h4mkY6vQ7KXHpn5B"
+          },
+          "codename": "break-the-bed"
+        },
+        {
+          "id": 98,
+          "title": "Love Song",
+          "duration": "3:32",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1B5D6yd5P5gCgT8fDeMGVq"
+          },
+          "codename": "love-song"
+        },
+        {
+          "id": 99,
+          "title": "Red Eyes",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0ztYPX5udGC4FZDvk1gMZE"
+          },
+          "codename": "red-eyes"
+        },
+        {
+          "id": 100,
+          "title": "That's Me Baby",
+          "duration": "3:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6TCaqFh9Wbh3Gi12uZXfqE"
+          },
+          "codename": "that-s-me-baby"
+        },
+        {
+          "id": 101,
+          "title": "Sunset",
+          "duration": "3:59",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0zLvAnj52r2Vrn16unAhQD"
+          },
+          "codename": "sunset"
+        }
+      ],
+      "codename": "new-city"
     },
     {
       "id": 9,
@@ -199,18 +1015,107 @@
         "spotify": "https://open.spotify.com/album/245h2dZ2ljDudZOCt31uuQ"
       },
       "songs": [
-        {"id": 102, "title": "Matcha", "duration": "3:02", "links": {"spotify": "https://open.spotify.com/track/65cfEcU2l4XeSUsrVgvgYF"}},
-        {"id": 103, "title": "Left You a Note", "duration": "3:05", "links": {"spotify": "https://open.spotify.com/track/5fy657Bzwd94DDTLXqO3v4"}},
-        {"id": 104, "title": "Sledgehammer", "duration": "3:08", "links": {"spotify": "https://open.spotify.com/track/4hIiVBwtEanaLrXG05ahVy"}},
-        {"id": 105, "title": "Coffee Break", "duration": "3:02", "links": {"spotify": "https://open.spotify.com/track/5flXw0atwNGIeYRRhbAZFD"}},
-        {"id": 106, "title": "In My Head", "duration": "3:12", "links": {"spotify": "https://open.spotify.com/track/4opssSfvYn32WIlaKEN04Y"}},
-        {"id": 107, "title": "Saviour", "duration": "2:58", "links": {"spotify": "https://open.spotify.com/track/5TrxPEK3MJ2jPNk2DoDMHP"}},
-        {"id": 108, "title": "Ever Mystery", "duration": "3:10", "links": {"spotify": "https://open.spotify.com/track/3MbbizYv5XeVPJkCNJiHJW"}},
-        {"id": 109, "title": "I Ruined Us", "duration": "3:05", "links": {"spotify": "https://open.spotify.com/track/6kGeuvFY6yLLBpR8CVIFk5"}},
-        {"id": 110, "title": "Counting Fireflies", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/4POsJiqvYmVVK0vsroLtV3"}},
-        {"id": 111, "title": "Broken Dream", "duration": "2:55", "links": {"spotify": "https://open.spotify.com/track/6NFXCzhjVQuh9j49FCqnu8"}},
-        {"id": 112, "title": "The Story Goes", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/1h09beKsAgBrqGeiOBtEXd"}}
-      ]
+        {
+          "id": 102,
+          "title": "Matcha",
+          "duration": "3:02",
+          "links": {
+            "spotify": "https://open.spotify.com/track/65cfEcU2l4XeSUsrVgvgYF"
+          },
+          "codename": "matcha"
+        },
+        {
+          "id": 103,
+          "title": "Left You a Note",
+          "duration": "3:05",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5fy657Bzwd94DDTLXqO3v4"
+          },
+          "codename": "left-you-a-note"
+        },
+        {
+          "id": 104,
+          "title": "Sledgehammer",
+          "duration": "3:08",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4hIiVBwtEanaLrXG05ahVy"
+          },
+          "codename": "sledgehammer"
+        },
+        {
+          "id": 105,
+          "title": "Coffee Break",
+          "duration": "3:02",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5flXw0atwNGIeYRRhbAZFD"
+          },
+          "codename": "coffee-break"
+        },
+        {
+          "id": 106,
+          "title": "In My Head",
+          "duration": "3:12",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4opssSfvYn32WIlaKEN04Y"
+          },
+          "codename": "in-my-head"
+        },
+        {
+          "id": 107,
+          "title": "Saviour",
+          "duration": "2:58",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5TrxPEK3MJ2jPNk2DoDMHP"
+          },
+          "codename": "saviour"
+        },
+        {
+          "id": 108,
+          "title": "Ever Mystery",
+          "duration": "3:10",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3MbbizYv5XeVPJkCNJiHJW"
+          },
+          "codename": "ever-mystery"
+        },
+        {
+          "id": 109,
+          "title": "I Ruined Us",
+          "duration": "3:05",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6kGeuvFY6yLLBpR8CVIFk5"
+          },
+          "codename": "i-ruined-us"
+        },
+        {
+          "id": 110,
+          "title": "Counting Fireflies",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4POsJiqvYmVVK0vsroLtV3"
+          },
+          "codename": "counting-fireflies"
+        },
+        {
+          "id": 111,
+          "title": "Broken Dream",
+          "duration": "2:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6NFXCzhjVQuh9j49FCqnu8"
+          },
+          "codename": "broken-dream"
+        },
+        {
+          "id": 112,
+          "title": "The Story Goes",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1h09beKsAgBrqGeiOBtEXd"
+          },
+          "codename": "the-story-goes"
+        }
+      ],
+      "codename": "down-the-caf"
     },
     {
       "id": 10,
@@ -221,20 +1126,125 @@
         "spotify": "https://open.spotify.com/album/1F8lDgNOnrY8hQk9w2HEVa"
       },
       "songs": [
-        {"id": 113, "title": "ART", "duration": "3:41", "links": {"spotify": "https://open.spotify.com/track/5N7oOuQqUOrMk7wiq8NiId"}},
-        {"id": 114, "title": "DOOR", "duration": "3:38", "links": {"spotify": "https://open.spotify.com/track/2Hzhv3U7tdppdLzgJfP26S"}},
-        {"id": 115, "title": "FLAVOUR", "duration": "3:42", "links": {"spotify": "https://open.spotify.com/track/0hlcalH5N8Dic1P3f73CQv"}},
-        {"id": 116, "title": "HAVEN", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/3EAjqeb2fHIWY7B2jXv4Hg"}},
-        {"id": 117, "title": "AFFAIR", "duration": "3:48", "links": {"spotify": "https://open.spotify.com/track/0pmqfnX88smJD6vsYF5CPh"}},
-        {"id": 118, "title": "CONGRATS", "duration": "3:32", "links": {"spotify": "https://open.spotify.com/track/2ByUIp9RbyvyolPFp2ERTy"}},
-        {"id": 119, "title": "VOID", "duration": "3:45", "links": {"spotify": "https://open.spotify.com/track/2soyd1smzTWSkUSUA76kPc"}},
-        {"id": 120, "title": "WORD", "duration": "3:38", "links": {"spotify": "https://open.spotify.com/track/2EbqDhPMEunAw6LzoJQYv5"}},
-        {"id": 121, "title": "HAND", "duration": "3:52", "links": {"spotify": "https://open.spotify.com/track/7GhlzCDosTU6sKXLp6Ufex"}},
-        {"id": 122, "title": "JUVENILE", "duration": "3:28", "links": {"spotify": "https://open.spotify.com/track/4juQXALiS7aUJfWSQ7C3Vu"}},
-        {"id": 123, "title": "POLAROID", "duration": "3:55", "links": {"spotify": "https://open.spotify.com/track/4HuYB1J8dKc1ANIsZl7tF2"}},
-        {"id": 124, "title": "HAVOC", "duration": "3:42", "links": {"spotify": "https://open.spotify.com/track/1UJBjxvBkg7xufDVWMfRX0"}},
-        {"id": 125, "title": "GOODBYE", "duration": "3:48", "links": {"spotify": "https://open.spotify.com/track/5iR57gH8clPQrZX40gLVSl"}}
-      ]
+        {
+          "id": 113,
+          "title": "ART",
+          "duration": "3:41",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5N7oOuQqUOrMk7wiq8NiId"
+          },
+          "codename": "art"
+        },
+        {
+          "id": 114,
+          "title": "DOOR",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2Hzhv3U7tdppdLzgJfP26S"
+          },
+          "codename": "door"
+        },
+        {
+          "id": 115,
+          "title": "FLAVOUR",
+          "duration": "3:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0hlcalH5N8Dic1P3f73CQv"
+          },
+          "codename": "flavour"
+        },
+        {
+          "id": 116,
+          "title": "HAVEN",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/3EAjqeb2fHIWY7B2jXv4Hg"
+          },
+          "codename": "haven"
+        },
+        {
+          "id": 117,
+          "title": "AFFAIR",
+          "duration": "3:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/0pmqfnX88smJD6vsYF5CPh"
+          },
+          "codename": "affair"
+        },
+        {
+          "id": 118,
+          "title": "CONGRATS",
+          "duration": "3:32",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2ByUIp9RbyvyolPFp2ERTy"
+          },
+          "codename": "congrats"
+        },
+        {
+          "id": 119,
+          "title": "VOID",
+          "duration": "3:45",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2soyd1smzTWSkUSUA76kPc"
+          },
+          "codename": "void"
+        },
+        {
+          "id": 120,
+          "title": "WORD",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2EbqDhPMEunAw6LzoJQYv5"
+          },
+          "codename": "word"
+        },
+        {
+          "id": 121,
+          "title": "HAND",
+          "duration": "3:52",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7GhlzCDosTU6sKXLp6Ufex"
+          },
+          "codename": "hand"
+        },
+        {
+          "id": 122,
+          "title": "JUVENILE",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4juQXALiS7aUJfWSQ7C3Vu"
+          },
+          "codename": "juvenile"
+        },
+        {
+          "id": 123,
+          "title": "POLAROID",
+          "duration": "3:55",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4HuYB1J8dKc1ANIsZl7tF2"
+          },
+          "codename": "polaroid"
+        },
+        {
+          "id": 124,
+          "title": "HAVOC",
+          "duration": "3:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1UJBjxvBkg7xufDVWMfRX0"
+          },
+          "codename": "havoc"
+        },
+        {
+          "id": 125,
+          "title": "GOODBYE",
+          "duration": "3:48",
+          "links": {
+            "spotify": "https://open.spotify.com/track/5iR57gH8clPQrZX40gLVSl"
+          },
+          "codename": "goodbye"
+        }
+      ],
+      "codename": "word"
     },
     {
       "id": 11,
@@ -245,20 +1255,126 @@
         "spotify": "https://open.spotify.com/album/4B9OH2Ao7JFk5GAXuDhqJl"
       },
       "songs": [
-        {"id": 126, "title": "restless hands", "duration": "3:30", "links": {"spotify": "https://open.spotify.com/track/59h6b68xGl1LykG7i1RSho"}},
-        {"id": 127, "title": "the day the world will know", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/1k4ugNuXG40qf8YtHjWbdD"}},
-        {"id": 128, "title": "but not for us", "duration": "3:18", "links": {"spotify": "https://open.spotify.com/track/02CutVHXBZSPJRegoziUkd"}},
-        {"id": 129, "title": "dimlight", "duration": "3:42", "links": {"spotify": "https://open.spotify.com/track/52AagZIRKvL0w64tLhiAvm"}},
-        {"id": 130, "title": "blood and bones", "duration": "3:15", "links": {"spotify": "https://open.spotify.com/track/2ouaSqKu1CUXc9zGZFT1Nu"}},
-        {"id": 131, "title": "your victim", "duration": "3:28", "links": {"spotify": "https://open.spotify.com/track/2NZzlZFaJCmlUA1a9fxAnP"}},
-        {"id": 132, "title": "7 days sober", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/6J2QJ0q4uPjTSxXVi1HWHz"}},
-        {"id": 133, "title": "the things we have", "duration": "3:22", "links": {"spotify": "https://open.spotify.com/track/7cds96E7gpyR6LQpQaMmJP"}},
-        {"id": 134, "title": "the ship has sailed", "duration": "3:40", "links": {"spotify": "https://open.spotify.com/track/4SGLSHK0ng8lQZgZu7Eakf"}},
-        {"id": 135, "title": "belong", "duration": "3:25", "links": {"spotify": "https://open.spotify.com/track/4WjqpDqid3wag14cOWykmv"}},
-        {"id": 136, "title": "eyes on me", "duration": "3:30", "links": {"spotify": "https://open.spotify.com/track/4YftXkVqaRci6pYYKZtn6P"}},
-        {"id": 137, "title": "what you want", "duration": "3:38", "links": {"spotify": "https://open.spotify.com/track/4BQjzvn30EKdKMCb4TXmUP"}},
-        {"id": 138, "title": "my story to tell", "duration": "3:35", "links": {"spotify": "https://open.spotify.com/track/1v6S0PMQUwHGgK9JQxOXl3"}}
-      ]
+        {
+          "id": 126,
+          "title": "restless hands",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/59h6b68xGl1LykG7i1RSho"
+          },
+          "lyrics": "Silhouettes of strangers swaying to a mighty beat\nDrowning in a gun full of sweet rivers of smiles\nI could've had anything but your hungry eyes locked on me\nEmpty as the space that swallows this crowded party\n\nI remember your restless hands all over me\nI was your lucky strike and you were my night\nArms pulling me in keeping us up till dawn\nLegs tangled tight holding on with all our might\n\nStrobes of green and red yet you were gone\nNowhere in sight\nOut of my mind for the rest of the night\nLike this song I hum to you ours was loud enough to wake the block\nOne more second and the neighbors would've called it in\n\nYou were my hope and I was your fuck\nThat night I wish had stayed just a dream\nI'd turn back time to catch your gaze again\nOn whatever piece of cake or cherry on top\nYou thought I was for you\n\nI remember your restless hands all over me\nI was your lucky strike and you were my night\nArms pulling me in keeping us up till dawn\nLegs tangled tight holding on with all our might\n\nYour white cotton vest\nI didn't know I'd miss\nNow your couch once the place where magic happened\nIs just a pre party stop\nThe late night exchange of filthy words not meant to wound\nYou were there when the marks on my neck\nMirrored yours\n\nI remember your restless hands all over me\nI was your lucky strike and you were my night\nArms pulling me in keeping us up till dawn\nLegs tangled tight holding on with all our might",
+          "codename": "restless-hands"
+        },
+        {
+          "id": 127,
+          "title": "the day the world will know",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1k4ugNuXG40qf8YtHjWbdD"
+          },
+          "codename": "the-day-the-world-will-know"
+        },
+        {
+          "id": 128,
+          "title": "but not for us",
+          "duration": "3:18",
+          "links": {
+            "spotify": "https://open.spotify.com/track/02CutVHXBZSPJRegoziUkd"
+          },
+          "codename": "but-not-for-us"
+        },
+        {
+          "id": 129,
+          "title": "dimlight",
+          "duration": "3:42",
+          "links": {
+            "spotify": "https://open.spotify.com/track/52AagZIRKvL0w64tLhiAvm"
+          },
+          "codename": "dimlight"
+        },
+        {
+          "id": 130,
+          "title": "blood and bones",
+          "duration": "3:15",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2ouaSqKu1CUXc9zGZFT1Nu"
+          },
+          "codename": "blood-and-bones"
+        },
+        {
+          "id": 131,
+          "title": "your victim",
+          "duration": "3:28",
+          "links": {
+            "spotify": "https://open.spotify.com/track/2NZzlZFaJCmlUA1a9fxAnP"
+          },
+          "codename": "your-victim"
+        },
+        {
+          "id": 132,
+          "title": "7 days sober",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/6J2QJ0q4uPjTSxXVi1HWHz"
+          },
+          "codename": "7-days-sober"
+        },
+        {
+          "id": 133,
+          "title": "the things we have",
+          "duration": "3:22",
+          "links": {
+            "spotify": "https://open.spotify.com/track/7cds96E7gpyR6LQpQaMmJP"
+          },
+          "codename": "the-things-we-have"
+        },
+        {
+          "id": 134,
+          "title": "the ship has sailed",
+          "duration": "3:40",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4SGLSHK0ng8lQZgZu7Eakf"
+          },
+          "codename": "the-ship-has-sailed"
+        },
+        {
+          "id": 135,
+          "title": "belong",
+          "duration": "3:25",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4WjqpDqid3wag14cOWykmv"
+          },
+          "codename": "belong"
+        },
+        {
+          "id": 136,
+          "title": "eyes on me",
+          "duration": "3:30",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4YftXkVqaRci6pYYKZtn6P"
+          },
+          "codename": "eyes-on-me"
+        },
+        {
+          "id": 137,
+          "title": "what you want",
+          "duration": "3:38",
+          "links": {
+            "spotify": "https://open.spotify.com/track/4BQjzvn30EKdKMCb4TXmUP"
+          },
+          "codename": "what-you-want"
+        },
+        {
+          "id": 138,
+          "title": "my story to tell",
+          "duration": "3:35",
+          "links": {
+            "spotify": "https://open.spotify.com/track/1v6S0PMQUwHGgK9JQxOXl3"
+          },
+          "codename": "my-story-to-tell"
+        }
+      ],
+      "codename": "dimlight"
     }
   ]
 }
