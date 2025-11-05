@@ -30,11 +30,11 @@ export default function FeaturedMusic() {
   }, []);
 
   return (
-    <div className="w-[85%] mx-auto my-20">
-      <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center mb-8">
+    <div className="w-[85%] mx-auto mt-6 mb-20">
+      <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center mt-40 mb-8">
         featured music
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {albums.map((album) => {
           return (
             <Link

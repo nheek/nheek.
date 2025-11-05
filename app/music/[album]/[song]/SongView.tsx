@@ -100,51 +100,54 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
 
   return (
     <div className="min-h-screen bg-[#1a1625]">
-      {/* Header */}
-      <div className="w-[85%] mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between pt-20">
+      {/* Compact Header */}
+      <div className="w-[85%] mx-auto py-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link
             href="/"
-            className="text-8xl md:text-[12rem] hover:opacity-70 transition-opacity"
+            className="text-5xl md:text-6xl hover:opacity-70 transition-opacity"
             title="name's nick"
           >
             nheek
           </Link>
-          <div className="">
+          <div className="flex items-center gap-6">
             <div className="bg-slate-200 rounded-full">
               <img
-                className="w-40 h-40 p-3 rounded-full"
+                className="w-20 h-20 p-0.5 rounded-full"
                 src="https://flies.nheek.com/uploads/nheek/pfp/pfp.jpg"
                 alt="nheek"
               />
             </div>
+            <div className="hidden md:flex flex-col">
+              <p className="text-lg font-semibold">songwriter</p>
+              <p className="text-sm text-gray-400">my lyrics breathe life into emotions</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
+              <img src="/social-links/github.svg" alt="github icon" className="w-5 h-5" />
+            </a>
+            <a href="https://www.facebook.com/nick.james.1622" className="hover:opacity-70 transition-opacity">
+              <img src="/social-links/facebook.svg" alt="facebook icon" className="w-5 h-5" />
+            </a>
+            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
+              <img src="/social-links/instagram.svg" alt="instagram icon" className="w-5 h-5" />
+            </a>
+            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
+              <img src="/social-links/linkedin.svg" alt="linkedin icon" className="w-5 h-5" />
+            </a>
           </div>
         </div>
-        <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-0 items-center justify-between mt-10 md:mt-0 px-4">
-          <div className="text-center md:text-left">
-            <p className="text-3xl font-semibold">songwriter</p>
-            <p>my lyrics breathe life into emotions</p>
-          </div>
-          <div className="flex items-center gap-10">
-            <a href="https://github.com/nheek">
-              <img src="/social-links/github.svg" alt="github icon" />
-            </a>
-            <a href="https://www.facebook.com/nick.james.1622">
-              <img src="/social-links/facebook.svg" alt="facebook icon" />
-            </a>
-            <a href="https://github.com/nheek">
-              <img src="/social-links/instagram.svg" alt="instagram icon" />
-            </a>
-            <a href="https://github.com/nheek">
-              <img src="/social-links/linkedin.svg" alt="linkedin icon" />
-            </a>
-          </div>
+        {/* Mobile tagline */}
+        <div className="md:hidden text-center mt-4">
+          <p className="text-base font-semibold">songwriter</p>
+          <p className="text-sm text-gray-400">my lyrics breathe life into emotions</p>
         </div>
       </div>
 
       {/* Main Content */}
       <main>
-        <div className="w-[85%] mx-auto my-20">
+        <div className="max-w-4xl mx-auto p-8">
           {/* Back to Album Button */}
           <Link
             href={`/music/${album.codename}`}
