@@ -5,13 +5,20 @@ type Props = {
   params: Promise<{ album: string }>;
 };
 
+interface Song {
+  id: number;
+  title: string;
+  duration?: string;
+  url?: string;
+}
+
 interface Album {
   id: number;
   codename: string;
   title: string;
   coverImage: string;
   releaseDate: string;
-  songs: any[];
+  songs: Song[];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
