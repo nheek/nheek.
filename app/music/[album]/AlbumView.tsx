@@ -132,9 +132,9 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                 <h2 className="text-3xl md:text-5xl font-bold mb-2 text-white">
                   {album.title}
                 </h2>
-                <p className="text-gray-400 text-base md:text-xl mb-3">
+                {/* <p className="text-gray-400 text-base md:text-xl mb-3">
                   Released: {album.releaseDate}
-                </p>
+                </p> */}
                 <p className="text-gray-400 text-sm md:text-lg mb-4">
                   {album.songs.length} tracks
                 </p>

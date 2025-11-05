@@ -108,10 +108,10 @@ export default function MusicPage() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute w-full p-4 bottom-0 bg-gradient-to-t from-black to-transparent">
-                          <h3 className="text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
+                          <h3 className="w-[70%] wrap-break-word text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
                             {album.title}
                           </h3>
-                          <p className="text-gray-400">
+                          {/* <p className="text-gray-400">
                             {new Date(album.releaseDate).toLocaleDateString(
                               "en-US",
                               {
@@ -120,7 +120,7 @@ export default function MusicPage() {
                                 day: "numeric",
                               },
                             )}
-                          </p>
+                          </p> */}
                           <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                             {album.songs.length} tracks
                           </p>
@@ -160,10 +160,10 @@ export default function MusicPage() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute w-full p-4 bottom-0 bg-gradient-to-t from-black to-transparent">
-                          <h3 className="text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
+                          <h3 className="w-[70%] wrap-break-word text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
                             {album.title}
                           </h3>
-                          <p className="text-gray-400">
+                          {/* <p className="text-gray-400">
                             {new Date(album.releaseDate).toLocaleDateString(
                               "en-US",
                               {
@@ -172,7 +172,7 @@ export default function MusicPage() {
                                 day: "numeric",
                               },
                             )}
-                          </p>
+                          </p> */}
                           <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                             {album.songs.length} tracks
                           </p>

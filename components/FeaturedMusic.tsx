@@ -88,7 +88,7 @@ export default function FeaturedMusic() {
                       <h3 className="text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
                         {album.title}
                       </h3>
-                      <p className="text-gray-400">
+                      {/* <p className="text-gray-400">
                         {new Date(album.releaseDate).toLocaleDateString(
                           "en-US",
                           {
@@ -97,7 +97,7 @@ export default function FeaturedMusic() {
                             day: "numeric",
                           },
                         )}
-                      </p>
+                      </p> */}
                       <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                         {album.songs.length} tracks
                       </p>
