@@ -120,28 +120,60 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
             </div>
             <div className="hidden md:flex flex-col">
               <p className="text-lg font-semibold">songwriter</p>
-              <p className="text-sm text-gray-400">my lyrics breathe life into emotions</p>
+              <p className="text-sm text-gray-400">
+                my lyrics breathe life into emotions
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/github.svg" alt="github icon" className="w-5 h-5" />
+            <a
+              href="https://github.com/nheek"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/github.svg"
+                alt="github icon"
+                className="w-5 h-5"
+              />
             </a>
-            <a href="https://www.facebook.com/nick.james.1622" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/facebook.svg" alt="facebook icon" className="w-5 h-5" />
+            <a
+              href="https://www.facebook.com/nick.james.1622"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/facebook.svg"
+                alt="facebook icon"
+                className="w-5 h-5"
+              />
             </a>
-            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/instagram.svg" alt="instagram icon" className="w-5 h-5" />
+            <a
+              href="https://github.com/nheek"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/instagram.svg"
+                alt="instagram icon"
+                className="w-5 h-5"
+              />
             </a>
-            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/linkedin.svg" alt="linkedin icon" className="w-5 h-5" />
+            <a
+              href="https://github.com/nheek"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/linkedin.svg"
+                alt="linkedin icon"
+                className="w-5 h-5"
+              />
             </a>
           </div>
         </div>
         {/* Mobile tagline */}
         <div className="md:hidden text-center mt-4">
           <p className="text-base font-semibold">songwriter</p>
-          <p className="text-sm text-gray-400">my lyrics breathe life into emotions</p>
+          <p className="text-sm text-gray-400">
+            my lyrics breathe life into emotions
+          </p>
         </div>
       </div>
 
@@ -153,126 +185,126 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
             href={`/music/${album.codename}`}
             className="inline-flex items-center text-white/70 hover:text-white mb-8 transition-colors"
           >
-          <svg
-            className="w-5 h-5 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
+            <svg
+              className="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Back to {album.title}
+          </Link>
+
+          {/* Album Cover and Song Info */}
+          <div className="flex flex-col md:flex-row gap-8 mb-8">
+            <img
+              src={album.coverImage}
+              alt={album.title}
+              className="w-full md:w-64 h-64 object-cover rounded-lg shadow-lg"
             />
-          </svg>
-          Back to {album.title}
-        </Link>
+            <div className="flex flex-col justify-center">
+              <p className="text-white/50 text-sm mb-2">From {album.title}</p>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                {song.title}
+              </h1>
+              <p className="text-white/70 mb-4">Duration: {song.duration}</p>
 
-        {/* Album Cover and Song Info */}
-        <div className="flex flex-col md:flex-row gap-8 mb-8">
-          <img
-            src={album.coverImage}
-            alt={album.title}
-            className="w-full md:w-64 h-64 object-cover rounded-lg shadow-lg"
-          />
-          <div className="flex flex-col justify-center">
-            <p className="text-white/50 text-sm mb-2">From {album.title}</p>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {song.title}
-            </h1>
-            <p className="text-white/70 mb-4">Duration: {song.duration}</p>
+              {/* Streaming Links */}
+              {song.streamingLinks && (
+                <div className="flex gap-4 mb-4">
+                  {song.streamingLinks.spotify && (
+                    <a
+                      href={song.streamingLinks.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="text-sm">Spotify</span>
+                    </a>
+                  )}
+                  {song.streamingLinks.appleMusic && (
+                    <a
+                      href={song.streamingLinks.appleMusic}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="text-sm">Apple Music</span>
+                    </a>
+                  )}
+                  {song.streamingLinks.youtube && (
+                    <a
+                      href={song.streamingLinks.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="text-sm">YouTube</span>
+                    </a>
+                  )}
+                </div>
+              )}
 
-            {/* Streaming Links */}
-            {song.streamingLinks && (
-              <div className="flex gap-4 mb-4">
-                {song.streamingLinks.spotify && (
-                  <a
-                    href={song.streamingLinks.spotify}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-sm">Spotify</span>
-                  </a>
-                )}
-                {song.streamingLinks.appleMusic && (
-                  <a
-                    href={song.streamingLinks.appleMusic}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-sm">Apple Music</span>
-                  </a>
-                )}
-                {song.streamingLinks.youtube && (
-                  <a
-                    href={song.streamingLinks.youtube}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-sm">YouTube</span>
-                  </a>
-                )}
-              </div>
-            )}
+              {/* Album Streaming Links if no song-specific links */}
+              {!song.streamingLinks && album.streamingLinks && (
+                <div className="flex gap-4 mb-4">
+                  {album.streamingLinks.spotify && (
+                    <a
+                      href={album.streamingLinks.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="text-sm">Spotify (Album)</span>
+                    </a>
+                  )}
+                  {album.streamingLinks.appleMusic && (
+                    <a
+                      href={album.streamingLinks.appleMusic}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="text-sm">Apple Music (Album)</span>
+                    </a>
+                  )}
+                  {album.streamingLinks.youtube && (
+                    <a
+                      href={album.streamingLinks.youtube}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-white transition-colors"
+                    >
+                      <span className="text-sm">YouTube (Album)</span>
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
 
-            {/* Album Streaming Links if no song-specific links */}
-            {!song.streamingLinks && album.streamingLinks && (
-              <div className="flex gap-4 mb-4">
-                {album.streamingLinks.spotify && (
-                  <a
-                    href={album.streamingLinks.spotify}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-sm">Spotify (Album)</span>
-                  </a>
-                )}
-                {album.streamingLinks.appleMusic && (
-                  <a
-                    href={album.streamingLinks.appleMusic}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-sm">Apple Music (Album)</span>
-                  </a>
-                )}
-                {album.streamingLinks.youtube && (
-                  <a
-                    href={album.streamingLinks.youtube}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    <span className="text-sm">YouTube (Album)</span>
-                  </a>
-                )}
-              </div>
+          {/* Lyrics */}
+          <div className="bg-white/5 rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-white mb-6">Lyrics</h2>
+            {song.lyrics ? (
+              <pre className="text-white/80 whitespace-pre-wrap font-sans leading-relaxed text-xl">
+                {song.lyrics}
+              </pre>
+            ) : (
+              <p className="text-white/50 italic">
+                Lyrics not available for this song.
+              </p>
             )}
           </div>
         </div>
-
-        {/* Lyrics */}
-        <div className="bg-white/5 rounded-lg p-8">
-          <h2 className="text-2xl font-bold text-white mb-6">Lyrics</h2>
-          {song.lyrics ? (
-            <pre className="text-white/80 whitespace-pre-wrap font-sans leading-relaxed">
-              {song.lyrics}
-            </pre>
-          ) : (
-            <p className="text-white/50 italic">
-              Lyrics not available for this song.
-            </p>
-          )}
-        </div>
-      </div>
-      <FooterHero />
-      <Navigate />
+        <FooterHero />
+        <Navigate />
       </main>
       <Footer />
     </div>

@@ -101,28 +101,60 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
             </div>
             <div className="hidden md:flex flex-col">
               <p className="text-lg font-semibold">songwriter</p>
-              <p className="text-sm text-gray-400">my lyrics breathe life into emotions</p>
+              <p className="text-sm text-gray-400">
+                my lyrics breathe life into emotions
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/github.svg" alt="github icon" className="w-5 h-5" />
+            <a
+              href="https://github.com/nheek"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/github.svg"
+                alt="github icon"
+                className="w-5 h-5"
+              />
             </a>
-            <a href="https://www.facebook.com/nick.james.1622" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/facebook.svg" alt="facebook icon" className="w-5 h-5" />
+            <a
+              href="https://www.facebook.com/nick.james.1622"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/facebook.svg"
+                alt="facebook icon"
+                className="w-5 h-5"
+              />
             </a>
-            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/instagram.svg" alt="instagram icon" className="w-5 h-5" />
+            <a
+              href="https://github.com/nheek"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/instagram.svg"
+                alt="instagram icon"
+                className="w-5 h-5"
+              />
             </a>
-            <a href="https://github.com/nheek" className="hover:opacity-70 transition-opacity">
-              <img src="/social-links/linkedin.svg" alt="linkedin icon" className="w-5 h-5" />
+            <a
+              href="https://github.com/nheek"
+              className="hover:opacity-70 transition-opacity"
+            >
+              <img
+                src="/social-links/linkedin.svg"
+                alt="linkedin icon"
+                className="w-5 h-5"
+              />
             </a>
           </div>
         </div>
         {/* Mobile tagline */}
         <div className="md:hidden text-center mt-4">
           <p className="text-base font-semibold">songwriter</p>
-          <p className="text-sm text-gray-400">my lyrics breathe life into emotions</p>
+          <p className="text-sm text-gray-400">
+            my lyrics breathe life into emotions
+          </p>
         </div>
       </div>
 
@@ -156,75 +188,77 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                 className="w-full md:w-64 h-64 object-cover rounded-lg shadow-md"
               />
               <div className="flex flex-col justify-center">
-              <h2 className="text-5xl font-bold mb-2 text-white">
-                {album.title}
-              </h2>
-              <p className="text-gray-400 text-xl mb-3">
-                Released: {album.releaseDate}
-              </p>
-              <p className="text-gray-400 text-lg mb-4">
-                {album.songs.length} tracks
-              </p>
+                <h2 className="text-5xl font-bold mb-2 text-white">
+                  {album.title}
+                </h2>
+                <p className="text-gray-400 text-xl mb-3">
+                  Released: {album.releaseDate}
+                </p>
+                <p className="text-gray-400 text-lg mb-4">
+                  {album.songs.length} tracks
+                </p>
 
-              {album.links && (
-                <div className="flex gap-3 flex-wrap">
-                  {album.links.spotify && (
-                    <a
-                      href={album.links.spotify}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-[#1DB954] text-white rounded-full text-sm hover:bg-[#1ed760] transition-colors"
-                    >
-                      Spotify
-                    </a>
-                  )}
-                  {album.links.appleMusic && (
-                    <a
-                      href={album.links.appleMusic}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-[#FA243C] text-white rounded-full text-sm hover:bg-[#fc4d63] transition-colors"
-                    >
-                      Apple Music
-                    </a>
-                  )}
-                  {album.links.youtube && (
-                    <a
-                      href={album.links.youtube}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-[#FF0000] text-white rounded-full text-sm hover:bg-[#ff3333] transition-colors"
-                    >
-                      YouTube
-                    </a>
-                  )}
-                </div>
-              )}
+                {album.links && (
+                  <div className="flex gap-3 flex-wrap">
+                    {album.links.spotify && (
+                      <a
+                        href={album.links.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-[#1DB954] text-white rounded-full text-sm hover:bg-[#1ed760] transition-colors"
+                      >
+                        Spotify
+                      </a>
+                    )}
+                    {album.links.appleMusic && (
+                      <a
+                        href={album.links.appleMusic}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-[#FA243C] text-white rounded-full text-sm hover:bg-[#fc4d63] transition-colors"
+                      >
+                        Apple Music
+                      </a>
+                    )}
+                    {album.links.youtube && (
+                      <a
+                        href={album.links.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-[#FF0000] text-white rounded-full text-sm hover:bg-[#ff3333] transition-colors"
+                      >
+                        YouTube
+                      </a>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+            <h3 className="text-2xl font-semibold mb-4 text-white">
+              Tracklist
+            </h3>
+            <div className="space-y-2">
+              {album.songs.map((song, index) => {
+                return (
+                  <Link
+                    key={song.id}
+                    href={`/music/${album.codename}/${song.codename}`}
+                    className="w-full flex items-center justify-between p-4 hover:bg-[#3a3a3a] rounded-lg transition-colors text-left group"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="text-gray-500 font-mono w-8">
+                        {(index + 1).toString().padStart(2, "0")}
+                      </span>
+                      <span className="font-medium text-gray-200 group-hover:text-purple-400">
+                        {song.title}
+                      </span>
+                    </div>
+                    <span className="text-gray-500">{song.duration}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
-          <h3 className="text-2xl font-semibold mb-4 text-white">Tracklist</h3>
-          <div className="space-y-2">
-            {album.songs.map((song, index) => {
-              return (
-                <Link
-                  key={song.id}
-                  href={`/music/${album.codename}/${song.codename}`}
-                  className="w-full flex items-center justify-between p-4 hover:bg-[#3a3a3a] rounded-lg transition-colors text-left group"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-gray-500 font-mono w-8">
-                      {(index + 1).toString().padStart(2, "0")}
-                    </span>
-                    <span className="font-medium text-gray-200 group-hover:text-purple-400">
-                      {song.title}
-                    </span>
-                  </div>
-                  <span className="text-gray-500">{song.duration}</span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
         </div>
         <FooterHero />
         <Navigate />

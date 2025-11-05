@@ -26,14 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/featured-music/albums.json`,
     );
     const data = await response.json();
-    const albumData = data.albums.find(
-      (a: Album) => a.codename === album,
-    );
+    const albumData = data.albums.find((a: Album) => a.codename === album);
 
     if (albumData) {
-      const songData = albumData.songs.find(
-        (s: Song) => s.codename === song,
-      );
+      const songData = albumData.songs.find((s: Song) => s.codename === song);
       if (songData) {
         return {
           title: `${songData.title} - ${albumData.title} - nheek`,
