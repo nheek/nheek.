@@ -105,7 +105,7 @@ const images = [
 
 export default function Gallery() {
   return (
-    <div className="m-2 md:m-6 mt-6 leading-[0] columns-2 md:columns-3 gap-x-1">
+    <div className="w-full md:w-[80%] m-2 md:mx-auto mt-6 leading-[0] columns-2 md:columns-3 gap-x-1">
       {images.map((image, index) => (
         <div key={"gallery" + index} className="w-full h-auto mb-1">
           <ImageLoader src={image.src} alt={image.alt} className="rounded-xl" />

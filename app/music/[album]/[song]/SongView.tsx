@@ -129,9 +129,15 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
     );
   }
 
-  const currentSongIndex = album.songs.findIndex((s) => s.codename === songSlug);
-  const prevSong = currentSongIndex > 0 ? album.songs[currentSongIndex - 1] : null;
-  const nextSong = currentSongIndex < album.songs.length - 1 ? album.songs[currentSongIndex + 1] : null;
+  const currentSongIndex = album.songs.findIndex(
+    (s) => s.codename === songSlug,
+  );
+  const prevSong =
+    currentSongIndex > 0 ? album.songs[currentSongIndex - 1] : null;
+  const nextSong =
+    currentSongIndex < album.songs.length - 1
+      ? album.songs[currentSongIndex + 1]
+      : null;
 
   return (
     <div className="min-h-screen bg-[#1a1625]">
@@ -293,7 +299,7 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
             ) : (
               <div></div>
             )}
-            
+
             {nextSong ? (
               <Link
                 href={`/music/${album.codename}/${nextSong.codename}`}

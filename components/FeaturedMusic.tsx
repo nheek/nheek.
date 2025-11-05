@@ -24,18 +24,18 @@ export default function FeaturedMusic() {
         const response = await fetch("/featured-music/albums.json");
         const data = await response.json();
         const allAlbums = data.albums || [];
-        
+
         // Sort albums by release date (newest first)
         const sortedAlbums = [...allAlbums].sort((a: Album, b: Album) => {
           const dateA = new Date(a.releaseDate);
           const dateB = new Date(b.releaseDate);
           return dateB.getTime() - dateA.getTime();
         });
-        
+
         // Separate featured and regular albums
         const featured = sortedAlbums.filter((album: Album) => album.featured);
         const regular = sortedAlbums.filter((album: Album) => !album.featured);
-        
+
         setAlbums(sortedAlbums);
         setFeaturedAlbums(featured);
         setRegularAlbums(regular);
@@ -89,11 +89,14 @@ export default function FeaturedMusic() {
                         {album.title}
                       </h3>
                       <p className="text-gray-400">
-                        {new Date(album.releaseDate).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
+                        {new Date(album.releaseDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          },
+                        )}
                       </p>
                       <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                         {album.songs.length} tracks
@@ -138,11 +141,14 @@ export default function FeaturedMusic() {
                         {album.title}
                       </h3>
                       <p className="text-gray-400">
-                        {new Date(album.releaseDate).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric'
-                        })}
+                        {new Date(album.releaseDate).toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          },
+                        )}
                       </p>
                       <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                         {album.songs.length} tracks

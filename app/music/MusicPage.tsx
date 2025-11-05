@@ -76,10 +76,9 @@ export default function MusicPage() {
       {/* Main Content */}
       <main>
         <div className="w-[85%] mx-auto mt-6 mb-20">
-
-        <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center mt-40 mb-8">
-          featured music
-        </h2>
+          <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center mt-40 mb-8">
+            featured music
+          </h2>
 
           {/* Featured Albums Section */}
           {featuredAlbums.length > 0 && (
@@ -113,11 +112,14 @@ export default function MusicPage() {
                             {album.title}
                           </h3>
                           <p className="text-gray-400">
-                            {new Date(album.releaseDate).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
+                            {new Date(album.releaseDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              },
+                            )}
                           </p>
                           <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                             {album.songs.length} tracks
@@ -162,11 +164,14 @@ export default function MusicPage() {
                             {album.title}
                           </h3>
                           <p className="text-gray-400">
-                            {new Date(album.releaseDate).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
+                            {new Date(album.releaseDate).toLocaleDateString(
+                              "en-US",
+                              {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              },
+                            )}
                           </p>
                           <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
                             {album.songs.length} tracks
@@ -184,6 +189,7 @@ export default function MusicPage() {
             <p className="text-gray-400">
               Click on an album to view the tracklist and lyrics
             </p>
+            <p className="text-gray-400/60 italic">AI-assisted production</p>
           </div>
         </div>
         <FooterHero />

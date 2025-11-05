@@ -47,7 +47,7 @@ async function getPoems() {
 
 function Main({ poems }: { poems: { title: string; slug: string }[] }) {
   return (
-    <main className="flex justify-center text-2xl">
+    <main className="w-full md:w-[80%] mx-auto flex justify-center text-2xl">
       <ul className="flex flex-col md:flex-row flex-wrap justify-center gap-6">
         {poems.map((poem, index) => (
           <li
@@ -66,7 +66,7 @@ export default async function PoemsPage() {
   const poems = await getPoems();
 
   return (
-    <div className="w-full md:w-[80%] min-h-screen mx-auto px-4 bg-[rgba(24,20,16,1)]">
+    <div className="w-full min-h-screen mx-auto px-4 bg-[rgba(24,20,16,1)]">
       <Header customHeaderText={"poems"} />
       <Navigate underPage={true} />
       <Main poems={poems} />

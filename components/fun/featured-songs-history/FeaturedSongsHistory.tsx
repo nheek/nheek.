@@ -44,7 +44,7 @@ export default function FeaturedSongsHistory() {
 
   return (
     <div>
-      <h2 className="text-4xl md:text-[4rem] xl:text-[8rem]">
+      <h2 className="w-full md:w-[80%] mx-auto text-4xl md:text-[4rem] xl:text-[8rem]">
         featured songs history
       </h2>
       <div className="flex flex-wrap justify-center gap-14 text-lg w-full md:w-[90%] mt-8 md:mt-16 m-auto leading-8">

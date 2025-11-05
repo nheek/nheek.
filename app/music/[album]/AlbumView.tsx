@@ -49,7 +49,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
         const response = await fetch("/featured-music/albums.json");
         const data = await response.json();
         setAllAlbums(data.albums || []);
-        
+
         const foundAlbum = data.albums.find(
           (a: Album) => a.codename === albumSlug,
         );
@@ -69,7 +69,8 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
 
   const currentIndex = allAlbums.findIndex((a) => a.codename === albumSlug);
   const prevAlbum = currentIndex > 0 ? allAlbums[currentIndex - 1] : null;
-  const nextAlbum = currentIndex < allAlbums.length - 1 ? allAlbums[currentIndex + 1] : null;
+  const nextAlbum =
+    currentIndex < allAlbums.length - 1 ? allAlbums[currentIndex + 1] : null;
 
   if (loading || !album) {
     return (
@@ -82,7 +83,10 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
         ) : (
           <div className="text-center">
             <div className="text-white text-xl mb-4">Album not found</div>
-            <Link href="/music" className="text-purple-400 hover:text-purple-300">
+            <Link
+              href="/music"
+              className="text-purple-400 hover:text-purple-300"
+            >
               Back to Albums
             </Link>
           </div>
@@ -226,7 +230,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
               ) : (
                 <div></div>
               )}
-              
+
               {nextAlbum ? (
                 <Link
                   href={`/music/${nextAlbum.codename}`}

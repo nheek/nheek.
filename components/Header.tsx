@@ -6,9 +6,14 @@ export const siteTitle = "nheek";
 type HeaderProps = {
   compact?: boolean;
   currentPage?: "home" | "music";
+  customHeaderText?: string;
 };
 
-export default function Header({ compact = false, currentPage = "home" }: HeaderProps) {
+export default function Header({
+  compact = false,
+  currentPage = "home",
+  customHeaderText,
+}: HeaderProps) {
   if (compact) {
     return (
       <div className="w-[85%] mx-auto py-8">
@@ -17,7 +22,7 @@ export default function Header({ compact = false, currentPage = "home" }: Header
             className="text-5xl md:text-6xl hover:opacity-70 transition-opacity"
             title="name's nick"
           >
-            nheek
+            {customHeaderText || "nheek"}
           </span>
           <div className="flex items-center gap-6">
             <div className="bg-slate-200 rounded-full">
@@ -28,7 +33,9 @@ export default function Header({ compact = false, currentPage = "home" }: Header
               />
             </div>
             <div className="hidden md:flex flex-col">
-              <p className="text-lg font-semibold">fullstack developer | songwriter</p>
+              <p className="text-lg font-semibold">
+                fullstack developer | songwriter
+              </p>
               <p className="text-sm text-gray-400">
                 my lyrics breathe life into emotions
               </p>
@@ -79,7 +86,9 @@ export default function Header({ compact = false, currentPage = "home" }: Header
         </div>
         {/* Mobile tagline */}
         <div className="md:hidden text-center mt-4">
-          <p className="text-base font-semibold">fullstack developer | songwriter</p>
+          <p className="text-base font-semibold">
+            fullstack developer | songwriter
+          </p>
           <p className="text-sm text-gray-400">
             my lyrics breathe life into emotions
           </p>
@@ -91,10 +100,7 @@ export default function Header({ compact = false, currentPage = "home" }: Header
   return (
     <div className="w-[85%] mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between pt-20">
-        <span
-          className="text-8xl md:text-[12rem]"
-          title="name's nick"
-        >
+        <span className="text-8xl md:text-[12rem]" title="name's nick">
           nheek
         </span>
         <div>
@@ -178,4 +184,3 @@ export default function Header({ compact = false, currentPage = "home" }: Header
     </div>
   );
 }
-

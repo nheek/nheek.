@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <div className="w-full md:w-[80%] mx-auto min-h-screen h-full bg-[rgba(24,20,16,1)]">
+    <div className="w-full mx-auto min-h-screen h-full bg-[rgba(24,20,16,1)]">
       <Header customHeaderText={"gallery"} />
       <Navigate underPage />
       <Gallery />
