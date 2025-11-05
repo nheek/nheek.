@@ -1,4 +1,5 @@
 import { TbHandFingerRight, TbHandFingerLeft } from "react-icons/tb";
+import Link from "next/link";
 
 type HeroProps = {
   mode: "developer" | "songwriter";
@@ -16,7 +17,7 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
           <div className="bg-slate-200 rounded-full">
             <img
               className="w-40 h-40 p-3 rounded-full"
-              src="https://flies.nheek.com/uploads/nheek/pfp/pfp.jpg"
+              src="https://flies.nheek.com/uploads/nheek/pfp/pfp-main.jpg"
               alt="nheek"
             />
           </div>
@@ -26,23 +27,39 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
         <div className="text-center md:text-left">
           <div className="flex items-center gap-4 justify-center">
             <div className="flex gap-2 items-center">
-              <TbHandFingerRight className="text-xl" />
+              <TbHandFingerRight
+                className={`text-xl transition-colors ${
+                  mode === "developer" ? "text-purple-400" : ""
+                }`}
+              />
               <button
                 onClick={() => onModeChange("developer")}
-                className="cursor-pointer font-semibold text-3xl hover:opacity-70 transition-opacity"
+                className={`cursor-pointer font-semibold text-3xl transition-colors ${
+                  mode === "developer"
+                    ? "text-purple-400 hover:text-purple-300"
+                    : "hover:text-purple-400"
+                }`}
               >
                 fullstack developer
               </button>
             </div>
             {<span className="text-3xl">|</span>}
             <div className="flex gap-2 items-center">
-              <button
-                onClick={() => onModeChange("songwriter")}
-                className="cursor-pointer font-semibold text-3xl hover:opacity-70 transition-opacity"
+              <Link
+                href="/music"
+                className={`cursor-pointer font-semibold text-3xl transition-colors ${
+                  mode === "songwriter"
+                    ? "text-purple-400 hover:text-purple-300"
+                    : "hover:text-purple-400"
+                }`}
               >
                 songwriter
-              </button>
-              <TbHandFingerLeft className="text-xl" />
+              </Link>
+              <TbHandFingerLeft
+                className={`text-xl transition-colors ${
+                  mode === "songwriter" ? "text-purple-400" : ""
+                }`}
+              />
             </div>
           </div>
           <p>

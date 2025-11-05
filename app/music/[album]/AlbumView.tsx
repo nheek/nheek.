@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import FooterHero from "../../../components/FooterHero";
 import Navigate from "../../../components/Navigate";
@@ -92,82 +93,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
 
   return (
     <div className="min-h-screen bg-[#1a1625]">
-      {/* Compact Header */}
-      <div className="w-[85%] mx-auto py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link
-            href="/"
-            className="text-5xl md:text-6xl hover:opacity-70 transition-opacity"
-            title="name's nick"
-          >
-            nheek
-          </Link>
-          <div className="flex items-center gap-6">
-            <div className="bg-slate-200 rounded-full">
-              <img
-                className="w-20 h-20 p-0.5 rounded-full"
-                src="https://flies.nheek.com/uploads/nheek/pfp/pfp.jpg"
-                alt="nheek"
-              />
-            </div>
-            <div className="hidden md:flex flex-col">
-              <p className="text-lg font-semibold">songwriter</p>
-              <p className="text-sm text-gray-400">
-                my lyrics breathe life into emotions
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com/nheek"
-              className="hover:opacity-70 transition-opacity"
-            >
-              <img
-                src="/social-links/github.svg"
-                alt="github icon"
-                className="w-5 h-5"
-              />
-            </a>
-            <a
-              href="https://www.facebook.com/nick.james.1622"
-              className="hover:opacity-70 transition-opacity"
-            >
-              <img
-                src="/social-links/facebook.svg"
-                alt="facebook icon"
-                className="w-5 h-5"
-              />
-            </a>
-            <a
-              href="https://github.com/nheek"
-              className="hover:opacity-70 transition-opacity"
-            >
-              <img
-                src="/social-links/instagram.svg"
-                alt="instagram icon"
-                className="w-5 h-5"
-              />
-            </a>
-            <a
-              href="https://github.com/nheek"
-              className="hover:opacity-70 transition-opacity"
-            >
-              <img
-                src="/social-links/linkedin.svg"
-                alt="linkedin icon"
-                className="w-5 h-5"
-              />
-            </a>
-          </div>
-        </div>
-        {/* Mobile tagline */}
-        <div className="md:hidden text-center mt-4">
-          <p className="text-base font-semibold">songwriter</p>
-          <p className="text-sm text-gray-400">
-            my lyrics breathe life into emotions
-          </p>
-        </div>
-      </div>
+      <Header compact={true} />
 
       {/* Main Content */}
       <main>

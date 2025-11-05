@@ -19,7 +19,7 @@ export default function Home() {
     >
       <main>
         <Hero mode={mode} onModeChange={setMode} />
-        {mode === "developer" ? <FeaturedProjects /> : <FeaturedMusic />}
+        <FeaturedProjects />
         <FooterHero />
         <Navigate />
       </main>
