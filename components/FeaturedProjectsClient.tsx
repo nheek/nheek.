@@ -1,0 +1,110 @@
+"use client";
+
+import { useState, useMemo } from "react";
+import FeaturedProjectsItem from "./FeaturedProjectsItem";
+import { motion } from "framer-motion";
+
+interface Project {
+  id: string;
+  name?: string;
+  codename?: string;
+  desc?: string;
+  description?: string;
+  image?: string;
+  githubLink?: string;
+  liveLink?: string;
+  dateAdded?: string;
+  featured?: boolean;
+}
+
+interface FeaturedProjectsClientProps {
+  initialProjects: Record<string, Project[]>;
+}
+
+export default function FeaturedProjectsClient({
+  initialProjects,
+}: FeaturedProjectsClientProps) {
+  const [currentCategory, setCurrentCategory] = useState("websites");
+  const projects = initialProjects;
+
+  // Get categories from the projects data
+  const categories = useMemo(() => {
+    return Object.keys(projects).length > 0
+      ? Object.keys(projects)
+      : [
+          "websites",
+          "consulting",
+          "contributions",
+          "static",
+          "template",
+          "utility",
+        ];
+  }, [projects]);
+
+  const handleItemClick = (category: string): void => {
+    setCurrentCategory(category);
+  };
+
+  // Function to check if a project is new (added within last 30 days)
+  const isProjectNew = (dateAdded?: string): boolean => {
+    if (!dateAdded) return false;
+
+    const today = new Date();
+    const projectDate = new Date(dateAdded.split(".").reverse().join("-")); // Convert DD.MM.YYYY to YYYY-MM-DD
+    const diffTime = today.getTime() - projectDate.getTime();
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    return diffDays <= 30; // Consider new if added within last 30 days
+  };
+
+  // Get count of new projects for each category
+  const newProjectsCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+
+    Object.entries(projects).forEach(([category, categoryProjects]) => {
+      const newCount = categoryProjects.filter((project) =>
+        isProjectNew(project.dateAdded),
+      ).length;
+      counts[category] = newCount;
+    });
+
+    return counts;
+  }, [projects]);
+
+  // console.log(currentCategory);
+  return (
+    <div className="w-[85%] mt-40 mx-auto">
+      <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
+        featured projects
+      </h2>
+      <div className="my-8 md:mt-14 mb-0 md:mb-20">
+        <ul className="flex flex-wrap justify-center gap-2">
+          {categories.map((category, index) => (
+            <motion.li
+              key={category}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className={`${currentCategory === category ? "bg-blue-900" : "bg-gray-400 dark:bg-gray-800"} text-slate-50 dark:text-slate-200 rounded-full hover:bg-gray-200 hover:text-blue-950 duration-500`}
+            >
+              <button
+                className="cursor-pointer relative w-full h-full px-3 py-2"
+                onClick={() => handleItemClick(category)}
+              >
+                {category}
+                {newProjectsCounts[category] > 0 && (
+                  <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 transform rotate-12 px-1 py-2 rounded-full text-xs">
+                    {newProjectsCounts[category]} new
+                  </div>
+                )}
+              </button>
+            </motion.li>
+          ))}
+        </ul>
+      </div>
+      <FeaturedProjectsItem category={currentCategory} projects={projects} />
+    </div>
+  );
+}

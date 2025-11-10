@@ -5,54 +5,24 @@ import FeaturedProjectsItemItem from "./FeaturedProjectsItemItem";
 
 interface Project {
   id: string;
-  // Add other project properties here
+  name?: string;
+  codename?: string;
+  desc?: string;
+  description?: string;
+  image?: string;
+  githubLink?: string;
+  liveLink?: string;
+  dateAdded?: string;
+  featured?: boolean;
 }
 
 export default function FeaturedProjectsItem({
   category = "websites",
+  projects,
 }: FeaturedProjectsItemProps) {
-  const [projects, setProjects] = useState<Record<string, Project[]>>({});
-
   const [currentPage, setCurrentPage] = useState(1);
   const divRef = useRef(null);
   const itemsPerPage = 10;
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch("/api/projects");
-        const data = await response.json();
-        const apiProjects = data.projects || [];
-
-        // Group projects by category
-        const groupedProjects: Record<string, Project[]> = {};
-        apiProjects.forEach((project: any) => {
-          const categorySlug = project.category_slug || "uncategorized";
-          if (!groupedProjects[categorySlug]) {
-            groupedProjects[categorySlug] = [];
-          }
-          groupedProjects[categorySlug].push({
-            id: project.id.toString(),
-            name: project.title,
-            codename: project.codename,
-            desc: project.description,
-            description: project.description,
-            image: project.image_url,
-            githubLink: project.github_link,
-            liveLink: project.live_link,
-            dateAdded: project.date_added || project.created_at,
-            featured: project.featured === 1,
-          } as Project);
-        });
-
-        setProjects(groupedProjects);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-        setProjects({});
-      }
-    };
-    fetchProjects();
-  }, []);
 
   const filteredProjects = useMemo(() => {
     if (projects && typeof projects === "object") {
@@ -104,7 +74,7 @@ export default function FeaturedProjectsItem({
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}
-              className={`h-8 w-8  brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 rounded-full ${
+              className={`cursor-pointer h-8 w-8  brightness-125 hover:brightness-[unset] hover:bg-gray-200 hover:text-blue-950 rounded-full ${
                 currentPage === index + 1
                   ? "bg-slate-400 text-blue-950"
                   : "bg-blue-950 text-gray-50"
@@ -122,4 +92,5 @@ export default function FeaturedProjectsItem({
 
 interface FeaturedProjectsItemProps {
   category?: string;
+  projects: Record<string, Project[]>;
 }

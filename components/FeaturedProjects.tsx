@@ -1,134 +1,78 @@
-"use client";
-
-import { useState, useEffect, useMemo } from "react";
-import FeaturedProjectsItem from "./FeaturedProjectsItem";
-import { motion } from "framer-motion";
+import FeaturedProjectsClient from "./FeaturedProjectsClient";
 
 interface Project {
+  id: string;
   name: string;
+  codename?: string;
+  desc?: string;
+  description?: string;
+  image?: string;
+  githubLink?: string;
+  liveLink?: string;
   dateAdded?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [key: string]: any;
+  featured?: boolean;
 }
 
-export default function FeaturedProjects() {
-  const [currentCategory, setCurrentCategory] = useState("websites");
-  const [projects, setProjects] = useState<Record<string, Project[]>>({});
+interface ApiProject {
+  id: number;
+  title: string;
+  codename: string;
+  description: string;
+  category_slug: string;
+  image_url: string;
+  github_link: string;
+  live_link: string;
+  date_added: string;
+  created_at: string;
+  featured: number;
+}
 
-  // Get categories from the projects data
-  const categories = useMemo(() => {
-    return Object.keys(projects).length > 0
-      ? Object.keys(projects)
-      : [
-          "websites",
-          "consulting",
-          "contributions",
-          "static",
-          "template",
-          "utility",
-        ];
-  }, [projects]);
+async function getProjects(): Promise<Record<string, Project[]>> {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
-  const handleItemClick = (category: string): void => {
-    setCurrentCategory(category);
-  };
-
-  // Load projects data
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch("/api/projects");
-        const data = await response.json();
-        const apiProjects = data.projects || [];
-
-        // Group projects by category
-        const groupedProjects: Record<string, Project[]> = {};
-        apiProjects.forEach((project: any) => {
-          const categorySlug = project.category_slug || "uncategorized";
-          if (!groupedProjects[categorySlug]) {
-            groupedProjects[categorySlug] = [];
-          }
-          groupedProjects[categorySlug].push({
-            name: project.title,
-            codename: project.codename,
-            description: project.description,
-            image: project.image_url,
-            githubLink: project.github_link,
-            liveLink: project.live_link,
-            dateAdded: project.date_added,
-            featured: project.featured === 1,
-          });
-        });
-
-        setProjects(groupedProjects);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-        setProjects({});
-      }
-    };
-    fetchProjects();
-  }, []);
-
-  // Function to check if a project is new (added within last 30 days)
-  const isProjectNew = (dateAdded?: string): boolean => {
-    if (!dateAdded) return false;
-
-    const today = new Date();
-    const projectDate = new Date(dateAdded.split(".").reverse().join("-")); // Convert DD.MM.YYYY to YYYY-MM-DD
-    const diffTime = today.getTime() - projectDate.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-    return diffDays <= 30; // Consider new if added within last 30 days
-  };
-
-  // Get count of new projects for each category
-  const newProjectsCounts = useMemo(() => {
-    const counts: Record<string, number> = {};
-
-    Object.entries(projects).forEach(([category, categoryProjects]) => {
-      const newCount = categoryProjects.filter((project) =>
-        isProjectNew(project.dateAdded),
-      ).length;
-      counts[category] = newCount;
+  try {
+    const response = await fetch(`${baseUrl}/api/projects`, {
+      cache: "no-store", // Always get fresh data
     });
 
-    return counts;
-  }, [projects]);
+    if (!response.ok) {
+      console.error("Failed to fetch projects:", response.statusText);
+      return {};
+    }
 
-  console.log(currentCategory);
-  return (
-    <div className="w-[85%] mt-40 mx-auto">
-      <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
-        featured projects
-      </h2>
-      <div className="my-8 md:mt-14 mb-0 md:mb-20">
-        <ul className="flex flex-wrap justify-center gap-2">
-          {categories.map((category, index) => (
-            <motion.li
-              key={category}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className={`${currentCategory === category ? "bg-blue-900" : "bg-gray-400 dark:bg-gray-800"} text-slate-50 dark:text-slate-200 rounded-full hover:bg-gray-200 hover:text-blue-950 duration-500`}
-            >
-              <button
-                className="relative w-full h-full px-3 py-2"
-                onClick={() => handleItemClick(category)}
-              >
-                {category}
-                {newProjectsCounts[category] > 0 && (
-                  <div className="absolute -top-2 md:-top-5 -right-3 bg-green-600 transform rotate-12 px-1 py-2 rounded-full text-xs">
-                    {newProjectsCounts[category]} new
-                  </div>
-                )}
-              </button>
-            </motion.li>
-          ))}
-        </ul>
-      </div>
-      <FeaturedProjectsItem category={currentCategory} />
-    </div>
-  );
+    const data = await response.json();
+    const apiProjects = data.projects || [];
+
+    // Group projects by category
+    const groupedProjects: Record<string, Project[]> = {};
+    apiProjects.forEach((project: ApiProject) => {
+      const categorySlug = project.category_slug || "uncategorized";
+      if (!groupedProjects[categorySlug]) {
+        groupedProjects[categorySlug] = [];
+      }
+      groupedProjects[categorySlug].push({
+        id: project.id.toString(),
+        name: project.title,
+        codename: project.codename,
+        desc: project.description,
+        description: project.description,
+        image: project.image_url,
+        githubLink: project.github_link,
+        liveLink: project.live_link,
+        dateAdded: project.date_added || project.created_at,
+        featured: project.featured === 1,
+      });
+    });
+
+    return groupedProjects;
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    return {};
+  }
+}
+
+export default async function FeaturedProjects() {
+  const projects = await getProjects();
+
+  return <FeaturedProjectsClient initialProjects={projects} />;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
@@ -42,91 +42,39 @@ type Album = {
 
 type AlbumViewProps = {
   albumSlug: string;
+  album: Album | null;
+  allAlbums: Album[];
 };
 
-export default function AlbumView({ albumSlug }: AlbumViewProps) {
-  const [album, setAlbum] = useState<Album | null>(null);
-  const [allAlbums, setAllAlbums] = useState<Album[]>([]);
-  const [loading, setLoading] = useState(true);
-
+export default function AlbumView({
+  albumSlug,
+  album,
+  allAlbums,
+}: AlbumViewProps) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    const fetchAlbum = async () => {
-      try {
-        const response = await fetch("/api/albums");
-        const data = await response.json();
-        const apiAlbums = data.albums || [];
-
-        // Transform API data to match component format
-        const transformedAlbums = apiAlbums.map((album: any) => ({
-          id: album.id,
-          codename: album.codename,
-          title: album.title,
-          coverImage: album.cover_image_url || "",
-          releaseDate: album.release_date,
-          songs: (album.songs || []).map((song: any) => ({
-            id: song.id,
-            codename: song.codename,
-            title: song.title,
-            duration: song.duration,
-            lyrics: song.lyrics,
-            links: {
-              spotify: song.spotify_link,
-              appleMusic: song.apple_music_link,
-            },
-            customLinks: song.custom_links ? JSON.parse(song.custom_links) : [],
-          })),
-          links: {
-            spotify: album.spotify_link,
-            appleMusic: album.apple_music_link,
-          },
-          customLinks: album.custom_links ? JSON.parse(album.custom_links) : [],
-        }));
-
-        setAllAlbums(transformedAlbums);
-
-        const foundAlbum = transformedAlbums.find(
-          (a: Album) => a.codename === albumSlug,
-        );
-
-        if (foundAlbum) {
-          setAlbum(foundAlbum);
-        }
-      } catch (error) {
-        console.error("Error fetching album:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAlbum();
-  }, [albumSlug]);
+  }, []);
 
   const currentIndex = allAlbums.findIndex((a) => a.codename === albumSlug);
   const prevAlbum = currentIndex > 0 ? allAlbums[currentIndex - 1] : null;
   const nextAlbum =
     currentIndex < allAlbums.length - 1 ? allAlbums[currentIndex + 1] : null;
 
-  if (loading || !album) {
+  if (!album) {
     return (
       <div
         className="min-h-screen flex items-center justify-center"
         style={{ backgroundColor: "#1a1625" }}
       >
-        {loading ? (
-          <div className="text-white text-xl">Loading...</div>
-        ) : (
-          <div className="text-center">
-            <div className="text-white text-xl mb-4">Album not found</div>
-            <Link
-              href="/music"
-              className="text-purple-400 hover:text-purple-300"
-            >
-              Back to Albums
-            </Link>
-          </div>
-        )}
+        <div className="text-center">
+          <div className="text-white text-xl mb-4">Album not found</div>
+          <Link
+            href="/music"
+            className="text-purple-400 hover:text-purple-300"
+          >
+            Back to Albums
+          </Link>
+        </div>
       </div>
     );
   }

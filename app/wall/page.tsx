@@ -2,6 +2,7 @@ import Navigate from "@/components/Navigate";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WallClient from "./WallClient";
+import FooterHero from "@/components/FooterHero";
 
 interface Contribution {
   id: number;
@@ -45,7 +46,6 @@ export default async function WallPage() {
   return (
     <div className="min-h-screen bg-[#0a1410] text-white">
       <Header compact={true} customHeaderText="nheek" />
-      <Navigate />
 
       <main>
         <div className="w-[85%] mx-auto pt-8">
@@ -53,6 +53,8 @@ export default async function WallPage() {
         </div>
       </main>
 
+      <FooterHero />
+      <Navigate />
       <Footer />
     </div>
   );

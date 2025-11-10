@@ -193,13 +193,13 @@ export default function WallClient({
     <>
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-6xl md:text-8xl font-bold mb-4">the wall ✨</h1>
+        <h1 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">the wall</h1>
         <p className="text-lg md:text-xl text-gray-400 mb-8">
           visitors from around the world left their mark
         </p>
         <Link
           href="/contribute"
-          className="inline-block bg-emerald-700 hover:bg-emerald-600 text-white font-semibold rounded-full px-8 py-3 transition-all duration-300 hover:scale-105"
+          className="inline-block bg-emerald-700 hover:bg-emerald-600 text-white font-semibold rounded-full px-8 py-3 transition-all duration-300 hover:scale-105 !no-underline"
         >
           + leave your mark
         </Link>
@@ -221,7 +221,7 @@ export default function WallClient({
           <button
             key={key}
             onClick={() => setFilter(key)}
-            className={`rounded-full px-6 py-2 font-semibold transition-all duration-300 ${
+            className={`cursor-pointer rounded-full px-6 py-2 font-semibold transition-all duration-300 ${
               filter === key
                 ? "bg-emerald-700 text-white scale-105"
                 : "bg-[#0d1f1a] text-white hover:bg-gray-200 hover:text-[#0d1f1a]"

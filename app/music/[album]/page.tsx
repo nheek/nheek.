@@ -47,7 +47,68 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+async function getAlbumData(albumSlug: string): Promise<{
+  album: Album | null;
+  allAlbums: Album[];
+}> {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+  try {
+    const response = await fetch(`${baseUrl}/api/albums`, {
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      return { album: null, allAlbums: [] };
+    }
+
+    const data = await response.json();
+    const apiAlbums = data.albums || [];
+
+    // Transform API data to match component format
+    const transformedAlbums = apiAlbums.map((album: any) => ({
+      id: album.id,
+      codename: album.codename,
+      title: album.title,
+      coverImage: album.cover_image_url || "",
+      releaseDate: album.release_date,
+      songs: (album.songs || []).map((song: any) => ({
+        id: song.id,
+        codename: song.codename,
+        title: song.title,
+        duration: song.duration,
+        lyrics: song.lyrics,
+        links: {
+          spotify: song.spotify_link,
+          appleMusic: song.apple_music_link,
+        },
+        customLinks: song.custom_links
+          ? JSON.parse(song.custom_links)
+          : [],
+      })),
+      links: {
+        spotify: album.spotify_link,
+        appleMusic: album.apple_music_link,
+      },
+      customLinks: album.custom_links
+        ? JSON.parse(album.custom_links)
+        : [],
+    }));
+
+    const foundAlbum = transformedAlbums.find(
+      (a: Album) => a.codename === albumSlug,
+    );
+
+    return { album: foundAlbum || null, allAlbums: transformedAlbums };
+  } catch (error) {
+    console.error("Error fetching album:", error);
+    return { album: null, allAlbums: [] };
+  }
+}
+
 export default async function AlbumPage({ params }: Props) {
-  const { album } = await params;
-  return <AlbumView albumSlug={album} />;
+  const { album: albumSlug } = await params;
+  const { album, allAlbums } = await getAlbumData(albumSlug);
+
+  return <AlbumView albumSlug={albumSlug} album={album} allAlbums={allAlbums} />;
 }
