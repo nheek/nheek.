@@ -18,12 +18,14 @@ export default function Header({
     return (
       <div className="w-[85%] mx-auto py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <span
-            className="text-5xl md:text-6xl hover:opacity-70 transition-opacity"
-            title="name's nick"
-          >
-            {customHeaderText || "nheek"}
-          </span>
+          <Link href="/">
+            <span
+              className="text-5xl md:text-6xl hover:opacity-70 transition-opacity"
+              title="name's nick"
+            >
+              {customHeaderText || "nheek"}
+            </span>
+          </Link>
           <div className="flex items-center gap-6">
             <div className="bg-slate-200 rounded-full">
               <img
