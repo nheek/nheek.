@@ -13,6 +13,12 @@ type StreamingLinks = {
   youtube?: string;
 };
 
+type CustomLink = {
+  name: string;
+  url: string;
+  color?: string;
+};
+
 type Song = {
   id: number;
   codename: string;
@@ -20,6 +26,7 @@ type Song = {
   duration: string;
   lyrics?: string;
   links?: StreamingLinks;
+  customLinks?: CustomLink[];
 };
 
 type Album = {
@@ -30,6 +37,7 @@ type Album = {
   releaseDate: string;
   songs: Song[];
   links?: StreamingLinks;
+  customLinks?: CustomLink[];
 };
 
 type AlbumViewProps = {
@@ -67,11 +75,15 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
               spotify: song.spotify_link,
               appleMusic: song.apple_music_link,
             },
+            customLinks: song.custom_links
+              ? JSON.parse(song.custom_links)
+              : [],
           })),
           links: {
             spotify: album.spotify_link,
             appleMusic: album.apple_music_link,
           },
+          customLinks: album.custom_links ? JSON.parse(album.custom_links) : [],
         }));
 
         setAllAlbums(transformedAlbums);
@@ -165,7 +177,26 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                   {album.songs.length} tracks
                 </p>
 
-                {album.links && (
+                {/* Custom Links */}
+                {album.customLinks && album.customLinks.length > 0 && (
+                  <div className="flex gap-3 flex-wrap mb-4">
+                    {album.customLinks.map((link: CustomLink, index: number) => (
+                      <a
+                        key={index}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:scale-105"
+                        style={{ backgroundColor: link.color || "#6B7280" }}
+                      >
+                        {link.name}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                {/* Old Streaming Links (Fallback) */}
+                {!album.customLinks?.length && album.links && (
                   <div className="flex gap-3 flex-wrap">
                     {album.links.spotify && (
                       <a
