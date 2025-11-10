@@ -43,14 +43,14 @@ export async function PUT(
     db.prepare(
       `
       UPDATE albums 
-      SET title = ?, codename = ?, cover_image = ?, release_date = ?, 
+      SET title = ?, codename = ?, cover_image_url = ?, release_date = ?, 
           spotify_link = ?, apple_music_link = ?, featured = ?, custom_links = ?, updated_at = CURRENT_TIMESTAMP
       WHERE id = ?
     `,
     ).run(
       body.title,
       body.codename,
-      body.cover_image || null,
+      body.cover_image_url || body.cover_image || null,
       body.release_date,
       body.spotify_link || null,
       body.apple_music_link || null,

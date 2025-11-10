@@ -55,6 +55,7 @@ export async function POST(request: NextRequest) {
     const {
       title,
       codename,
+      cover_image_url,
       cover_image,
       release_date,
       spotify_link,
@@ -74,14 +75,14 @@ export async function POST(request: NextRequest) {
     const result = db
       .prepare(
         `
-      INSERT INTO albums (title, codename, cover_image, release_date, spotify_link, apple_music_link, featured, custom_links)
+      INSERT INTO albums (title, codename, cover_image_url, release_date, spotify_link, apple_music_link, featured, custom_links)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `,
       )
       .run(
         title,
         codename,
-        cover_image || null,
+        cover_image_url || cover_image || null,
         release_date,
         spotify_link || null,
         apple_music_link || null,

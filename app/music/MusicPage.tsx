@@ -38,7 +38,7 @@ export default function MusicPage() {
           codename: album.codename,
           title: album.title,
           featured: album.featured === 1,
-          coverImage: album.cover_image || "",
+          coverImage: album.cover_image_url || "",
           releaseDate: album.release_date,
           songs: album.songs || [],
         }));

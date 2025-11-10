@@ -14,7 +14,7 @@ interface Album {
   id: number;
   title: string;
   codename: string;
-  cover_image: string | null;
+  cover_image_url: string | null;
   release_date: string;
   custom_links?: string;
   featured: number;
@@ -31,7 +31,7 @@ export default function AlbumsManagement() {
   const [formData, setFormData] = useState({
     title: "",
     codename: "",
-    cover_image: "",
+    cover_image_url: "",
     release_date: "",
     featured: false,
   });
@@ -105,7 +105,7 @@ export default function AlbumsManagement() {
     setFormData({
       title: album.title,
       codename: album.codename,
-      cover_image: album.cover_image || "",
+      cover_image_url: album.cover_image_url || "",
       release_date: formattedDate,
       featured: album.featured === 1,
     });
@@ -136,7 +136,7 @@ export default function AlbumsManagement() {
     setFormData({
       title: "",
       codename: "",
-      cover_image: "",
+      cover_image_url: "",
       release_date: "",
       featured: false,
     });
@@ -348,9 +348,9 @@ export default function AlbumsManagement() {
                 </label>
                 <input
                   type="text"
-                  value={formData.cover_image}
+                  value={formData.cover_image_url}
                   onChange={(e) =>
-                    setFormData({ ...formData, cover_image: e.target.value })
+                    setFormData({ ...formData, cover_image_url: e.target.value })
                   }
                   className="mt-1 block w-full rounded-md border px-3 py-2 dark:bg-gray-700 dark:text-white"
                 />

@@ -62,7 +62,7 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
           id: album.id,
           codename: album.codename,
           title: album.title,
-          coverImage: album.cover_image || "",
+          coverImage: album.cover_image_url || "",
           releaseDate: album.release_date,
           songs: (album.songs || []).map((song: any) => ({
             id: song.id,
