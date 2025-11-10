@@ -1,6 +1,7 @@
 import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
+import bcrypt from "bcryptjs";
 
 const dbPath = path.join(process.cwd(), "data", "nheek.db");
 let db: Database.Database | null = null;
@@ -139,7 +140,32 @@ function initializeSchema(database: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_contributions_category ON contributions(category);
   `);
 
+  // Create default admin user
+  createDefaultAdminUser(database);
+
   console.log("Database schema initialized successfully");
+}
+
+function createDefaultAdminUser(database: Database.Database) {
+  const username = "admin";
+  const password = "change_me_123";
+
+  // Check if admin user already exists
+  const existingAdmin = database
+    .prepare("SELECT id FROM admin_users WHERE username = ?")
+    .get(username);
+
+  if (!existingAdmin) {
+    const passwordHash = bcrypt.hashSync(password, 10);
+    database
+      .prepare(
+        "INSERT INTO admin_users (username, password_hash) VALUES (?, ?)",
+      )
+      .run(username, passwordHash);
+    console.log(
+      "✅ Default admin user created (username: admin, password: change_me_123)",
+    );
+  }
 }
 
 export function initDb() {
