@@ -7,6 +7,7 @@ import Navigate from "../components/Navigate";
 import FooterHero from "../components/FooterHero";
 import FeaturedProjects from "../components/FeaturedProjects";
 import FeaturedMusic from "../components/FeaturedMusic";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [mode, setMode] = useState<"developer" | "songwriter">("developer");

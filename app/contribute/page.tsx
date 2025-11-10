@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
+import { motion } from "framer-motion";
 
 // Graffiti Canvas Component
 function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
@@ -415,13 +416,18 @@ export default function ContributePage() {
 
         {/* Category Selection */}
         <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((category) => (
-            <button
+          {CATEGORIES.map((category, index) => (
+            <motion.button
               key={category.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedCategory(category.id)}
-              className={`rounded-lg p-6 text-left transition-all duration-300 border-2 backdrop-blur ${
+              className={`rounded-lg p-6 text-left border-2 backdrop-blur ${
                 selectedCategory === category.id
-                  ? "bg-emerald-700 border-emerald-500 text-white shadow-xl scale-105"
+                  ? "bg-emerald-700 border-emerald-500 text-white shadow-xl"
                   : "bg-[#0d1f1a]/50 border-emerald-900/30 text-white hover:border-emerald-700/50 hover:bg-[#0d1f1a]/70"
               }`}
             >
@@ -438,13 +444,16 @@ export default function ContributePage() {
               >
                 {category.description}
               </p>
-            </button>
+            </motion.button>
           ))}
         </div>
 
         {/* Submission Form */}
         {selectedCategory && (
-          <form
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
             onSubmit={handleSubmit}
             className="rounded-lg bg-[#0d1f1a]/50 backdrop-blur border-2 border-emerald-900/30 p-8 shadow-xl"
           >
@@ -548,7 +557,7 @@ export default function ContributePage() {
                 {submitting ? "submitting..." : "submit your contribution"}
               </button>
             </div>
-          </form>
+          </motion.form>
         )}
 
         {!selectedCategory && (

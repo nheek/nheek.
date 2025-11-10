@@ -81,17 +81,32 @@ export async function POST() {
     };
 
     const insertCategory = db.prepare(`
-      INSERT OR REPLACE INTO project_categories (name, slug, description)
+      INSERT OR IGNORE INTO project_categories (name, slug, description)
       VALUES (?, ?, ?)
     `);
 
+    const updateCategory = db.prepare(`
+      UPDATE project_categories SET name = ?, description = ? WHERE slug = ?
+    `);
+
     const insertProject = db.prepare(`
-      INSERT OR REPLACE INTO projects (
+      INSERT INTO projects (
         title, codename, description, category_id, image_url,
         github_link, live_link, featured, display_order, date_added,
         custom_links
       )
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(codename) DO UPDATE SET
+        title = excluded.title,
+        description = excluded.description,
+        category_id = excluded.category_id,
+        image_url = excluded.image_url,
+        github_link = excluded.github_link,
+        live_link = excluded.live_link,
+        featured = excluded.featured,
+        display_order = excluded.display_order,
+        date_added = excluded.date_added,
+        custom_links = excluded.custom_links
     `);
 
     const getCategoryId = db.prepare(
@@ -104,8 +119,13 @@ export async function POST() {
     const migrateAllProjects = db.transaction(() => {
       // Create categories first
       for (const [, category] of Object.entries(categoryMapping)) {
-        insertCategory.run(category.name, category.slug, category.description);
-        categoriesCount++;
+        const result = insertCategory.run(category.name, category.slug, category.description);
+        if (result.changes > 0) {
+          categoriesCount++;
+        } else {
+          // Update existing category
+          updateCategory.run(category.name, category.description, category.slug);
+        }
       }
 
       // Import all projects

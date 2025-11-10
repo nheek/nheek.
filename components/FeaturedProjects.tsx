@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import FeaturedProjectsItem from "./FeaturedProjectsItem";
+import { motion } from "framer-motion";
 
 interface Project {
   name: string;
@@ -102,9 +103,14 @@ export default function FeaturedProjects() {
       </h2>
       <div className="my-8 md:mt-14 mb-0 md:mb-20">
         <ul className="flex flex-wrap justify-center gap-2">
-          {categories.map((category) => (
-            <li
+          {categories.map((category, index) => (
+            <motion.li
               key={category}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               className={`${currentCategory === category ? "bg-blue-900" : "bg-gray-400 dark:bg-gray-800"} text-slate-50 dark:text-slate-200 rounded-full hover:bg-gray-200 hover:text-blue-950 duration-500`}
             >
               <button
@@ -118,7 +124,7 @@ export default function FeaturedProjects() {
                   </div>
                 )}
               </button>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Navigate from "@/components/Navigate";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Display Components for each category type
 function GraffitiDisplay({ content }: { content: string }) {
@@ -275,11 +276,15 @@ export default function WallPage() {
           {/* Contributions Grid */}
           {!loading && filteredContributions.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-              {filteredContributions.map((contribution) => (
-                <div
+              {filteredContributions.map((contribution, index) => (
+                <motion.div
                   key={contribution.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   onClick={() => setSelectedContribution(contribution)}
-                  className={`group rounded-lg border-2 p-6 backdrop-blur transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer ${
+                  className={`group rounded-lg border-2 p-6 backdrop-blur cursor-pointer ${
                     CATEGORY_STYLES[contribution.category]
                   }`}
                 >
@@ -337,7 +342,7 @@ export default function WallPage() {
                       </a>
                     )}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
@@ -356,15 +361,24 @@ export default function WallPage() {
       <Footer />
 
       {/* Modal */}
-      {selectedContribution && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-          onClick={() => setSelectedContribution(null)}
-        >
-          <div
-            className="relative max-w-5xl max-h-[90vh] w-full overflow-auto rounded-xl bg-[#0d1f1a] border-2 border-emerald-700 shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {selectedContribution && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+            onClick={() => setSelectedContribution(null)}
           >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, type: "spring" }}
+              className="relative max-w-5xl max-h-[90vh] w-full overflow-auto rounded-xl bg-[#0d1f1a] border-2 border-emerald-700 shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
             {/* Close button */}
             <button
               onClick={() => setSelectedContribution(null)}
@@ -461,9 +475,10 @@ export default function WallPage() {
                 )}
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </div>
   );
 }

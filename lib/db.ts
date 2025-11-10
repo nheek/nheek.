@@ -56,14 +56,15 @@ function initializeSchema(database: Database.Database) {
       title TEXT NOT NULL,
       codename TEXT NOT NULL,
       duration TEXT NOT NULL,
-      track_number INTEGER NOT NULL,
+      track_order INTEGER NOT NULL,
       spotify_link TEXT,
       apple_music_link TEXT,
       custom_links TEXT DEFAULT '[]',
       lyrics TEXT,
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
+      FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE,
+      UNIQUE(album_id, codename)
     )
   `);
 

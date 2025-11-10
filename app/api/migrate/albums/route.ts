@@ -33,13 +33,30 @@ export async function POST() {
     const albumsData = JSON.parse(fs.readFileSync(albumsPath, "utf-8"));
 
     const insertAlbum = db.prepare(`
-      INSERT OR REPLACE INTO albums (title, codename, artist, release_date, cover_image_url, spotify_link, apple_music_link, custom_links, featured)
+      INSERT INTO albums (title, codename, artist, release_date, cover_image_url, spotify_link, apple_music_link, custom_links, featured)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(codename) DO UPDATE SET
+        title = excluded.title,
+        artist = excluded.artist,
+        release_date = excluded.release_date,
+        cover_image_url = excluded.cover_image_url,
+        spotify_link = excluded.spotify_link,
+        apple_music_link = excluded.apple_music_link,
+        custom_links = excluded.custom_links,
+        featured = excluded.featured
     `);
 
     const insertSong = db.prepare(`
-      INSERT OR REPLACE INTO songs (album_id, title, codename, duration, track_order, spotify_link, apple_music_link, custom_links, lyrics)
+      INSERT INTO songs (album_id, title, codename, duration, track_order, spotify_link, apple_music_link, custom_links, lyrics)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      ON CONFLICT(album_id, codename) DO UPDATE SET
+        title = excluded.title,
+        duration = excluded.duration,
+        track_order = excluded.track_order,
+        spotify_link = excluded.spotify_link,
+        apple_music_link = excluded.apple_music_link,
+        custom_links = excluded.custom_links,
+        lyrics = excluded.lyrics
     `);
 
     let albumsCount = 0;
