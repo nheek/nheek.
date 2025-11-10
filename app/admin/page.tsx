@@ -12,6 +12,7 @@ export default function AdminDashboard() {
     albums: 0,
     songs: 0,
     projects: 0,
+    contributions: 0,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
@@ -60,20 +61,24 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const [albumsRes, songsRes, projectsRes] = await Promise.all([
-        fetch("/api/albums"),
-        fetch("/api/songs"),
-        fetch("/api/projects"),
-      ]);
+      const [albumsRes, songsRes, projectsRes, contributionsRes] =
+        await Promise.all([
+          fetch("/api/albums"),
+          fetch("/api/songs"),
+          fetch("/api/projects"),
+          fetch("/api/contributions?status=all"),
+        ]);
 
       const albums = await albumsRes.json();
       const songs = await songsRes.json();
       const projects = await projectsRes.json();
+      const contributions = await contributionsRes.json();
 
       setStats({
         albums: albums.albums?.length || 0,
         songs: songs.songs?.length || 0,
         projects: projects.projects?.length || 0,
+        contributions: contributions.contributions?.length || 0,
       });
     } catch (error) {
       console.error("Failed to fetch stats:", error);
@@ -284,7 +289,7 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats */}
-        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
+        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
             <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
               Total Albums
@@ -309,6 +314,15 @@ export default function AdminDashboard() {
             </dt>
             <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {stats.projects}
+            </dd>
+          </div>
+
+          <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
+            <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
+              Total Submissions
+            </dt>
+            <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              {stats.contributions}
             </dd>
           </div>
         </div>
