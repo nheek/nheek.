@@ -96,14 +96,14 @@ async function migrate() {
       CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
     `);
     
-    console.log('� Checking and updating schema...');
+    console.log('🔄 Checking and updating schema...');
     
-    // Check if albums table has codename column, if not add it
+    // Check and add missing columns to albums table
     try {
       const albumColumns = db.pragma('table_info(albums)');
-      const hasCodename = albumColumns.some(col => col.name === 'codename');
+      const columnNames = albumColumns.map(col => col.name);
       
-      if (!hasCodename) {
+      if (!columnNames.includes('codename')) {
         console.log('  Adding codename column to albums table...');
         db.exec('ALTER TABLE albums ADD COLUMN codename TEXT');
         
@@ -119,7 +119,19 @@ async function migrate() {
           updateStmt.run(codename, album.id);
         }
         
-        console.log('  ✓ Codename column added and populated');
+        console.log('  ✓ Codename column added');
+      }
+      
+      if (!columnNames.includes('featured')) {
+        console.log('  Adding featured column to albums table...');
+        db.exec('ALTER TABLE albums ADD COLUMN featured BOOLEAN DEFAULT 0');
+        console.log('  ✓ Featured column added');
+      }
+      
+      if (!columnNames.includes('custom_links')) {
+        console.log('  Adding custom_links column to albums table...');
+        db.exec('ALTER TABLE albums ADD COLUMN custom_links TEXT DEFAULT \'[]\'');
+        console.log('  ✓ Custom_links column added');
       }
     } catch (err) {
       console.error('  Warning: Could not update albums schema:', err.message);
@@ -230,11 +242,11 @@ async function migrate() {
       albumsData.albums.forEach((album) => {
         insertAlbum.run(
           album.id || null,
-          album.title,
+          album.title || 'Untitled',
           album.codename || album.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
-          album.artist,
-          album.releaseDate || album.release_date,
-          album.coverImage || album.cover_image_url,
+          album.artist || 'Unknown Artist',
+          album.releaseDate || album.release_date || '2000-01-01',
+          album.coverImage || album.cover_image_url || null,
           album.spotifyLink || album.spotify_link || null,
           album.appleMusicLink || album.apple_music_link || null,
           '[]',
