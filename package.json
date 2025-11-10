@@ -6,14 +6,23 @@
     "dev": "next dev",
     "start-app": "next start",
     "prettier": "prettier --write .",
-    "eslint": "eslint '**/*.{ts,tsx}' --fix"
+    "eslint": "eslint '**/*.{ts,tsx}' --fix",
+    "migrate": "tsx scripts/migrate.ts",
+    "db:init": "node -e \"require('./lib/db').initDb()\"",
+    "add-custom-links": "tsx scripts/add-custom-links.ts",
+    "migrate-old-links": "tsx scripts/migrate-old-links.ts",
+    "migrate-projects": "tsx scripts/migrate-projects.ts",
+    "update-projects-schema": "tsx scripts/update-projects-schema.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/postcss": "^4.1.16",
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.10.0",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.1",
     "gray-matter": "^4.0.3",
+    "iron-session": "^8.0.4",
     "konva": "^10.0.8",
     "next": "16.0.1",
     "react": "^19.2.0",
@@ -29,6 +38,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "24.10.0",
     "@types/react": "19.2.2",
     "autoprefixer": "^10.4.20",
@@ -41,6 +52,7 @@
     "postcss": "^8.5.6",
     "prettier": "3.6.2",
     "tailwindcss": "^4.1.16",
+    "tsx": "^4.20.6",
     "typescript": "5.9.3",
     "typescript-eslint": "^8.31.1"
   }

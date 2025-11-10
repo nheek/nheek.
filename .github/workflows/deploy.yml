@@ -40,6 +40,9 @@ jobs:
             mkdir -p nheek
             cd nheek
 
+            rm -f .env
+            echo "SESSION_SECRET=${{ secrets.SESSION_SECRET }}" >> .env
+
             curl -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
 
             echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | docker login ghcr.io -u ${{ secrets.REG_USERNAME }} --password-stdin

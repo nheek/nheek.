@@ -1,0 +1,210 @@
+import { NextResponse } from "next/server";
+import { getDb } from "@/lib/db";
+import { requireAuth } from "@/lib/session";
+import * as fs from "fs";
+import * as path from "path";
+
+export async function POST() {
+  try {
+    await requireAuth();
+
+    const db = getDb();
+
+    // Read projects.json
+    const projectsPath = path.join(
+      process.cwd(),
+      "public",
+      "featured-projects",
+      "json",
+      "projects.json",
+    );
+
+    if (!fs.existsSync(projectsPath)) {
+      return NextResponse.json(
+        { error: "projects.json not found" },
+        { status: 404 },
+      );
+    }
+
+    const projectsData = JSON.parse(fs.readFileSync(projectsPath, "utf-8"));
+
+    // Category mapping
+    const categoryMapping: Record<
+      string,
+      { name: string; slug: string; description: string }
+    > = {
+      websites: {
+        name: "Websites",
+        slug: "websites",
+        description: "Web applications and websites",
+      },
+      desktop: {
+        name: "Desktop Apps",
+        slug: "desktop",
+        description: "Desktop applications",
+      },
+      mobile: {
+        name: "Mobile Apps",
+        slug: "mobile",
+        description: "Mobile applications",
+      },
+      consulting: {
+        name: "Consulting",
+        slug: "consulting",
+        description: "Consulting projects",
+      },
+      contributions: {
+        name: "Contributions",
+        slug: "contributions",
+        description: "Open source contributions",
+      },
+      static: {
+        name: "Static Sites",
+        slug: "static",
+        description: "Static websites and landing pages",
+      },
+      template: {
+        name: "Templates",
+        slug: "template",
+        description: "Website templates",
+      },
+      utility: {
+        name: "Utilities",
+        slug: "utility",
+        description: "Self-hosted utilities and tools",
+      },
+    };
+
+    const insertCategory = db.prepare(`
+      INSERT OR REPLACE INTO project_categories (name, slug, description)
+      VALUES (?, ?, ?)
+    `);
+
+    const insertProject = db.prepare(`
+      INSERT OR REPLACE INTO projects (
+        title, codename, description, category_id, image_url, mobile_image_url,
+        github_link, live_link, featured, display_order, status, date_added,
+        tech_stack, deployed_with, custom_links
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `);
+
+    const getCategoryId = db.prepare(
+      "SELECT id FROM project_categories WHERE slug = ?",
+    );
+
+    let categoriesCount = 0;
+    let projectsCount = 0;
+
+    const migrateAllProjects = db.transaction(() => {
+      // Create categories first
+      for (const [, category] of Object.entries(categoryMapping)) {
+        insertCategory.run(category.name, category.slug, category.description);
+        categoriesCount++;
+      }
+
+      // Import all projects
+      for (const [categoryKey, projects] of Object.entries(projectsData)) {
+        if (!categoryMapping[categoryKey]) {
+          continue;
+        }
+
+        const category = categoryMapping[categoryKey];
+        const categoryRow = getCategoryId.get(category.slug) as any;
+
+        if (!categoryRow || !Array.isArray(projects)) {
+          continue;
+        }
+
+        projects.forEach((project: any, index: number) => {
+          const codename = project.name.toLowerCase().replace(/\s+/g, "-");
+
+          // Prepare tech_stack JSON
+          const techStack = project.techstack
+            ? JSON.stringify(project.techstack)
+            : "[]";
+
+          // Prepare deployed_with JSON
+          const deployedWith = project.deployedWith
+            ? JSON.stringify(project.deployedWith)
+            : "[]";
+
+          // Prepare custom_links JSON
+          const customLinks = [];
+          if (project.link) {
+            customLinks.push({
+              name: "Live Demo",
+              url: project.link,
+              color: "#6366f1",
+            });
+          }
+          if (project.onGithub) {
+            customLinks.push({
+              name: "GitHub",
+              url: project.onGithub,
+              color: "#181717",
+            });
+          }
+          if (project.onGrit) {
+            customLinks.push({
+              name: "Grit",
+              url: project.onGrit,
+              color: "#609926",
+            });
+          }
+
+          // Parse date_added (format: DD.MM.YYYY)
+          let dateAdded = null;
+          if (project.dateAdded) {
+            const [day, month, year] = project.dateAdded.split(".");
+            if (day && month && year) {
+              dateAdded = `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+            }
+          }
+
+          try {
+            insertProject.run(
+              project.name,
+              codename,
+              project.desc || null,
+              categoryRow.id,
+              project.image || null,
+              project.mobileImage || null,
+              project.onGithub || null,
+              project.link || null,
+              1, // All projects are featured by default
+              index + 1,
+              project.status || null,
+              dateAdded,
+              techStack,
+              deployedWith,
+              JSON.stringify(customLinks),
+            );
+            projectsCount++;
+          } catch (error) {
+            console.error(`Error migrating ${project.name}:`, error);
+          }
+        });
+      }
+    });
+
+    migrateAllProjects();
+
+    return NextResponse.json({
+      message: "Projects migrated successfully",
+      stats: {
+        categories: categoriesCount,
+        projects: projectsCount,
+      },
+    });
+  } catch (error: unknown) {
+    if (error instanceof Error && error.message === "Unauthorized") {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+    console.error("Error migrating projects:", error);
+    return NextResponse.json(
+      { error: "Failed to migrate projects" },
+      { status: 500 },
+    );
+  }
+}

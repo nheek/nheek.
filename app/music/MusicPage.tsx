@@ -28,9 +28,20 @@ export default function MusicPage() {
 
     const fetchAlbums = async () => {
       try {
-        const response = await fetch("/featured-music/albums.json");
+        const response = await fetch("/api/albums");
         const data = await response.json();
-        const allAlbums = data.albums || [];
+        const apiAlbums = data.albums || [];
+        
+        // Transform API data to match component format
+        const allAlbums = apiAlbums.map((album: any) => ({
+          id: album.id,
+          codename: album.codename,
+          title: album.title,
+          featured: album.featured === 1,
+          coverImage: album.cover_image || "",
+          releaseDate: album.release_date,
+          songs: album.songs || []
+        }));
 
         // Sort albums by release date (newest first)
         const sortedAlbums = [...allAlbums].sort((a: Album, b: Album) => {

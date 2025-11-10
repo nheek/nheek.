@@ -53,10 +53,35 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
 
     const fetchSongData = async () => {
       try {
-        const response = await fetch("/featured-music/albums.json");
-        const data: AlbumsData = await response.json();
+        const response = await fetch("/api/albums");
+        const data = await response.json();
+        const apiAlbums = data.albums || [];
+        
+        // Transform API data to match component format
+        const transformedAlbums = apiAlbums.map((album: any) => ({
+          id: album.id,
+          codename: album.codename,
+          title: album.title,
+          coverImage: album.cover_image || "",
+          releaseDate: album.release_date,
+          songs: (album.songs || []).map((song: any) => ({
+            id: song.id,
+            codename: song.codename,
+            title: song.title,
+            duration: song.duration,
+            lyrics: song.lyrics,
+            streamingLinks: {
+              spotify: song.spotify_link,
+              appleMusic: song.apple_music_link
+            }
+          })),
+          streamingLinks: {
+            spotify: album.spotify_link,
+            appleMusic: album.apple_music_link
+          }
+        }));
 
-        const foundAlbum = data.albums.find((a) => a.codename === albumSlug);
+        const foundAlbum = transformedAlbums.find((a: Album) => a.codename === albumSlug);
 
         if (!foundAlbum) {
           setLoading(false);

@@ -155,6 +155,12 @@ dist
 *.jst
 *.map
 
+# Database (contains sensitive data)
+data/
+/data
+*.db
+*.sqlite
+
 # Dependency lock files
 yarn.lock
 package-lock.json
@@ -163,3 +169,6 @@ npm-shrinkwrap.json
 public/featured-projects/
 !public/featured-projects/json/
 **/.DS_Store
+
+# Backup files
+*.backup

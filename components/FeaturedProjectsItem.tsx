@@ -20,10 +20,32 @@ export default function FeaturedProjectsItem({
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("/featured-projects/json/projects.json");
+        const response = await fetch("/api/projects");
         const data = await response.json();
+        const apiProjects = data.projects || [];
+        
+        // Group projects by category
+        const groupedProjects: Record<string, Project[]> = {};
+        apiProjects.forEach((project: any) => {
+          const categorySlug = project.category_slug || "uncategorized";
+          if (!groupedProjects[categorySlug]) {
+            groupedProjects[categorySlug] = [];
+          }
+          groupedProjects[categorySlug].push({
+            id: project.id.toString(),
+            name: project.title,
+            codename: project.codename,
+            desc: project.description,
+            description: project.description,
+            image: project.image_url,
+            githubLink: project.github_link,
+            liveLink: project.live_link,
+            dateAdded: project.date_added || project.created_at,
+            featured: project.featured === 1
+          } as Project);
+        });
 
-        setProjects(data);
+        setProjects(groupedProjects);
       } catch (error) {
         console.error("Error fetching projects:", error);
         setProjects({});

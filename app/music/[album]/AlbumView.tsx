@@ -46,11 +46,37 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
 
     const fetchAlbum = async () => {
       try {
-        const response = await fetch("/featured-music/albums.json");
+        const response = await fetch("/api/albums");
         const data = await response.json();
-        setAllAlbums(data.albums || []);
+        const apiAlbums = data.albums || [];
+        
+        // Transform API data to match component format
+        const transformedAlbums = apiAlbums.map((album: any) => ({
+          id: album.id,
+          codename: album.codename,
+          title: album.title,
+          coverImage: album.cover_image || "",
+          releaseDate: album.release_date,
+          songs: (album.songs || []).map((song: any) => ({
+            id: song.id,
+            codename: song.codename,
+            title: song.title,
+            duration: song.duration,
+            lyrics: song.lyrics,
+            links: {
+              spotify: song.spotify_link,
+              appleMusic: song.apple_music_link
+            }
+          })),
+          links: {
+            spotify: album.spotify_link,
+            appleMusic: album.apple_music_link
+          }
+        }));
+        
+        setAllAlbums(transformedAlbums);
 
-        const foundAlbum = data.albums.find(
+        const foundAlbum = transformedAlbums.find(
           (a: Album) => a.codename === albumSlug,
         );
 
