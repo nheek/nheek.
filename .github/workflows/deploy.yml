@@ -42,6 +42,7 @@ jobs:
 
             rm -f .env
             echo "SESSION_SECRET=${{ secrets.SESSION_SECRET }}" >> .env
+            echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" >> .env
 
             curl -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -O -L https://raw.githubusercontent.com/nheek/nheek./main/docker-compose.yml
 
