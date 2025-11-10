@@ -20,12 +20,14 @@ export function initDb() {
     CREATE TABLE IF NOT EXISTS albums (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
+      codename TEXT NOT NULL UNIQUE,
       artist TEXT NOT NULL,
       release_date TEXT NOT NULL,
       cover_image_url TEXT,
       spotify_link TEXT,
       apple_music_link TEXT,
       custom_links TEXT DEFAULT '[]',
+      featured BOOLEAN DEFAULT 0,
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT DEFAULT CURRENT_TIMESTAMP
     )
@@ -37,6 +39,7 @@ export function initDb() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       album_id INTEGER NOT NULL,
       title TEXT NOT NULL,
+      codename TEXT NOT NULL,
       duration TEXT NOT NULL,
       track_number INTEGER NOT NULL,
       spotify_link TEXT,
@@ -65,11 +68,15 @@ export function initDb() {
     CREATE TABLE IF NOT EXISTS projects (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
+      codename TEXT NOT NULL UNIQUE,
       description TEXT,
       category_id INTEGER,
       image_url TEXT,
+      github_link TEXT,
+      live_link TEXT,
       custom_links TEXT DEFAULT '[]',
       date_added TEXT NOT NULL,
+      featured BOOLEAN DEFAULT 0,
       display_order INTEGER,
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT DEFAULT CURRENT_TIMESTAMP,

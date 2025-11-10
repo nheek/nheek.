@@ -19,12 +19,14 @@ async function migrate() {
       CREATE TABLE IF NOT EXISTS albums (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
+        codename TEXT NOT NULL UNIQUE,
         artist TEXT NOT NULL,
         release_date TEXT NOT NULL,
         cover_image_url TEXT,
         spotify_link TEXT,
         apple_music_link TEXT,
         custom_links TEXT DEFAULT '[]',
+        featured BOOLEAN DEFAULT 0,
         created_at TEXT DEFAULT CURRENT_TIMESTAMP,
         updated_at TEXT DEFAULT CURRENT_TIMESTAMP
       )
@@ -35,6 +37,7 @@ async function migrate() {
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         album_id INTEGER NOT NULL,
         title TEXT NOT NULL,
+        codename TEXT NOT NULL,
         duration TEXT NOT NULL,
         track_number INTEGER NOT NULL,
         spotify_link TEXT,
@@ -61,11 +64,15 @@ async function migrate() {
       CREATE TABLE IF NOT EXISTS projects (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         title TEXT NOT NULL,
+        codename TEXT NOT NULL UNIQUE,
         description TEXT,
         category_id INTEGER,
         image_url TEXT,
+        github_link TEXT,
+        live_link TEXT,
         custom_links TEXT DEFAULT '[]',
         date_added TEXT NOT NULL,
+        featured BOOLEAN DEFAULT 0,
         display_order INTEGER,
         created_at TEXT DEFAULT CURRENT_TIMESTAMP,
         updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -102,13 +109,13 @@ async function migrate() {
     const albumsData = JSON.parse(fs.readFileSync(albumsPath, 'utf-8'));
     
     const insertAlbum = db.prepare(`
-      INSERT OR REPLACE INTO albums (id, title, artist, release_date, cover_image_url, spotify_link, apple_music_link, custom_links)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT OR REPLACE INTO albums (id, title, codename, artist, release_date, cover_image_url, spotify_link, apple_music_link, custom_links, featured)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
     
     const insertSong = db.prepare(`
-      INSERT OR REPLACE INTO songs (id, album_id, title, duration, track_number, lyrics, spotify_link, apple_music_link, custom_links)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT OR REPLACE INTO songs (id, album_id, title, codename, duration, track_number, lyrics, spotify_link, apple_music_link, custom_links)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
     
     let albumsCount = 0;
@@ -119,12 +126,14 @@ async function migrate() {
         insertAlbum.run(
           album.id || null,
           album.title,
+          album.codename || album.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
           album.artist,
           album.releaseDate || album.release_date,
           album.coverImage || album.cover_image_url,
           album.spotifyLink || album.spotify_link || null,
           album.appleMusicLink || album.apple_music_link || null,
-          '[]'
+          '[]',
+          album.featured ? 1 : 0
         );
         albumsCount++;
         
@@ -134,6 +143,7 @@ async function migrate() {
               song.id || null,
               album.id,
               song.title,
+              song.codename || song.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
               song.duration,
               song.trackNumber || song.track_number || index + 1,
               song.lyrics || null,
@@ -184,8 +194,8 @@ async function migrate() {
       
       // Insert projects
       const insertProject = db.prepare(`
-        INSERT OR REPLACE INTO projects (title, description, category_id, image_url, custom_links, date_added, display_order)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+        INSERT OR REPLACE INTO projects (title, codename, description, category_id, image_url, github_link, live_link, custom_links, date_added, featured, display_order)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
       `);
       
       const getCategoryId = db.prepare('SELECT id FROM project_categories WHERE slug = ?');
@@ -225,11 +235,15 @@ async function migrate() {
           
           insertProject.run(
             project.title,
+            project.codename || project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, ''),
             project.description || null,
             categoryId,
             project.image || null,
+            project.onGithub || null,
+            project.link || null,
             JSON.stringify(customLinks),
             dateAdded,
+            project.featured ? 1 : 0,
             index + 1
           );
           projectsCount++;
