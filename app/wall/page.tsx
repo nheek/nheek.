@@ -6,6 +6,7 @@ import Navigate from "@/components/Navigate";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { motion, AnimatePresence } from "framer-motion";
+import FooterHero from "@/components/FooterHero";
 
 // Display Components for each category type
 function GraffitiDisplay({ content }: { content: string }) {
@@ -224,7 +225,7 @@ export default function WallPage() {
         {/* Header */}
         <div className="w-[85%] mx-auto pt-8">
           <div className="text-center mb-12">
-            <h1 className="text-6xl md:text-8xl font-bold mb-4">the wall ✨</h1>
+            <h1 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">the wall</h1>
             <p className="text-lg md:text-xl text-gray-400 mb-8">
               visitors from around the world left their mark
             </p>
@@ -258,7 +259,7 @@ export default function WallPage() {
                     : "bg-[#0d1f1a] text-white hover:bg-gray-200 hover:text-[#0d1f1a]"
                 }`}
               >
-                {icon} {name} ({categoryCounts[key] || 0})
+                {icon} {name.toLowerCase()} ({categoryCounts[key] || 0})
               </button>
             ))}
           </div>
@@ -378,8 +379,8 @@ export default function WallPage() {
             </p>
           </div>
         </div>
-
-        <Navigate underPage={true} />
+        <FooterHero />
+        <Navigate />
       </main>
       <Footer />
 
