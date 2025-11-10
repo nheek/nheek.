@@ -229,7 +229,7 @@ export default function WallClient({
                 : "bg-[#0d1f1a] text-white hover:bg-gray-200 hover:text-[#0d1f1a]"
             }`}
           >
-            {icon} {name} ({categoryCounts[key] || 0})
+            {icon} {name.toLowerCase()} ({categoryCounts[key] || 0})
           </button>
         ))}
       </div>

@@ -32,8 +32,8 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
                   mode === "developer" ? "text-purple-400" : ""
                 }`}
               />
-              <button
-                onClick={() => onModeChange("developer")}
+              <Link
+                href="/"
                 className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
                   mode === "developer"
                     ? "text-purple-400 hover:text-purple-300"
@@ -41,7 +41,7 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
                 }`}
               >
                 fullstack developer
-              </button>
+              </Link>
             </div>
             <span className="hidden sm:inline text-3xl">|</span>
             <div className="flex gap-2 items-center">
