@@ -49,12 +49,12 @@ export async function POST() {
       albumsData.albums.forEach((album: any) => {
         insertAlbum.run(
           album.id || null,
-          album.title,
+          album.title || "Untitled",
           album.codename ||
-            album.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
-          album.artist,
-          album.releaseDate || album.release_date,
-          album.coverImage || album.cover_image_url,
+            (album.title || "untitled").toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
+          album.artist || "Unknown Artist",
+          album.releaseDate || album.release_date || "2000-01-01",
+          album.coverImage || album.cover_image_url || null,
           album.spotifyLink || album.spotify_link || null,
           album.appleMusicLink || album.apple_music_link || null,
           "[]",

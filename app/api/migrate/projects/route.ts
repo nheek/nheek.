@@ -178,7 +178,7 @@ export async function POST() {
               project.link || null,
               1, // All projects are featured by default
               index + 1,
-              dateAdded,
+              dateAdded || "2000-01-01",
               JSON.stringify(customLinks),
             );
             projectsCount++;
