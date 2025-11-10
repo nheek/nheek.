@@ -32,6 +32,9 @@ export async function POST() {
 
     const albumsData = JSON.parse(fs.readFileSync(albumsPath, "utf-8"));
 
+    // Enable foreign keys
+    db.pragma("foreign_keys = ON");
+
     const insertAlbum = db.prepare(`
       INSERT INTO albums (title, codename, artist, release_date, cover_image_url, spotify_link, apple_music_link, custom_links, featured)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -45,6 +48,10 @@ export async function POST() {
         custom_links = excluded.custom_links,
         featured = excluded.featured
     `);
+
+    const getAlbumId = db.prepare(
+      "SELECT id FROM albums WHERE codename = ?",
+    );
 
     const insertSong = db.prepare(`
       INSERT INTO songs (album_id, title, codename, duration, track_order, spotify_link, apple_music_link, custom_links, lyrics)
@@ -62,15 +69,49 @@ export async function POST() {
     let albumsCount = 0;
     let songsCount = 0;
 
+    interface AlbumData {
+      title?: string;
+      codename?: string;
+      artist?: string;
+      releaseDate?: string;
+      release_date?: string;
+      coverImage?: string;
+      cover_image_url?: string;
+      links?: { spotify?: string; appleMusic?: string };
+      spotifyLink?: string;
+      spotify_link?: string;
+      appleMusicLink?: string;
+      apple_music_link?: string;
+      featured?: boolean;
+      songs?: SongData[];
+    }
+
+    interface SongData {
+      title: string;
+      codename?: string;
+      duration: string;
+      trackNumber?: number;
+      track_number?: number;
+      links?: { spotify?: string; appleMusic?: string };
+      spotifyLink?: string;
+      spotify_link?: string;
+      appleMusicLink?: string;
+      apple_music_link?: string;
+      lyrics?: string;
+    }
+
     const migrateAlbums = db.transaction(() => {
-      albumsData.albums.forEach((album: any) => {
+      albumsData.albums.forEach((album: AlbumData) => {
+        const codename =
+          album.codename ||
+          (album.title || "untitled")
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/[^a-z0-9-]/g, "");
+
         const result = insertAlbum.run(
           album.title || "Untitled",
-          album.codename ||
-            (album.title || "untitled")
-              .toLowerCase()
-              .replace(/\s+/g, "-")
-              .replace(/[^a-z0-9-]/g, ""),
+          codename,
           album.artist || "Unknown Artist",
           album.releaseDate || album.release_date || "2000-01-01",
           album.coverImage || album.cover_image_url || null,
@@ -87,10 +128,18 @@ export async function POST() {
         );
         albumsCount++;
 
-        const albumId = result.lastInsertRowid;
+        // Get the album ID (either from insert or existing)
+        let albumId = result.lastInsertRowid;
+        if (result.changes === 0) {
+          // Album already exists, get its ID
+          const existingAlbum = getAlbumId.get(codename) as { id: number } | undefined;
+          if (existingAlbum) {
+            albumId = existingAlbum.id;
+          }
+        }
 
         if (album.songs && Array.isArray(album.songs)) {
-          album.songs.forEach((song: any, index: number) => {
+          album.songs.forEach((song: SongData, index: number) => {
             insertSong.run(
               albumId,
               song.title,

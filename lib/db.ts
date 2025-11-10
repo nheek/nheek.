@@ -19,6 +19,7 @@ export function getDb(): Database.Database {
 
     db = new Database(dbPath);
     db.pragma("journal_mode = WAL");
+    db.pragma("foreign_keys = ON");
 
     // If database was just created, initialize schema
     if (!dbExists) {

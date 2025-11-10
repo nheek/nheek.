@@ -9,6 +9,7 @@
     "eslint": "eslint '**/*.{ts,tsx}' --fix",
     "migrate": "tsx scripts/migrate.ts",
     "db:init": "node -e \"require('./lib/db').initDb()\"",
+    "reset-admin": "tsx scripts/reset-admin.ts",
     "add-custom-links": "tsx scripts/add-custom-links.ts",
     "migrate-old-links": "tsx scripts/migrate-old-links.ts",
     "migrate-projects": "tsx scripts/migrate-projects.ts",

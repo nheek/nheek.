@@ -149,18 +149,18 @@ export async function POST() {
           continue;
         }
 
-        projects.forEach((project: any, index: number) => {
+        interface ProjectData {
+          name: string;
+          desc?: string;
+          image?: string;
+          onGithub?: string;
+          link?: string;
+          onGrit?: string;
+          dateAdded?: string;
+        }
+
+        projects.forEach((project: ProjectData, index: number) => {
           const codename = project.name.toLowerCase().replace(/\s+/g, "-");
-
-          // Prepare tech_stack JSON
-          const techStack = project.techstack
-            ? JSON.stringify(project.techstack)
-            : "[]";
-
-          // Prepare deployed_with JSON
-          const deployedWith = project.deployedWith
-            ? JSON.stringify(project.deployedWith)
-            : "[]";
 
           // Prepare custom_links JSON
           const customLinks = [];
