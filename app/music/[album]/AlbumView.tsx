@@ -68,10 +68,7 @@ export default function AlbumView({
       >
         <div className="text-center">
           <div className="text-white text-xl mb-4">Album not found</div>
-          <Link
-            href="/music"
-            className="text-purple-400 hover:text-purple-300"
-          >
+          <Link href="/music" className="text-purple-400 hover:text-purple-300">
             Back to Albums
           </Link>
         </div>

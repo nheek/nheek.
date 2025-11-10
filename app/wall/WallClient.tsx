@@ -193,7 +193,9 @@ export default function WallClient({
     <>
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">the wall</h1>
+        <h1 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
+          the wall
+        </h1>
         <p className="text-lg md:text-xl text-gray-400 mb-8">
           visitors from around the world left their mark
         </p>

@@ -82,17 +82,13 @@ async function getAlbumData(albumSlug: string): Promise<{
           spotify: song.spotify_link,
           appleMusic: song.apple_music_link,
         },
-        customLinks: song.custom_links
-          ? JSON.parse(song.custom_links)
-          : [],
+        customLinks: song.custom_links ? JSON.parse(song.custom_links) : [],
       })),
       links: {
         spotify: album.spotify_link,
         appleMusic: album.apple_music_link,
       },
-      customLinks: album.custom_links
-        ? JSON.parse(album.custom_links)
-        : [],
+      customLinks: album.custom_links ? JSON.parse(album.custom_links) : [],
     }));
 
     const foundAlbum = transformedAlbums.find(
@@ -110,5 +106,7 @@ export default async function AlbumPage({ params }: Props) {
   const { album: albumSlug } = await params;
   const { album, allAlbums } = await getAlbumData(albumSlug);
 
-  return <AlbumView albumSlug={albumSlug} album={album} allAlbums={allAlbums} />;
+  return (
+    <AlbumView albumSlug={albumSlug} album={album} allAlbums={allAlbums} />
+  );
 }
