@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
 import Header from "../../../../components/Header";
 import Footer from "../../../../components/Footer";
@@ -42,94 +42,15 @@ interface Album {
   customLinks?: CustomLink[];
 }
 
-interface AlbumsData {
-  albums: Album[];
-}
-
 interface SongViewProps {
-  albumSlug: string;
-  songSlug: string;
+  album: Album | null;
+  song: Song | null;
 }
 
-export default function SongView({ albumSlug, songSlug }: SongViewProps) {
-  const [album, setAlbum] = useState<Album | null>(null);
-  const [song, setSong] = useState<Song | null>(null);
-  const [loading, setLoading] = useState(true);
-
+export default function SongView({ album, song }: SongViewProps) {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-
-    const fetchSongData = async () => {
-      try {
-        const response = await fetch("/api/albums");
-        const data = await response.json();
-        const apiAlbums = data.albums || [];
-
-        // Transform API data to match component format
-        const transformedAlbums = apiAlbums.map((album: any) => ({
-          id: album.id,
-          codename: album.codename,
-          title: album.title,
-          coverImage: album.cover_image_url || "",
-          releaseDate: album.release_date,
-          songs: (album.songs || []).map((song: any) => ({
-            id: song.id,
-            codename: song.codename,
-            title: song.title,
-            duration: song.duration,
-            lyrics: song.lyrics,
-            streamingLinks: {
-              spotify: song.spotify_link,
-              appleMusic: song.apple_music_link,
-            },
-            customLinks: song.custom_links ? JSON.parse(song.custom_links) : [],
-          })),
-          streamingLinks: {
-            spotify: album.spotify_link,
-            appleMusic: album.apple_music_link,
-          },
-          customLinks: album.custom_links ? JSON.parse(album.custom_links) : [],
-        }));
-
-        const foundAlbum = transformedAlbums.find(
-          (a: Album) => a.codename === albumSlug,
-        );
-
-        if (!foundAlbum) {
-          setLoading(false);
-          return;
-        }
-
-        const foundSong = foundAlbum.songs.find((s) => s.codename === songSlug);
-
-        if (!foundSong) {
-          setAlbum(foundAlbum);
-          setLoading(false);
-          return;
-        }
-
-        setAlbum(foundAlbum);
-        setSong(foundSong);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching song data:", error);
-        setLoading(false);
-      }
-    };
-
-    fetchSongData();
-  }, [albumSlug, songSlug]);
-
-  if (loading) {
-    return (
-      <div
-        className="min-h-screen flex items-center justify-center"
-        style={{ backgroundColor: "#1a1625" }}
-      >
-        <p className="text-white">Loading...</p>
-      </div>
-    );
-  }
+  }, []);
 
   if (!album) {
     return (
@@ -167,7 +88,7 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
   }
 
   const currentSongIndex = album.songs.findIndex(
-    (s) => s.codename === songSlug,
+    (s) => s.codename === song.codename,
   );
   const prevSong =
     currentSongIndex > 0 ? album.songs[currentSongIndex - 1] : null;
