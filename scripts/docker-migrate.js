@@ -90,13 +90,30 @@ async function migrate() {
         last_login TEXT
       )
     `);
-    
+
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS contributions (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        category TEXT NOT NULL,
+        content TEXT NOT NULL,
+        website_url TEXT,
+        song_link TEXT,
+        show_link INTEGER DEFAULT 1,
+        fingerprint_hash TEXT NOT NULL,
+        status TEXT DEFAULT 'pending',
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        approved_at TEXT,
+        UNIQUE(fingerprint_hash, category)
+      )
+    `);
+
     db.exec(`
       CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
       CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
-    `);
-    
-    console.log('🔄 Checking and updating schema...');
+      CREATE INDEX IF NOT EXISTS idx_contributions_status ON contributions(status);
+      CREATE INDEX IF NOT EXISTS idx_contributions_category ON contributions(category);
+    `);    console.log('🔄 Checking and updating schema...');
     
     // Check and add missing columns to albums table
     try {
