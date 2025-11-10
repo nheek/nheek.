@@ -18,10 +18,9 @@ async function resetAdminPassword() {
 
   if (adminUser) {
     // Update existing admin user
-    db.prepare("UPDATE admin_users SET password_hash = ? WHERE username = ?").run(
-      passwordHash,
-      "admin",
-    );
+    db.prepare(
+      "UPDATE admin_users SET password_hash = ? WHERE username = ?",
+    ).run(passwordHash, "admin");
     console.log("✅ Admin password reset successfully");
   } else {
     // Create new admin user
@@ -34,7 +33,9 @@ async function resetAdminPassword() {
   console.log("\nDefault credentials:");
   console.log("  Username: admin");
   console.log("  Password: change_me_123");
-  console.log("\n⚠️  IMPORTANT: Change the default password after first login!");
+  console.log(
+    "\n⚠️  IMPORTANT: Change the default password after first login!",
+  );
 
   db.close();
 }

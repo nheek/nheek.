@@ -49,9 +49,7 @@ export async function POST() {
         featured = excluded.featured
     `);
 
-    const getAlbumId = db.prepare(
-      "SELECT id FROM albums WHERE codename = ?",
-    );
+    const getAlbumId = db.prepare("SELECT id FROM albums WHERE codename = ?");
 
     const insertSong = db.prepare(`
       INSERT INTO songs (album_id, title, codename, duration, track_order, spotify_link, apple_music_link, custom_links, lyrics)
@@ -132,7 +130,9 @@ export async function POST() {
         let albumId = result.lastInsertRowid;
         if (result.changes === 0) {
           // Album already exists, get its ID
-          const existingAlbum = getAlbumId.get(codename) as { id: number } | undefined;
+          const existingAlbum = getAlbumId.get(codename) as
+            | { id: number }
+            | undefined;
           if (existingAlbum) {
             albumId = existingAlbum.id;
           }
