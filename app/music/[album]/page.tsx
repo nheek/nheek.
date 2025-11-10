@@ -5,11 +5,26 @@ type Props = {
   params: Promise<{ album: string }>;
 };
 
+type StreamingLinks = {
+  spotify?: string;
+  appleMusic?: string;
+  youtube?: string;
+};
+
+type CustomLink = {
+  name: string;
+  url: string;
+  color?: string;
+};
+
 interface Song {
   id: number;
+  codename: string;
   title: string;
-  duration?: string;
-  url?: string;
+  duration: string;
+  lyrics?: string;
+  links?: StreamingLinks;
+  customLinks?: CustomLink[];
 }
 
 interface Album {
@@ -19,6 +34,31 @@ interface Album {
   coverImage: string;
   releaseDate: string;
   songs: Song[];
+  links?: StreamingLinks;
+  customLinks?: CustomLink[];
+}
+
+interface ApiSong {
+  id: number;
+  codename: string;
+  title: string;
+  duration: string;
+  lyrics?: string;
+  spotify_link?: string;
+  apple_music_link?: string;
+  custom_links?: string;
+}
+
+interface ApiAlbum {
+  id: number;
+  codename: string;
+  title: string;
+  cover_image_url: string;
+  release_date: string;
+  songs: ApiSong[];
+  spotify_link?: string;
+  apple_music_link?: string;
+  custom_links?: string;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -63,16 +103,16 @@ async function getAlbumData(albumSlug: string): Promise<{
     }
 
     const data = await response.json();
-    const apiAlbums = data.albums || [];
+    const apiAlbums: ApiAlbum[] = data.albums || [];
 
     // Transform API data to match component format
-    const transformedAlbums = apiAlbums.map((album: any) => ({
+    const transformedAlbums = apiAlbums.map((album: ApiAlbum) => ({
       id: album.id,
       codename: album.codename,
       title: album.title,
       coverImage: album.cover_image_url || "",
       releaseDate: album.release_date,
-      songs: (album.songs || []).map((song: any) => ({
+      songs: (album.songs || []).map((song: ApiSong) => ({
         id: song.id,
         codename: song.codename,
         title: song.title,
