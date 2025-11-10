@@ -1,14 +1,29 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function AdminLogin() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [dbExists, setDbExists] = useState<boolean | null>(null);
   const router = useRouter();
+
+  useEffect(() => {
+    const checkDb = async () => {
+      try {
+        const res = await fetch("/api/db-status");
+        const data = await res.json();
+        setDbExists(data.exists);
+      } catch (err) {
+        setDbExists(false);
+      }
+    };
+    checkDb();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,6 +64,32 @@ export default function AdminLogin() {
             Sign in to manage your content
           </p>
         </div>
+
+        {dbExists === false && (
+          <div className="rounded-lg bg-yellow-50 p-4 dark:bg-yellow-900/20">
+            <div className="flex items-start">
+              <div className="ml-3 flex-1">
+                <h3 className="text-sm font-medium text-yellow-800 dark:text-yellow-200">
+                  Database Not Found
+                </h3>
+                <div className="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
+                  <p>
+                    The SQLite database doesn&apos;t exist yet. You need to set
+                    it up before logging in.
+                  </p>
+                </div>
+                <div className="mt-4">
+                  <Link
+                    href="/admin/migrate"
+                    className="inline-flex items-center rounded-md bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                  >
+                    Go to Migration Setup
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (

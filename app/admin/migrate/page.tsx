@@ -14,14 +14,25 @@ export default function MigrationPage() {
   const router = useRouter();
   const [logs, setLogs] = useState<MigrationLog[]>([]);
   const [isMigrating, setIsMigrating] = useState(false);
+  const [dbExists, setDbExists] = useState<boolean | null>(null);
 
   useEffect(() => {
-    checkAuth();
+    checkDbAndAuth();
   }, []);
 
-  const checkAuth = async () => {
-    const res = await fetch("/api/auth/me");
-    if (!res.ok) router.push("/admin/login");
+  const checkDbAndAuth = async () => {
+    try {
+      const dbRes = await fetch("/api/db-status");
+      const dbData = await dbRes.json();
+      setDbExists(dbData.exists);
+
+      if (dbData.exists) {
+        const authRes = await fetch("/api/auth/me");
+        if (!authRes.ok) router.push("/admin/login");
+      }
+    } catch {
+      setDbExists(false);
+    }
   };
 
   const addLog = (message: string, type: MigrationLog["type"] = "info") => {
@@ -116,16 +127,39 @@ export default function MigrationPage() {
       </header>
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="mb-8 rounded-lg bg-yellow-50 p-4 dark:bg-yellow-900/20">
-          <h3 className="mb-2 text-lg font-semibold text-yellow-800 dark:text-yellow-200">
-            ⚠️ Warning
-          </h3>
-          <p className="text-sm text-yellow-700 dark:text-yellow-300">
-            These migrations will import data from JSON files into the SQLite
-            database. If data already exists, it will be updated. Make sure to
-            backup your database before running migrations.
-          </p>
-        </div>
+        {dbExists === false && (
+          <div className="mb-8 rounded-lg bg-blue-50 p-6 dark:bg-blue-900/20">
+            <h3 className="mb-2 text-lg font-semibold text-blue-800 dark:text-blue-200">
+              🎉 Welcome! First-Time Setup
+            </h3>
+            <p className="text-sm text-blue-700 dark:text-blue-300">
+              The SQLite database doesn&apos;t exist yet. Click &quot;Migrate
+              All Data&quot; below to set up your database and import all data
+              from JSON files. This will create the admin user (username:{" "}
+              <code className="rounded bg-blue-100 px-1 dark:bg-blue-800">
+                admin
+              </code>
+              , password:{" "}
+              <code className="rounded bg-blue-100 px-1 dark:bg-blue-800">
+                admin123
+              </code>
+              ) that you can use to log in afterwards.
+            </p>
+          </div>
+        )}
+
+        {dbExists === true && (
+          <div className="mb-8 rounded-lg bg-yellow-50 p-4 dark:bg-yellow-900/20">
+            <h3 className="mb-2 text-lg font-semibold text-yellow-800 dark:text-yellow-200">
+              ⚠️ Warning
+            </h3>
+            <p className="text-sm text-yellow-700 dark:text-yellow-300">
+              These migrations will import data from JSON files into the SQLite
+              database. If data already exists, it will be updated. Make sure to
+              backup your database before running migrations.
+            </p>
+          </div>
+        )}
 
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-lg bg-white p-6 shadow dark:bg-gray-800">

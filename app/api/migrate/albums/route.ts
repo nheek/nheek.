@@ -6,7 +6,12 @@ import * as path from "path";
 
 export async function POST() {
   try {
-    await requireAuth();
+    const dbPath = path.join(process.cwd(), "data", "nheek.db");
+    const dbExists = fs.existsSync(dbPath);
+
+    if (dbExists) {
+      await requireAuth();
+    }
 
     const db = getDb();
 
