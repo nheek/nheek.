@@ -23,9 +23,20 @@ RUN npm run build
 FROM node:23-alpine AS runner
 WORKDIR /app
 
+# Install bash for entrypoint script
+RUN apk add --no-cache bash
+
 COPY --from=builder /app/.next .next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/lib ./lib
+COPY --from=builder /app/scripts ./scripts
 
-CMD ["npm", "run", "start-app"]
+# Make entrypoint script executable
+RUN chmod +x /app/scripts/docker-entrypoint.sh
+
+# Create data directory for SQLite
+RUN mkdir -p /app/data
+
+ENTRYPOINT ["/app/scripts/docker-entrypoint.sh"]

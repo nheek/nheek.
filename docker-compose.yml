@@ -6,3 +6,7 @@ services:
       - 4000:3000
     image: "ghcr.io/nheek/nheek:latest"
     platform: linux/amd64
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
