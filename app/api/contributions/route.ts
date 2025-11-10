@@ -6,7 +6,7 @@ const VALID_CATEGORIES = [
   "graffiti",
   "guestbook",
   "song",
-  "star",
+  "emoji",
   "fortune",
 ];
 
@@ -60,7 +60,8 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, category, content, website_url, fingerprint } = body;
+    const { name, category, content, website_url, song_link, fingerprint } =
+      body;
 
     // Validation
     if (!name || !category || !content || !fingerprint) {
@@ -77,12 +78,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate content length based on category
+        // Validate content length based on category
     const maxLengths: Record<string, number> = {
-      graffiti: 50, // Short tag
+      graffiti: 10000000, // Canvas data ~10MB
       guestbook: 200, // Medium message
       song: 100, // Song name + artist
-      star: 150, // Short wish
+      emoji: 10000000, // Canvas data ~10MB
       fortune: 200, // Wisdom/quote
     };
 
@@ -120,18 +121,35 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert contribution
-    const stmt = db.prepare(
-      `INSERT INTO contributions (name, category, content, website_url, fingerprint_hash, status)
-       VALUES (?, ?, ?, ?, ?, 'pending')`,
-    );
-
-    const result = stmt.run(
-      name,
-      category,
-      content,
-      website_url || null,
-      fingerprintHash,
-    );
+    let stmt;
+    let result;
+    
+    if (category === "song" && song_link) {
+      stmt = db.prepare(
+        `INSERT INTO contributions (name, category, content, website_url, song_link, fingerprint_hash, status)
+         VALUES (?, ?, ?, ?, ?, ?, 'pending')`,
+      );
+      result = stmt.run(
+        name,
+        category,
+        content,
+        website_url || null,
+        song_link,
+        fingerprintHash,
+      );
+    } else {
+      stmt = db.prepare(
+        `INSERT INTO contributions (name, category, content, website_url, fingerprint_hash, status)
+         VALUES (?, ?, ?, ?, ?, 'pending')`,
+      );
+      result = stmt.run(
+        name,
+        category,
+        content,
+        website_url || null,
+        fingerprintHash,
+      );
+    }
 
     return NextResponse.json(
       {

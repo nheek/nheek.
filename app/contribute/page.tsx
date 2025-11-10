@@ -1,44 +1,293 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
+
+// Graffiti Canvas Component
+function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [color, setColor] = useState("#10b981"); // emerald-500
+  const [lineWidth, setLineWidth] = useState(3);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
+    // Set canvas size
+    canvas.width = 600;
+    canvas.height = 400;
+    
+    // White background
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Save initial state
+    saveCanvas();
+  }, []);
+
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    setIsDrawing(true);
+  };
+
+  const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (!isDrawing) return;
+    
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
+    ctx.lineTo(x, y);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.stroke();
+  };
+
+  const stopDrawing = () => {
+    setIsDrawing(false);
+    saveCanvas();
+  };
+
+  const saveCanvas = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const dataUrl = canvas.toDataURL("image/png");
+    onSave(dataUrl);
+  };
+
+  const clearCanvas = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    saveCanvas();
+  };
+
+  const colors = ["#10b981", "#ef4444", "#3b82f6", "#f59e0b", "#8b5cf6", "#ec4899", "#000000"];
+
+  return (
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-3 items-center">
+        <div className="flex gap-2">
+          {colors.map((c) => (
+            <button
+              key={c}
+              type="button"
+              onClick={() => setColor(c)}
+              className={`w-8 h-8 rounded-full border-2 transition ${
+                color === c ? "border-white scale-110" : "border-gray-600"
+              }`}
+              style={{ backgroundColor: c }}
+            />
+          ))}
+        </div>
+        <div className="flex gap-2 items-center">
+          <label className="text-sm text-gray-300">Size:</label>
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value={lineWidth}
+            onChange={(e) => setLineWidth(Number(e.target.value))}
+            className="w-24"
+          />
+          <span className="text-sm text-gray-300">{lineWidth}px</span>
+        </div>
+        <button
+          type="button"
+          onClick={clearCanvas}
+          className="ml-auto px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-md transition"
+        >
+          Clear
+        </button>
+      </div>
+      <canvas
+        ref={canvasRef}
+        onMouseDown={startDrawing}
+        onMouseMove={draw}
+        onMouseUp={stopDrawing}
+        onMouseLeave={stopDrawing}
+        className="w-full border-2 border-emerald-700 rounded-lg cursor-crosshair bg-white"
+        style={{ maxWidth: "600px", aspectRatio: "3/2" }}
+      />
+      <p className="text-xs text-gray-400">
+        ✏️ Draw or write anything! Use your mouse to create your graffiti.
+      </p>
+    </div>
+  );
+}
+
+// Emoji Canvas Component
+function EmojiCanvas({ onSave }: { onSave: (data: string) => void }) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [emojis, setEmojis] = useState<Array<{ emoji: string; x: number; y: number }>>([]);
+  const [selectedEmoji, setSelectedEmoji] = useState("😊");
+
+  const emojiPalette = [
+    "😊", "😂", "❤️", "🔥", "✨", "🎉", "👍", "🎵",
+    "🌟", "💫", "🌈", "🦋", "🌸", "🍀", "⭐", "💖",
+    "😎", "🤔", "😍", "🥳", "😇", "🤗", "😋", "🎨"
+  ];
+
+  useEffect(() => {
+    renderCanvas();
+  }, [emojis]);
+
+  const renderCanvas = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    canvas.width = 600;
+    canvas.height = 400;
+    
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    
+    // White background
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    // Draw all emojis
+    ctx.font = "48px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    
+    emojis.forEach(({ emoji, x, y }) => {
+      ctx.fillText(emoji, x, y);
+    });
+    
+    // Save to parent
+    const dataUrl = canvas.toDataURL("image/png");
+    onSave(dataUrl);
+  };
+
+  const addEmoji = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    const x = (e.clientX - rect.left) * (canvas.width / rect.width);
+    const y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    
+    setEmojis([...emojis, { emoji: selectedEmoji, x, y }]);
+  };
+
+  const clearCanvas = () => {
+    setEmojis([]);
+  };
+
+  return (
+    <div className="space-y-4">
+      <div className="space-y-3">
+        <label className="block text-sm text-gray-300">Select emoji to place:</label>
+        <div className="flex flex-wrap gap-2">
+          {emojiPalette.map((emoji) => (
+            <button
+              key={emoji}
+              type="button"
+              onClick={() => setSelectedEmoji(emoji)}
+              className={`text-3xl p-2 rounded-lg border-2 transition ${
+                selectedEmoji === emoji
+                  ? "border-emerald-500 bg-emerald-900/30 scale-110"
+                  : "border-gray-700 hover:border-emerald-700"
+              }`}
+            >
+              {emoji}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="flex justify-between items-center">
+        <p className="text-sm text-gray-300">
+          Selected: <span className="text-3xl">{selectedEmoji}</span>
+        </p>
+        <button
+          type="button"
+          onClick={clearCanvas}
+          className="px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-md transition"
+        >
+          Clear
+        </button>
+      </div>
+      <canvas
+        ref={canvasRef}
+        onClick={addEmoji}
+        className="w-full border-2 border-emerald-700 rounded-lg cursor-pointer bg-white"
+        style={{ maxWidth: "600px", aspectRatio: "3/2" }}
+      />
+      <p className="text-xs text-gray-400">
+        👆 Click on the canvas to place emojis!
+      </p>
+    </div>
+  );
+}
 
 const CATEGORIES = [
   {
     id: "graffiti",
     name: "🎨 Graffiti",
-    description: "Leave a short tag or signature (max 50 chars)",
-    placeholder: "Your creative tag...",
-    maxLength: 50,
+    description: "Draw or write on a blank canvas",
+    placeholder: "",
+    maxLength: 0,
+    isCanvas: true,
   },
   {
     id: "guestbook",
-    name: "📝 Guestbook",
-    description: "Share a message or thought (max 200 chars)",
-    placeholder: "What brought you here?",
+    name: "� Guestbook",
+    description: "Sign the guestbook with a message (max 200 chars)",
+    placeholder: "Leave your mark in the book...",
     maxLength: 200,
   },
   {
     id: "song",
-    name: "🎵 Song Recommendation",
-    description: "Share a song you're vibing to (max 100 chars)",
+    name: "💿 Song Recommendation",
+    description: "Share a song you're vibing to",
     placeholder: "Artist - Song Title",
     maxLength: 100,
   },
   {
-    id: "star",
-    name: "⭐ Star Message",
-    description: "Leave a wish or positive message (max 150 chars)",
-    placeholder: "Send a star into the sky...",
-    maxLength: 150,
+    id: "emoji",
+    name: "😊 Emoji Message",
+    description: "Create a message with emojis",
+    placeholder: "",
+    maxLength: 0,
+    isCanvas: true,
   },
   {
     id: "fortune",
-    name: "🔮 Fortune Cookie",
-    description: "Share wisdom, advice, or a quote (max 200 chars)",
+    name: "🥠 Fortune Cookie",
+    description: "Share wisdom, advice, or a quote (max 150 chars)",
     placeholder: "Your fortune...",
-    maxLength: 200,
+    maxLength: 150,
   },
 ];
 
@@ -76,6 +325,7 @@ export default function ContributePage() {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [websiteUrl, setWebsiteUrl] = useState("");
+  const [songLink, setSongLink] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
@@ -105,6 +355,7 @@ export default function ContributePage() {
           category: selectedCategory,
           content,
           website_url: websiteUrl || null,
+          song_link: songLink || null,
           fingerprint,
         }),
       });
@@ -118,6 +369,7 @@ export default function ContributePage() {
         setName("");
         setContent("");
         setWebsiteUrl("");
+        setSongLink("");
         setSelectedCategory("");
       } else {
         setError(data.error || "Failed to submit");
@@ -221,19 +473,48 @@ export default function ContributePage() {
                   your {currentCategory?.name.split(" ")[1].toLowerCase()}{" "}
                   <span className="text-red-400">*</span>
                 </label>
-                <textarea
-                  required
-                  maxLength={currentCategory?.maxLength}
-                  value={content}
-                  onChange={(e) => setContent(e.target.value)}
-                  rows={5}
-                  className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
-                  placeholder={currentCategory?.placeholder}
-                />
-                <p className="mt-2 text-xs text-gray-400">
-                  {content.length}/{currentCategory?.maxLength} characters
-                </p>
+                
+                {currentCategory?.isCanvas ? (
+                  selectedCategory === "graffiti" ? (
+                    <GraffitiCanvas onSave={(data) => setContent(data)} />
+                  ) : (
+                    <EmojiCanvas onSave={(data) => setContent(data)} />
+                  )
+                ) : (
+                  <>
+                    <textarea
+                      required
+                      maxLength={currentCategory?.maxLength}
+                      value={content}
+                      onChange={(e) => setContent(e.target.value)}
+                      rows={5}
+                      className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
+                      placeholder={currentCategory?.placeholder}
+                    />
+                    <p className="mt-2 text-xs text-gray-400">
+                      {content.length}/{currentCategory?.maxLength} characters
+                    </p>
+                  </>
+                )}
               </div>
+
+              {selectedCategory === "song" && (
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    song link (optional)
+                  </label>
+                  <input
+                    type="url"
+                    value={songLink}
+                    onChange={(e) => setSongLink(e.target.value)}
+                    className="block w-full rounded-md border border-purple-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 transition"
+                    placeholder="https://spotify.com/... or https://youtube.com/..."
+                  />
+                  <p className="mt-2 text-xs text-gray-400">
+                    share a link to listen to the song you're recommending
+                  </p>
+                </div>
+              )}
 
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">

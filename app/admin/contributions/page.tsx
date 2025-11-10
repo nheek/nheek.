@@ -10,6 +10,8 @@ interface Contribution {
   category: string;
   content: string;
   website_url: string | null;
+  song_link: string | null;
+  show_link: number;
   status: string;
   created_at: string;
   approved_at: string | null;
@@ -106,6 +108,25 @@ export default function ContributionsAdmin() {
       }
     } catch {
       setMessage("❌ Error deleting contribution");
+    } finally {
+      setTimeout(() => setMessage(""), 3000);
+    }
+  };
+
+  const handleToggleLink = async (id: number) => {
+    try {
+      const res = await fetch(`/api/contributions/${id}/toggle-link`, {
+        method: "PATCH",
+      });
+
+      if (res.ok) {
+        setMessage("✅ Link visibility toggled!");
+        await fetchContributions();
+      } else {
+        setMessage("❌ Failed to toggle link");
+      }
+    } catch {
+      setMessage("❌ Error toggling link");
     } finally {
       setTimeout(() => setMessage(""), 3000);
     }
@@ -225,18 +246,45 @@ export default function ContributionsAdmin() {
                       {contribution.name}
                     </h3>
 
-                    <p className="mt-2 text-gray-700 dark:text-gray-300">
-                      {contribution.content}
-                    </p>
+                    {contribution.category === "graffiti" ||
+                    contribution.category === "emoji" ? (
+                      <div className="mt-2">
+                        <img
+                          src={contribution.content}
+                          alt={`${contribution.category} by ${contribution.name}`}
+                          className="max-w-full max-h-48 rounded-lg border-2 border-gray-300 dark:border-gray-600"
+                        />
+                      </div>
+                    ) : (
+                      <p className="mt-2 text-gray-700 dark:text-gray-300">
+                        {contribution.content}
+                      </p>
+                    )}
 
                     {contribution.website_url && (
+                      <div className="mt-2 flex items-center gap-2">
+                        <a
+                          href={contribution.website_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block text-sm text-indigo-600 hover:underline dark:text-indigo-400"
+                        >
+                          🔗 {contribution.website_url}
+                        </a>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          (Link {contribution.show_link ? "visible" : "hidden"} on wall)
+                        </span>
+                      </div>
+                    )}
+
+                    {contribution.song_link && (
                       <a
-                        href={contribution.website_url}
+                        href={contribution.song_link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 inline-block text-sm text-indigo-600 hover:underline dark:text-indigo-400"
+                        className="mt-2 inline-block text-sm text-purple-600 hover:underline dark:text-purple-400"
                       >
-                        🔗 {contribution.website_url}
+                        🎵 {contribution.song_link}
                       </a>
                     )}
 
@@ -252,21 +300,31 @@ export default function ContributionsAdmin() {
                     )}
                   </div>
 
-                  <div className="ml-4 flex gap-2">
-                    {contribution.status === "pending" && (
+                  <div className="ml-4 flex flex-col gap-2">
+                    <div className="flex gap-2">
+                      {contribution.status === "pending" && (
+                        <button
+                          onClick={() => handleApprove(contribution.id)}
+                          className="rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-500"
+                        >
+                          Approve
+                        </button>
+                      )}
                       <button
-                        onClick={() => handleApprove(contribution.id)}
-                        className="rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-green-500"
+                        onClick={() => handleDelete(contribution.id)}
+                        className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500"
                       >
-                        Approve
+                        Delete
+                      </button>
+                    </div>
+                    {contribution.website_url && (
+                      <button
+                        onClick={() => handleToggleLink(contribution.id)}
+                        className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-500"
+                      >
+                        {contribution.show_link ? "Hide" : "Show"} Link
                       </button>
                     )}
-                    <button
-                      onClick={() => handleDelete(contribution.id)}
-                      className="rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500"
-                    >
-                      Delete
-                    </button>
                   </div>
                 </div>
               </div>

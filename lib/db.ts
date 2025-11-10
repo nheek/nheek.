@@ -119,6 +119,8 @@ function initializeSchema(database: Database.Database) {
       category TEXT NOT NULL,
       content TEXT NOT NULL,
       website_url TEXT,
+      song_link TEXT,
+      show_link INTEGER DEFAULT 1,
       fingerprint_hash TEXT NOT NULL,
       status TEXT DEFAULT 'pending',
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
