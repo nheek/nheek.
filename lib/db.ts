@@ -20,12 +20,12 @@ export function initDb() {
     CREATE TABLE IF NOT EXISTS albums (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
-      codename TEXT NOT NULL UNIQUE,
-      cover_image TEXT,
+      artist TEXT NOT NULL,
       release_date TEXT NOT NULL,
+      cover_image_url TEXT,
       spotify_link TEXT,
       apple_music_link TEXT,
-      featured BOOLEAN DEFAULT 0,
+      custom_links TEXT DEFAULT '[]',
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT DEFAULT CURRENT_TIMESTAMP
     )
@@ -37,12 +37,12 @@ export function initDb() {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       album_id INTEGER NOT NULL,
       title TEXT NOT NULL,
-      codename TEXT NOT NULL,
       duration TEXT NOT NULL,
+      track_number INTEGER NOT NULL,
       spotify_link TEXT,
       apple_music_link TEXT,
+      custom_links TEXT DEFAULT '[]',
       lyrics TEXT,
-      track_order INTEGER NOT NULL,
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
       FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
@@ -65,13 +65,11 @@ export function initDb() {
     CREATE TABLE IF NOT EXISTS projects (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
-      codename TEXT NOT NULL UNIQUE,
       description TEXT,
       category_id INTEGER,
       image_url TEXT,
-      github_link TEXT,
-      live_link TEXT,
-      featured BOOLEAN DEFAULT 0,
+      custom_links TEXT DEFAULT '[]',
+      date_added TEXT NOT NULL,
       display_order INTEGER,
       created_at TEXT DEFAULT CURRENT_TIMESTAMP,
       updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -94,9 +92,6 @@ export function initDb() {
   // Create indexes
   db.exec(`
     CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
-    CREATE INDEX IF NOT EXISTS idx_albums_codename ON albums(codename);
-    CREATE INDEX IF NOT EXISTS idx_songs_codename ON songs(codename);
-    CREATE INDEX IF NOT EXISTS idx_projects_codename ON projects(codename);
     CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
   `);
 

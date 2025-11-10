@@ -1,15 +1,93 @@
-const { initDb, getDb } = require('../lib/db');
+const Database = require('better-sqlite3');
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 
 async function migrate() {
-  console.log('🔧 Initializing database schema...');
+  console.log('🔧 Initializing database...');
   
   try {
-    // Initialize database (creates tables)
-    initDb();
-    const db = getDb();
+    // Initialize database
+    const dbPath = path.join(process.cwd(), 'data', 'nheek.db');
+    const db = new Database(dbPath);
+    db.pragma('journal_mode = WAL');
+    
+    console.log('📋 Creating database schema...');
+    
+    // Create tables
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS albums (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        artist TEXT NOT NULL,
+        release_date TEXT NOT NULL,
+        cover_image_url TEXT,
+        spotify_link TEXT,
+        apple_music_link TEXT,
+        custom_links TEXT DEFAULT '[]',
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS songs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        album_id INTEGER NOT NULL,
+        title TEXT NOT NULL,
+        duration TEXT NOT NULL,
+        track_number INTEGER NOT NULL,
+        spotify_link TEXT,
+        apple_music_link TEXT,
+        custom_links TEXT DEFAULT '[]',
+        lyrics TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
+      )
+    `);
+    
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS project_categories (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL UNIQUE,
+        slug TEXT NOT NULL UNIQUE,
+        description TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS projects (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        description TEXT,
+        category_id INTEGER,
+        image_url TEXT,
+        custom_links TEXT DEFAULT '[]',
+        date_added TEXT NOT NULL,
+        display_order INTEGER,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (category_id) REFERENCES project_categories(id) ON DELETE SET NULL
+      )
+    `);
+    
+    db.exec(`
+      CREATE TABLE IF NOT EXISTS admin_users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        email TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        last_login TEXT
+      )
+    `);
+    
+    db.exec(`
+      CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
+      CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
+    `);
     
     console.log('📚 Migrating albums and songs...');
     
