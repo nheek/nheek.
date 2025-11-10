@@ -39,7 +39,7 @@ async function migrate() {
         title TEXT NOT NULL,
         codename TEXT NOT NULL,
         duration TEXT NOT NULL,
-        track_number INTEGER NOT NULL,
+        track_order INTEGER NOT NULL DEFAULT 1,
         spotify_link TEXT,
         apple_music_link TEXT,
         custom_links TEXT DEFAULT '[]',
@@ -96,7 +96,74 @@ async function migrate() {
       CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
     `);
     
-    console.log('📚 Migrating albums and songs...');
+    console.log('� Checking and updating schema...');
+    
+    // Check if albums table has codename column, if not add it
+    try {
+      const albumColumns = db.pragma('table_info(albums)');
+      const hasCodename = albumColumns.some(col => col.name === 'codename');
+      
+      if (!hasCodename) {
+        console.log('  Adding codename column to albums table...');
+        db.exec('ALTER TABLE albums ADD COLUMN codename TEXT');
+        
+        // Update existing albums with codenames from titles
+        const albums = db.prepare('SELECT id, title FROM albums').all();
+        const updateStmt = db.prepare('UPDATE albums SET codename = ? WHERE id = ?');
+        
+        for (const album of albums) {
+          const codename = album.title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-|-$/g, '');
+          updateStmt.run(codename, album.id);
+        }
+        
+        console.log('  ✓ Codename column added and populated');
+      }
+    } catch (err) {
+      console.error('  Warning: Could not update albums schema:', err.message);
+    }
+    
+    // Check if songs table has track_order column (was track_number)
+    try {
+      const songColumns = db.pragma('table_info(songs)');
+      const hasTrackOrder = songColumns.some(col => col.name === 'track_order');
+      const hasTrackNumber = songColumns.some(col => col.name === 'track_number');
+      
+      if (hasTrackNumber && !hasTrackOrder) {
+        console.log('  Renaming track_number to track_order in songs table...');
+        // SQLite doesn't support RENAME COLUMN directly in older versions
+        // We need to create a new table and copy data
+        db.exec(`
+          CREATE TABLE songs_new (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            album_id INTEGER NOT NULL,
+            title TEXT NOT NULL,
+            codename TEXT NOT NULL,
+            duration TEXT NOT NULL,
+            track_order INTEGER NOT NULL,
+            spotify_link TEXT,
+            apple_music_link TEXT,
+            custom_links TEXT DEFAULT '[]',
+            lyrics TEXT,
+            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
+          );
+          
+          INSERT INTO songs_new SELECT * FROM songs;
+          DROP TABLE songs;
+          ALTER TABLE songs_new RENAME TO songs;
+          CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
+        `);
+        console.log('  ✓ Track column updated');
+      }
+    } catch (err) {
+      console.error('  Warning: Could not update songs schema:', err.message);
+    }
+    
+    console.log('�📚 Migrating albums and songs...');
     
     // Read albums.json
     const albumsPath = path.join(process.cwd(), 'public', 'featured-music', 'albums.json');
@@ -114,7 +181,7 @@ async function migrate() {
     `);
     
     const insertSong = db.prepare(`
-      INSERT OR REPLACE INTO songs (id, album_id, title, codename, duration, track_number, lyrics, spotify_link, apple_music_link, custom_links)
+      INSERT OR REPLACE INTO songs (id, album_id, title, codename, duration, track_order, lyrics, spotify_link, apple_music_link, custom_links)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
     
