@@ -20,6 +20,8 @@ jobs:
       - name: Build and Push Docker Images
         run: |
           echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | docker login ghcr.io -u ${{ secrets.REG_USERNAME }} --password-stdin
+          echo "SESSION_SECRET=${{ secrets.SESSION_SECRET }}" >> .env
+          echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" >> .env
           docker compose build
           docker compose push
 
