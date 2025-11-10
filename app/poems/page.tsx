@@ -3,9 +3,9 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
 import Link from "next/link";
-import isOdd from "../../components/utils/isOdd";
 import fs from "fs";
 import path from "path";
+import FooterHero from "@/components/FooterHero";
 
 export const metadata: Metadata = {
   title: "poems",
@@ -47,17 +47,50 @@ async function getPoems() {
 
 function Main({ poems }: { poems: { title: string; slug: string }[] }) {
   return (
-    <main className="w-full md:w-[80%] mx-auto flex justify-center text-2xl">
-      <ul className="flex flex-col md:flex-row flex-wrap justify-center gap-6">
+    <main className="w-full md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-12 md:mt-20 mb-20">
+      {/* Book-style header */}
+      <div className="mb-12 pb-8 border-b-2 border-slate-700/30">
+        <h2 className="text-3xl md:text-4xl font-serif text-center text-slate-300 mb-2">
+          contents
+        </h2>
+        <div className="flex justify-center gap-2 text-slate-600">
+          <span className="text-sm">◆</span>
+          <span className="text-sm">◆</span>
+          <span className="text-sm">◆</span>
+        </div>
+      </div>
+
+      {/* Table of contents style list */}
+      <div className="space-y-1">
         {poems.map((poem, index) => (
-          <li
+          <Link
             key={poem.slug}
-            className={`${isOdd(index) ? "border-r-4 text-right" : "border-l-4"} md:w-[45%] border-gray-300 border-opacity-50 px-4 py-2 !no-underline`}
+            href={`/poems/${poem.slug}`}
+            className="group flex items-baseline justify-between py-3 px-2 hover:bg-slate-900/20 transition-colors duration-200 no-underline"
           >
-            <Link href={`/poems/${poem.slug}`}>{poem.title}</Link>
-          </li>
+            <div className="flex items-baseline gap-4">
+              <span className="text-sm font-mono text-slate-600 group-hover:text-amber-500 transition-colors duration-200 min-w-[2rem]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="text-lg md:text-xl font-serif text-slate-300 group-hover:text-amber-400 transition-colors duration-200">
+                {poem.title.toLowerCase()}
+              </h3>
+            </div>
+            
+            <div className="flex items-center gap-3 ml-4 shrink-0">
+              <div className="hidden md:block border-b border-dotted border-slate-700/50 flex-1 min-w-[3rem] group-hover:border-amber-500/30 transition-colors duration-200" />
+              <span className="text-sm font-mono text-slate-600 group-hover:text-amber-500 transition-colors duration-200">
+                →
+              </span>
+            </div>
+          </Link>
         ))}
-      </ul>
+      </div>
+
+      {/* Book-style footer */}
+      <div className="mt-12 pt-8 border-t-2 border-slate-700/30 text-center">
+        <p className="text-sm text-slate-600 italic">{poems.length} poems</p>
+      </div>
     </main>
   );
 }
@@ -67,9 +100,10 @@ export default async function PoemsPage() {
 
   return (
     <div className="w-full min-h-screen mx-auto px-4 bg-[rgba(24,20,16,1)]">
-      <Header customHeaderText={"poems"} />
-      <Navigate underPage={true} />
+      <Header compact />
       <Main poems={poems} />
+      <FooterHero />
+      <Navigate />
       <Footer />
     </div>
   );
