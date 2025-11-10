@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Navigate from "../../components/Navigate";
 import Footer from "../../components/Footer";
 import Links from "../../components/links/links";
+import FooterHero from "@/components/FooterHero";
 
 export const metadata: Metadata = {
   title: "links",
@@ -31,9 +32,10 @@ export const metadata: Metadata = {
 export default function LinksPage() {
   return (
     <div className="w-full px-4 bg-[rgba(24,20,16,1)] min-h-screen">
-      <Header customHeaderText={"links"} />
-      <Navigate underPage={true} />
+      <Header compact />
       <Links />
+      <FooterHero />
+      <Navigate />
       <Footer />
     </div>
   );

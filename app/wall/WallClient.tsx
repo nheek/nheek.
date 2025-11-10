@@ -193,12 +193,12 @@ export default function WallClient({
     <>
       {/* Header */}
       <div className="text-center mb-12">
-        <h1 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
+        {/* <h1 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
           the wall
         </h1>
         <p className="text-lg md:text-xl text-gray-400 mb-8">
           visitors from around the world left their mark
-        </p>
+        </p> */}
         <Link
           href="/contribute"
           className="inline-block bg-emerald-700 hover:bg-emerald-600 text-white font-semibold rounded-full px-8 py-3 transition-all duration-300 hover:scale-105 !no-underline"
