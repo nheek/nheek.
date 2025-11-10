@@ -7,6 +7,12 @@ import Footer from "../../../../components/Footer";
 import FooterHero from "../../../../components/FooterHero";
 import Navigate from "../../../../components/Navigate";
 
+interface CustomLink {
+  name: string;
+  url: string;
+  color?: string;
+}
+
 interface Song {
   id: number;
   codename: string;
@@ -18,6 +24,7 @@ interface Song {
     appleMusic?: string;
     youtube?: string;
   };
+  customLinks?: CustomLink[];
 }
 
 interface Album {
@@ -32,6 +39,7 @@ interface Album {
     appleMusic?: string;
     youtube?: string;
   };
+  customLinks?: CustomLink[];
 }
 
 interface AlbumsData {
@@ -74,11 +82,13 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
               spotify: song.spotify_link,
               appleMusic: song.apple_music_link,
             },
+            customLinks: song.custom_links ? JSON.parse(song.custom_links) : [],
           })),
           streamingLinks: {
             spotify: album.spotify_link,
             appleMusic: album.apple_music_link,
           },
+          customLinks: album.custom_links ? JSON.parse(album.custom_links) : [],
         }));
 
         const foundAlbum = transformedAlbums.find(
@@ -208,8 +218,26 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
               </h1>
               <p className="text-white/70 mb-4">Duration: {song.duration}</p>
 
-              {/* Streaming Links */}
-              {song.streamingLinks && (
+              {/* Custom Links (Song) */}
+              {song.customLinks && song.customLinks.length > 0 && (
+                <div className="flex flex-wrap gap-3 mb-4">
+                  {song.customLinks.map((link: CustomLink, index: number) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:scale-105"
+                      style={{ backgroundColor: link.color || "#6B7280" }}
+                    >
+                      {link.name}
+                    </a>
+                  ))}
+                </div>
+              )}
+
+              {/* Streaming Links (Deprecated - fallback for old format) */}
+              {song.streamingLinks && !song.customLinks?.length && (
                 <div className="flex gap-4 mb-4">
                   {song.streamingLinks.spotify && (
                     <a
@@ -244,8 +272,28 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
                 </div>
               )}
 
-              {/* Album Streaming Links if no song-specific links */}
-              {!song.streamingLinks && album.streamingLinks && (
+              {/* Album Custom Links if no song-specific custom links */}
+              {!song.customLinks?.length &&
+                album.customLinks &&
+                album.customLinks.length > 0 && (
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    {album.customLinks.map((link: CustomLink, index: number) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:scale-105"
+                      style={{ backgroundColor: link.color || "#6B7280" }}
+                    >
+                      {link.name} (Album)
+                    </a>
+                  ))}
+                </div>
+              )}
+
+              {/* Album Streaming Links if no song-specific links (Deprecated - fallback) */}
+              {!song.streamingLinks && !song.customLinks?.length && !album.customLinks?.length && album.streamingLinks && (
                 <div className="flex gap-4 mb-4">
                   {album.streamingLinks.spotify && (
                     <a
