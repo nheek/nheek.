@@ -125,16 +125,13 @@ async function migrate() {
       console.error('  Warning: Could not update albums schema:', err.message);
     }
     
-    // Check if songs table has track_order column (was track_number)
+    // Check and add missing columns to songs table
     try {
       const songColumns = db.pragma('table_info(songs)');
-      const hasTrackOrder = songColumns.some(col => col.name === 'track_order');
-      const hasTrackNumber = songColumns.some(col => col.name === 'track_number');
+      const columnNames = songColumns.map(col => col.name);
       
-      if (hasTrackNumber && !hasTrackOrder) {
-        console.log('  Renaming track_number to track_order in songs table...');
-        // SQLite doesn't support RENAME COLUMN directly in older versions
-        // We need to create a new table and copy data
+      if (!columnNames.includes('track_order') && columnNames.includes('track_number')) {
+        console.log('  Migrating track_number to track_order in songs table...');
         db.exec(`
           CREATE TABLE songs_new (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -142,7 +139,7 @@ async function migrate() {
             title TEXT NOT NULL,
             codename TEXT NOT NULL,
             duration TEXT NOT NULL,
-            track_order INTEGER NOT NULL,
+            track_order INTEGER NOT NULL DEFAULT 1,
             spotify_link TEXT,
             apple_music_link TEXT,
             custom_links TEXT DEFAULT '[]',
@@ -152,15 +149,56 @@ async function migrate() {
             FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
           );
           
-          INSERT INTO songs_new SELECT * FROM songs;
+          INSERT INTO songs_new (id, album_id, title, codename, duration, track_order, spotify_link, apple_music_link, custom_links, lyrics, created_at, updated_at)
+          SELECT id, album_id, title, codename, duration, track_number, spotify_link, apple_music_link, custom_links, lyrics, created_at, updated_at FROM songs;
+          
           DROP TABLE songs;
           ALTER TABLE songs_new RENAME TO songs;
           CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
         `);
-        console.log('  ✓ Track column updated');
+        console.log('  ✓ Track column migrated');
+      } else if (!columnNames.includes('track_order')) {
+        console.log('  Adding track_order column to songs table...');
+        db.exec('ALTER TABLE songs ADD COLUMN track_order INTEGER NOT NULL DEFAULT 1');
+        console.log('  ✓ Track_order column added');
+      }
+      
+      if (!columnNames.includes('custom_links')) {
+        console.log('  Adding custom_links column to songs table...');
+        db.exec('ALTER TABLE songs ADD COLUMN custom_links TEXT DEFAULT \'[]\'');
+        console.log('  ✓ Custom_links column added');
+      }
+      
+      if (!columnNames.includes('codename')) {
+        console.log('  Adding codename column to songs table...');
+        db.exec('ALTER TABLE songs ADD COLUMN codename TEXT');
+        
+        // Update existing songs with codenames from titles
+        const songs = db.prepare('SELECT id, title FROM songs').all();
+        const updateStmt = db.prepare('UPDATE songs SET codename = ? WHERE id = ?');
+        
+        for (const song of songs) {
+          const codename = song.title
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-|-$/g, '');
+          updateStmt.run(codename, song.id);
+        }
+        
+        console.log('  ✓ Codename column added');
       }
     } catch (err) {
       console.error('  Warning: Could not update songs schema:', err.message);
+    }
+    
+    console.log('✅ Schema check completed!');
+    
+    // Check if we should skip data migration
+    if (process.env.SKIP_DATA_MIGRATION === 'true') {
+      console.log('⏭️  Skipping data migration (SKIP_DATA_MIGRATION=true)');
+      console.log('� You can now manually edit the database');
+      db.close();
+      return;
     }
     
     console.log('�📚 Migrating albums and songs...');
