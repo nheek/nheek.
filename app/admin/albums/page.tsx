@@ -350,7 +350,10 @@ export default function AlbumsManagement() {
                   type="text"
                   value={formData.cover_image_url}
                   onChange={(e) =>
-                    setFormData({ ...formData, cover_image_url: e.target.value })
+                    setFormData({
+                      ...formData,
+                      cover_image_url: e.target.value,
+                    })
                   }
                   className="mt-1 block w-full rounded-md border px-3 py-2 dark:bg-gray-700 dark:text-white"
                 />

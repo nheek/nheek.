@@ -24,7 +24,9 @@ export async function GET() {
           created: stats.mtime.toISOString(),
         };
       })
-      .sort((a, b) => new Date(b.created).getTime() - new Date(a.created).getTime());
+      .sort(
+        (a, b) => new Date(b.created).getTime() - new Date(a.created).getTime(),
+      );
 
     return NextResponse.json({ backups });
   } catch (error: unknown) {

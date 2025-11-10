@@ -75,9 +75,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
               spotify: song.spotify_link,
               appleMusic: song.apple_music_link,
             },
-            customLinks: song.custom_links
-              ? JSON.parse(song.custom_links)
-              : [],
+            customLinks: song.custom_links ? JSON.parse(song.custom_links) : [],
           })),
           links: {
             spotify: album.spotify_link,
@@ -180,18 +178,20 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
                 {/* Custom Links */}
                 {album.customLinks && album.customLinks.length > 0 && (
                   <div className="flex gap-3 flex-wrap mb-4">
-                    {album.customLinks.map((link: CustomLink, index: number) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:scale-105"
-                        style={{ backgroundColor: link.color || "#6B7280" }}
-                      >
-                        {link.name}
-                      </a>
-                    ))}
+                    {album.customLinks.map(
+                      (link: CustomLink, index: number) => (
+                        <a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:scale-105"
+                          style={{ backgroundColor: link.color || "#6B7280" }}
+                        >
+                          {link.name}
+                        </a>
+                      ),
+                    )}
                   </div>
                 )}
 

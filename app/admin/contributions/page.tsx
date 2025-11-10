@@ -27,8 +27,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 const CATEGORY_COLORS: Record<string, string> = {
   graffiti: "bg-pink-100 text-pink-800 dark:bg-pink-900/30 dark:text-pink-300",
-  guestbook:
-    "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
+  guestbook: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300",
   song: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300",
   star: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300",
   fortune:
@@ -205,7 +204,8 @@ export default function ContributionsAdmin() {
                 : "bg-white text-gray-700 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
             }`}
           >
-            Approved ({contributions.filter((c) => c.status === "approved").length})
+            Approved (
+            {contributions.filter((c) => c.status === "approved").length})
           </button>
         </div>
 
@@ -272,7 +272,8 @@ export default function ContributionsAdmin() {
                           🔗 {contribution.website_url}
                         </a>
                         <span className="text-xs text-gray-500 dark:text-gray-400">
-                          (Link {contribution.show_link ? "visible" : "hidden"} on wall)
+                          (Link {contribution.show_link ? "visible" : "hidden"}{" "}
+                          on wall)
                         </span>
                       </div>
                     )}

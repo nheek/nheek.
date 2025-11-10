@@ -148,9 +148,7 @@ export default function AdminDashboard() {
   };
 
   const handleDeleteBackup = async (filename: string) => {
-    if (
-      !confirm(`Are you sure you want to delete the backup "${filename}"?`)
-    ) {
+    if (!confirm(`Are you sure you want to delete the backup "${filename}"?`)) {
       return;
     }
 
@@ -185,7 +183,7 @@ export default function AdminDashboard() {
     const k = 1024;
     const sizes = ["Bytes", "KB", "MB", "GB"];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + " " + sizes[i];
+    return Math.round((bytes / Math.pow(k, i)) * 100) / 100 + " " + sizes[i];
   };
 
   const formatDate = (dateStr: string) => {
@@ -453,7 +451,7 @@ export default function AdminDashboard() {
           <h2 className="text-lg font-semibold text-purple-900 dark:text-purple-100">
             ⚙️ Settings
           </h2>
-          
+
           {/* Change Password */}
           <div className="mt-4 flex items-center justify-between border-b border-purple-200 pb-4 dark:border-purple-700">
             <div>

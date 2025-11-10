@@ -15,18 +15,18 @@ function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    
+
     // Set canvas size
     canvas.width = 600;
     canvas.height = 400;
-    
+
     // White background
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     // Save initial state
     saveCanvas();
   }, []);
@@ -34,14 +34,14 @@ function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
   const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    
+
     ctx.beginPath();
     ctx.moveTo(x, y);
     setIsDrawing(true);
@@ -49,17 +49,17 @@ function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
 
   const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
     if (!isDrawing) return;
-    
+
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    
+
     ctx.lineTo(x, y);
     ctx.strokeStyle = color;
     ctx.lineWidth = lineWidth;
@@ -76,7 +76,7 @@ function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
   const saveCanvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const dataUrl = canvas.toDataURL("image/png");
     onSave(dataUrl);
   };
@@ -84,16 +84,24 @@ function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
   const clearCanvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    
+
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     saveCanvas();
   };
 
-  const colors = ["#10b981", "#ef4444", "#3b82f6", "#f59e0b", "#8b5cf6", "#ec4899", "#000000"];
+  const colors = [
+    "#10b981",
+    "#ef4444",
+    "#3b82f6",
+    "#f59e0b",
+    "#8b5cf6",
+    "#ec4899",
+    "#000000",
+  ];
 
   return (
     <div className="space-y-4">
@@ -150,13 +158,36 @@ function GraffitiCanvas({ onSave }: { onSave: (data: string) => void }) {
 // Emoji Canvas Component
 function EmojiCanvas({ onSave }: { onSave: (data: string) => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [emojis, setEmojis] = useState<Array<{ emoji: string; x: number; y: number }>>([]);
+  const [emojis, setEmojis] = useState<
+    Array<{ emoji: string; x: number; y: number }>
+  >([]);
   const [selectedEmoji, setSelectedEmoji] = useState("😊");
 
   const emojiPalette = [
-    "😊", "😂", "❤️", "🔥", "✨", "🎉", "👍", "🎵",
-    "🌟", "💫", "🌈", "🦋", "🌸", "🍀", "⭐", "💖",
-    "😎", "🤔", "😍", "🥳", "😇", "🤗", "😋", "🎨"
+    "😊",
+    "😂",
+    "❤️",
+    "🔥",
+    "✨",
+    "🎉",
+    "👍",
+    "🎵",
+    "🌟",
+    "💫",
+    "🌈",
+    "🦋",
+    "🌸",
+    "🍀",
+    "⭐",
+    "💖",
+    "😎",
+    "🤔",
+    "😍",
+    "🥳",
+    "😇",
+    "🤗",
+    "😋",
+    "🎨",
   ];
 
   useEffect(() => {
@@ -166,26 +197,26 @@ function EmojiCanvas({ onSave }: { onSave: (data: string) => void }) {
   const renderCanvas = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     canvas.width = 600;
     canvas.height = 400;
-    
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    
+
     // White background
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     // Draw all emojis
     ctx.font = "48px Arial";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    
+
     emojis.forEach(({ emoji, x, y }) => {
       ctx.fillText(emoji, x, y);
     });
-    
+
     // Save to parent
     const dataUrl = canvas.toDataURL("image/png");
     onSave(dataUrl);
@@ -194,11 +225,11 @@ function EmojiCanvas({ onSave }: { onSave: (data: string) => void }) {
   const addEmoji = (e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
+
     const rect = canvas.getBoundingClientRect();
     const x = (e.clientX - rect.left) * (canvas.width / rect.width);
     const y = (e.clientY - rect.top) * (canvas.height / rect.height);
-    
+
     setEmojis([...emojis, { emoji: selectedEmoji, x, y }]);
   };
 
@@ -209,7 +240,9 @@ function EmojiCanvas({ onSave }: { onSave: (data: string) => void }) {
   return (
     <div className="space-y-4">
       <div className="space-y-3">
-        <label className="block text-sm text-gray-300">Select emoji to place:</label>
+        <label className="block text-sm text-gray-300">
+          Select emoji to place:
+        </label>
         <div className="flex flex-wrap gap-2">
           {emojiPalette.map((emoji) => (
             <button
@@ -385,7 +418,7 @@ export default function ContributePage() {
   return (
     <div className="min-h-screen bg-[#0a1410] text-white">
       <Header compact={true} customHeaderText="nheek" />
-      
+
       <div className="mx-auto max-w-4xl px-4 py-8">
         <div className="mb-12 text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-4">
@@ -482,7 +515,7 @@ export default function ContributePage() {
                   your {currentCategory?.name.split(" ")[1].toLowerCase()}{" "}
                   <span className="text-red-400">*</span>
                 </label>
-                
+
                 {currentCategory?.isCanvas ? (
                   selectedCategory === "graffiti" ? (
                     <GraffitiCanvas onSave={(data) => setContent(data)} />

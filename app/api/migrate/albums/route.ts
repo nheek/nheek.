@@ -67,17 +67,26 @@ export async function POST() {
         const result = insertAlbum.run(
           album.title || "Untitled",
           album.codename ||
-            (album.title || "untitled").toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
+            (album.title || "untitled")
+              .toLowerCase()
+              .replace(/\s+/g, "-")
+              .replace(/[^a-z0-9-]/g, ""),
           album.artist || "Unknown Artist",
           album.releaseDate || album.release_date || "2000-01-01",
           album.coverImage || album.cover_image_url || null,
-          album.links?.spotify || album.spotifyLink || album.spotify_link || null,
-          album.links?.appleMusic || album.appleMusicLink || album.apple_music_link || null,
+          album.links?.spotify ||
+            album.spotifyLink ||
+            album.spotify_link ||
+            null,
+          album.links?.appleMusic ||
+            album.appleMusicLink ||
+            album.apple_music_link ||
+            null,
           "[]",
           album.featured ? 1 : 0,
         );
         albumsCount++;
-        
+
         const albumId = result.lastInsertRowid;
 
         if (album.songs && Array.isArray(album.songs)) {
@@ -86,11 +95,20 @@ export async function POST() {
               albumId,
               song.title,
               song.codename ||
-                song.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
+                song.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace(/[^a-z0-9-]/g, ""),
               song.duration,
               song.trackNumber || song.track_number || index + 1,
-              song.links?.spotify || song.spotifyLink || song.spotify_link || null,
-              song.links?.appleMusic || song.appleMusicLink || song.apple_music_link || null,
+              song.links?.spotify ||
+                song.spotifyLink ||
+                song.spotify_link ||
+                null,
+              song.links?.appleMusic ||
+                song.appleMusicLink ||
+                song.apple_music_link ||
+                null,
               "[]",
               song.lyrics || null,
             );

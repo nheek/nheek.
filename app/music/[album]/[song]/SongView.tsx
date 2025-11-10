@@ -277,56 +277,61 @@ export default function SongView({ albumSlug, songSlug }: SongViewProps) {
                 album.customLinks &&
                 album.customLinks.length > 0 && (
                   <div className="flex flex-wrap gap-3 mb-4">
-                    {album.customLinks.map((link: CustomLink, index: number) => (
-                    <a
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:scale-105"
-                      style={{ backgroundColor: link.color || "#6B7280" }}
-                    >
-                      {link.name} (Album)
-                    </a>
-                  ))}
-                </div>
-              )}
+                    {album.customLinks.map(
+                      (link: CustomLink, index: number) => (
+                        <a
+                          key={index}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white transition-all hover:scale-105"
+                          style={{ backgroundColor: link.color || "#6B7280" }}
+                        >
+                          {link.name} (Album)
+                        </a>
+                      ),
+                    )}
+                  </div>
+                )}
 
               {/* Album Streaming Links if no song-specific links (Deprecated - fallback) */}
-              {!song.streamingLinks && !song.customLinks?.length && !album.customLinks?.length && album.streamingLinks && (
-                <div className="flex gap-4 mb-4">
-                  {album.streamingLinks.spotify && (
-                    <a
-                      href={album.streamingLinks.spotify}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/70 hover:text-white transition-colors"
-                    >
-                      <span className="text-sm">Spotify (Album)</span>
-                    </a>
-                  )}
-                  {album.streamingLinks.appleMusic && (
-                    <a
-                      href={album.streamingLinks.appleMusic}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/70 hover:text-white transition-colors"
-                    >
-                      <span className="text-sm">Apple Music (Album)</span>
-                    </a>
-                  )}
-                  {album.streamingLinks.youtube && (
-                    <a
-                      href={album.streamingLinks.youtube}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white/70 hover:text-white transition-colors"
-                    >
-                      <span className="text-sm">YouTube (Album)</span>
-                    </a>
-                  )}
-                </div>
-              )}
+              {!song.streamingLinks &&
+                !song.customLinks?.length &&
+                !album.customLinks?.length &&
+                album.streamingLinks && (
+                  <div className="flex gap-4 mb-4">
+                    {album.streamingLinks.spotify && (
+                      <a
+                        href={album.streamingLinks.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/70 hover:text-white transition-colors"
+                      >
+                        <span className="text-sm">Spotify (Album)</span>
+                      </a>
+                    )}
+                    {album.streamingLinks.appleMusic && (
+                      <a
+                        href={album.streamingLinks.appleMusic}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/70 hover:text-white transition-colors"
+                      >
+                        <span className="text-sm">Apple Music (Album)</span>
+                      </a>
+                    )}
+                    {album.streamingLinks.youtube && (
+                      <a
+                        href={album.streamingLinks.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/70 hover:text-white transition-colors"
+                      >
+                        <span className="text-sm">YouTube (Album)</span>
+                      </a>
+                    )}
+                  </div>
+                )}
             </div>
           </div>
 

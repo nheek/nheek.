@@ -119,12 +119,20 @@ export async function POST() {
     const migrateAllProjects = db.transaction(() => {
       // Create categories first
       for (const [, category] of Object.entries(categoryMapping)) {
-        const result = insertCategory.run(category.name, category.slug, category.description);
+        const result = insertCategory.run(
+          category.name,
+          category.slug,
+          category.description,
+        );
         if (result.changes > 0) {
           categoriesCount++;
         } else {
           // Update existing category
-          updateCategory.run(category.name, category.description, category.slug);
+          updateCategory.run(
+            category.name,
+            category.description,
+            category.slug,
+          );
         }
       }
 

@@ -17,12 +17,7 @@ export async function POST(request: NextRequest) {
     }
 
     const dbPath = path.join(process.cwd(), "data", "nheek.db");
-    const backupPath = path.join(
-      process.cwd(),
-      "data",
-      "backups",
-      filename,
-    );
+    const backupPath = path.join(process.cwd(), "data", "backups", filename);
 
     if (!fs.existsSync(backupPath)) {
       return NextResponse.json(

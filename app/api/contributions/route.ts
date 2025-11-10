@@ -2,13 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import crypto from "crypto";
 
-const VALID_CATEGORIES = [
-  "graffiti",
-  "guestbook",
-  "song",
-  "emoji",
-  "fortune",
-];
+const VALID_CATEGORIES = ["graffiti", "guestbook", "song", "emoji", "fortune"];
 
 // GET - Fetch approved contributions (public)
 export async function GET(request: NextRequest) {
@@ -72,13 +66,10 @@ export async function POST(request: NextRequest) {
     }
 
     if (!VALID_CATEGORIES.includes(category)) {
-      return NextResponse.json(
-        { error: "Invalid category" },
-        { status: 400 },
-      );
+      return NextResponse.json({ error: "Invalid category" }, { status: 400 });
     }
 
-        // Validate content length based on category
+    // Validate content length based on category
     const maxLengths: Record<string, number> = {
       graffiti: 10000000, // Canvas data ~10MB
       guestbook: 200, // Medium message
@@ -123,7 +114,7 @@ export async function POST(request: NextRequest) {
     // Insert contribution
     let stmt;
     let result;
-    
+
     if (category === "song" && song_link) {
       stmt = db.prepare(
         `INSERT INTO contributions (name, category, content, website_url, song_link, fingerprint_hash, status)
@@ -153,8 +144,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       {
-        message:
-          "Contribution submitted! It will appear after admin approval.",
+        message: "Contribution submitted! It will appear after admin approval.",
         id: result.lastInsertRowid,
       },
       { status: 201 },

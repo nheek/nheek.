@@ -11,7 +11,7 @@ export async function PATCH(
     const { id } = await params;
 
     const db = getDb();
-    
+
     // Get current show_link value
     const current = db
       .prepare("SELECT show_link FROM contributions WHERE id = ?")
@@ -26,7 +26,7 @@ export async function PATCH(
 
     // Toggle the value
     const newValue = current.show_link === 1 ? 0 : 1;
-    
+
     const stmt = db.prepare(
       `UPDATE contributions SET show_link = ? WHERE id = ?`,
     );

@@ -32,7 +32,13 @@ function EmojiDisplay({ content }: { content: string }) {
   );
 }
 
-function GuestbookDisplay({ content, name }: { content: string; name: string }) {
+function GuestbookDisplay({
+  content,
+  name,
+}: {
+  content: string;
+  name: string;
+}) {
   return (
     <div className="relative bg-gradient-to-br from-amber-100 to-orange-100 p-6 rounded-lg border-4 border-amber-900 shadow-2xl">
       <div className="absolute top-2 left-2 text-4xl opacity-20">📖</div>
@@ -40,16 +46,22 @@ function GuestbookDisplay({ content, name }: { content: string; name: string }) 
         <p className="text-gray-800 italic font-serif leading-relaxed mb-4">
           &ldquo;{content}&rdquo;
         </p>
-        <p className="text-right text-sm text-gray-700 font-bold">
-          — {name}
-        </p>
+        <p className="text-right text-sm text-gray-700 font-bold">— {name}</p>
       </div>
       <div className="absolute bottom-0 right-0 w-0 h-0 border-t-[20px] border-t-transparent border-r-[20px] border-r-amber-900 border-b-[20px] border-b-transparent opacity-50" />
     </div>
   );
 }
 
-function SongDisplay({ content, name, songLink }: { content: string; name: string; songLink?: string | null }) {
+function SongDisplay({
+  content,
+  name,
+  songLink,
+}: {
+  content: string;
+  name: string;
+  songLink?: string | null;
+}) {
   return (
     <div className="relative">
       {/* Vinyl Record */}
@@ -65,7 +77,7 @@ function SongDisplay({ content, name, songLink }: { content: string; name: strin
               }}
             />
           ))}
-          
+
           {/* Center Label */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45%] aspect-square rounded-full bg-gradient-to-br from-purple-900 via-purple-700 to-purple-900 border-4 border-purple-600 shadow-xl flex items-center justify-center p-4">
             <div className="text-center">
@@ -75,16 +87,16 @@ function SongDisplay({ content, name, songLink }: { content: string; name: strin
               </p>
             </div>
           </div>
-          
+
           {/* Center Hole */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[12%] aspect-square rounded-full bg-gray-950 shadow-inner" />
         </div>
       </div>
-      
+
       <p className="text-center text-sm text-gray-300 mt-4 font-semibold">
         recommended by {name}
       </p>
-      
+
       {songLink && (
         <div className="text-center mt-2">
           <a
@@ -130,9 +142,7 @@ function FortuneDisplay({ content, name }: { content: string; name: string }) {
           <p className="text-gray-800 text-center italic font-serif leading-relaxed mb-2">
             &ldquo;{content}&rdquo;
           </p>
-          <p className="text-center text-xs text-gray-600">
-            from {name}
-          </p>
+          <p className="text-center text-xs text-gray-600">from {name}</p>
         </div>
       )}
     </div>
@@ -164,7 +174,8 @@ const CATEGORY_STYLES: Record<string, string> = {
   guestbook:
     "bg-gradient-to-br from-amber-900/30 to-orange-900/30 border-amber-500/20 hover:border-amber-400/40",
   song: "bg-gradient-to-br from-purple-900/30 to-violet-900/30 border-purple-500/20 hover:border-purple-400/40",
-  emoji: "bg-gradient-to-br from-yellow-900/30 to-amber-900/30 border-yellow-500/20 hover:border-yellow-400/40",
+  emoji:
+    "bg-gradient-to-br from-yellow-900/30 to-amber-900/30 border-yellow-500/20 hover:border-yellow-400/40",
   fortune:
     "bg-gradient-to-br from-orange-900/30 to-red-900/30 border-orange-500/20 hover:border-orange-400/40",
 };
@@ -173,7 +184,8 @@ export default function WallPage() {
   const [contributions, setContributions] = useState<Contribution[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>("all");
-  const [selectedContribution, setSelectedContribution] = useState<Contribution | null>(null);
+  const [selectedContribution, setSelectedContribution] =
+    useState<Contribution | null>(null);
 
   useEffect(() => {
     fetchContributions();
@@ -207,7 +219,7 @@ export default function WallPage() {
   return (
     <div className="min-h-screen bg-[#0a1410] text-white">
       <Header compact={true} customHeaderText="nheek" />
-      
+
       <main>
         {/* Header */}
         <div className="w-[85%] mx-auto pt-8">
@@ -305,11 +317,21 @@ export default function WallPage() {
                     ) : contribution.category === "emoji" ? (
                       <EmojiDisplay content={contribution.content} />
                     ) : contribution.category === "guestbook" ? (
-                      <GuestbookDisplay content={contribution.content} name={contribution.name} />
+                      <GuestbookDisplay
+                        content={contribution.content}
+                        name={contribution.name}
+                      />
                     ) : contribution.category === "song" ? (
-                      <SongDisplay content={contribution.content} name={contribution.name} songLink={contribution.song_link} />
+                      <SongDisplay
+                        content={contribution.content}
+                        name={contribution.name}
+                        songLink={contribution.song_link}
+                      />
                     ) : contribution.category === "fortune" ? (
-                      <FortuneDisplay content={contribution.content} name={contribution.name} />
+                      <FortuneDisplay
+                        content={contribution.content}
+                        name={contribution.name}
+                      />
                     ) : (
                       <>
                         <h3 className="mb-3 text-xl font-bold text-white">
@@ -330,17 +352,18 @@ export default function WallPage() {
                         { month: "short", day: "numeric", year: "numeric" },
                       )}
                     </span>
-                    {contribution.website_url && contribution.show_link === 1 && (
-                      <a
-                        href={contribution.website_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-xs text-emerald-400 transition hover:text-emerald-300 hover:underline flex items-center gap-1"
-                      >
-                        🔗 visit
-                      </a>
-                    )}
+                    {contribution.website_url &&
+                      contribution.show_link === 1 && (
+                        <a
+                          href={contribution.website_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-xs text-emerald-400 transition hover:text-emerald-300 hover:underline flex items-center gap-1"
+                        >
+                          🔗 visit
+                        </a>
+                      )}
                   </div>
                 </motion.div>
               ))}
@@ -379,105 +402,104 @@ export default function WallPage() {
               className="relative max-w-5xl max-h-[90vh] w-full overflow-auto rounded-xl bg-[#0d1f1a] border-2 border-emerald-700 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedContribution(null)}
-              className="absolute top-4 right-4 z-10 rounded-full bg-red-600 hover:bg-red-500 text-white w-10 h-10 flex items-center justify-center text-xl font-bold transition"
-            >
-              ×
-            </button>
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedContribution(null)}
+                className="absolute top-4 right-4 z-10 rounded-full bg-red-600 hover:bg-red-500 text-white w-10 h-10 flex items-center justify-center text-xl font-bold transition"
+              >
+                ×
+              </button>
 
-            <div className="p-8">
-              {/* Category Badge */}
-              <div className="mb-6 flex items-center gap-3">
-                <span className="text-5xl">
-                  {CATEGORY_LABELS[selectedContribution.category].icon}
-                </span>
-                <div>
-                  <span className="rounded-full bg-emerald-700 px-4 py-1 text-sm font-semibold text-white">
-                    {CATEGORY_LABELS[selectedContribution.category].name}
+              <div className="p-8">
+                {/* Category Badge */}
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="text-5xl">
+                    {CATEGORY_LABELS[selectedContribution.category].icon}
                   </span>
-                  <h2 className="mt-2 text-2xl font-bold text-white">
-                    {selectedContribution.name}
-                  </h2>
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="mb-6">
-                {selectedContribution.category === "graffiti" ||
-                selectedContribution.category === "emoji" ? (
-                  <div className="flex justify-center">
-                    <img
-                      src={selectedContribution.content}
-                      alt={`${selectedContribution.category} by ${selectedContribution.name}`}
-                      className="max-w-full rounded-lg border-2 border-emerald-700"
-                    />
+                  <div>
+                    <span className="rounded-full bg-emerald-700 px-4 py-1 text-sm font-semibold text-white">
+                      {CATEGORY_LABELS[selectedContribution.category].name}
+                    </span>
+                    <h2 className="mt-2 text-2xl font-bold text-white">
+                      {selectedContribution.name}
+                    </h2>
                   </div>
-                ) : selectedContribution.category === "guestbook" ? (
-                  <GuestbookDisplay
-                    content={selectedContribution.content}
-                    name={selectedContribution.name}
-                  />
-                ) : selectedContribution.category === "song" ? (
-                  <SongDisplay
-                    content={selectedContribution.content}
-                    name={selectedContribution.name}
-                    songLink={selectedContribution.song_link}
-                  />
-                ) : selectedContribution.category === "fortune" ? (
-                  <FortuneDisplay
-                    content={selectedContribution.content}
-                    name={selectedContribution.name}
-                  />
-                ) : (
-                  <p className="text-xl text-gray-300 italic leading-relaxed">
-                    &ldquo;{selectedContribution.content}&rdquo;
-                  </p>
-                )}
-              </div>
+                </div>
 
-              {/* Footer Info */}
-              <div className="border-t border-emerald-900/50 pt-4 space-y-2">
-                <p className="text-sm text-gray-400">
-                  Submitted on{" "}
-                  {new Date(selectedContribution.created_at).toLocaleDateString(
-                    "en-US",
-                    {
+                {/* Content */}
+                <div className="mb-6">
+                  {selectedContribution.category === "graffiti" ||
+                  selectedContribution.category === "emoji" ? (
+                    <div className="flex justify-center">
+                      <img
+                        src={selectedContribution.content}
+                        alt={`${selectedContribution.category} by ${selectedContribution.name}`}
+                        className="max-w-full rounded-lg border-2 border-emerald-700"
+                      />
+                    </div>
+                  ) : selectedContribution.category === "guestbook" ? (
+                    <GuestbookDisplay
+                      content={selectedContribution.content}
+                      name={selectedContribution.name}
+                    />
+                  ) : selectedContribution.category === "song" ? (
+                    <SongDisplay
+                      content={selectedContribution.content}
+                      name={selectedContribution.name}
+                      songLink={selectedContribution.song_link}
+                    />
+                  ) : selectedContribution.category === "fortune" ? (
+                    <FortuneDisplay
+                      content={selectedContribution.content}
+                      name={selectedContribution.name}
+                    />
+                  ) : (
+                    <p className="text-xl text-gray-300 italic leading-relaxed">
+                      &ldquo;{selectedContribution.content}&rdquo;
+                    </p>
+                  )}
+                </div>
+
+                {/* Footer Info */}
+                <div className="border-t border-emerald-900/50 pt-4 space-y-2">
+                  <p className="text-sm text-gray-400">
+                    Submitted on{" "}
+                    {new Date(
+                      selectedContribution.created_at,
+                    ).toLocaleDateString("en-US", {
                       month: "long",
                       day: "numeric",
                       year: "numeric",
                       hour: "2-digit",
                       minute: "2-digit",
-                    },
-                  )}
-                </p>
-                {selectedContribution.website_url &&
-                  selectedContribution.show_link === 1 && (
+                    })}
+                  </p>
+                  {selectedContribution.website_url &&
+                    selectedContribution.show_link === 1 && (
+                      <a
+                        href={selectedContribution.website_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-sm text-emerald-400 hover:text-emerald-300 hover:underline"
+                      >
+                        🔗 Visit {selectedContribution.name}&apos;s website
+                      </a>
+                    )}
+                  {selectedContribution.song_link && (
                     <a
-                      href={selectedContribution.website_url}
+                      href={selectedContribution.song_link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block text-sm text-emerald-400 hover:text-emerald-300 hover:underline"
+                      className="block text-sm text-purple-400 hover:text-purple-300 hover:underline"
                     >
-                      🔗 Visit {selectedContribution.name}&apos;s website
+                      🎵 Listen to this song
                     </a>
                   )}
-                {selectedContribution.song_link && (
-                  <a
-                    href={selectedContribution.song_link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-sm text-purple-400 hover:text-purple-300 hover:underline"
-                  >
-                    🎵 Listen to this song
-                  </a>
-                )}
+                </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
       </AnimatePresence>
     </div>
   );

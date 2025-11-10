@@ -16,12 +16,7 @@ export async function DELETE(request: NextRequest) {
       );
     }
 
-    const backupPath = path.join(
-      process.cwd(),
-      "data",
-      "backups",
-      filename,
-    );
+    const backupPath = path.join(process.cwd(), "data", "backups", filename);
 
     if (!fs.existsSync(backupPath)) {
       return NextResponse.json(

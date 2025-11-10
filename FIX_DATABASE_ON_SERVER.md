@@ -1,12 +1,14 @@
 # Fix Database Schema Directly on Your Server
 
 ## Step 1: Connect to Your Server
+
 ```bash
 ssh user@your-server.com
 cd /path/to/your/nheek/project
 ```
 
 ## Step 2: Access the Running Docker Container
+
 ```bash
 # Find your container name
 docker ps
@@ -16,11 +18,13 @@ docker exec -it nheek-nheek-1 sh
 ```
 
 ## Step 3: Install SQLite (if not already installed)
+
 ```bash
 apk add sqlite
 ```
 
 ## Step 4: Open the Database
+
 ```bash
 sqlite3 /app/data/nheek.db
 ```
@@ -85,9 +89,9 @@ CREATE TABLE songs_new (
 );
 
 INSERT INTO songs_new (id, album_id, title, codename, duration, track_order, spotify_link, apple_music_link, custom_links, lyrics, created_at, updated_at)
-SELECT id, album_id, title, codename, duration, track_number, spotify_link, apple_music_link, 
-       COALESCE(custom_links, '[]'), lyrics, 
-       COALESCE(created_at, CURRENT_TIMESTAMP), 
+SELECT id, album_id, title, codename, duration, track_number, spotify_link, apple_music_link,
+       COALESCE(custom_links, '[]'), lyrics,
+       COALESCE(created_at, CURRENT_TIMESTAMP),
        COALESCE(updated_at, CURRENT_TIMESTAMP)
 FROM songs;
 
@@ -122,11 +126,13 @@ SELECT * FROM songs LIMIT 3;
 ```
 
 ## Step 6: Exit the Container
+
 ```bash
 exit
 ```
 
 ## Step 7: Restart Your Container
+
 ```bash
 docker-compose restart
 # or
@@ -134,6 +140,7 @@ docker restart nheek-nheek-1
 ```
 
 ## Step 8: Check Logs
+
 ```bash
 docker-compose logs -f
 # or
@@ -141,6 +148,7 @@ docker logs -f nheek-nheek-1
 ```
 
 You should see:
+
 - ✅ Starting Next.js server...
 - ✅ Ready in XXXms
 - ❌ NO "no such column" errors

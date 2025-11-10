@@ -1,11 +1,13 @@
 # Quick Fix Guide - Manual Database Editing
 
 ## Current Issue
+
 Your database has an old schema and the migration is failing. You want to edit the SQLite database manually.
 
 ## Option 1: Quick Fix - Update Schema Only (RECOMMENDED)
 
 ### Step 1: Stop and restart with schema-only migration
+
 ```bash
 # Stop the container
 docker-compose down
@@ -15,24 +17,28 @@ SKIP_DATA_MIGRATION=true docker-compose up
 ```
 
 Or add to your `docker-compose.yml`:
+
 ```yaml
 environment:
   - NODE_ENV=production
-  - SKIP_DATA_MIGRATION=true  # Add this line
+  - SKIP_DATA_MIGRATION=true # Add this line
 ```
 
 Then:
+
 ```bash
 docker-compose up --build
 ```
 
 This will:
+
 - ✅ Create all missing columns in your existing tables
 - ✅ Fix column names (track_number → track_order)
 - ✅ Keep all your existing data
 - ❌ NOT import data from JSON files (you keep manual control)
 
 ### Step 2: Access the database
+
 ```bash
 # Connect to the running container
 docker exec -it nheek-nheek-1 sh
@@ -45,6 +51,7 @@ sqlite3 /app/data/nheek.db
 ```
 
 ### Step 3: Verify schema is correct
+
 ```sql
 .headers on
 .mode column
@@ -56,13 +63,14 @@ PRAGMA table_info(albums);
 PRAGMA table_info(songs);
 
 -- Should have these columns:
--- albums: id, title, codename, artist, release_date, cover_image_url, 
+-- albums: id, title, codename, artist, release_date, cover_image_url,
 --         spotify_link, apple_music_link, custom_links, featured
 -- songs: id, album_id, title, codename, duration, track_order,
 --        spotify_link, apple_music_link, custom_links, lyrics
 ```
 
 ### Step 4: Exit and restart without skip flag
+
 ```sql
 .quit
 ```
@@ -95,6 +103,7 @@ This will create a fresh database with the correct schema and import data from J
 ## Option 3: Manual Database Access (No Container Changes)
 
 ### From your host machine (if volume is mounted):
+
 ```bash
 # Install sqlite3 if needed
 brew install sqlite  # macOS
@@ -106,6 +115,7 @@ sqlite3 ./data/nheek.db
 ```
 
 ### Run these SQL commands to fix schema:
+
 ```sql
 -- Enable better output
 .headers on
@@ -127,7 +137,7 @@ UPDATE albums SET codename = lower(
   )
 ) WHERE codename IS NULL OR codename = '';
 
--- Add missing columns to songs  
+-- Add missing columns to songs
 ALTER TABLE songs ADD COLUMN codename TEXT;
 ALTER TABLE songs ADD COLUMN custom_links TEXT DEFAULT '[]';
 
@@ -163,11 +173,11 @@ CREATE TABLE songs_new (
   FOREIGN KEY (album_id) REFERENCES albums(id) ON DELETE CASCADE
 );
 
-INSERT INTO songs_new 
-SELECT id, album_id, title, codename, duration, 
-       track_number as track_order, 
+INSERT INTO songs_new
+SELECT id, album_id, title, codename, duration,
+       track_number as track_order,
        spotify_link, apple_music_link, custom_links, lyrics,
-       created_at, updated_at 
+       created_at, updated_at
 FROM songs;
 
 DROP TABLE songs;
@@ -184,11 +194,13 @@ SELECT * FROM songs LIMIT 3;
 ## Verify It's Working
 
 After applying the fix, check your application logs:
+
 ```bash
 docker-compose logs -f
 ```
 
 You should see:
+
 - ✅ Schema check completed
 - ✅ Migration completed (if not skipped)
 - ✅ Starting Next.js server
@@ -197,6 +209,7 @@ You should see:
 ## Backup Before Making Changes
 
 Always backup first:
+
 ```bash
 # Backup the database
 cp ./data/nheek.db ./data/nheek-backup-$(date +%Y%m%d-%H%M%S).db
