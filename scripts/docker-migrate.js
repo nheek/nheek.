@@ -208,9 +208,23 @@ async function migrate() {
     // Check if we should skip data migration
     if (process.env.SKIP_DATA_MIGRATION === 'true') {
       console.log('⏭️  Skipping data migration (SKIP_DATA_MIGRATION=true)');
-      console.log('� You can now manually edit the database');
+      console.log('📝 You can now manually edit the database');
       db.close();
       return;
+    }
+    
+    // Skip data migration if database already has data
+    const existingAlbums = db.prepare('SELECT COUNT(*) as count FROM albums').get();
+    if (existingAlbums.count > 0) {
+      console.log('⏭️  Database already contains data. Skipping data migration.');
+      console.log('� To force re-import, delete the database file or set FORCE_MIGRATION=true');
+      
+      // Only force migration if explicitly requested
+      if (process.env.FORCE_MIGRATION !== 'true') {
+        db.close();
+        return;
+      }
+      console.log('⚠️  FORCE_MIGRATION=true - Re-importing data (this will overwrite existing data!)');
     }
     
     console.log('�📚 Migrating albums and songs...');
