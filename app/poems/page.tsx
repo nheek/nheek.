@@ -49,11 +49,11 @@ function Main({ poems }: { poems: { title: string; slug: string }[] }) {
   return (
     <main className="w-full md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-12 md:mt-20 mb-20">
       {/* Book-style header */}
-      <div className="mb-12 pb-8 border-b-2 border-slate-700/30">
-        <h2 className="text-3xl md:text-4xl font-serif text-center text-slate-300 mb-2">
+      <div className="mb-12 pb-8 border-b-2 border-orange-900/30">
+        <h2 className="text-3xl md:text-4xl font-serif text-center text-orange-100 mb-2">
           contents
         </h2>
-        <div className="flex justify-center gap-2 text-slate-600">
+        <div className="flex justify-center gap-2 text-orange-900/50">
           <span className="text-sm">◆</span>
           <span className="text-sm">◆</span>
           <span className="text-sm">◆</span>
@@ -66,20 +66,20 @@ function Main({ poems }: { poems: { title: string; slug: string }[] }) {
           <Link
             key={poem.slug}
             href={`/poems/${poem.slug}`}
-            className="group flex items-baseline justify-between py-3 px-2 hover:bg-slate-900/20 transition-colors duration-200 no-underline"
+            className="group flex items-baseline justify-between py-3 px-2 hover:bg-orange-950/30 transition-colors duration-200 !no-underline"
           >
             <div className="flex items-baseline gap-4">
-              <span className="text-sm font-mono text-slate-600 group-hover:text-amber-500 transition-colors duration-200 min-w-[2rem]">
+              <span className="text-sm font-mono text-orange-800/70 group-hover:text-orange-400 transition-colors duration-200 min-w-[2rem]">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h3 className="text-lg md:text-xl font-serif text-slate-300 group-hover:text-amber-400 transition-colors duration-200">
+              <h3 className="text-lg md:text-xl font-serif text-orange-100 group-hover:text-white transition-colors duration-200">
                 {poem.title.toLowerCase()}
               </h3>
             </div>
             
             <div className="flex items-center gap-3 ml-4 shrink-0">
-              <div className="hidden md:block border-b border-dotted border-slate-700/50 flex-1 min-w-[3rem] group-hover:border-amber-500/30 transition-colors duration-200" />
-              <span className="text-sm font-mono text-slate-600 group-hover:text-amber-500 transition-colors duration-200">
+              <div className="hidden md:block border-b border-dotted border-orange-900/40 flex-1 min-w-[3rem] group-hover:border-orange-600 transition-colors duration-200" />
+              <span className="text-sm font-mono text-orange-800/70 group-hover:text-orange-400 transition-colors duration-200">
                 →
               </span>
             </div>
@@ -88,8 +88,8 @@ function Main({ poems }: { poems: { title: string; slug: string }[] }) {
       </div>
 
       {/* Book-style footer */}
-      <div className="mt-12 pt-8 border-t-2 border-slate-700/30 text-center">
-        <p className="text-sm text-slate-600 italic">{poems.length} poems</p>
+      <div className="mt-12 pt-8 border-t-2 border-orange-900/30 text-center">
+        <p className="text-sm text-orange-700/60 italic">{poems.length} poems</p>
       </div>
     </main>
   );
@@ -99,7 +99,7 @@ export default async function PoemsPage() {
   const poems = await getPoems();
 
   return (
-    <div className="w-full min-h-screen mx-auto px-4 bg-[rgba(24,20,16,1)]">
+    <div className="w-full min-h-screen mx-auto px-4 bg-[#140e0a]">
       <Header compact />
       <Main poems={poems} />
       <FooterHero />

@@ -10,7 +10,7 @@ const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ markdownContent }) => {
   const { content } = matter(markdownContent);
 
   return (
-    <div className="flex justify-center">
+    <div className="w-full md:w-[85%] lg:w-[75%] mx-auto mt-12 md:mt-20 mb-20 flex justify-center">
       <div className="markdown-content text-xl lowercase">
         <ReactMarkdown>{content}</ReactMarkdown>
       </div>

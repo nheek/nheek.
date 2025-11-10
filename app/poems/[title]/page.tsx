@@ -5,6 +5,7 @@ import MarkdownViewer from "../../../components/utils/MarkdownViewer";
 import Header from "../../../components/Header";
 import Navigate from "../../../components/Navigate";
 import Footer from "../../../components/Footer";
+import FooterHero from "@/components/FooterHero";
 
 type PoemPageProps = {
   params: Promise<{
@@ -63,10 +64,11 @@ export default async function PoemPage({ params }: PoemPageProps) {
   const markdownContent = await getPoemContent(title);
 
   return (
-    <div className="w-full md:w-[80%] mx-auto px-4 bg-[rgba(24,20,16,1)] min-h-screen">
-      <Header customHeaderText="poems" />
-      <Navigate underPage />
+    <div className="bg-[#140e0a]">
+      <Header compact />
       <MarkdownViewer markdownContent={markdownContent} />
+      <FooterHero />
+      <Navigate />
       <Footer />
     </div>
   );
