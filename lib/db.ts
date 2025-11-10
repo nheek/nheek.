@@ -1,22 +1,37 @@
 import Database from "better-sqlite3";
 import path from "path";
+import fs from "fs";
 
 const dbPath = path.join(process.cwd(), "data", "nheek.db");
 let db: Database.Database | null = null;
 
 export function getDb(): Database.Database {
   if (!db) {
+    // Ensure the data directory exists
+    const dataDir = path.dirname(dbPath);
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+      console.log("Created data directory:", dataDir);
+    }
+
+    // Check if database file exists (to know if we need to init schema)
+    const dbExists = fs.existsSync(dbPath);
+
     db = new Database(dbPath);
     db.pragma("journal_mode = WAL");
+
+    // If database was just created, initialize schema
+    if (!dbExists) {
+      console.log("Database not found. Initializing schema...");
+      initializeSchema(db);
+    }
   }
   return db;
 }
 
-export function initDb() {
-  const db = getDb();
-
+function initializeSchema(database: Database.Database) {
   // Albums table
-  db.exec(`
+  database.exec(`
     CREATE TABLE IF NOT EXISTS albums (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
@@ -34,7 +49,7 @@ export function initDb() {
   `);
 
   // Songs table
-  db.exec(`
+  database.exec(`
     CREATE TABLE IF NOT EXISTS songs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       album_id INTEGER NOT NULL,
@@ -53,7 +68,7 @@ export function initDb() {
   `);
 
   // Project categories table
-  db.exec(`
+  database.exec(`
     CREATE TABLE IF NOT EXISTS project_categories (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL UNIQUE,
@@ -64,7 +79,7 @@ export function initDb() {
   `);
 
   // Projects table
-  db.exec(`
+  database.exec(`
     CREATE TABLE IF NOT EXISTS projects (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
@@ -85,7 +100,7 @@ export function initDb() {
   `);
 
   // Admin users table
-  db.exec(`
+  database.exec(`
     CREATE TABLE IF NOT EXISTS admin_users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       username TEXT NOT NULL UNIQUE,
@@ -96,13 +111,45 @@ export function initDb() {
     )
   `);
 
-  // Create indexes
-  db.exec(`
-    CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
-    CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
+  // Visitor contributions table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS contributions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      category TEXT NOT NULL,
+      content TEXT NOT NULL,
+      website_url TEXT,
+      fingerprint_hash TEXT NOT NULL,
+      status TEXT DEFAULT 'pending',
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      approved_at TEXT,
+      UNIQUE(fingerprint_hash, category)
+    )
   `);
 
+  // Create indexes
+  database.exec(`
+    CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
+    CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
+    CREATE INDEX IF NOT EXISTS idx_contributions_status ON contributions(status);
+    CREATE INDEX IF NOT EXISTS idx_contributions_category ON contributions(category);
+  `);
+
+  console.log("Database schema initialized successfully");
+}
+
+export function initDb() {
+  const database = getDb();
+  initializeSchema(database);
   console.log("Database initialized successfully");
+}
+
+export function closeDb() {
+  if (db) {
+    db.close();
+    db = null;
+    console.log("Database connection closed");
+  }
 }
 
 export default getDb;

@@ -348,6 +348,16 @@ export default function AdminDashboard() {
             <h3 className="text-lg font-semibold">Manage Categories</h3>
             <p className="mt-2 text-sm">Organize project categories</p>
           </Link>
+
+          <Link
+            href="/admin/contributions"
+            className="block rounded-lg bg-pink-600 p-6 text-white shadow transition hover:bg-pink-500"
+          >
+            <h3 className="text-lg font-semibold">Visitor Contributions</h3>
+            <p className="mt-2 text-sm">
+              Approve graffiti, guestbook, songs, etc.
+            </p>
+          </Link>
         </div>
 
         {/* Migration Tool */}

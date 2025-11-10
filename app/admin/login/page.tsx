@@ -12,6 +12,7 @@ export default function AdminLogin() {
   const [migrating, setMigrating] = useState(false);
   const [dbExists, setDbExists] = useState<boolean | null>(null);
   const [migrationEnabled, setMigrationEnabled] = useState(true);
+  const [resetting, setResetting] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -93,6 +94,41 @@ export default function AdminLogin() {
       setError(err instanceof Error ? err.message : "Migration failed");
     } finally {
       setMigrating(false);
+    }
+  };
+
+  const handleResetDatabase = async () => {
+    if (
+      !confirm(
+        "⚠️ This will DELETE the entire database and recreate it with a fresh schema. Are you sure?",
+      )
+    ) {
+      return;
+    }
+
+    setResetting(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/dev/reset-db", { method: "POST" });
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Reset failed");
+      }
+
+      // Recheck database status
+      const dbRes = await fetch("/api/db-status");
+      const dbData = await dbRes.json();
+      setDbExists(dbData.exists);
+
+      alert(
+        "✅ Database reset successfully! Fresh schema created.\n\nYou can now run migrations to populate data.",
+      );
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Reset failed");
+    } finally {
+      setResetting(false);
     }
   };
 
@@ -195,12 +231,31 @@ export default function AdminLogin() {
         </form>
 
         {process.env.NODE_ENV === "development" && (
-          <div className="text-center text-sm text-gray-600 dark:text-gray-400">
-            <p>Default credentials:</p>
-            <p className="font-mono">admin / change_me_123</p>
-            <p className="mt-2 text-xs text-red-600 dark:text-red-400">
-              Change the password after first login!
-            </p>
+          <div className="space-y-4">
+            <div className="text-center text-sm text-gray-600 dark:text-gray-400">
+              <p>Default credentials:</p>
+              <p className="font-mono">admin / change_me_123</p>
+              <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+                Change the password after first login!
+              </p>
+            </div>
+
+            {/* Development Tools */}
+            <div className="rounded-lg border-2 border-dashed border-yellow-300 bg-yellow-50 p-4 dark:border-yellow-600 dark:bg-yellow-900/20">
+              <h3 className="mb-2 text-center text-xs font-semibold uppercase tracking-wide text-yellow-800 dark:text-yellow-300">
+                🔧 Development Tools
+              </h3>
+              <button
+                onClick={handleResetDatabase}
+                disabled={resetting}
+                className="w-full rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {resetting ? "Resetting..." : "🗑️ Reset Database"}
+              </button>
+              <p className="mt-2 text-center text-xs text-gray-600 dark:text-gray-400">
+                Deletes DB and creates fresh schema
+              </p>
+            </div>
           </div>
         )}
       </div>
