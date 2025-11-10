@@ -27,7 +27,7 @@ async function getAlbums(): Promise<{
 
   try {
     const response = await fetch(`${baseUrl}/api/albums`, {
-      cache: "no-store", // Always get fresh data
+      next: { tags: ["albums"] }, // Tag for on-demand revalidation
     });
 
     if (!response.ok) {

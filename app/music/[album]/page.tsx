@@ -95,7 +95,7 @@ async function getAlbumData(albumSlug: string): Promise<{
 
   try {
     const response = await fetch(`${baseUrl}/api/albums`, {
-      cache: "no-store",
+      next: { tags: ["albums"] }, // Tag for on-demand revalidation
     });
 
     if (!response.ok) {

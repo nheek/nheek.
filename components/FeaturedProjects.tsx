@@ -32,7 +32,7 @@ async function getProjects(): Promise<Record<string, Project[]>> {
 
   try {
     const response = await fetch(`${baseUrl}/api/projects`, {
-      cache: "no-store", // Always get fresh data
+      next: { tags: ["projects"] }, // Tag for on-demand revalidation
     });
 
     if (!response.ok) {

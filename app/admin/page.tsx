@@ -460,6 +460,90 @@ export default function AdminDashboard() {
           )}
         </div>
 
+        {/* Cache Management Box */}
+        <div className="mt-8 rounded-lg bg-cyan-50 p-6 dark:bg-cyan-900/20">
+          <h2 className="text-lg font-semibold text-cyan-900 dark:text-cyan-100">
+            🔄 Cache Management
+          </h2>
+          <p className="mt-2 text-sm text-cyan-700 dark:text-cyan-300">
+            Manually refresh cached pages after updating content
+          </p>
+
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <button
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/revalidate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: "albums" }),
+                  });
+                  if (res.ok) {
+                    alert("✅ Music pages cache cleared!");
+                  } else {
+                    alert("❌ Failed to clear cache");
+                  }
+                } catch {
+                  alert("❌ Error clearing cache");
+                }
+              }}
+              className="rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-500"
+            >
+              Clear Music Cache
+            </button>
+
+            <button
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/revalidate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: "projects" }),
+                  });
+                  if (res.ok) {
+                    alert("✅ Projects cache cleared!");
+                  } else {
+                    alert("❌ Failed to clear cache");
+                  }
+                } catch {
+                  alert("❌ Error clearing cache");
+                }
+              }}
+              className="rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-500"
+            >
+              Clear Projects Cache
+            </button>
+
+            <button
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/revalidate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: "all" }),
+                  });
+                  if (res.ok) {
+                    alert("✅ All caches cleared!");
+                  } else {
+                    alert("❌ Failed to clear cache");
+                  }
+                } catch {
+                  alert("❌ Error clearing cache");
+                }
+              }}
+              className="rounded-md bg-cyan-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-600"
+            >
+              Clear All Cache
+            </button>
+          </div>
+
+          <div className="mt-4 rounded-md bg-cyan-100 p-3 text-xs text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300">
+            <strong>💡 Tip:</strong> Pages are cached permanently until manually
+            cleared. Use these buttons after adding/editing albums, songs, or
+            projects to immediately show changes on the website.
+          </div>
+        </div>
+
         {/* Settings Box */}
         <div className="mt-8 rounded-lg bg-purple-50 p-6 dark:bg-purple-900/20">
           <h2 className="text-lg font-semibold text-purple-900 dark:text-purple-100">

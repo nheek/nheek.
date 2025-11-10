@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
     const response = await fetch(`${baseUrl}/api/albums`, {
-      cache: "no-store",
+      next: { tags: ["albums"] }, // Tag for on-demand revalidation
     });
     const data = await response.json();
     const albumData = data.albums.find(
@@ -103,7 +103,7 @@ async function getSongData(
 
   try {
     const response = await fetch(`${baseUrl}/api/albums`, {
-      cache: "no-store",
+      next: { tags: ["albums"] }, // Tag for on-demand revalidation
     });
 
     if (!response.ok) {
