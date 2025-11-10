@@ -36,9 +36,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Update last login
-    db.prepare("UPDATE admin_users SET last_login = CURRENT_TIMESTAMP WHERE id = ?").run(
-      user.id,
-    );
+    db.prepare(
+      "UPDATE admin_users SET last_login = CURRENT_TIMESTAMP WHERE id = ?",
+    ).run(user.id);
 
     // Set session
     const session = await getSession();

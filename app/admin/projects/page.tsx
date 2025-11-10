@@ -112,7 +112,7 @@ export default function ProjectsManagement() {
 
   const handleEdit = (project: Project) => {
     setEditingProject(project);
-    
+
     // Format date for input field (YYYY-MM-DD)
     let dateForInput = "";
     if (project.date_added) {
@@ -123,7 +123,7 @@ export default function ProjectsManagement() {
         dateForInput = "";
       }
     }
-    
+
     setFormData({
       title: project.title,
       codename: project.codename,

@@ -49,7 +49,7 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
         const response = await fetch("/api/albums");
         const data = await response.json();
         const apiAlbums = data.albums || [];
-        
+
         // Transform API data to match component format
         const transformedAlbums = apiAlbums.map((album: any) => ({
           id: album.id,
@@ -65,15 +65,15 @@ export default function AlbumView({ albumSlug }: AlbumViewProps) {
             lyrics: song.lyrics,
             links: {
               spotify: song.spotify_link,
-              appleMusic: song.apple_music_link
-            }
+              appleMusic: song.apple_music_link,
+            },
           })),
           links: {
             spotify: album.spotify_link,
-            appleMusic: album.apple_music_link
-          }
+            appleMusic: album.apple_music_link,
+          },
         }));
-        
+
         setAllAlbums(transformedAlbums);
 
         const foundAlbum = transformedAlbums.find(

@@ -23,7 +23,7 @@ export default function FeaturedProjectsItem({
         const response = await fetch("/api/projects");
         const data = await response.json();
         const apiProjects = data.projects || [];
-        
+
         // Group projects by category
         const groupedProjects: Record<string, Project[]> = {};
         apiProjects.forEach((project: any) => {
@@ -41,7 +41,7 @@ export default function FeaturedProjectsItem({
             githubLink: project.github_link,
             liveLink: project.live_link,
             dateAdded: project.date_added || project.created_at,
-            featured: project.featured === 1
+            featured: project.featured === 1,
           } as Project);
         });
 

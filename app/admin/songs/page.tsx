@@ -84,10 +84,7 @@ export default function SongsManagement() {
   };
 
   const addCustomLink = () => {
-    setCustomLinks([
-      ...customLinks,
-      { name: "", url: "", color: "#6366f1" },
-    ]);
+    setCustomLinks([...customLinks, { name: "", url: "", color: "#6366f1" }]);
   };
 
   const updateCustomLink = (

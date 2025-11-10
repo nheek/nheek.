@@ -3,6 +3,7 @@
 ## 🎉 What's New
 
 You can now add unlimited custom links to your albums, songs, and projects with:
+
 - **Custom Platform Names** (Spotify, Apple Music, YouTube, Tidal, Bandcamp, etc.)
 - **Custom Colors** for each link (color picker + hex input)
 - **Easy Management** - Add, edit, remove links anytime
@@ -26,12 +27,14 @@ You can now add unlimited custom links to your albums, songs, and projects with:
 ### For Songs
 
 Same process at `/admin/songs`:
+
 - Each song can have its own unique set of links
 - Great for singles that might be on different platforms
 
-### For Projects  
+### For Projects
 
 Same process at `/admin/projects`:
+
 - Add links to GitHub, live demo, documentation, etc.
 - Customize colors to match your project branding
 
@@ -39,31 +42,32 @@ Same process at `/admin/projects`:
 
 Here are some popular platform colors you can use:
 
-| Platform | Hex Code | Preview |
-|----------|----------|---------|
-| Spotify | `#1DB954` | 🟢 Green |
-| Apple Music | `#FA243C` | 🔴 Red |
-| YouTube | `#FF0000` | 🔴 Red |
-| YouTube Music | `#FF0000` | 🔴 Red |
-| SoundCloud | `#FF5500` | 🟠 Orange |
-| Bandcamp | `#629AA9` | 🔵 Blue |
-| Tidal | `#000000` | ⚫ Black |
-| Amazon Music | `#FF9900` | 🟠 Orange |
-| Deezer | `#FF0092` | 🟣 Pink |
-| Pandora | `#074684` | 🔵 Blue |
-| GitHub | `#181717` | ⚫ Black |
-| Live Demo | `#10B981` | 🟢 Green |
-| Documentation | `#3B82F6` | 🔵 Blue |
+| Platform      | Hex Code  | Preview   |
+| ------------- | --------- | --------- |
+| Spotify       | `#1DB954` | 🟢 Green  |
+| Apple Music   | `#FA243C` | 🔴 Red    |
+| YouTube       | `#FF0000` | 🔴 Red    |
+| YouTube Music | `#FF0000` | 🔴 Red    |
+| SoundCloud    | `#FF5500` | 🟠 Orange |
+| Bandcamp      | `#629AA9` | 🔵 Blue   |
+| Tidal         | `#000000` | ⚫ Black  |
+| Amazon Music  | `#FF9900` | 🟠 Orange |
+| Deezer        | `#FF0092` | 🟣 Pink   |
+| Pandora       | `#074684` | 🔵 Blue   |
+| GitHub        | `#181717` | ⚫ Black  |
+| Live Demo     | `#10B981` | 🟢 Green  |
+| Documentation | `#3B82F6` | 🔵 Blue   |
 
 ## 💡 Examples
 
 ### Example 1: Album with Multiple Platforms
+
 ```
 Platform: Spotify
 URL: https://open.spotify.com/album/...
 Color: #1DB954
 
-Platform: Apple Music  
+Platform: Apple Music
 URL: https://music.apple.com/album/...
 Color: #FA243C
 
@@ -77,6 +81,7 @@ Color: #629AA9
 ```
 
 ### Example 2: Project with Links
+
 ```
 Platform: GitHub
 URL: https://github.com/username/project
@@ -86,7 +91,7 @@ Platform: Live Demo
 URL: https://project.example.com
 Color: #10B981
 
-Platform: Documentation  
+Platform: Documentation
 URL: https://docs.example.com
 Color: #3B82F6
 ```
@@ -94,11 +99,13 @@ Color: #3B82F6
 ## 📊 How It Displays
 
 ### In Admin Panel
+
 - Links appear as colored badges in the table
 - Shows platform name with the color you chose
 - Easy to see at a glance which platforms you've added
 
 ### On Your Website
+
 - Links will be available in the API response
 - You can style them however you want on the frontend
 - Each link includes: `name`, `url`, and `color`
@@ -106,11 +113,13 @@ Color: #3B82F6
 ## 🔧 Technical Details
 
 ### Database Changes
+
 - Added `custom_links` column to `albums`, `songs`, and `projects` tables
 - Stores links as JSON array
 - Compatible with existing data (defaults to empty array)
 
 ### API Response Format
+
 ```json
 {
   "id": 1,
@@ -120,14 +129,15 @@ Color: #3B82F6
 ```
 
 ### Parsing on Frontend
+
 ```javascript
 const album = // ... fetch from API
 const links = JSON.parse(album.custom_links || "[]");
 
 // Render links
 links.map(link => (
-  <a 
-    href={link.url} 
+  <a
+    href={link.url}
     style={{ backgroundColor: link.color }}
   >
     {link.name}
@@ -138,8 +148,9 @@ links.map(link => (
 ## ✅ Migration Complete
 
 The database has been updated with:
+
 - ✓ `custom_links` column added to `albums` table
-- ✓ `custom_links` column added to `songs` table  
+- ✓ `custom_links` column added to `songs` table
 - ✓ `custom_links` column added to `projects` table
 - ✓ Default value set to empty array `[]`
 - ✓ API routes updated to handle custom_links
@@ -155,6 +166,7 @@ The database has been updated with:
 ## 🎨 UI Features
 
 The updated admin interface includes:
+
 - **"+ Add New Link" button** - adds a new link form
 - **Platform name input** - type any platform name
 - **URL input** - paste the full link

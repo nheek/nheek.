@@ -8,7 +8,9 @@ export interface SessionData {
 }
 
 export const sessionOptions: SessionOptions = {
-  password: process.env.SESSION_SECRET || "complex_password_at_least_32_characters_long_change_this",
+  password:
+    process.env.SESSION_SECRET ||
+    "complex_password_at_least_32_characters_long_change_this",
   cookieName: "nheek_admin_session",
   cookieOptions: {
     secure: process.env.NODE_ENV === "production",
@@ -25,10 +27,10 @@ export async function getSession() {
 
 export async function requireAuth() {
   const session = await getSession();
-  
+
   if (!session.isLoggedIn) {
     throw new Error("Unauthorized");
   }
-  
+
   return session;
 }

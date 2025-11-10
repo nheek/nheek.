@@ -3,22 +3,26 @@
 ## ⚠️ CRITICAL - Do Before Deploying
 
 ### 1. Change Default Admin Password
+
 - [ ] The default password is `change_me_123` - **CHANGE IT IMMEDIATELY**
 - [ ] Use a strong, unique password
 - [ ] Consider implementing password change functionality in the admin UI
 
 ### 2. Generate New Session Secret
+
 - [ ] Never use the example SESSION_SECRET in production
 - [ ] Generate a new one: `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`
 - [ ] Add it to your production environment variables (not in the repo!)
 
 ### 3. Environment Variables
+
 - [ ] Create `.env.local` file (already in .gitignore)
 - [ ] Never commit `.env.local` to git
 - [ ] Set `NODE_ENV=production` in production
 - [ ] Configure your hosting provider with environment variables
 
 ### 4. Database Security
+
 - [ ] The `/data` directory is in `.gitignore` - NEVER commit it
 - [ ] Database contains:
   - Admin passwords (hashed)
@@ -28,6 +32,7 @@
 - [ ] Store backups securely (not in repo)
 
 ### 5. Git Repository
+
 - [ ] Run `git status` to ensure no sensitive files are staged
 - [ ] Verify `.env.local` is NOT tracked
 - [ ] Verify `data/` directory is NOT tracked
@@ -36,6 +41,7 @@
 ## ✅ Already Protected
 
 These are already in `.gitignore`:
+
 - ✓ `.env.local` and all `.env.*` files
 - ✓ `/data` directory (contains nheek.db)
 - ✓ `*.db` and `*.sqlite` files
@@ -44,8 +50,9 @@ These are already in `.gitignore`:
 ## 🔐 Files That Are Safe to Commit
 
 These files are safe because they contain no secrets:
+
 - ✓ `.env.local.example` - template only, no real secrets
-- ✓ Documentation files (*.md) - contain default credentials that should be changed
+- ✓ Documentation files (\*.md) - contain default credentials that should be changed
 - ✓ Migration scripts - create default user, but you'll change the password
 - ✓ API routes - no secrets hardcoded
 - ✓ Admin UI pages - credentials display hidden in production (NODE_ENV check)
@@ -57,7 +64,7 @@ Run this command to check for sensitive files:
 git ls-files | grep -E "(\.env\.local|data/|\.db|\.sqlite)"
 \`\`\`
 
-Should output: *nothing* or "No sensitive files tracked"
+Should output: _nothing_ or "No sensitive files tracked"
 
 If it shows any files, run:
 \`\`\`bash

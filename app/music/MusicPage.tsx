@@ -31,7 +31,7 @@ export default function MusicPage() {
         const response = await fetch("/api/albums");
         const data = await response.json();
         const apiAlbums = data.albums || [];
-        
+
         // Transform API data to match component format
         const allAlbums = apiAlbums.map((album: any) => ({
           id: album.id,
@@ -40,7 +40,7 @@ export default function MusicPage() {
           featured: album.featured === 1,
           coverImage: album.cover_image || "",
           releaseDate: album.release_date,
-          songs: album.songs || []
+          songs: album.songs || [],
         }));
 
         // Sort albums by release date (newest first)

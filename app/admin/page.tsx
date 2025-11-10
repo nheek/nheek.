@@ -174,7 +174,9 @@ export default function AdminDashboard() {
             <li>• All your existing data has been imported from JSON files</li>
             <li>• Changes are saved directly to the SQLite database</li>
             <li>• Remember to change your admin password!</li>
-            <li>• Check the DATABASE_IMPLEMENTATION.md file for full documentation</li>
+            <li>
+              • Check the DATABASE_IMPLEMENTATION.md file for full documentation
+            </li>
           </ul>
         </div>
       </main>

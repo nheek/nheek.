@@ -1,63 +1,72 @@
-import Database from 'better-sqlite3';
-import * as fs from 'fs';
-import * as path from 'path';
+import Database from "better-sqlite3";
+import * as fs from "fs";
+import * as path from "path";
 
 async function migrateProjects() {
-  const db = new Database(path.join(process.cwd(), 'data', 'nheek.db'));
+  const db = new Database(path.join(process.cwd(), "data", "nheek.db"));
 
   // Read projects.json
-  const projectsPath = path.join(process.cwd(), 'public', 'featured-projects', 'json', 'projects.json');
+  const projectsPath = path.join(
+    process.cwd(),
+    "public",
+    "featured-projects",
+    "json",
+    "projects.json",
+  );
   if (!fs.existsSync(projectsPath)) {
-    console.error('projects.json not found!');
+    console.error("projects.json not found!");
     process.exit(1);
   }
 
-  const projectsData = JSON.parse(fs.readFileSync(projectsPath, 'utf-8'));
+  const projectsData = JSON.parse(fs.readFileSync(projectsPath, "utf-8"));
 
-  console.log('Migrating project categories and projects...');
+  console.log("Migrating project categories and projects...");
 
   // Category mapping: JSON key -> DB category
-  const categoryMapping: Record<string, { name: string; slug: string; description: string }> = {
+  const categoryMapping: Record<
+    string,
+    { name: string; slug: string; description: string }
+  > = {
     websites: {
-      name: 'Websites',
-      slug: 'websites',
-      description: 'Web applications and websites'
+      name: "Websites",
+      slug: "websites",
+      description: "Web applications and websites",
     },
     desktop: {
-      name: 'Desktop Apps',
-      slug: 'desktop',
-      description: 'Desktop applications'
+      name: "Desktop Apps",
+      slug: "desktop",
+      description: "Desktop applications",
     },
     mobile: {
-      name: 'Mobile Apps',
-      slug: 'mobile',
-      description: 'Mobile applications'
+      name: "Mobile Apps",
+      slug: "mobile",
+      description: "Mobile applications",
     },
     consulting: {
-      name: 'Consulting',
-      slug: 'consulting',
-      description: 'Consulting projects'
+      name: "Consulting",
+      slug: "consulting",
+      description: "Consulting projects",
     },
     contributions: {
-      name: 'Contributions',
-      slug: 'contributions',
-      description: 'Open source contributions'
+      name: "Contributions",
+      slug: "contributions",
+      description: "Open source contributions",
     },
     static: {
-      name: 'Static Sites',
-      slug: 'static',
-      description: 'Static websites and landing pages'
+      name: "Static Sites",
+      slug: "static",
+      description: "Static websites and landing pages",
     },
     template: {
-      name: 'Templates',
-      slug: 'template',
-      description: 'Website templates'
+      name: "Templates",
+      slug: "template",
+      description: "Website templates",
     },
     utility: {
-      name: 'Utilities',
-      slug: 'utility',
-      description: 'Self-hosted utilities and tools'
-    }
+      name: "Utilities",
+      slug: "utility",
+      description: "Self-hosted utilities and tools",
+    },
   };
 
   const insertCategory = db.prepare(`
@@ -86,7 +95,9 @@ async function migrateProjects() {
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
-  const getCategoryId = db.prepare("SELECT id FROM project_categories WHERE slug = ?");
+  const getCategoryId = db.prepare(
+    "SELECT id FROM project_categories WHERE slug = ?",
+  );
 
   // Create categories first
   for (const [key, category] of Object.entries(categoryMapping)) {
@@ -106,7 +117,7 @@ async function migrateProjects() {
 
       const category = categoryMapping[categoryKey];
       const categoryRow = getCategoryId.get(category.slug) as any;
-      
+
       if (!categoryRow) {
         console.error(`❌ Category not found: ${category.slug}`);
         continue;
@@ -118,32 +129,48 @@ async function migrateProjects() {
       }
 
       projects.forEach((project: any, index: number) => {
-        const codename = project.name.toLowerCase().replace(/\s+/g, '-');
-        
+        const codename = project.name.toLowerCase().replace(/\s+/g, "-");
+
         // Prepare tech_stack JSON
-        const techStack = project.techstack ? JSON.stringify(project.techstack) : '[]';
-        
+        const techStack = project.techstack
+          ? JSON.stringify(project.techstack)
+          : "[]";
+
         // Prepare deployed_with JSON
-        const deployedWith = project.deployedWith ? JSON.stringify(project.deployedWith) : '[]';
-        
+        const deployedWith = project.deployedWith
+          ? JSON.stringify(project.deployedWith)
+          : "[]";
+
         // Prepare custom_links JSON
         const customLinks = [];
         if (project.link) {
-          customLinks.push({ name: 'Live Demo', url: project.link, color: '#6366f1' });
+          customLinks.push({
+            name: "Live Demo",
+            url: project.link,
+            color: "#6366f1",
+          });
         }
         if (project.onGithub) {
-          customLinks.push({ name: 'GitHub', url: project.onGithub, color: '#181717' });
+          customLinks.push({
+            name: "GitHub",
+            url: project.onGithub,
+            color: "#181717",
+          });
         }
         if (project.onGrit) {
-          customLinks.push({ name: 'Grit', url: project.onGrit, color: '#609926' });
+          customLinks.push({
+            name: "Grit",
+            url: project.onGrit,
+            color: "#609926",
+          });
         }
-        
+
         // Parse date_added (format: DD.MM.YYYY)
         let dateAdded = null;
         if (project.dateAdded) {
-          const [day, month, year] = project.dateAdded.split('.');
+          const [day, month, year] = project.dateAdded.split(".");
           if (day && month && year) {
-            dateAdded = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+            dateAdded = `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
           }
         }
 
@@ -163,7 +190,7 @@ async function migrateProjects() {
             dateAdded,
             techStack,
             deployedWith,
-            JSON.stringify(customLinks)
+            JSON.stringify(customLinks),
           );
           totalProjects++;
           console.log(`  ✓ Migrated: ${project.name} (${category.name})`);
@@ -176,9 +203,11 @@ async function migrateProjects() {
 
   try {
     migrateAllProjects();
-    console.log(`\n✅ Migration completed! ${totalProjects} projects imported.`);
+    console.log(
+      `\n✅ Migration completed! ${totalProjects} projects imported.`,
+    );
   } catch (error) {
-    console.error('❌ Error during migration:', error);
+    console.error("❌ Error during migration:", error);
   }
 
   db.close();

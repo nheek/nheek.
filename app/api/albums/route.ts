@@ -6,25 +6,33 @@ import { requireAuth } from "@/lib/session";
 export async function GET() {
   try {
     const db = getDb();
-    const albums = db.prepare(`
+    const albums = db
+      .prepare(
+        `
       SELECT 
         a.*,
         (SELECT COUNT(*) FROM songs WHERE album_id = a.id) as song_count
       FROM albums a
       ORDER BY release_date DESC
-    `).all();
+    `,
+      )
+      .all();
 
     // Get songs for each album
     const albumsWithSongs = albums.map((album: any) => {
-      const songs = db.prepare(`
+      const songs = db
+        .prepare(
+          `
         SELECT * FROM songs 
         WHERE album_id = ? 
         ORDER BY track_order ASC
-      `).all(album.id);
-      
+      `,
+        )
+        .all(album.id);
+
       return {
         ...album,
-        songs
+        songs,
       };
     });
 

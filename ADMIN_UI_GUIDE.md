@@ -16,9 +16,11 @@ You now have a complete admin dashboard to manage your entire website through a 
    - Quick links to all management pages
 
 ## 🎵 Albums Management
+
 **URL**: `/admin/albums`
 
 **Features**:
+
 - View all albums in a table
 - Search by album title
 - Add new albums with modal form
@@ -27,8 +29,9 @@ You now have a complete admin dashboard to manage your entire website through a 
 - See song count per album
 
 **Form Fields**:
-- Title* (required)
-- Codename* (required)
+
+- Title\* (required)
+- Codename\* (required)
 - Cover Image URL
 - Release Date
 - Spotify Link
@@ -36,9 +39,11 @@ You now have a complete admin dashboard to manage your entire website through a 
 - Featured checkbox
 
 ## 🎤 Songs Management (Main Feature!)
+
 **URL**: `/admin/songs`
 
 **Features**:
+
 - View all songs with album association
 - Search by song title
 - Filter by album
@@ -48,19 +53,22 @@ You now have a complete admin dashboard to manage your entire website through a 
 - Lyrics indicator badge
 
 **Form Fields**:
-- Album* (dropdown, required)
+
+- Album\* (dropdown, required)
 - Track Order
-- Title* (required)
-- Codename* (required)
+- Title\* (required)
+- Codename\* (required)
 - Duration
 - Spotify Link
 - Apple Music Link
 - **Lyrics** (large textarea with monospace font)
 
 ## 💼 Projects Management
+
 **URL**: `/admin/projects`
 
 **Features**:
+
 - View all projects in a table
 - Search by project title
 - Add new projects
@@ -70,8 +78,9 @@ You now have a complete admin dashboard to manage your entire website through a 
 - Featured badge display
 
 **Form Fields**:
-- Title* (required)
-- Codename* (required)
+
+- Title\* (required)
+- Codename\* (required)
 - Category (dropdown)
 - Display Order (for sorting)
 - Description (textarea)
@@ -81,9 +90,11 @@ You now have a complete admin dashboard to manage your entire website through a 
 - Featured checkbox
 
 ## 📁 Categories Management
+
 **URL**: `/admin/categories`
 
 **Features**:
+
 - View all categories in card layout
 - Add new categories
 - Edit existing categories
@@ -91,43 +102,54 @@ You now have a complete admin dashboard to manage your entire website through a 
 - Auto-generate slug from name
 
 **Form Fields**:
-- Name* (required)
-- Slug* (auto-generated, editable)
+
+- Name\* (required)
+- Slug\* (auto-generated, editable)
 - Description (textarea)
 
 ## 🚀 Getting Started
 
 ### Step 1: Generate Session Secret
+
 ```bash
 node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 ```
 
 ### Step 2: Create .env.local
+
 ```bash
 cp .env.local.example .env.local
 ```
+
 Then paste the generated secret into `.env.local`:
+
 ```
 SESSION_SECRET=your_generated_secret_here
 ```
 
 ### Step 3: Run Migration
+
 This imports all your existing data from JSON files:
+
 ```bash
 npm run migrate
 ```
 
 ### Step 4: Start the Server
+
 ```bash
 npm run dev
 ```
 
 ### Step 5: Login
+
 Visit http://localhost:3000/admin/login
+
 - Username: `admin`
 - Password: `change_me_123`
 
 ### Step 6: Start Managing!
+
 - Click "Manage Songs" to add/edit lyrics
 - Click "Manage Albums" to add streaming links
 - Click "Manage Projects" to update portfolio
@@ -136,6 +158,7 @@ Visit http://localhost:3000/admin/login
 ## 💡 Common Use Cases
 
 ### Adding Lyrics to a Song
+
 1. Go to `/admin/songs`
 2. Find the song (use search if needed)
 3. Click "Edit"
@@ -144,6 +167,7 @@ Visit http://localhost:3000/admin/login
 6. Click "Update Song"
 
 ### Adding a New Album
+
 1. Go to `/admin/albums`
 2. Click "Add New Album"
 3. Fill in title, codename, and cover image URL
@@ -152,6 +176,7 @@ Visit http://localhost:3000/admin/login
 6. Click "Create"
 
 ### Managing Projects
+
 1. Go to `/admin/projects`
 2. Click "Add New Project" or "Edit" existing
 3. Fill in all fields (description, links, etc.)
@@ -160,6 +185,7 @@ Visit http://localhost:3000/admin/login
 6. Check "Featured" for homepage display
 
 ### Organizing Categories
+
 1. Go to `/admin/categories`
 2. Click "Add New Category"
 3. Type category name (slug auto-generates)
@@ -179,11 +205,13 @@ Visit http://localhost:3000/admin/login
 All endpoints automatically used by the admin UI:
 
 ### Authentication
+
 - POST `/api/auth/login` - Login
 - POST `/api/auth/logout` - Logout
 - GET `/api/auth/me` - Check session
 
 ### Albums
+
 - GET `/api/albums` - List all albums
 - POST `/api/albums` - Create album (auth required)
 - GET `/api/albums/[id]` - Get single album
@@ -191,6 +219,7 @@ All endpoints automatically used by the admin UI:
 - DELETE `/api/albums/[id]` - Delete album (auth required)
 
 ### Songs
+
 - GET `/api/songs` - List all songs
 - POST `/api/songs` - Create song (auth required)
 - GET `/api/songs/[id]` - Get single song
@@ -198,6 +227,7 @@ All endpoints automatically used by the admin UI:
 - DELETE `/api/songs/[id]` - Delete song (auth required)
 
 ### Projects
+
 - GET `/api/projects` - List all projects
 - POST `/api/projects` - Create project (auth required)
 - GET `/api/projects/[id]` - Get single project
@@ -205,6 +235,7 @@ All endpoints automatically used by the admin UI:
 - DELETE `/api/projects/[id]` - Delete project (auth required)
 
 ### Categories
+
 - GET `/api/categories` - List all categories
 - POST `/api/categories` - Create category (auth required)
 - GET `/api/categories/[id]` - Get single category
@@ -259,16 +290,19 @@ scripts/
 ## 🔧 Troubleshooting
 
 ### Can't Login?
+
 - Make sure you ran `npm run migrate`
 - Check that `.env.local` has SESSION_SECRET
 - Try restarting the dev server
 
 ### Changes Not Saving?
+
 - Check browser console for errors
 - Verify authentication (session might have expired)
 - Make sure database file exists at `/data/nheek.db`
 
 ### Lint Warnings?
+
 - TypeScript path alias warnings are normal during dev
 - useEffect dependency warnings are acceptable (mount-only effects)
 - Run `npm run build` to see if there are any blocking errors
@@ -280,7 +314,7 @@ scripts/
 
 2. **Change Password**: Create a password change UI or use bcrypt CLI
 
-3. **Add More Features**: 
+3. **Add More Features**:
    - Bulk operations
    - Image upload
    - Rich text editor for descriptions
@@ -294,7 +328,8 @@ scripts/
 
 ## ✅ What This Solves
 
-**Before**: 
+**Before**:
+
 - Manually editing JSON files
 - Escaping newlines for lyrics
 - Risk of JSON syntax errors
@@ -302,6 +337,7 @@ scripts/
 - Tedious workflow for 224 songs
 
 **After**:
+
 - Click "Edit" on any song
 - Type/paste lyrics in textarea
 - Add Spotify/Apple links easily

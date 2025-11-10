@@ -5,13 +5,14 @@ import { requireAuth } from "@/lib/session";
 // GET single category
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
+    const { id } = await params;
     const db = getDb();
     const category = db
       .prepare("SELECT * FROM project_categories WHERE id = ?")
-      .get(params.id);
+      .get(id);
 
     if (!category) {
       return NextResponse.json(
@@ -33,12 +34,12 @@ export async function GET(
 // PUT update category
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const authError = await requireAuth(request);
-  if (authError) return authError;
-
   try {
+    await requireAuth();
+    const { id } = await params;
+
     const body = await request.json();
     const { name, slug, description } = body;
 
@@ -56,7 +57,7 @@ export async function PUT(
       WHERE id = ?
     `);
 
-    const result = stmt.run(name, slug, description || null, params.id);
+    const result = stmt.run(name, slug, description || null, id);
 
     if (result.changes === 0) {
       return NextResponse.json(
@@ -67,10 +68,13 @@ export async function PUT(
 
     const updated = db
       .prepare("SELECT * FROM project_categories WHERE id = ?")
-      .get(params.id);
+      .get(id);
 
     return NextResponse.json({ category: updated });
-  } catch (error) {
+  } catch (error: unknown) {
+    if (error instanceof Error && error.message === "Unauthorized") {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     console.error(error);
     return NextResponse.json(
       { error: "Failed to update category" },
@@ -82,15 +86,15 @@ export async function PUT(
 // DELETE category
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const authError = await requireAuth(request);
-  if (authError) return authError;
-
   try {
+    await requireAuth();
+    const { id } = await params;
+
     const db = getDb();
     const stmt = db.prepare("DELETE FROM project_categories WHERE id = ?");
-    const result = stmt.run(params.id);
+    const result = stmt.run(id);
 
     if (result.changes === 0) {
       return NextResponse.json(
@@ -100,7 +104,10 @@ export async function DELETE(
     }
 
     return NextResponse.json({ message: "Category deleted successfully" });
-  } catch (error) {
+  } catch (error: unknown) {
+    if (error instanceof Error && error.message === "Unauthorized") {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     console.error(error);
     return NextResponse.json(
       { error: "Failed to delete category" },

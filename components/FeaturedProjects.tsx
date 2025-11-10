@@ -39,7 +39,7 @@ export default function FeaturedProjects() {
         const response = await fetch("/api/projects");
         const data = await response.json();
         const apiProjects = data.projects || [];
-        
+
         // Group projects by category
         const groupedProjects: Record<string, Project[]> = {};
         apiProjects.forEach((project: any) => {
@@ -55,10 +55,10 @@ export default function FeaturedProjects() {
             githubLink: project.github_link,
             liveLink: project.live_link,
             dateAdded: project.date_added,
-            featured: project.featured === 1
+            featured: project.featured === 1,
           });
         });
-        
+
         setProjects(groupedProjects);
       } catch (error) {
         console.error("Error fetching projects:", error);

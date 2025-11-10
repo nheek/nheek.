@@ -90,7 +90,7 @@ export default function AlbumsManagement() {
 
   const handleEdit = (album: Album) => {
     setEditingAlbum(album);
-    
+
     // Format date properly for input type="date" (needs YYYY-MM-DD)
     let formattedDate = "";
     if (album.release_date) {
@@ -101,7 +101,7 @@ export default function AlbumsManagement() {
         formattedDate = album.release_date.split("T")[0];
       }
     }
-    
+
     setFormData({
       title: album.title,
       codename: album.codename,
@@ -388,7 +388,8 @@ export default function AlbumsManagement() {
 
                 {customLinks.length === 0 && (
                   <p className="mb-3 text-sm text-gray-500 dark:text-gray-400">
-                    No links yet. Click "+ Add New Link" to add streaming platforms.
+                    No links yet. Click "+ Add New Link" to add streaming
+                    platforms.
                   </p>
                 )}
 
