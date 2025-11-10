@@ -33,13 +33,13 @@ export async function POST() {
     const albumsData = JSON.parse(fs.readFileSync(albumsPath, "utf-8"));
 
     const insertAlbum = db.prepare(`
-      INSERT OR REPLACE INTO albums (id, title, artist, release_date, cover_image_url, spotify_link, apple_music_link, custom_links)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT OR REPLACE INTO albums (id, title, codename, artist, release_date, cover_image_url, spotify_link, apple_music_link, custom_links, featured)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     const insertSong = db.prepare(`
-      INSERT OR REPLACE INTO songs (id, album_id, title, duration, track_number, lyrics, spotify_link, apple_music_link, custom_links)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      INSERT OR REPLACE INTO songs (id, album_id, title, codename, duration, track_order, lyrics, spotify_link, apple_music_link, custom_links)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     let albumsCount = 0;
@@ -50,12 +50,15 @@ export async function POST() {
         insertAlbum.run(
           album.id || null,
           album.title,
+          album.codename ||
+            album.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
           album.artist,
           album.releaseDate || album.release_date,
           album.coverImage || album.cover_image_url,
           album.spotifyLink || album.spotify_link || null,
           album.appleMusicLink || album.apple_music_link || null,
           "[]",
+          album.featured ? 1 : 0,
         );
         albumsCount++;
 
@@ -65,6 +68,8 @@ export async function POST() {
               song.id || null,
               album.id,
               song.title,
+              song.codename ||
+                song.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
               song.duration,
               song.trackNumber || song.track_number || index + 1,
               song.lyrics || null,

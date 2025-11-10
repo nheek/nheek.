@@ -87,11 +87,11 @@ export async function POST() {
 
     const insertProject = db.prepare(`
       INSERT OR REPLACE INTO projects (
-        title, codename, description, category_id, image_url, mobile_image_url,
-        github_link, live_link, featured, display_order, status, date_added,
-        tech_stack, deployed_with, custom_links
+        title, codename, description, category_id, image_url,
+        github_link, live_link, featured, display_order, date_added,
+        custom_links
       )
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
     const getCategoryId = db.prepare(
@@ -174,15 +174,11 @@ export async function POST() {
               project.desc || null,
               categoryRow.id,
               project.image || null,
-              project.mobileImage || null,
               project.onGithub || null,
               project.link || null,
               1, // All projects are featured by default
               index + 1,
-              project.status || null,
               dateAdded,
-              techStack,
-              deployedWith,
               JSON.stringify(customLinks),
             );
             projectsCount++;
