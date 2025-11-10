@@ -21,11 +21,23 @@ export default function AdminDashboard() {
   });
   const [passwordError, setPasswordError] = useState("");
   const [passwordSuccess, setPasswordSuccess] = useState("");
+  const [backups, setBackups] = useState<
+    Array<{
+      filename: string;
+      size: number;
+      created: string;
+    }>
+  >([]);
+  const [backupLoading, setBackupLoading] = useState(false);
+  const [backupMessage, setBackupMessage] = useState("");
+  const [showRestoreConfirm, setShowRestoreConfirm] = useState(false);
+  const [selectedBackup, setSelectedBackup] = useState("");
 
   useEffect(() => {
     const initDashboard = async () => {
       await checkAuth();
       await fetchStats();
+      await fetchBackups();
 
       // Check migration button visibility
       const isDisabled = localStorage.getItem("migrationButtonDisabled");
@@ -68,6 +80,123 @@ export default function AdminDashboard() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const fetchBackups = async () => {
+    try {
+      const res = await fetch("/api/backup");
+      if (res.ok) {
+        const data = await res.json();
+        setBackups(data.backups || []);
+      }
+    } catch (error) {
+      console.error("Failed to fetch backups:", error);
+    }
+  };
+
+  const handleCreateBackup = async () => {
+    setBackupLoading(true);
+    setBackupMessage("");
+
+    try {
+      const res = await fetch("/api/backup", { method: "POST" });
+      const data = await res.json();
+
+      if (res.ok) {
+        setBackupMessage(`✅ Backup created: ${data.backup.filename}`);
+        await fetchBackups();
+      } else {
+        setBackupMessage(`❌ Failed: ${data.error}`);
+      }
+    } catch {
+      setBackupMessage("❌ Error creating backup");
+    } finally {
+      setBackupLoading(false);
+      setTimeout(() => setBackupMessage(""), 5000);
+    }
+  };
+
+  const handleRestoreBackup = async (filename: string) => {
+    setBackupLoading(true);
+    setBackupMessage("");
+    setShowRestoreConfirm(false);
+
+    try {
+      const res = await fetch("/api/backup/restore", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setBackupMessage(
+          `✅ Restored from ${filename}. Auto-backup: ${data.autoBackup}`,
+        );
+        // Refresh stats after restore
+        await fetchStats();
+      } else {
+        setBackupMessage(`❌ Failed: ${data.error}`);
+      }
+    } catch {
+      setBackupMessage("❌ Error restoring backup");
+    } finally {
+      setBackupLoading(false);
+      setTimeout(() => setBackupMessage(""), 8000);
+    }
+  };
+
+  const handleDeleteBackup = async (filename: string) => {
+    if (
+      !confirm(`Are you sure you want to delete the backup "${filename}"?`)
+    ) {
+      return;
+    }
+
+    setBackupLoading(true);
+    setBackupMessage("");
+
+    try {
+      const res = await fetch("/api/backup/delete", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ filename }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setBackupMessage(`✅ Deleted: ${filename}`);
+        await fetchBackups();
+      } else {
+        setBackupMessage(`❌ Failed: ${data.error}`);
+      }
+    } catch {
+      setBackupMessage("❌ Error deleting backup");
+    } finally {
+      setBackupLoading(false);
+      setTimeout(() => setBackupMessage(""), 5000);
+    }
+  };
+
+  const formatBytes = (bytes: number) => {
+    if (bytes === 0) return "0 Bytes";
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + " " + sizes[i];
+  };
+
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
   };
 
   const handleLogout = async () => {
@@ -232,6 +361,81 @@ export default function AdminDashboard() {
               Import data from JSON files to SQLite (for production deployment)
             </p>
           </Link>
+        </div>
+
+        {/* Backup & Restore Box */}
+        <div className="mt-8 rounded-lg bg-green-50 p-6 dark:bg-green-900/20">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-green-900 dark:text-green-100">
+              💾 Database Backup & Restore
+            </h2>
+            <button
+              onClick={handleCreateBackup}
+              disabled={backupLoading}
+              className={`rounded-md px-4 py-2 text-sm font-semibold text-white transition ${
+                backupLoading
+                  ? "cursor-not-allowed bg-gray-400"
+                  : "bg-green-600 hover:bg-green-500"
+              }`}
+            >
+              {backupLoading ? "Processing..." : "Create New Backup"}
+            </button>
+          </div>
+
+          {backupMessage && (
+            <div
+              className={`mt-4 rounded-md p-3 text-sm ${
+                backupMessage.startsWith("✅")
+                  ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
+                  : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"
+              }`}
+            >
+              {backupMessage}
+            </div>
+          )}
+
+          {backups.length === 0 ? (
+            <p className="mt-4 text-sm text-green-700 dark:text-green-300">
+              No backups available. Create your first backup above.
+            </p>
+          ) : (
+            <div className="mt-4 space-y-2">
+              {backups.map((backup) => (
+                <div
+                  key={backup.filename}
+                  className="flex items-center justify-between rounded-md border border-green-200 bg-white p-4 dark:border-green-700 dark:bg-gray-800"
+                >
+                  <div className="flex-1">
+                    <p className="font-medium text-gray-900 dark:text-white">
+                      {backup.filename}
+                    </p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                      {formatDate(backup.created)} • {formatBytes(backup.size)}
+                    </p>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => {
+                        setSelectedBackup(backup.filename);
+                        setShowRestoreConfirm(true);
+                      }}
+                      disabled={backupLoading}
+                      className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:bg-gray-400"
+                    >
+                      Restore
+                    </button>
+                    <button
+                      onClick={() => handleDeleteBackup(backup.filename)}
+                      disabled={backupLoading}
+                      className="rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-red-500 disabled:cursor-not-allowed disabled:bg-gray-400"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Settings Box */}
@@ -401,6 +605,43 @@ export default function AdminDashboard() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Restore Confirmation Modal */}
+      {showRestoreConfirm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl dark:bg-gray-800">
+            <h3 className="text-lg font-semibold text-red-600 dark:text-red-400">
+              ⚠️ Restore Database
+            </h3>
+            <p className="mt-4 text-sm text-gray-700 dark:text-gray-300">
+              Are you sure you want to restore from{" "}
+              <strong>{selectedBackup}</strong>?
+            </p>
+            <p className="mt-2 text-sm text-red-600 dark:text-red-400">
+              This will replace your current database. An automatic backup of
+              the current state will be created before restoring.
+            </p>
+
+            <div className="mt-6 flex gap-3">
+              <button
+                onClick={() => handleRestoreBackup(selectedBackup)}
+                className="flex-1 rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-500"
+              >
+                Yes, Restore
+              </button>
+              <button
+                onClick={() => {
+                  setShowRestoreConfirm(false);
+                  setSelectedBackup("");
+                }}
+                className="flex-1 rounded-md bg-gray-600 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-500"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}
