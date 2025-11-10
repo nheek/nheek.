@@ -9,7 +9,9 @@ export default function AdminLogin() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [migrating, setMigrating] = useState(false);
   const [dbExists, setDbExists] = useState<boolean | null>(null);
+  const [migrationEnabled, setMigrationEnabled] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -18,7 +20,13 @@ export default function AdminLogin() {
         const res = await fetch("/api/db-status");
         const data = await res.json();
         setDbExists(data.exists);
-      } catch (err) {
+
+        // Check if migration button should be shown
+        const migrationDisabled = localStorage.getItem(
+          "migrationButtonDisabled",
+        );
+        setMigrationEnabled(migrationDisabled !== "true");
+      } catch {
         setDbExists(false);
       }
     };
@@ -47,9 +55,44 @@ export default function AdminLogin() {
 
       router.push("/admin");
       router.refresh();
-    } catch (err) {
+    } catch {
       setError("An error occurred. Please try again.");
       setLoading(false);
+    }
+  };
+
+  const handleRunMigration = async () => {
+    setMigrating(true);
+    setError("");
+
+    try {
+      // Run all migrations
+      const endpoints = [
+        { url: "/api/migrate/albums", name: "Albums & Songs" },
+        { url: "/api/migrate/projects", name: "Projects" },
+        { url: "/api/migrate/links", name: "Custom Links" },
+      ];
+
+      for (const endpoint of endpoints) {
+        const res = await fetch(endpoint.url, { method: "POST" });
+        if (!res.ok) {
+          const data = await res.json();
+          throw new Error(`${endpoint.name} migration failed: ${data.error}`);
+        }
+      }
+
+      // Recheck database status
+      const dbRes = await fetch("/api/db-status");
+      const dbData = await dbRes.json();
+      setDbExists(dbData.exists);
+
+      alert(
+        "✅ Migration completed successfully! You can now log in with:\nUsername: admin\nPassword: change_me_123",
+      );
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Migration failed");
+    } finally {
+      setMigrating(false);
     }
   };
 
@@ -65,7 +108,7 @@ export default function AdminLogin() {
           </p>
         </div>
 
-        {dbExists === false && (
+        {dbExists === false && migrationEnabled && (
           <div className="rounded-lg bg-yellow-50 p-4 dark:bg-yellow-900/20">
             <div className="flex items-start">
               <div className="ml-3 flex-1">
@@ -74,16 +117,25 @@ export default function AdminLogin() {
                 </h3>
                 <div className="mt-2 text-sm text-yellow-700 dark:text-yellow-300">
                   <p>
-                    The SQLite database doesn&apos;t exist yet. You need to set
-                    it up before logging in.
+                    The SQLite database doesn&apos;t exist yet. Click the button
+                    below to run the migration and set up your database.
                   </p>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 flex gap-3">
+                  <button
+                    onClick={handleRunMigration}
+                    disabled={migrating}
+                    className="inline-flex items-center rounded-md bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    {migrating
+                      ? "Running Migration..."
+                      : "🔄 Run Migration Now"}
+                  </button>
                   <Link
                     href="/admin/migrate"
-                    className="inline-flex items-center rounded-md bg-yellow-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-600"
+                    className="inline-flex items-center rounded-md bg-gray-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-500"
                   >
-                    Go to Migration Setup
+                    Advanced Options
                   </Link>
                 </div>
               </div>
@@ -135,7 +187,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={loading}
-              className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50"
+              className="group relative flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-500 disabled:opacity-50"
             >
               {loading ? "Signing in..." : "Sign in"}
             </button>

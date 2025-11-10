@@ -10,3 +10,7 @@ coverage
 *.swp
 .git
 .github
+
+# Explicitly include JSON files needed for migration
+!public/featured-music/albums.json
+!public/featured-projects/json/projects.json

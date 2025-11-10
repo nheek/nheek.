@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 export default function AdminDashboard() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [migrationButtonVisible, setMigrationButtonVisible] = useState(true);
   const [stats, setStats] = useState({
     albums: 0,
     songs: 0,
@@ -14,8 +15,16 @@ export default function AdminDashboard() {
   });
 
   useEffect(() => {
-    checkAuth();
-    fetchStats();
+    const initDashboard = async () => {
+      await checkAuth();
+      await fetchStats();
+
+      // Check migration button visibility
+      const isDisabled = localStorage.getItem("migrationButtonDisabled");
+      setMigrationButtonVisible(isDisabled !== "true");
+    };
+    initDashboard();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const checkAuth = async () => {
@@ -24,7 +33,7 @@ export default function AdminDashboard() {
       if (!res.ok) {
         router.push("/admin/login");
       }
-    } catch (error) {
+    } catch {
       router.push("/admin/login");
     }
   };
@@ -56,6 +65,12 @@ export default function AdminDashboard() {
   const handleLogout = async () => {
     await fetch("/api/auth/logout", { method: "POST" });
     router.push("/admin/login");
+  };
+
+  const toggleMigrationButton = () => {
+    const newValue = !migrationButtonVisible;
+    setMigrationButtonVisible(newValue);
+    localStorage.setItem("migrationButtonDisabled", String(!newValue));
   };
 
   if (loading) {
@@ -165,8 +180,37 @@ export default function AdminDashboard() {
           </Link>
         </div>
 
+        {/* Settings Box */}
+        <div className="mt-8 rounded-lg bg-purple-50 p-6 dark:bg-purple-900/20">
+          <h2 className="text-lg font-semibold text-purple-900 dark:text-purple-100">
+            ⚙️ Settings
+          </h2>
+          <div className="mt-4 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-purple-800 dark:text-purple-200">
+                Show Migration Button on Login Page
+              </p>
+              <p className="text-xs text-purple-600 dark:text-purple-300">
+                {migrationButtonVisible
+                  ? "The migration button is currently visible on the login page"
+                  : "The migration button is hidden from the login page"}
+              </p>
+            </div>
+            <button
+              onClick={toggleMigrationButton}
+              className={`rounded-md px-4 py-2 text-sm font-semibold text-white transition ${
+                migrationButtonVisible
+                  ? "bg-red-600 hover:bg-red-500"
+                  : "bg-green-600 hover:bg-green-500"
+              }`}
+            >
+              {migrationButtonVisible ? "Disable" : "Enable"}
+            </button>
+          </div>
+        </div>
+
         {/* Info Box */}
-        <div className="mt-8 rounded-lg bg-blue-50 p-6 dark:bg-blue-900/20">
+        <div className="mt-6 rounded-lg bg-blue-50 p-6 dark:bg-blue-900/20">
           <h2 className="text-lg font-semibold text-blue-900 dark:text-blue-100">
             Getting Started
           </h2>
