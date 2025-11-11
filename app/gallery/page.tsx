@@ -4,6 +4,7 @@ import Gallery from "../../components/gallery/gallery";
 import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
 import FooterHero from "@/components/FooterHero";
+import { getDb } from "@/lib/db";
 
 export const metadata: Metadata = {
   title: "gallery",
@@ -29,11 +30,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function GalleryPage() {
+type GalleryImage = {
+  id: number;
+  image_url: string;
+  alt_text: string;
+  display_order: number;
+};
+
+async function getGalleryImages(): Promise<GalleryImage[]> {
+  const db = getDb();
+  const images = db
+    .prepare(
+      "SELECT id, image_url, alt_text, display_order FROM gallery_images ORDER BY display_order ASC"
+    )
+    .all() as GalleryImage[];
+  return images;
+}
+
+export default async function GalleryPage() {
+  const images = await getGalleryImages();
+
   return (
     <div className="w-full mx-auto min-h-screen h-full bg-[#0f1114]">
       <Header compact />
-      <Gallery />
+      <Gallery initialImages={images} />
       <FooterHero />
       <Navigate />
       <Footer />

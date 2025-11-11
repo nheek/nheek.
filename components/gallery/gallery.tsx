@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ImageLoader from "../utils/ImageLoader";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -11,39 +11,15 @@ type GalleryImage = {
   display_order: number;
 };
 
-export default function Gallery() {
-  const [images, setImages] = useState<GalleryImage[]>([]);
-  const [loading, setLoading] = useState(true);
+type GalleryProps = {
+  initialImages: GalleryImage[];
+};
+
+export default function Gallery({ initialImages }: GalleryProps) {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
-  useEffect(() => {
-    fetch("/api/gallery")
-      .then((res) => res.json())
-      .then((data) => {
-        setImages(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Failed to load gallery images:", error);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="w-full min-h-[50vh] flex items-center justify-center">
-        <div className="text-center">
-          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-slate-400 border-r-transparent mb-4"></div>
-          <p className="text-slate-300/80 text-lg font-serif">
-            loading memories...
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (images.length === 0) {
+  if (initialImages.length === 0) {
     return (
       <div className="w-full min-h-[50vh] flex items-center justify-center">
         <p className="text-slate-300/60 text-lg font-serif italic">
@@ -94,7 +70,7 @@ export default function Gallery() {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 auto-rows-[250px] gap-3">
-          {images.map((image, index) => (
+          {initialImages.map((image, index) => (
             <motion.div
               key={image.id}
               initial={{ opacity: 0, scale: 0.8 }}
