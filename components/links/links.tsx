@@ -52,19 +52,19 @@ export default function Links() {
             href={link.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20 hover:border-blue-500/50 !no-underline"
+            className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20 hover:border-yellow-500/50 !no-underline"
           >
             {/* Hover effect overlay */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/0 to-amber-500/0 group-hover:from-yellow-500/10 group-hover:to-amber-500/10 transition-all duration-300" />
 
             {/* Content */}
             <div className="relative z-10">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300 capitalize">
+                <h3 className="text-xl font-bold text-white group-hover:text-yellow-300 transition-colors duration-300 capitalize">
                   {link.name}
                 </h3>
                 <svg
-                  className="w-5 h-5 text-gray-400 group-hover:text-blue-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
+                  className="w-5 h-5 text-gray-400 group-hover:text-yellow-300 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -83,14 +83,14 @@ export default function Links() {
 
               {/* URL preview */}
               <div className="mt-4 pt-4 border-t border-gray-700/50">
-                <p className="text-xs text-gray-500 group-hover:text-blue-400 transition-colors duration-300 truncate">
+                <p className="text-xs text-gray-500 group-hover:text-yellow-300 transition-colors duration-300 truncate">
                   {link.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                 </p>
               </div>
             </div>
 
             {/* Corner accent */}
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
         ))}
       </div>
