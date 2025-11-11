@@ -86,6 +86,7 @@ function ensureTablesExist(database: Database.Database) {
         duration TEXT,
         episode_count INTEGER,
         watch_date TEXT,
+        songs TEXT,
         featured BOOLEAN DEFAULT 0,
         display_order INTEGER,
         created_at TEXT DEFAULT CURRENT_TIMESTAMP,
@@ -97,6 +98,21 @@ function ensureTablesExist(database: Database.Database) {
       CREATE INDEX IF NOT EXISTS idx_films_order ON films(display_order);
     `);
     console.log("✅ Films table created successfully");
+  } else {
+    // Check if songs column exists, if not add it
+    const songsColumnExists = database
+      .prepare("PRAGMA table_info(films)")
+      .all()
+      .some((col: any) => col.name === "songs");
+
+    if (!songsColumnExists) {
+      console.log("Adding songs column to films table...");
+      database.exec(`ALTER TABLE films ADD COLUMN songs TEXT`);
+      console.log("✅ Songs column added successfully");
+    }
+    
+    // Note: songs column stores JSON array of objects with structure:
+    // [{ "title": "Song Name", "link": "https://..." }, ...]
   }
 
   // Check if qna table exists

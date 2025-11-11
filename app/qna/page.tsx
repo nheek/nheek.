@@ -4,7 +4,6 @@ import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
 import FooterHero from "@/components/FooterHero";
 import QnAClient from "./QnAClient";
-import { getDb } from "@/lib/db";
 import ThemeWrapper from "@/components/ThemeWrapper";
 
 export const metadata: Metadata = {
@@ -40,14 +39,21 @@ type QnA = {
 };
 
 async function getAnsweredQuestions(): Promise<QnA[]> {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
   try {
-    const db = getDb();
-    const questions = db
-      .prepare(
-        "SELECT id, question, answer, asker_name, created_at, answered_at FROM qna WHERE status = 'answered' ORDER BY answered_at DESC",
-      )
-      .all() as QnA[];
-    return questions;
+    const response = await fetch(`${baseUrl}/api/qna?status=answered`, {
+      next: { tags: ["qna"] },
+    });
+
+    if (!response.ok) {
+      console.error("Failed to fetch Q&A:", response.statusText);
+      return [];
+    }
+
+    const data = await response.json();
+    return data.questions || [];
   } catch (error) {
     console.error("Error fetching Q&A:", error);
     return [];

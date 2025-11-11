@@ -4,6 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+type Song = {
+  title: string;
+  link?: string;
+};
+
 type Film = {
   id: number;
   title: string;
@@ -17,6 +22,7 @@ type Film = {
   duration: string | null;
   episode_count: number | null;
   watch_date: string | null;
+  songs: string | null; // JSON string of Song[]
   featured: number;
   display_order: number | null;
   created_at: string;
@@ -40,6 +46,7 @@ export default function AdminFilmsPage() {
   const [duration, setDuration] = useState("");
   const [episodeCount, setEpisodeCount] = useState("");
   const [watchDate, setWatchDate] = useState("");
+  const [songs, setSongs] = useState<Song[]>([]);
   const [featured, setFeatured] = useState(false);
   const [displayOrder, setDisplayOrder] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
@@ -84,6 +91,7 @@ export default function AdminFilmsPage() {
         duration: duration || null,
         episode_count: episodeCount ? parseInt(episodeCount) : null,
         watch_date: watchDate || null,
+        songs: songs.length > 0 ? JSON.stringify(songs) : null,
         featured,
         display_order: displayOrder ? parseInt(displayOrder) : null,
       };
@@ -135,6 +143,11 @@ export default function AdminFilmsPage() {
     setDuration(film.duration || "");
     setEpisodeCount(film.episode_count?.toString() || "");
     setWatchDate(film.watch_date || "");
+    try {
+      setSongs(film.songs ? JSON.parse(film.songs) : []);
+    } catch {
+      setSongs([]);
+    }
     setFeatured(film.featured === 1);
     setDisplayOrder(film.display_order?.toString() || "");
     setIsModalOpen(true);
@@ -178,6 +191,7 @@ export default function AdminFilmsPage() {
     setDuration("");
     setEpisodeCount("");
     setWatchDate("");
+    setSongs([]);
     setFeatured(false);
     setDisplayOrder("");
   };
@@ -404,6 +418,57 @@ export default function AdminFilmsPage() {
                       className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
                       placeholder="Your thoughts about this film/series..."
                     />
+                  </div>
+
+                  <div className="md:col-span-2">
+                    <label className="block text-sm font-medium mb-2">
+                      Songs I Liked
+                    </label>
+                    <div className="space-y-3">
+                      {songs.map((song, index) => (
+                        <div key={index} className="flex gap-2">
+                          <input
+                            type="text"
+                            value={song.title}
+                            onChange={(e) => {
+                              const newSongs = [...songs];
+                              newSongs[index].title = e.target.value;
+                              setSongs(newSongs);
+                            }}
+                            placeholder="Song Title"
+                            className="flex-1 bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+                          />
+                          <input
+                            type="url"
+                            value={song.link || ""}
+                            onChange={(e) => {
+                              const newSongs = [...songs];
+                              newSongs[index].link = e.target.value;
+                              setSongs(newSongs);
+                            }}
+                            placeholder="https://open.spotify.com/track/..."
+                            className="flex-1 bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const newSongs = songs.filter((_, i) => i !== index);
+                              setSongs(newSongs);
+                            }}
+                            className="px-3 py-2 bg-red-600 hover:bg-red-500 rounded text-white"
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      ))}
+                      <button
+                        type="button"
+                        onClick={() => setSongs([...songs, { title: "", link: "" }])}
+                        className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded text-white"
+                      >
+                        + Add Song
+                      </button>
+                    </div>
                   </div>
 
                   <div className="md:col-span-2">

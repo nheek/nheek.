@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "../../../../lib/db";
 import { requireAuth } from "../../../../lib/session";
+import { revalidateTag } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -53,6 +54,7 @@ export async function PUT(
       duration,
       episode_count,
       watch_date,
+      songs,
       featured,
       display_order,
     } = body;
@@ -69,7 +71,7 @@ export async function PUT(
       `UPDATE films SET 
         title = ?, type = ?, cover_image_url = ?, rating = ?, review = ?,
         release_year = ?, genre = ?, director = ?, duration = ?, episode_count = ?,
-        watch_date = ?, featured = ?, display_order = ?, updated_at = CURRENT_TIMESTAMP
+        watch_date = ?, songs = ?, featured = ?, display_order = ?, updated_at = CURRENT_TIMESTAMP
       WHERE id = ?`,
     ).run(
       title,
@@ -83,12 +85,17 @@ export async function PUT(
       duration || null,
       episode_count || null,
       watch_date || null,
+      songs || null,
       featured ? 1 : 0,
       display_order || null,
       id,
     );
 
     const updatedFilm = db.prepare("SELECT * FROM films WHERE id = ?").get(id);
+
+    // Revalidate cache
+    revalidateTag("films");
+    revalidateTag(`film-${id}`);
 
     return NextResponse.json({ film: updatedFilm });
   } catch (error) {
@@ -119,6 +126,10 @@ export async function DELETE(
     }
 
     db.prepare("DELETE FROM films WHERE id = ?").run(id);
+
+    // Revalidate cache
+    revalidateTag("films");
+    revalidateTag(`film-${id}`);
 
     return NextResponse.json({ message: "Film deleted successfully" });
   } catch (error) {

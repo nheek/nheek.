@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "../../../lib/db";
 import { requireAuth } from "../../../lib/session";
+import { revalidateTag } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -29,9 +30,9 @@ export async function POST(request: NextRequest) {
     await requireAuth();
 
     const body = await request.json();
-    const {
+        const {
       title,
-      type = "film",
+      type,
       cover_image_url,
       rating,
       review,
@@ -41,7 +42,8 @@ export async function POST(request: NextRequest) {
       duration,
       episode_count,
       watch_date,
-      featured = false,
+      songs,
+      featured,
       display_order,
     } = body;
 
@@ -65,11 +67,8 @@ export async function POST(request: NextRequest) {
 
     const result = db
       .prepare(
-        `INSERT INTO films (
-          title, type, cover_image_url, rating, review, 
-          release_year, genre, director, duration, episode_count, 
-          watch_date, featured, display_order
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+        `INSERT INTO films (title, type, cover_image_url, rating, review, release_year, genre, director, duration, episode_count, watch_date, songs, featured, display_order)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       )
       .run(
         title,
@@ -83,13 +82,17 @@ export async function POST(request: NextRequest) {
         duration || null,
         episode_count || null,
         watch_date || null,
+        songs || null,
         featured ? 1 : 0,
-        finalDisplayOrder
+        finalDisplayOrder,
       );
 
     const newFilm = db
       .prepare("SELECT * FROM films WHERE id = ?")
       .get(result.lastInsertRowid);
+
+    // Revalidate films cache
+    revalidateTag("films");
 
     return NextResponse.json({ film: newFilm }, { status: 201 });
   } catch (error) {

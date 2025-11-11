@@ -3,10 +3,16 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { IoSearchOutline } from "react-icons/io5";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import FooterHero from "../../components/FooterHero";
 import Navigate from "../../components/Navigate";
+
+type Song = {
+  title: string;
+  link?: string;
+};
 
 type Film = {
   id: number;
@@ -21,6 +27,7 @@ type Film = {
   duration: string | null;
   episode_count: number | null;
   watch_date: string | null;
+  songs: string | null; // JSON string of Song[]
   featured: number;
   display_order: number | null;
 };
@@ -35,6 +42,7 @@ export default function WatchPageClient({
   regularFilms,
 }: WatchPageClientProps) {
   const [selectedFilm, setSelectedFilm] = useState<Film | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -44,6 +52,22 @@ export default function WatchPageClient({
       document.body.style.overflow = "unset";
     };
   }, []);
+
+  // Filter films based on search query
+  const filterFilms = (films: Film[]) => {
+    if (!searchQuery.trim()) return films;
+    const query = searchQuery.toLowerCase();
+    return films.filter(
+      (film) =>
+        film.title.toLowerCase().includes(query) ||
+        film.genre?.toLowerCase().includes(query) ||
+        film.director?.toLowerCase().includes(query) ||
+        film.type.toLowerCase().includes(query)
+    );
+  };
+
+  const filteredFeatured = filterFilms(featuredFilms);
+  const filteredRegular = filterFilms(regularFilms);
 
   const openModal = (film: Film) => {
     setSelectedFilm(film);
@@ -98,14 +122,28 @@ export default function WatchPageClient({
             films & series
           </h2>
 
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto mb-12">
+            <div className="relative">
+              <IoSearchOutline className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-lg" />
+              <input
+                type="text"
+                placeholder="Search by title, genre, director..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 bg-[#2d0814] text-white placeholder-gray-500 border border-gray-700 focus:border-[#f08080] focus:outline-none transition-colors"
+              />
+            </div>
+          </div>
+
           {/* Featured Films Section */}
-          {featuredFilms.length > 0 && (
+          {filteredFeatured.length > 0 && (
             <div className="mb-20">
               <h3 className="text-lg text-[#f08080] font-light mb-8 text-center tracking-wide">
                 Featured
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                {featuredFilms.map((film) => (
+                {filteredFeatured.map((film) => (
                   <div
                     key={film.id}
                     className="group cursor-pointer relative"
@@ -146,15 +184,15 @@ export default function WatchPageClient({
           )}
 
           {/* Regular Films Section */}
-          {regularFilms.length > 0 && (
+          {filteredRegular.length > 0 && (
             <div>
-              {featuredFilms.length > 0 && (
+              {filteredFeatured.length > 0 && (
                 <h3 className="text-lg text-gray-500 font-light mb-8 text-center tracking-wide">
                   All
                 </h3>
               )}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                {regularFilms.map((film) => (
+                {filteredRegular.map((film) => (
                   <div
                     key={film.id}
                     className="group cursor-pointer"
@@ -194,9 +232,13 @@ export default function WatchPageClient({
             </div>
           )}
 
-          {featuredFilms.length === 0 && regularFilms.length === 0 && (
+          {filteredFeatured.length === 0 && filteredRegular.length === 0 && (
             <div className="text-center text-gray-400 mt-20">
-              <p className="text-xl">No films or series added yet.</p>
+              <p className="text-xl">
+                {searchQuery.trim()
+                  ? "No films found matching your search."
+                  : "No films or series added yet."}
+              </p>
             </div>
           )}
         </div>
@@ -303,6 +345,44 @@ export default function WatchPageClient({
                     </p>
                   </div>
                 )}
+
+                {/* Songs */}
+                {selectedFilm.songs && (() => {
+                  try {
+                    const parsedSongs: Song[] = JSON.parse(selectedFilm.songs);
+                    if (parsedSongs.length > 0) {
+                      return (
+                        <div className="mb-8">
+                          <h3 className="text-gray-500 text-sm mb-2">
+                            Songs I Liked
+                          </h3>
+                          <div className="space-y-1">
+                            {parsedSongs.map((song, index) => (
+                              <div key={index} className="text-gray-300 text-sm">
+                                •{" "}
+                                {song.link ? (
+                                  <a
+                                    href={song.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white underline underline-offset-2 transition-colors"
+                                  >
+                                    {song.title}
+                                  </a>
+                                ) : (
+                                  song.title
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    }
+                  } catch {
+                    return null;
+                  }
+                  return null;
+                })()}
 
                 {/* View Individual Page Link */}
                 <Link

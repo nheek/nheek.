@@ -8,6 +8,11 @@ import Footer from "../../../components/Footer";
 import FooterHero from "../../../components/FooterHero";
 import Navigate from "../../../components/Navigate";
 
+type Song = {
+  title: string;
+  link?: string;
+};
+
 type Film = {
   id: number;
   title: string;
@@ -21,6 +26,7 @@ type Film = {
   duration: string | null;
   episode_count: number | null;
   watch_date: string | null;
+  songs: string | null; // JSON string of Song[]
   featured: number;
   display_order: number | null;
 };
@@ -166,12 +172,51 @@ export default function FilmView({ film }: FilmViewProps) {
 
               {/* Review Section */}
               {film.review && (
-                <div className="border-t border-gray-800 pt-8">
+                <div className="border-t border-gray-800 pt-8 mb-8">
                   <p className="text-gray-400 leading-relaxed whitespace-pre-wrap">
                     {film.review}
                   </p>
                 </div>
               )}
+
+              {/* Songs Section */}
+              {film.songs &&
+                (() => {
+                  try {
+                    const parsedSongs: Song[] = JSON.parse(film.songs);
+                    if (parsedSongs.length > 0) {
+                      return (
+                        <div className="border-t border-gray-800 pt-8">
+                          <h3 className="text-gray-500 text-sm mb-4">
+                            Songs I Liked
+                          </h3>
+                          <div className="space-y-2">
+                            {parsedSongs.map((song, index) => (
+                              <div key={index} className="text-gray-300">
+                                •{" "}
+                                {song.link ? (
+                                  <a
+                                    href={song.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white underline underline-offset-2 transition-colors"
+                                  >
+                                    {song.title}
+                                  </a>
+                                ) : (
+                                  song.title
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    }
+                  } catch {
+                    return null;
+                  }
+                  return null;
+                })()}
             </div>
           </div>
         </div>

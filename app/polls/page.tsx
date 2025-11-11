@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { getDb } from "@/lib/db";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
@@ -29,39 +28,36 @@ export const metadata: Metadata = {
   },
 };
 
-export default function PollsPage() {
-  const db = getDb();
+async function getPolls() {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+  try {
+    const response = await fetch(`${baseUrl}/api/polls?includeAll=true`, {
+      next: { tags: ["polls"] },
+    });
+
+    if (!response.ok) {
+      console.error("Failed to fetch polls:", response.statusText);
+      return { activePolls: [], endedPolls: [] };
+    }
+
+    const allPolls = await response.json();
+
+    // Separate active and ended polls
+    const activePolls = allPolls.filter((p: any) => p.status === "active");
+    const endedPolls = allPolls.filter((p: any) => p.status === "ended");
+
+    return { activePolls, endedPolls };
+  } catch (error) {
+    console.error("Error fetching polls:", error);
+    return { activePolls: [], endedPolls: [] };
+  }
+}
+
+export default async function PollsPage() {
+  const { activePolls, endedPolls } = await getPolls();
   const themeColor = "#7e22ce"; // purple-700
-
-  // Fetch all polls (both active and ended)
-  const allPolls = db
-    .prepare("SELECT * FROM polls ORDER BY created_at DESC")
-    .all();
-
-  // For each poll, get its options
-  const pollsWithOptions = allPolls.map((poll: any) => {
-    const options = db
-      .prepare(
-        "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
-      )
-      .all(poll.id);
-
-    // Calculate total votes
-    const totalVotes = options.reduce(
-      (sum: number, opt: any) => sum + (opt.vote_count || 0),
-      0,
-    );
-
-    return {
-      ...poll,
-      options,
-      totalVotes,
-    };
-  });
-
-  // Separate active and ended polls
-  const activePolls = pollsWithOptions.filter((p) => p.status === "active");
-  const endedPolls = pollsWithOptions.filter((p) => p.status === "ended");
 
   return (
     <ThemeWrapper themeColor={themeColor}>

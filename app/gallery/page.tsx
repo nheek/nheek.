@@ -4,7 +4,6 @@ import Gallery from "../../components/gallery/gallery";
 import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
 import FooterHero from "@/components/FooterHero";
-import { getDb } from "@/lib/db";
 import ThemeWrapper from "@/components/ThemeWrapper";
 
 export const metadata: Metadata = {
@@ -39,14 +38,21 @@ type GalleryImage = {
 };
 
 async function getGalleryImages(): Promise<GalleryImage[]> {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
   try {
-    const db = getDb();
-    const images = db
-      .prepare(
-        "SELECT id, image_url, alt_text, display_order FROM gallery_images ORDER BY display_order ASC",
-      )
-      .all() as GalleryImage[];
-    return images;
+    const response = await fetch(`${baseUrl}/api/gallery`, {
+      next: { tags: ["gallery"] },
+    });
+
+    if (!response.ok) {
+      console.error("Failed to fetch gallery images:", response.statusText);
+      return [];
+    }
+
+    const data = await response.json();
+    return data.images || [];
   } catch (error) {
     console.error("Error fetching gallery images:", error);
     return [];

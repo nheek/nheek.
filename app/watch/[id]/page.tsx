@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import FilmView from "./FilmView";
-import { getDb } from "../../../lib/db";
 
 type Film = {
   id: number;
@@ -15,15 +14,26 @@ type Film = {
   duration: string | null;
   episode_count: number | null;
   watch_date: string | null;
+  songs: string | null;
   featured: number;
   display_order: number | null;
 };
 
 async function getFilm(id: string): Promise<Film | null> {
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
   try {
-    const db = getDb();
-    const film = db.prepare("SELECT * FROM films WHERE id = ?").get(id);
-    return film as Film | null;
+    const response = await fetch(`${baseUrl}/api/films/${id}`, {
+      next: { tags: ["films", `film-${id}`] },
+    });
+
+    if (!response.ok) {
+      return null;
+    }
+
+    const data = await response.json();
+    return data.film as Film | null;
   } catch (error) {
     console.error("Error fetching film:", error);
     return null;
