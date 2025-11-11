@@ -9,8 +9,7 @@ interface HomeClientProps {
 
 export default function HomeClient({ children }: HomeClientProps) {
   const [mode, setMode] = useState<"developer" | "songwriter">("developer");
-  const themeColor =
-    mode === "developer" ? "rgb(96, 165, 250)" : "#c45a74";
+  const themeColor = mode === "developer" ? "rgb(96, 165, 250)" : "#c45a74";
 
   return (
     <div

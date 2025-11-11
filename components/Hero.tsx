@@ -41,7 +41,9 @@ export default function Hero({ mode, onModeChange, themeColor }: HeroProps) {
               <Link
                 href="/"
                 className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
-                  mode === "developer" ? "hover:opacity-80" : "hover:text-blue-400"
+                  mode === "developer"
+                    ? "hover:opacity-80"
+                    : "hover:text-blue-400"
                 }`}
                 style={{
                   color:
@@ -58,7 +60,9 @@ export default function Hero({ mode, onModeChange, themeColor }: HeroProps) {
               <Link
                 href="/music"
                 className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
-                  mode === "songwriter" ? "hover:opacity-80" : "hover:text-[#c45a74]"
+                  mode === "songwriter"
+                    ? "hover:opacity-80"
+                    : "hover:text-[#c45a74]"
                 }`}
                 style={{
                   color: mode === "songwriter" ? themeColor || "#c45a74" : "",

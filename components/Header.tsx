@@ -46,7 +46,9 @@ export default function Header({
                 fullstack developer | songwriter
               </p>
               <p className="text-sm text-gray-400">
-                {pageTitle ? pageTitle.toLowerCase() : "my lyrics breathe life into emotions"}
+                {pageTitle
+                  ? pageTitle.toLowerCase()
+                  : "my lyrics breathe life into emotions"}
               </p>
             </div>
           </div>
@@ -87,7 +89,9 @@ export default function Header({
             fullstack developer | songwriter
           </p>
           <p className="text-sm text-gray-400">
-            {pageTitle ? pageTitle.toLowerCase() : "my lyrics breathe life into emotions"}
+            {pageTitle
+              ? pageTitle.toLowerCase()
+              : "my lyrics breathe life into emotions"}
           </p>
         </div>
       </div>

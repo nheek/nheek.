@@ -128,7 +128,9 @@ export default function AdminFilmsPage() {
 
       // Refresh films
       await fetchFilms();
-      showSuccess(editingId ? "Film updated successfully!" : "Film added successfully!");
+      showSuccess(
+        editingId ? "Film updated successfully!" : "Film added successfully!",
+      );
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to save film");
     } finally {
@@ -214,19 +216,29 @@ export default function AdminFilmsPage() {
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<span key={`full-${i}`} className="text-yellow-400">★</span>);
+      stars.push(
+        <span key={`full-${i}`} className="text-yellow-400">
+          ★
+        </span>,
+      );
     }
     if (hasHalfStar) {
       stars.push(
         <span key="half" className="relative inline-block">
           <span className="text-gray-600">★</span>
-          <span className="absolute inset-0 overflow-hidden w-1/2 text-yellow-400">★</span>
-        </span>
+          <span className="absolute inset-0 overflow-hidden w-1/2 text-yellow-400">
+            ★
+          </span>
+        </span>,
       );
     }
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<span key={`empty-${i}`} className="text-gray-600">★</span>);
+      stars.push(
+        <span key={`empty-${i}`} className="text-gray-600">
+          ★
+        </span>,
+      );
     }
     return (
       <span className="inline-flex items-center gap-0.5">

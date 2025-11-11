@@ -80,7 +80,11 @@ export default async function PollPage({ params }: Props) {
   return (
     <ThemeWrapper themeColor={themeColor}>
       <div className="w-full mx-auto min-h-screen h-full bg-[#1a0b2e]">
-        <Header compact themeColor={themeColor} pageTitle={poll?.question || "Poll"} />
+        <Header
+          compact
+          themeColor={themeColor}
+          pageTitle={poll?.question || "Poll"}
+        />
         <PollClient poll={poll} />
         <FooterHero themeColor={themeColor} />
         <Navigate themeColor={themeColor} />
