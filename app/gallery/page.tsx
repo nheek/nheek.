@@ -38,13 +38,18 @@ type GalleryImage = {
 };
 
 async function getGalleryImages(): Promise<GalleryImage[]> {
-  const db = getDb();
-  const images = db
-    .prepare(
-      "SELECT id, image_url, alt_text, display_order FROM gallery_images ORDER BY display_order ASC"
-    )
-    .all() as GalleryImage[];
-  return images;
+  try {
+    const db = getDb();
+    const images = db
+      .prepare(
+        "SELECT id, image_url, alt_text, display_order FROM gallery_images ORDER BY display_order ASC",
+      )
+      .all() as GalleryImage[];
+    return images;
+  } catch (error) {
+    console.error("Error fetching gallery images:", error);
+    return [];
+  }
 }
 
 export default async function GalleryPage() {

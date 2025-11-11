@@ -23,6 +23,7 @@ export default function AdminGalleryPage() {
   const [displayOrder, setDisplayOrder] = useState("");
   const [editingId, setEditingId] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [clearingCache, setClearingCache] = useState(false);
 
   useEffect(() => {
     fetchImages();
@@ -125,17 +126,54 @@ export default function AdminGalleryPage() {
     setDisplayOrder("");
   };
 
+  const handleClearCache = async () => {
+    if (
+      !confirm(
+        "Clear the gallery page cache? This will refresh the public gallery page.",
+      )
+    )
+      return;
+
+    setClearingCache(true);
+    try {
+      const response = await fetch("/api/gallery/revalidate", {
+        method: "POST",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to clear cache");
+      }
+
+      alert("Gallery cache cleared! The public page will show updated images.");
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to clear cache",
+      );
+    } finally {
+      setClearingCache(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold">Gallery Management</h1>
-          <Link
-            href="/admin"
-            className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded"
-          >
-            ← Back to Admin
-          </Link>
+          <div className="flex gap-3">
+            <button
+              onClick={handleClearCache}
+              disabled={clearingCache}
+              className="bg-green-600 hover:bg-green-500 px-4 py-2 rounded disabled:opacity-50"
+            >
+              {clearingCache ? "Clearing..." : "🔄 Clear Cache"}
+            </button>
+            <Link
+              href="/admin"
+              className="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded"
+            >
+              ← Back to Admin
+            </Link>
+          </div>
         </div>
 
         {error && (
