@@ -29,15 +29,15 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
             <div className="flex gap-2 items-center">
               <TbHandFingerRight
                 className={`text-xl transition-colors ${
-                  mode === "developer" ? "text-purple-400" : ""
+                  mode === "developer" ? "text-blue-400" : ""
                 }`}
               />
               <Link
                 href="/"
                 className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
                   mode === "developer"
-                    ? "text-purple-400 hover:text-purple-300"
-                    : "hover:text-purple-400"
+                    ? "text-blue-400 hover:text-blue-300"
+                    : "hover:text-blue-400"
                 }`}
               >
                 fullstack developer

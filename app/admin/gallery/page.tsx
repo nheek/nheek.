@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type GalleryImage = {
   id: number;
@@ -24,6 +25,9 @@ export default function AdminGalleryPage() {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [clearingCache, setClearingCache] = useState(false);
+  
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetchImages();
@@ -75,11 +79,12 @@ export default function AdminGalleryPage() {
         throw new Error(data.error || "Failed to save image");
       }
 
-      // Reset form
+      // Reset form and close modal
       setImageUrl("");
       setAltText("");
       setDisplayOrder("");
       setEditingId(null);
+      setIsModalOpen(false);
 
       // Refresh images
       await fetchImages();
@@ -96,7 +101,15 @@ export default function AdminGalleryPage() {
     setImageUrl(image.image_url);
     setAltText(image.alt_text);
     setDisplayOrder(image.display_order.toString());
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsModalOpen(true);
+  };
+
+  const openAddModal = () => {
+    setEditingId(null);
+    setImageUrl("");
+    setAltText("");
+    setDisplayOrder("");
+    setIsModalOpen(true);
   };
 
   const handleDelete = async (id: number) => {
@@ -124,6 +137,7 @@ export default function AdminGalleryPage() {
     setImageUrl("");
     setAltText("");
     setDisplayOrder("");
+    setIsModalOpen(false);
   };
 
   const handleClearCache = async () => {
@@ -180,83 +194,104 @@ export default function AdminGalleryPage() {
           </div>
         )}
 
-        {/* Add/Edit Form */}
-        <div className="bg-gray-800 p-6 rounded-lg mb-8">
-          <h2 className="text-xl font-semibold mb-4">
-            {editingId ? "Edit Image" : "Add New Image"}
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Image URL *
-              </label>
-              <input
-                type="url"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-                required
-                className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
-                placeholder="https://example.com/image.jpg"
-              />
-              <p className="text-sm text-gray-400 mt-1">
-                Full URL to the image
-              </p>
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Alt Text / Description *
-              </label>
-              <input
-                type="text"
-                value={altText}
-                onChange={(e) => setAltText(e.target.value)}
-                required
-                className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
-                placeholder="Description of the image"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Display Order (optional)
-              </label>
-              <input
-                type="number"
-                value={displayOrder}
-                onChange={(e) => setDisplayOrder(e.target.value)}
-                className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
-                placeholder="Leave empty to add at the end"
-              />
-              <p className="text-sm text-gray-400 mt-1">
-                Lower numbers appear first
-              </p>
-            </div>
-
-            <div className="flex gap-3">
-              <button
-                type="submit"
-                disabled={submitting}
-                className="bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded disabled:opacity-50"
-              >
-                {submitting
-                  ? "Saving..."
-                  : editingId
-                    ? "Update Image"
-                    : "Add Image"}
-              </button>
-              {editingId && (
-                <button
-                  type="button"
-                  onClick={cancelEdit}
-                  className="bg-gray-600 hover:bg-gray-500 px-6 py-2 rounded"
-                >
-                  Cancel
-                </button>
-              )}
-            </div>
-          </form>
+        {/* Add Image Button */}
+        <div className="mb-8">
+          <button
+            onClick={openAddModal}
+            className="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded font-semibold"
+          >
+            + Add New Image
+          </button>
         </div>
+
+        {/* Modal */}
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+            <div className="bg-gray-800 rounded-lg p-6 max-w-md w-full max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-semibold">
+                  {editingId ? "Edit Image" : "Add New Image"}
+                </h2>
+                <button
+                  onClick={cancelEdit}
+                  className="text-gray-400 hover:text-white text-2xl leading-none"
+                >
+                  ×
+                </button>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Image URL *
+                  </label>
+                  <input
+                    type="url"
+                    value={imageUrl}
+                    onChange={(e) => setImageUrl(e.target.value)}
+                    required
+                    className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+                    placeholder="https://example.com/image.jpg"
+                  />
+                  <p className="text-sm text-gray-400 mt-1">
+                    Full URL to the image
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Alt Text / Description *
+                  </label>
+                  <input
+                    type="text"
+                    value={altText}
+                    onChange={(e) => setAltText(e.target.value)}
+                    required
+                    className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+                    placeholder="Description of the image"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-2">
+                    Display Order (optional)
+                  </label>
+                  <input
+                    type="number"
+                    value={displayOrder}
+                    onChange={(e) => setDisplayOrder(e.target.value)}
+                    className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
+                    placeholder="Leave empty to add at the end"
+                  />
+                  <p className="text-sm text-gray-400 mt-1">
+                    Lower numbers appear first
+                  </p>
+                </div>
+
+                <div className="flex gap-3">
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded disabled:opacity-50"
+                  >
+                    {submitting
+                      ? "Saving..."
+                      : editingId
+                        ? "Update Image"
+                        : "Add Image"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={cancelEdit}
+                    className="bg-gray-600 hover:bg-gray-500 px-6 py-2 rounded"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
 
         {/* Images List */}
         <div className="bg-gray-800 p-6 rounded-lg">
@@ -277,11 +312,15 @@ export default function AdminGalleryPage() {
                   key={image.id}
                   className="bg-gray-700 rounded-lg overflow-hidden"
                 >
-                  <img
-                    src={image.image_url}
-                    alt={image.alt_text}
-                    className="w-full h-48 object-cover"
-                  />
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={image.image_url}
+                      alt={image.alt_text}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
                   <div className="p-4">
                     <p className="text-sm text-gray-300 mb-2">
                       {image.alt_text}
