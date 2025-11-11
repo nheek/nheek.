@@ -6,7 +6,7 @@ export default function Navigate({ underPage = false }) {
     // { name: "blog", link: "#" }, // blog about very small random things to very specific big things
     { name: "gallery", link: "/gallery" }, // maybe add a gallery page where i can showcase some of my favourite pictures
     // { name: "cv", link: "/cv" }, // add page for your cv
-    { name: "fun", link: "/fun" }, // post your spotify playlists here maybe or favourite shows or anything really
+    // { name: "fun", link: "/fun" }, // post your spotify playlists here maybe or favourite shows or anything really
     { name: "poems", link: "/poems" }, // finally my poems seeing the light of day
     { name: "links", link: "/links" }, // add links you want to add on your portfolio, like a friend's portfolio website
     { name: "wall", link: "/wall" }, // visitor contributions wall - graffiti, guestbook, songs, etc.
