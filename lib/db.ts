@@ -63,6 +63,42 @@ function ensureTablesExist(database: Database.Database) {
     console.log("✅ Settings table created successfully");
   }
 
+  // Check if films table exists
+  const filmsTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='films'",
+    )
+    .get();
+
+  if (!filmsTableExists) {
+    console.log("Films table not found. Creating films table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS films (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        type TEXT NOT NULL DEFAULT 'film',
+        cover_image_url TEXT,
+        rating REAL,
+        review TEXT,
+        release_year INTEGER,
+        genre TEXT,
+        director TEXT,
+        duration TEXT,
+        episode_count INTEGER,
+        watch_date TEXT,
+        featured BOOLEAN DEFAULT 0,
+        display_order INTEGER,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    database.exec(`
+      CREATE INDEX IF NOT EXISTS idx_films_featured ON films(featured);
+      CREATE INDEX IF NOT EXISTS idx_films_order ON films(display_order);
+    `);
+    console.log("✅ Films table created successfully");
+  }
+
   // Check if qna table exists
   const qnaTableExists = database
     .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='qna'")
@@ -284,6 +320,28 @@ function initializeSchema(database: Database.Database) {
     )
   `);
 
+  // Films/Series table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS films (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      type TEXT NOT NULL DEFAULT 'film',
+      cover_image_url TEXT,
+      rating REAL,
+      review TEXT,
+      release_year INTEGER,
+      genre TEXT,
+      director TEXT,
+      duration TEXT,
+      episode_count INTEGER,
+      watch_date TEXT,
+      featured BOOLEAN DEFAULT 0,
+      display_order INTEGER,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
   // Q&A table
   database.exec(`
     CREATE TABLE IF NOT EXISTS qna (
@@ -352,6 +410,8 @@ function initializeSchema(database: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_poll_options_poll ON poll_options(poll_id);
     CREATE INDEX IF NOT EXISTS idx_poll_votes_poll ON poll_votes(poll_id);
     CREATE INDEX IF NOT EXISTS idx_poll_votes_fingerprint ON poll_votes(voter_fingerprint);
+    CREATE INDEX IF NOT EXISTS idx_films_featured ON films(featured);
+    CREATE INDEX IF NOT EXISTS idx_films_order ON films(display_order);
   `);
 
   // Create default admin user

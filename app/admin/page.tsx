@@ -14,6 +14,7 @@ export default function AdminDashboard() {
     projects: 0,
     contributions: 0,
     gallery: 0,
+    films: 0,
     qna: 0,
     polls: 0,
   });
@@ -81,6 +82,7 @@ export default function AdminDashboard() {
         projectsRes,
         contributionsRes,
         galleryRes,
+        filmsRes,
         qnaRes,
         pollsRes,
       ] = await Promise.all([
@@ -89,6 +91,7 @@ export default function AdminDashboard() {
         fetch("/api/projects"),
         fetch("/api/contributions?status=all"),
         fetch("/api/gallery"),
+        fetch("/api/films"),
         fetch("/api/qna?status=pending"),
         fetch("/api/polls?includeAll=true"),
       ]);
@@ -98,6 +101,7 @@ export default function AdminDashboard() {
       const projects = await projectsRes.json();
       const contributions = await contributionsRes.json();
       const gallery = await galleryRes.json();
+      const films = await filmsRes.json();
       const qna = await qnaRes.json();
       const polls = await pollsRes.json();
 
@@ -107,6 +111,7 @@ export default function AdminDashboard() {
         projects: projects.projects?.length || 0,
         contributions: contributions.contributions?.length || 0,
         gallery: Array.isArray(gallery) ? gallery.length : 0,
+        films: films.films?.length || 0,
         qna: qna.questions?.length || 0,
         polls: Array.isArray(polls)
           ? polls.filter((p: any) => p.status === "active").length
@@ -482,6 +487,15 @@ export default function AdminDashboard() {
             </dd>
           </div>
 
+          <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
+            <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
+              Films & Series
+            </dt>
+            <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              {stats.films}
+            </dd>
+          </div>
+
           <div className="overflow-hidden rounded-lg bg-yellow-50 px-4 py-5 shadow dark:bg-yellow-900/20 sm:p-6">
             <dt className="truncate text-sm font-medium text-yellow-700 dark:text-yellow-400">
               Pending Q&A
@@ -552,6 +566,16 @@ export default function AdminDashboard() {
             <h3 className="text-lg font-semibold">Manage Gallery</h3>
             <p className="mt-2 text-sm">
               Add, edit, and organize gallery images
+            </p>
+          </Link>
+
+          <Link
+            href="/admin/films"
+            className="block rounded-lg bg-rose-600 p-6 text-white shadow transition hover:bg-rose-500"
+          >
+            <h3 className="text-lg font-semibold">Manage Films & Series</h3>
+            <p className="mt-2 text-sm">
+              Add, rate, and review films/series you've watched
             </p>
           </Link>
 
