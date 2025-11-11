@@ -33,6 +33,7 @@ export default function AdminFilmsPage() {
   const [films, setFilms] = useState<Film[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   // Form state
   const [title, setTitle] = useState("");
@@ -54,6 +55,11 @@ export default function AdminFilmsPage() {
 
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showSuccess = (message: string) => {
+    setSuccessMessage(message);
+    setTimeout(() => setSuccessMessage(""), 3000);
+  };
 
   useEffect(() => {
     fetchFilms();
@@ -122,7 +128,7 @@ export default function AdminFilmsPage() {
 
       // Refresh films
       await fetchFilms();
-      alert(editingId ? "Film updated!" : "Film added!");
+      showSuccess(editingId ? "Film updated successfully!" : "Film added successfully!");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to save film");
     } finally {
@@ -172,7 +178,7 @@ export default function AdminFilmsPage() {
       }
 
       await fetchFilms();
-      alert("Film deleted!");
+      showSuccess("Film deleted successfully!");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to delete film");
     }
@@ -208,12 +214,26 @@ export default function AdminFilmsPage() {
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push("★");
+      stars.push(<span key={`full-${i}`} className="text-yellow-400">★</span>);
     }
     if (hasHalfStar) {
-      stars.push("½");
+      stars.push(
+        <span key="half" className="relative inline-block">
+          <span className="text-gray-600">★</span>
+          <span className="absolute inset-0 overflow-hidden w-1/2 text-yellow-400">★</span>
+        </span>
+      );
     }
-    return stars.join("") + ` (${rating}/5)`;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<span key={`empty-${i}`} className="text-gray-600">★</span>);
+    }
+    return (
+      <span className="inline-flex items-center gap-0.5">
+        {stars}
+        <span className="ml-1 text-xs">({rating}/5)</span>
+      </span>
+    );
   };
 
   return (
@@ -228,6 +248,13 @@ export default function AdminFilmsPage() {
             ← Back to Admin
           </Link>
         </div>
+
+        {/* Success Message */}
+        {successMessage && (
+          <div className="bg-green-900/50 border border-green-500 text-green-200 p-4 rounded mb-6 animate-fade-in">
+            ✅ {successMessage}
+          </div>
+        )}
 
         {error && (
           <div className="bg-red-900/50 border border-red-500 text-red-200 p-4 rounded mb-6">
@@ -258,12 +285,12 @@ export default function AdminFilmsPage() {
                   body: JSON.stringify({ path: "/watch" }),
                 });
                 if (response.ok) {
-                  alert("Cache cleared successfully!");
+                  showSuccess("Cache cleared successfully!");
                 } else {
-                  alert("Failed to clear cache");
+                  setError("Failed to clear cache");
                 }
-              } catch (err) {
-                alert("Error clearing cache");
+              } catch {
+                setError("Error clearing cache");
               }
             }}
             className="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded font-semibold"
