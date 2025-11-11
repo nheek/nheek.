@@ -6,8 +6,22 @@ import Navigate from "../../components/Navigate";
 import ThemeWrapper from "../../components/ThemeWrapper";
 
 export const metadata = {
-  title: "Music - nheek",
-  description: "Browse all albums and songs by nheek",
+  title: "Music",
+  description:
+    "explore nheek's music albums and songs. songwriter crafting lyrics that breathe life into emotions.",
+  openGraph: {
+    title: "Music | nheek",
+    description:
+      "explore nheek's music albums and songs. songwriter crafting lyrics that breathe life into emotions.",
+    images: [
+      {
+        url: "https://flies.nheek.com/uploads/nheek/pfp/pfp",
+        width: 1200,
+        height: 1200,
+        alt: "nheek music",
+      },
+    ],
+  },
 };
 
 type Album = {

@@ -3,30 +3,63 @@ import { Metadata } from "next";
 import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.nheek.com"),
   title: {
-    default: "nheek",
-    template: "%s - nheek",
+    default: "nheek - fullstack developer | songwriter",
+    template: "%s | nheek",
   },
-  description: "Portfolio website of nheek",
+  description:
+    "fullstack developer & songwriter. my code breathes life into applications. my lyrics breathe life into emotions.",
+  keywords: [
+    "nheek",
+    "fullstack developer",
+    "songwriter",
+    "web developer",
+    "portfolio",
+    "music",
+    "lyrics",
+  ],
+  authors: [{ name: "nheek" }],
+  creator: "nheek",
+  publisher: "nheek",
   icons: {
     icon: "/favicon.ico",
   },
   openGraph: {
-    title: "nheek",
-    description: "Portfolio website of nheek",
+    type: "website",
+    locale: "en_US",
+    url: "https://www.nheek.com",
+    siteName: "nheek",
+    title: "nheek - fullstack developer | songwriter",
+    description:
+      "fullstack developer & songwriter. my code breathes life into applications. my lyrics breathe life into emotions.",
     images: [
       {
-        url: `https://og-image.vercel.app/${encodeURI(
-          "nheek",
-        )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`,
+        url: "https://flies.nheek.com/uploads/nheek/pfp/pfp",
         width: 1200,
-        height: 630,
-        alt: "nheek",
+        height: 1200,
+        alt: "nheek profile picture",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
+    title: "nheek - fullstack developer | songwriter",
+    description:
+      "fullstack developer & songwriter. my code breathes life into applications. my lyrics breathe life into emotions.",
+    creator: "@nick.mmrdl",
+    images: ["https://flies.nheek.com/uploads/nheek/pfp/pfp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

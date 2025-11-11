@@ -53,9 +53,42 @@ export async function generateMetadata({
     };
   }
 
+  const description =
+    film.review?.substring(0, 160) || `${film.title} - ${film.type}`;
+
   return {
-    title: `${film.title} - Watch`,
-    description: film.review || `${film.title} - ${film.type}`,
+    title: film.title,
+    description,
+    openGraph: {
+      title: `${film.title} | nheek`,
+      description,
+      images: film.cover_image_url
+        ? [
+            {
+              url: film.cover_image_url,
+              width: 1200,
+              height: 1800,
+              alt: film.title,
+            },
+          ]
+        : [
+            {
+              url: "https://flies.nheek.com/uploads/nheek/pfp/pfp",
+              width: 1200,
+              height: 1200,
+              alt: film.title,
+            },
+          ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: film.title,
+      description,
+      images: film.cover_image_url
+        ? [film.cover_image_url]
+        : ["https://flies.nheek.com/uploads/nheek/pfp/pfp"],
+    },
   };
 }
 

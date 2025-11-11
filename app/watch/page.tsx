@@ -1,8 +1,20 @@
 import WatchPageClient from "./WatchPageClient";
 
 export const metadata = {
-  title: "Watch - nheek",
-  description: "Films and series I've watched with ratings and reviews",
+  title: "Watch",
+  description: "films and series i've watched with ratings and reviews",
+  openGraph: {
+    title: "Watch | nheek",
+    description: "films and series i've watched with ratings and reviews",
+    images: [
+      {
+        url: "https://flies.nheek.com/uploads/nheek/pfp/pfp",
+        width: 1200,
+        height: 1200,
+        alt: "nheek films and series",
+      },
+    ],
+  },
 };
 
 async function getFilms(): Promise<{
