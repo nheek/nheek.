@@ -14,6 +14,7 @@ export default function AdminDashboard() {
     projects: 0,
     contributions: 0,
     gallery: 0,
+    qna: 0,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
@@ -73,20 +74,28 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const [albumsRes, songsRes, projectsRes, contributionsRes, galleryRes] =
-        await Promise.all([
-          fetch("/api/albums"),
-          fetch("/api/songs"),
-          fetch("/api/projects"),
-          fetch("/api/contributions?status=all"),
-          fetch("/api/gallery"),
-        ]);
+      const [
+        albumsRes,
+        songsRes,
+        projectsRes,
+        contributionsRes,
+        galleryRes,
+        qnaRes,
+      ] = await Promise.all([
+        fetch("/api/albums"),
+        fetch("/api/songs"),
+        fetch("/api/projects"),
+        fetch("/api/contributions?status=all"),
+        fetch("/api/gallery"),
+        fetch("/api/qna?status=pending"),
+      ]);
 
       const albums = await albumsRes.json();
       const songs = await songsRes.json();
       const projects = await projectsRes.json();
       const contributions = await contributionsRes.json();
       const gallery = await galleryRes.json();
+      const qna = await qnaRes.json();
 
       setStats({
         albums: albums.albums?.length || 0,
@@ -94,6 +103,7 @@ export default function AdminDashboard() {
         projects: projects.projects?.length || 0,
         contributions: contributions.contributions?.length || 0,
         gallery: Array.isArray(gallery) ? gallery.length : 0,
+        qna: qna.questions?.length || 0,
       });
     } catch (error) {
       console.error("Failed to fetch stats:", error);
@@ -419,7 +429,7 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats */}
-        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
           <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
             <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
               Total Albums
@@ -462,6 +472,15 @@ export default function AdminDashboard() {
             </dt>
             <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {stats.gallery}
+            </dd>
+          </div>
+
+          <div className="overflow-hidden rounded-lg bg-yellow-50 px-4 py-5 shadow dark:bg-yellow-900/20 sm:p-6">
+            <dt className="truncate text-sm font-medium text-yellow-700 dark:text-yellow-400">
+              Pending Q&A
+            </dt>
+            <dd className="mt-1 text-3xl font-semibold tracking-tight text-yellow-900 dark:text-yellow-300">
+              {stats.qna}
             </dd>
           </div>
         </div>
@@ -517,6 +536,16 @@ export default function AdminDashboard() {
             <h3 className="text-lg font-semibold">Manage Gallery</h3>
             <p className="mt-2 text-sm">
               Add, edit, and organize gallery images
+            </p>
+          </Link>
+
+          <Link
+            href="/admin/qna"
+            className="block rounded-lg bg-sky-600 p-6 text-white shadow transition hover:bg-sky-500"
+          >
+            <h3 className="text-lg font-semibold">Manage Q&A</h3>
+            <p className="mt-2 text-sm">
+              Answer visitor questions and publish
             </p>
           </Link>
         </div>

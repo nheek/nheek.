@@ -62,6 +62,32 @@ function ensureTablesExist(database: Database.Database) {
     insertSetting.run("max_backups_to_keep", "10");
     console.log("✅ Settings table created successfully");
   }
+
+  // Check if qna table exists
+  const qnaTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='qna'",
+    )
+    .get();
+
+  if (!qnaTableExists) {
+    console.log("Q&A table not found. Creating qna table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS qna (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        question TEXT NOT NULL,
+        answer TEXT,
+        asker_name TEXT,
+        status TEXT DEFAULT 'pending',
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        answered_at TEXT
+      )
+    `);
+    database.exec(`
+      CREATE INDEX IF NOT EXISTS idx_qna_status ON qna(status);
+    `);
+    console.log("✅ Q&A table created successfully");
+  }
 }
 
 export function getDb(): Database.Database {
@@ -205,6 +231,19 @@ function initializeSchema(database: Database.Database) {
     )
   `);
 
+  // Q&A table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS qna (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      question TEXT NOT NULL,
+      answer TEXT,
+      asker_name TEXT,
+      status TEXT DEFAULT 'pending',
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      answered_at TEXT
+    )
+  `);
+
   // Create indexes
   database.exec(`
     CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
@@ -212,6 +251,7 @@ function initializeSchema(database: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_contributions_status ON contributions(status);
     CREATE INDEX IF NOT EXISTS idx_contributions_category ON contributions(category);
     CREATE INDEX IF NOT EXISTS idx_gallery_order ON gallery_images(display_order);
+    CREATE INDEX IF NOT EXISTS idx_qna_status ON qna(status);
   `);
 
   // Create default admin user
