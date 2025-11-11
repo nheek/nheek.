@@ -49,15 +49,17 @@ function ensureTablesExist(database: Database.Database) {
         updated_at TEXT DEFAULT CURRENT_TIMESTAMP
       )
     `);
-    // Insert default cursor image
-    database
-      .prepare(
-        "INSERT OR IGNORE INTO site_settings (setting_key, setting_value) VALUES (?, ?)",
-      )
-      .run(
-        "cursor_image_url",
-        "https://flies.nheek.com/uploads/nheek/pfp/pfp-main.jpg",
-      );
+    // Insert default settings
+    const insertSetting = database.prepare(
+      "INSERT OR IGNORE INTO site_settings (setting_key, setting_value) VALUES (?, ?)",
+    );
+    insertSetting.run(
+      "cursor_image_url",
+      "https://flies.nheek.com/uploads/nheek/pfp/pfp-main.jpg",
+    );
+    insertSetting.run("auto_backup_enabled", "false");
+    insertSetting.run("backup_interval_hours", "24");
+    insertSetting.run("max_backups_to_keep", "10");
     console.log("✅ Settings table created successfully");
   }
 }

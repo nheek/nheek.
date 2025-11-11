@@ -37,6 +37,12 @@ export default function AdminDashboard() {
   const [cursorImageUrl, setCursorImageUrl] = useState("");
   const [cursorLoading, setCursorLoading] = useState(false);
   const [cursorMessage, setCursorMessage] = useState("");
+  const [autoBackupEnabled, setAutoBackupEnabled] = useState(false);
+  const [backupIntervalHours, setBackupIntervalHours] = useState(24);
+  const [maxBackupsToKeep, setMaxBackupsToKeep] = useState(10);
+  const [lastAutoBackup, setLastAutoBackup] = useState<string | null>(null);
+  const [scheduleLoading, setScheduleLoading] = useState(false);
+  const [scheduleMessage, setScheduleMessage] = useState("");
 
   useEffect(() => {
     const initDashboard = async () => {
@@ -44,6 +50,7 @@ export default function AdminDashboard() {
       await fetchStats();
       await fetchBackups();
       await fetchCursorSettings();
+      await fetchBackupSchedule();
 
       // Check migration button visibility
       const isDisabled = localStorage.getItem("migrationButtonDisabled");
@@ -104,6 +111,51 @@ export default function AdminDashboard() {
       }
     } catch (error) {
       console.error("Failed to fetch backups:", error);
+    }
+  };
+
+  const fetchBackupSchedule = async () => {
+    try {
+      const res = await fetch("/api/backup/schedule");
+      if (res.ok) {
+        const data = await res.json();
+        setAutoBackupEnabled(data.autoBackupEnabled || false);
+        setBackupIntervalHours(data.backupIntervalHours || 24);
+        setMaxBackupsToKeep(data.maxBackupsToKeep || 10);
+        setLastAutoBackup(data.lastAutoBackup);
+      }
+    } catch (error) {
+      console.error("Failed to fetch backup schedule:", error);
+    }
+  };
+
+  const handleUpdateBackupSchedule = async () => {
+    setScheduleLoading(true);
+    setScheduleMessage("");
+
+    try {
+      const res = await fetch("/api/backup/schedule", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          autoBackupEnabled,
+          backupIntervalHours,
+          maxBackupsToKeep,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setScheduleMessage("✅ Backup schedule updated successfully!");
+      } else {
+        setScheduleMessage(`❌ ${data.error || "Failed to update schedule"}`);
+      }
+    } catch {
+      setScheduleMessage("❌ Error updating schedule");
+    } finally {
+      setScheduleLoading(false);
+      setTimeout(() => setScheduleMessage(""), 5000);
     }
   };
 
@@ -509,6 +561,111 @@ export default function AdminDashboard() {
             >
               {backupLoading ? "Processing..." : "Create New Backup"}
             </button>
+          </div>
+
+          {/* Scheduled Backup Settings */}
+          <div className="mt-6 border-t border-green-200 pt-6 dark:border-green-700">
+            <h3 className="text-md font-semibold text-green-900 dark:text-green-100 mb-4">
+              ⏰ Automated Backup Schedule
+            </h3>
+            
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div>
+                <label className="block text-sm font-medium text-green-800 dark:text-green-200 mb-2">
+                  Enable Auto Backup
+                </label>
+                <button
+                  onClick={() => setAutoBackupEnabled(!autoBackupEnabled)}
+                  className={`w-full rounded-md px-4 py-2 text-sm font-semibold text-white transition ${
+                    autoBackupEnabled
+                      ? "bg-green-600 hover:bg-green-500"
+                      : "bg-gray-400 hover:bg-gray-500"
+                  }`}
+                >
+                  {autoBackupEnabled ? "✅ Enabled" : "❌ Disabled"}
+                </button>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-green-800 dark:text-green-200 mb-2">
+                  Backup Every (hours)
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  max="168"
+                  value={backupIntervalHours}
+                  onChange={(e) =>
+                    setBackupIntervalHours(parseInt(e.target.value) || 24)
+                  }
+                  className="w-full rounded-md border border-green-300 bg-white px-3 py-2 text-sm text-gray-900 dark:border-green-600 dark:bg-green-800 dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-green-800 dark:text-green-200 mb-2">
+                  Max Backups to Keep
+                </label>
+                <input
+                  type="number"
+                  min="1"
+                  max="100"
+                  value={maxBackupsToKeep}
+                  onChange={(e) =>
+                    setMaxBackupsToKeep(parseInt(e.target.value) || 10)
+                  }
+                  className="w-full rounded-md border border-green-300 bg-white px-3 py-2 text-sm text-gray-900 dark:border-green-600 dark:bg-green-800 dark:text-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-green-800 dark:text-green-200 mb-2">
+                  Apply Settings
+                </label>
+                <button
+                  onClick={handleUpdateBackupSchedule}
+                  disabled={scheduleLoading}
+                  className={`w-full rounded-md px-4 py-2 text-sm font-semibold text-white transition ${
+                    scheduleLoading
+                      ? "cursor-not-allowed bg-gray-400"
+                      : "bg-green-700 hover:bg-green-600"
+                  }`}
+                >
+                  {scheduleLoading ? "Saving..." : "Save Schedule"}
+                </button>
+              </div>
+            </div>
+
+            {lastAutoBackup && (
+              <p className="mt-3 text-xs text-green-700 dark:text-green-300">
+                Last auto backup: {formatDate(lastAutoBackup)}
+              </p>
+            )}
+
+            {scheduleMessage && (
+              <div
+                className={`mt-3 rounded-md p-3 text-sm ${
+                  scheduleMessage.startsWith("✅")
+                    ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
+                    : "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300"
+                }`}
+              >
+                {scheduleMessage}
+              </div>
+            )}
+
+            <div className="mt-4 rounded-md bg-green-100 p-3 text-xs text-green-800 dark:bg-green-900/30 dark:text-green-300">
+              <strong>💡 Note:</strong> For automated backups to work, you need
+              to set up a cron job that calls{" "}
+              <code className="mx-1 rounded bg-green-200 px-1 dark:bg-green-800">
+                POST /api/backup/auto
+              </code>{" "}
+              with header{" "}
+              <code className="mx-1 rounded bg-green-200 px-1 dark:bg-green-800">
+                x-cron-secret
+              </code>
+              . See documentation for setup instructions.
+            </div>
           </div>
 
           {backupMessage && (
