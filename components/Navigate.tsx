@@ -57,6 +57,7 @@ export default function Navigate({
     { name: "links", link: "/links" }, // add links you want to add on your portfolio, like a friend's portfolio website
     { name: "wall", link: "/wall" }, // visitor contributions wall - graffiti, guestbook, songs, etc.
     { name: "q&a", link: "/qna" }, // ask me anything page
+    { name: "polls", link: "/polls" }, // community polls and voting
   ];
 
   return (

@@ -86,6 +86,59 @@ function ensureTablesExist(database: Database.Database) {
     `);
     console.log("✅ Q&A table created successfully");
   }
+
+  // Check if polls table exists
+  const pollsTableExists = database
+    .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='polls'")
+    .get();
+
+  if (!pollsTableExists) {
+    console.log("Polls table not found. Creating polls tables...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS polls (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        description TEXT,
+        status TEXT DEFAULT 'active',
+        allow_multiple_votes INTEGER DEFAULT 0,
+        end_date TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS poll_options (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        poll_id INTEGER NOT NULL,
+        name TEXT NOT NULL,
+        description TEXT,
+        image_url TEXT,
+        link TEXT,
+        vote_count INTEGER DEFAULT 0,
+        display_order INTEGER,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (poll_id) REFERENCES polls(id) ON DELETE CASCADE
+      )
+    `);
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS poll_votes (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        poll_id INTEGER NOT NULL,
+        option_id INTEGER NOT NULL,
+        voter_fingerprint TEXT NOT NULL,
+        voted_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (poll_id) REFERENCES polls(id) ON DELETE CASCADE,
+        FOREIGN KEY (option_id) REFERENCES poll_options(id) ON DELETE CASCADE,
+        UNIQUE(poll_id, voter_fingerprint, option_id)
+      )
+    `);
+    database.exec(`
+      CREATE INDEX IF NOT EXISTS idx_poll_options_poll ON poll_options(poll_id);
+      CREATE INDEX IF NOT EXISTS idx_poll_votes_poll ON poll_votes(poll_id);
+      CREATE INDEX IF NOT EXISTS idx_poll_votes_fingerprint ON poll_votes(voter_fingerprint);
+    `);
+    console.log("✅ Polls tables created successfully");
+  }
 }
 
 export function getDb(): Database.Database {
@@ -242,6 +295,50 @@ function initializeSchema(database: Database.Database) {
     )
   `);
 
+  // Polls table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS polls (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      title TEXT NOT NULL,
+      description TEXT,
+      status TEXT DEFAULT 'active',
+      allow_multiple_votes INTEGER DEFAULT 0,
+      end_date TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
+  // Poll options table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS poll_options (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      poll_id INTEGER NOT NULL,
+      name TEXT NOT NULL,
+      description TEXT,
+      image_url TEXT,
+      link TEXT,
+      vote_count INTEGER DEFAULT 0,
+      display_order INTEGER,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (poll_id) REFERENCES polls(id) ON DELETE CASCADE
+    )
+  `);
+
+  // Poll votes table (to track who voted)
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS poll_votes (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      poll_id INTEGER NOT NULL,
+      option_id INTEGER NOT NULL,
+      voter_fingerprint TEXT NOT NULL,
+      voted_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (poll_id) REFERENCES polls(id) ON DELETE CASCADE,
+      FOREIGN KEY (option_id) REFERENCES poll_options(id) ON DELETE CASCADE,
+      UNIQUE(poll_id, voter_fingerprint, option_id)
+    )
+  `);
+
   // Create indexes
   database.exec(`
     CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
@@ -250,6 +347,9 @@ function initializeSchema(database: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_contributions_category ON contributions(category);
     CREATE INDEX IF NOT EXISTS idx_gallery_order ON gallery_images(display_order);
     CREATE INDEX IF NOT EXISTS idx_qna_status ON qna(status);
+    CREATE INDEX IF NOT EXISTS idx_poll_options_poll ON poll_options(poll_id);
+    CREATE INDEX IF NOT EXISTS idx_poll_votes_poll ON poll_votes(poll_id);
+    CREATE INDEX IF NOT EXISTS idx_poll_votes_fingerprint ON poll_votes(voter_fingerprint);
   `);
 
   // Create default admin user

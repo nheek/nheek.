@@ -15,6 +15,7 @@ export default function AdminDashboard() {
     contributions: 0,
     gallery: 0,
     qna: 0,
+    polls: 0,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
@@ -81,6 +82,7 @@ export default function AdminDashboard() {
         contributionsRes,
         galleryRes,
         qnaRes,
+        pollsRes,
       ] = await Promise.all([
         fetch("/api/albums"),
         fetch("/api/songs"),
@@ -88,6 +90,7 @@ export default function AdminDashboard() {
         fetch("/api/contributions?status=all"),
         fetch("/api/gallery"),
         fetch("/api/qna?status=pending"),
+        fetch("/api/polls?includeAll=true"),
       ]);
 
       const albums = await albumsRes.json();
@@ -96,6 +99,7 @@ export default function AdminDashboard() {
       const contributions = await contributionsRes.json();
       const gallery = await galleryRes.json();
       const qna = await qnaRes.json();
+      const polls = await pollsRes.json();
 
       setStats({
         albums: albums.albums?.length || 0,
@@ -104,6 +108,9 @@ export default function AdminDashboard() {
         contributions: contributions.contributions?.length || 0,
         gallery: Array.isArray(gallery) ? gallery.length : 0,
         qna: qna.questions?.length || 0,
+        polls: Array.isArray(polls)
+          ? polls.filter((p: any) => p.status === "active").length
+          : 0,
       });
     } catch (error) {
       console.error("Failed to fetch stats:", error);
@@ -429,7 +436,7 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats */}
-        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-7">
           <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
             <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
               Total Albums
@@ -481,6 +488,15 @@ export default function AdminDashboard() {
             </dt>
             <dd className="mt-1 text-3xl font-semibold tracking-tight text-yellow-900 dark:text-yellow-300">
               {stats.qna}
+            </dd>
+          </div>
+
+          <div className="overflow-hidden rounded-lg bg-purple-50 px-4 py-5 shadow dark:bg-purple-900/20 sm:p-6">
+            <dt className="truncate text-sm font-medium text-purple-700 dark:text-purple-400">
+              Active Polls
+            </dt>
+            <dd className="mt-1 text-3xl font-semibold tracking-tight text-purple-900 dark:text-purple-300">
+              {stats.polls}
             </dd>
           </div>
         </div>
@@ -545,6 +561,14 @@ export default function AdminDashboard() {
           >
             <h3 className="text-lg font-semibold">Manage Q&A</h3>
             <p className="mt-2 text-sm">Answer visitor questions and publish</p>
+          </Link>
+
+          <Link
+            href="/admin/polls"
+            className="block rounded-lg bg-purple-600 p-6 text-white shadow transition hover:bg-purple-500"
+          >
+            <h3 className="text-lg font-semibold">Manage Polls</h3>
+            <p className="mt-2 text-sm">Create polls and track votes</p>
           </Link>
         </div>
 
@@ -847,6 +871,28 @@ export default function AdminDashboard() {
               className="rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-500"
             >
               Clear Q&A Cache
+            </button>
+
+            <button
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/revalidate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: "polls" }),
+                  });
+                  if (res.ok) {
+                    alert("✅ Polls cache cleared!");
+                  } else {
+                    alert("❌ Failed to clear cache");
+                  }
+                } catch {
+                  alert("❌ Error clearing cache");
+                }
+              }}
+              className="rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-500"
+            >
+              Clear Polls Cache
             </button>
 
             <button

@@ -30,6 +30,11 @@ export async function POST(request: NextRequest) {
       revalidatePath("/gallery", "page");
     }
 
+    if (type === "polls" || type === "all") {
+      // Revalidate Polls page
+      revalidatePath("/polls", "page");
+    }
+
     return NextResponse.json({
       revalidated: true,
       type,
