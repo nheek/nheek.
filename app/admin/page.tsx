@@ -940,6 +940,33 @@ export default function AdminDashboard() {
             >
               Clear All Cache
             </button>
+
+            <button
+              onClick={async () => {
+                if (
+                  !confirm(
+                    "This will force-refresh all admin panels. Your browser will reload. Continue?",
+                  )
+                )
+                  return;
+                try {
+                  // Clear service worker cache if it exists
+                  if ("caches" in window) {
+                    const cacheNames = await caches.keys();
+                    await Promise.all(
+                      cacheNames.map((name) => caches.delete(name)),
+                    );
+                  }
+                  // Force reload from server
+                  window.location.reload();
+                } catch {
+                  alert("❌ Error clearing admin cache");
+                }
+              }}
+              className="rounded-md bg-red-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-600"
+            >
+              🔥 Clear Admin Cache & Reload
+            </button>
           </div>
 
           <div className="mt-4 rounded-md bg-cyan-100 p-3 text-xs text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300">
