@@ -1,5 +1,6 @@
 import "../styles/global.css";
 import { Metadata } from "next";
+import CustomCursor from "@/components/CustomCursor";
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +44,10 @@ export default function RootLayout({
           data-website-id="74e002f4-f2a6-43b6-9045-840f9632e53a"
         ></script>
       </head>
-      <body>{children}</body>
+      <body className="cursor-none">
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }

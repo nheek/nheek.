@@ -31,6 +31,35 @@ function ensureTablesExist(database: Database.Database) {
     `);
     console.log("✅ Gallery table created successfully");
   }
+
+  // Check if site_settings table exists
+  const settingsTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='site_settings'",
+    )
+    .get();
+
+  if (!settingsTableExists) {
+    console.log("Settings table not found. Creating site_settings table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS site_settings (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        setting_key TEXT NOT NULL UNIQUE,
+        setting_value TEXT,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    // Insert default cursor image
+    database
+      .prepare(
+        "INSERT OR IGNORE INTO site_settings (setting_key, setting_value) VALUES (?, ?)",
+      )
+      .run(
+        "cursor_image_url",
+        "https://flies.nheek.com/uploads/nheek/pfp/pfp-main.jpg",
+      );
+    console.log("✅ Settings table created successfully");
+  }
 }
 
 export function getDb(): Database.Database {

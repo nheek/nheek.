@@ -34,12 +34,16 @@ export default function AdminDashboard() {
   const [backupMessage, setBackupMessage] = useState("");
   const [showRestoreConfirm, setShowRestoreConfirm] = useState(false);
   const [selectedBackup, setSelectedBackup] = useState("");
+  const [cursorImageUrl, setCursorImageUrl] = useState("");
+  const [cursorLoading, setCursorLoading] = useState(false);
+  const [cursorMessage, setCursorMessage] = useState("");
 
   useEffect(() => {
     const initDashboard = async () => {
       await checkAuth();
       await fetchStats();
       await fetchBackups();
+      await fetchCursorSettings();
 
       // Check migration button visibility
       const isDisabled = localStorage.getItem("migrationButtonDisabled");
@@ -243,6 +247,47 @@ export default function AdminDashboard() {
     } catch (error) {
       alert("❌ Error migrating gallery images");
       console.error("Gallery migration error:", error);
+    }
+  };
+
+  const fetchCursorSettings = async () => {
+    try {
+      const res = await fetch("/api/settings/cursor");
+      const data = await res.json();
+      setCursorImageUrl(data.cursor_image_url || "");
+    } catch (error) {
+      console.error("Error fetching cursor settings:", error);
+    }
+  };
+
+  const handleCursorUpdate = async () => {
+    if (!cursorImageUrl.trim()) {
+      setCursorMessage("Please enter an image URL");
+      return;
+    }
+
+    setCursorLoading(true);
+    setCursorMessage("");
+
+    try {
+      const res = await fetch("/api/settings/cursor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cursor_image_url: cursorImageUrl }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setCursorMessage("✅ Cursor updated! Refresh the page to see changes.");
+      } else {
+        setCursorMessage(`❌ ${data.error || "Failed to update cursor"}`);
+      }
+    } catch (error) {
+      setCursorMessage("❌ Error updating cursor");
+      console.error("Cursor update error:", error);
+    } finally {
+      setCursorLoading(false);
     }
   };
 
@@ -611,6 +656,39 @@ export default function AdminDashboard() {
           <h2 className="text-lg font-semibold text-purple-900 dark:text-purple-100">
             ⚙️ Settings
           </h2>
+
+          {/* Custom Cursor */}
+          <div className="mt-4 border-b border-purple-200 pb-4 dark:border-purple-700">
+            <div>
+              <p className="text-sm font-medium text-purple-800 dark:text-purple-200">
+                Custom Cursor Image
+              </p>
+              <p className="text-xs text-purple-600 dark:text-purple-300 mb-3">
+                Set a custom image for your cursor (your face!)
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <input
+                type="url"
+                value={cursorImageUrl}
+                onChange={(e) => setCursorImageUrl(e.target.value)}
+                placeholder="https://example.com/your-face.jpg"
+                className="flex-1 rounded-md border border-purple-300 bg-white px-3 py-2 text-sm text-gray-900 dark:border-purple-600 dark:bg-purple-800 dark:text-white"
+              />
+              <button
+                onClick={handleCursorUpdate}
+                disabled={cursorLoading}
+                className="rounded-md bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-500 disabled:opacity-50"
+              >
+                {cursorLoading ? "Saving..." : "Update"}
+              </button>
+            </div>
+            {cursorMessage && (
+              <p className="mt-2 text-xs text-purple-600 dark:text-purple-300">
+                {cursorMessage}
+              </p>
+            )}
+          </div>
 
           {/* Change Password */}
           <div className="mt-4 flex items-center justify-between border-b border-purple-200 pb-4 dark:border-purple-700">
