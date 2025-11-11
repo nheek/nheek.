@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import ImageLoader from "../utils/ImageLoader";
 import { motion, AnimatePresence } from "framer-motion";
 
 type GalleryImage = {
@@ -82,10 +81,11 @@ export default function Gallery({ initialImages }: GalleryProps) {
               onClick={() => setSelectedImage(image)}
             >
               <div className="w-full h-full relative">
-                <ImageLoader
+                <img
                   src={image.image_url}
                   alt={image.alt_text}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
 
                 {/* Overlay on hover */}
