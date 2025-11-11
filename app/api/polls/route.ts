@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -125,6 +126,9 @@ export async function POST(request: Request) {
         "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
       )
       .all(pollId);
+
+    // Revalidate polls page
+    revalidatePath("/polls");
 
     return NextResponse.json({
       ...(createdPoll as object),

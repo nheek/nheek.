@@ -46,7 +46,7 @@ export default function WatchPageClient({
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    
+
     // Cleanup function to ensure scroll is always re-enabled
     return () => {
       document.body.style.overflow = "unset";
@@ -62,7 +62,7 @@ export default function WatchPageClient({
         film.title.toLowerCase().includes(query) ||
         film.genre?.toLowerCase().includes(query) ||
         film.director?.toLowerCase().includes(query) ||
-        film.type.toLowerCase().includes(query)
+        film.type.toLowerCase().includes(query),
     );
   };
 
@@ -305,25 +305,33 @@ export default function WatchPageClient({
                   {selectedFilm.release_year && (
                     <div className="flex gap-3">
                       <span className="text-gray-500 w-20">Year</span>
-                      <span className="text-gray-300">{selectedFilm.release_year}</span>
+                      <span className="text-gray-300">
+                        {selectedFilm.release_year}
+                      </span>
                     </div>
                   )}
                   {selectedFilm.genre && (
                     <div className="flex gap-3">
                       <span className="text-gray-500 w-20">Genre</span>
-                      <span className="text-gray-300">{selectedFilm.genre}</span>
+                      <span className="text-gray-300">
+                        {selectedFilm.genre}
+                      </span>
                     </div>
                   )}
                   {selectedFilm.director && (
                     <div className="flex gap-3">
                       <span className="text-gray-500 w-20">Director</span>
-                      <span className="text-gray-300">{selectedFilm.director}</span>
+                      <span className="text-gray-300">
+                        {selectedFilm.director}
+                      </span>
                     </div>
                   )}
                   {selectedFilm.duration && (
                     <div className="flex gap-3">
                       <span className="text-gray-500 w-20">Runtime</span>
-                      <span className="text-gray-300">{selectedFilm.duration}</span>
+                      <span className="text-gray-300">
+                        {selectedFilm.duration}
+                      </span>
                     </div>
                   )}
                   {selectedFilm.type === "series" &&
@@ -347,42 +355,48 @@ export default function WatchPageClient({
                 )}
 
                 {/* Songs */}
-                {selectedFilm.songs && (() => {
-                  try {
-                    const parsedSongs: Song[] = JSON.parse(selectedFilm.songs);
-                    if (parsedSongs.length > 0) {
-                      return (
-                        <div className="mb-8">
-                          <h3 className="text-gray-500 text-sm mb-2">
-                            Songs I Liked
-                          </h3>
-                          <div className="space-y-1">
-                            {parsedSongs.map((song, index) => (
-                              <div key={index} className="text-gray-300 text-sm">
-                                •{" "}
-                                {song.link ? (
-                                  <a
-                                    href={song.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:text-white underline underline-offset-2 transition-colors"
-                                  >
-                                    {song.title}
-                                  </a>
-                                ) : (
-                                  song.title
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                {selectedFilm.songs &&
+                  (() => {
+                    try {
+                      const parsedSongs: Song[] = JSON.parse(
+                        selectedFilm.songs,
                       );
+                      if (parsedSongs.length > 0) {
+                        return (
+                          <div className="mb-8">
+                            <h3 className="text-gray-500 text-sm mb-2">
+                              Songs I Liked
+                            </h3>
+                            <div className="space-y-1">
+                              {parsedSongs.map((song, index) => (
+                                <div
+                                  key={index}
+                                  className="text-gray-300 text-sm"
+                                >
+                                  •{" "}
+                                  {song.link ? (
+                                    <a
+                                      href={song.link}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="hover:text-white underline underline-offset-2 transition-colors"
+                                    >
+                                      {song.title}
+                                    </a>
+                                  ) : (
+                                    song.title
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      }
+                    } catch {
+                      return null;
                     }
-                  } catch {
                     return null;
-                  }
-                  return null;
-                })()}
+                  })()}
 
                 {/* View Individual Page Link */}
                 <Link

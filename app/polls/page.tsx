@@ -29,8 +29,7 @@ export const metadata: Metadata = {
 };
 
 async function getPolls() {
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
   try {
     const response = await fetch(`${baseUrl}/api/polls?includeAll=true`, {

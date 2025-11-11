@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -93,6 +94,10 @@ export async function POST(request: NextRequest) {
     const album = db
       .prepare("SELECT * FROM albums WHERE id = ?")
       .get(result.lastInsertRowid);
+
+    // Revalidate music pages
+    revalidatePath("/music");
+    revalidatePath("/");
 
     return NextResponse.json({ album }, { status: 201 });
   } catch (error: any) {

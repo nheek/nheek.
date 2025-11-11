@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
-import getDb from "@/lib/db";
-import { requireAuth } from "@/lib/session";
+import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
+import { getDb } from "../../../lib/db";
+import { requireAuth } from "../../../lib/session";
 
 // GET all gallery images
 export async function GET() {
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
       .get(result.lastInsertRowid);
 
     // Revalidate gallery cache
-    revalidateTag("gallery");
+    revalidatePath("/gallery");
 
     return NextResponse.json(newImage, { status: 201 });
   } catch (error) {

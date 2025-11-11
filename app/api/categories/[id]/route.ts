@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -70,6 +71,9 @@ export async function PUT(
       .prepare("SELECT * FROM project_categories WHERE id = ?")
       .get(id);
 
+    // Revalidate home page (featured projects)
+    revalidatePath("/");
+
     return NextResponse.json({ category: updated });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
@@ -102,6 +106,9 @@ export async function DELETE(
         { status: 404 },
       );
     }
+
+    // Revalidate home page (featured projects)
+    revalidatePath("/");
 
     return NextResponse.json({ message: "Category deleted successfully" });
   } catch (error: unknown) {

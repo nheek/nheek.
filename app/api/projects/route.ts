@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -56,6 +57,10 @@ export async function POST(request: NextRequest) {
     const project = db
       .prepare("SELECT * FROM projects WHERE id = ?")
       .get(result.lastInsertRowid);
+
+    // Revalidate home page (featured projects)
+    revalidatePath("/");
+
     return NextResponse.json({ project }, { status: 201 });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "../../../lib/db";
 import { requireAuth } from "../../../lib/session";
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -10,7 +10,9 @@ export async function GET() {
   try {
     const db = getDb();
     const films = db
-      .prepare("SELECT * FROM films ORDER BY display_order ASC, created_at DESC")
+      .prepare(
+        "SELECT * FROM films ORDER BY display_order ASC, created_at DESC",
+      )
       .all();
 
     return NextResponse.json({ films });
@@ -18,7 +20,7 @@ export async function GET() {
     console.error("Error fetching films:", error);
     return NextResponse.json(
       { error: "Failed to fetch films" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -30,7 +32,7 @@ export async function POST(request: NextRequest) {
     await requireAuth();
 
     const body = await request.json();
-        const {
+    const {
       title,
       type,
       cover_image_url,
@@ -48,14 +50,11 @@ export async function POST(request: NextRequest) {
     } = body;
 
     if (!title) {
-      return NextResponse.json(
-        { error: "Title is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Title is required" }, { status: 400 });
     }
 
     const db = getDb();
-    
+
     // If no display_order provided, set it to max + 1
     let finalDisplayOrder = display_order;
     if (!finalDisplayOrder) {
@@ -92,14 +91,14 @@ export async function POST(request: NextRequest) {
       .get(result.lastInsertRowid);
 
     // Revalidate films cache
-    revalidateTag("films");
+    revalidatePath("/watch");
 
     return NextResponse.json({ film: newFilm }, { status: 201 });
   } catch (error) {
     console.error("Error creating film:", error);
     return NextResponse.json(
       { error: "Failed to create film" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

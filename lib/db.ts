@@ -110,7 +110,7 @@ function ensureTablesExist(database: Database.Database) {
       database.exec(`ALTER TABLE films ADD COLUMN songs TEXT`);
       console.log("✅ Songs column added successfully");
     }
-    
+
     // Note: songs column stores JSON array of objects with structure:
     // [{ "title": "Song Name", "link": "https://..." }, ...]
   }

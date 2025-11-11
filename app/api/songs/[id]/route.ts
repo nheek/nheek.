@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -65,6 +66,11 @@ export async function PUT(
     );
 
     const song = db.prepare("SELECT * FROM songs WHERE id = ?").get(id);
+
+    // Revalidate music pages
+    revalidatePath("/music");
+    revalidatePath("/");
+
     return NextResponse.json({ song });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
@@ -88,6 +94,10 @@ export async function DELETE(
 
     const db = getDb();
     db.prepare("DELETE FROM songs WHERE id = ?").run(id);
+
+    // Revalidate music pages
+    revalidatePath("/music");
+    revalidatePath("/");
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {

@@ -13,8 +13,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
   try {
     const response = await fetch(`${baseUrl}/api/polls/${id}`, {
@@ -57,8 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function PollPage({ params }: Props) {
   const { id } = await params;
-  const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   const themeColor = "#7e22ce"; // purple-700
 
   // Fetch the poll from API

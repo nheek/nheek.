@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
-import getDb from "@/lib/db";
-import { requireAuth } from "@/lib/session";
+import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
+import { getDb } from "../../../../lib/db";
+import { requireAuth } from "../../../../lib/session";
 
 type RouteContext = {
   params: Promise<{ id: string }>;
@@ -69,7 +69,7 @@ export async function PUT(request: Request, context: RouteContext) {
       .get(id);
 
     // Revalidate gallery cache
-    revalidateTag("gallery");
+    revalidatePath("/gallery");
 
     return NextResponse.json(updatedImage);
   } catch (error) {
@@ -104,12 +104,12 @@ export async function DELETE(request: Request, context: RouteContext) {
       );
     }
 
-    db.prepare("DELETE FROM gallery_images WHERE id = ?").run(id);
+    db.prepare("DELETE FROM gallery WHERE id = ?").run(id);
 
     // Revalidate gallery cache
-    revalidateTag("gallery");
+    revalidatePath("/gallery");
 
-    return NextResponse.json({ message: "Gallery image deleted successfully" });
+    return NextResponse.json({ message: "Image deleted successfully" });
   } catch (error) {
     console.error("Error deleting gallery image:", error);
     return NextResponse.json(

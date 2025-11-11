@@ -283,7 +283,9 @@ export default function AdminFilmsPage() {
                     </label>
                     <select
                       value={type}
-                      onChange={(e) => setType(e.target.value as "film" | "series")}
+                      onChange={(e) =>
+                        setType(e.target.value as "film" | "series")
+                      }
                       className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white"
                     >
                       <option value="film">Film</option>
@@ -452,7 +454,9 @@ export default function AdminFilmsPage() {
                           <button
                             type="button"
                             onClick={() => {
-                              const newSongs = songs.filter((_, i) => i !== index);
+                              const newSongs = songs.filter(
+                                (_, i) => i !== index,
+                              );
                               setSongs(newSongs);
                             }}
                             className="px-3 py-2 bg-red-600 hover:bg-red-500 rounded text-white"
@@ -463,7 +467,9 @@ export default function AdminFilmsPage() {
                       ))}
                       <button
                         type="button"
-                        onClick={() => setSongs([...songs, { title: "", link: "" }])}
+                        onClick={() =>
+                          setSongs([...songs, { title: "", link: "" }])
+                        }
                         className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded text-white"
                       >
                         + Add Song
