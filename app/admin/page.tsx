@@ -544,9 +544,7 @@ export default function AdminDashboard() {
             className="block rounded-lg bg-sky-600 p-6 text-white shadow transition hover:bg-sky-500"
           >
             <h3 className="text-lg font-semibold">Manage Q&A</h3>
-            <p className="mt-2 text-sm">
-              Answer visitor questions and publish
-            </p>
+            <p className="mt-2 text-sm">Answer visitor questions and publish</p>
           </Link>
         </div>
 
@@ -597,7 +595,7 @@ export default function AdminDashboard() {
             <h3 className="text-md font-semibold text-green-900 dark:text-green-100 mb-4">
               ⏰ Automated Backup Schedule
             </h3>
-            
+
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div>
                 <label className="block text-sm font-medium text-green-800 dark:text-green-200 mb-2">

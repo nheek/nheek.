@@ -5,6 +5,7 @@ This guide explains how to set up automated database backups for your nheek webs
 ## Overview
 
 The automated backup system allows you to:
+
 - Schedule automatic database backups at configurable intervals (hourly, daily, weekly)
 - Automatically clean up old backups based on retention policy
 - Configure settings through the admin dashboard
@@ -32,6 +33,7 @@ CRON_SECRET=your_secure_random_secret_here
 ```
 
 Generate a secure random secret:
+
 ```bash
 openssl rand -base64 32
 ```
@@ -41,6 +43,7 @@ openssl rand -base64 32
 #### Option A: Using System Crontab (Linux/macOS Server)
 
 1. Open crontab editor:
+
 ```bash
 crontab -e
 ```
@@ -48,21 +51,25 @@ crontab -e
 2. Add one of these entries based on your backup frequency:
 
 **Every hour:**
+
 ```cron
 0 * * * * curl -X POST https://yourdomain.com/api/backup/auto -H "x-cron-secret: your_secure_random_secret_here" >> /var/log/nheek-backup.log 2>&1
 ```
 
 **Every 6 hours:**
+
 ```cron
 0 */6 * * * curl -X POST https://yourdomain.com/api/backup/auto -H "x-cron-secret: your_secure_random_secret_here" >> /var/log/nheek-backup.log 2>&1
 ```
 
 **Daily at 2 AM:**
+
 ```cron
 0 2 * * * curl -X POST https://yourdomain.com/api/backup/auto -H "x-cron-secret: your_secure_random_secret_here" >> /var/log/nheek-backup.log 2>&1
 ```
 
 **Weekly (Sunday at 3 AM):**
+
 ```cron
 0 3 * * 0 curl -X POST https://yourdomain.com/api/backup/auto -H "x-cron-secret: your_secure_random_secret_here" >> /var/log/nheek-backup.log 2>&1
 ```
@@ -98,7 +105,8 @@ Services like [cron-job.org](https://cron-job.org) or [EasyCron](https://www.eas
 // In app/api/backup/auto/route.ts
 // Add this check before the existing auth check:
 const authorizationHeader = request.headers.get("authorization");
-const isVercelCron = authorizationHeader === `Bearer ${process.env.CRON_SECRET}`;
+const isVercelCron =
+  authorizationHeader === `Bearer ${process.env.CRON_SECRET}`;
 ```
 
 ### 4. Test the Setup
@@ -111,6 +119,7 @@ curl -X POST http://localhost:3000/api/backup/auto \
 ```
 
 Expected response:
+
 ```json
 {
   "message": "Auto backup created successfully",
@@ -123,6 +132,7 @@ Expected response:
 ```
 
 If backups are disabled or interval not reached:
+
 ```json
 {
   "message": "Auto backup is disabled",

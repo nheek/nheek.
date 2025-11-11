@@ -122,7 +122,9 @@ async function cleanupOldBackups(
 
     const files = fs.readdirSync(backupDir);
     const autoBackups = files
-      .filter((file) => file.startsWith("nheek-auto-backup-") && file.endsWith(".db"))
+      .filter(
+        (file) => file.startsWith("nheek-auto-backup-") && file.endsWith(".db"),
+      )
       .map((file) => ({
         filename: file,
         path: path.join(backupDir, file),

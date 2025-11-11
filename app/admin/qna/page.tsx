@@ -42,10 +42,7 @@ export default function AdminQnAPage() {
 
   const fetchQuestions = async () => {
     try {
-      const url =
-        filter === "all"
-          ? "/api/qna"
-          : `/api/qna?status=${filter}`;
+      const url = filter === "all" ? "/api/qna" : `/api/qna?status=${filter}`;
       const res = await fetch(url);
       const data = await res.json();
       setQuestions(data.questions || []);
@@ -121,9 +118,7 @@ export default function AdminQnAPage() {
 
   const filteredQuestions = questions;
   const pendingCount = questions.filter((q) => q.status === "pending").length;
-  const answeredCount = questions.filter(
-    (q) => q.status === "answered",
-  ).length;
+  const answeredCount = questions.filter((q) => q.status === "answered").length;
 
   if (loading) {
     return (

@@ -65,9 +65,7 @@ function ensureTablesExist(database: Database.Database) {
 
   // Check if qna table exists
   const qnaTableExists = database
-    .prepare(
-      "SELECT name FROM sqlite_master WHERE type='table' AND name='qna'",
-    )
+    .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='qna'")
     .get();
 
   if (!qnaTableExists) {

@@ -80,13 +80,14 @@ export default function QnAClient({ initialQuestions }: QnAClientProps) {
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-12"
       >
-        <h1 className="text-5xl md:text-6xl font-bold text-sky-400 mb-4">
-          Ask Me Anything
-        </h1>
+        <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center text-sky-400">
+          ask me anything
+        </h2>
         <p className="text-slate-300 text-lg mb-6">
-          Got questions about my work, music, or projects? Fire away!
+          Got questions about my work, music, projects, or just about anything?
+          Fire away!
         </p>
-        
+
         {/* Toggle Ask Form Button */}
         <button
           onClick={() => setShowAskForm(!showAskForm)}
@@ -94,15 +95,35 @@ export default function QnAClient({ initialQuestions }: QnAClientProps) {
         >
           {showAskForm ? (
             <>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
               Close Form
             </>
           ) : (
             <>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 4v16m8-8H4"
+                />
               </svg>
               Ask a Question
             </>
@@ -183,9 +204,7 @@ export default function QnAClient({ initialQuestions }: QnAClientProps) {
 
       {/* Questions List */}
       <div className="space-y-6">
-        <h2 className="text-3xl font-bold text-sky-300 mb-8">
-          Answered Questions
-        </h2>
+        <h2 className="text-3xl text-sky-300 mb-8">Answered Questions</h2>
 
         {questions.length === 0 ? (
           <div className="text-center py-16">
@@ -265,7 +284,9 @@ export default function QnAClient({ initialQuestions }: QnAClientProps) {
                               </>
                             )}
                             {qna.answered_at && (
-                              <span>Answered {formatDate(qna.answered_at)}</span>
+                              <span>
+                                Answered {formatDate(qna.answered_at)}
+                              </span>
                             )}
                           </div>
                         </div>

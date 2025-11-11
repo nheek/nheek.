@@ -8,7 +8,7 @@ export async function GET() {
     await requireAuth();
 
     const db = getDb();
-    
+
     const autoBackupEnabled = db
       .prepare("SELECT setting_value FROM site_settings WHERE setting_key = ?")
       .get("auto_backup_enabled") as { setting_value: string } | undefined;
