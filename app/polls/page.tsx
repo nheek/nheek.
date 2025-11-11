@@ -35,19 +35,23 @@ export default function PollsPage() {
 
   // Fetch active polls
   const polls = db
-    .prepare("SELECT * FROM polls WHERE status = 'active' ORDER BY created_at DESC")
+    .prepare(
+      "SELECT * FROM polls WHERE status = 'active' ORDER BY created_at DESC",
+    )
     .all();
 
   // For each poll, get its options
   const pollsWithOptions = polls.map((poll: any) => {
     const options = db
-      .prepare("SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order")
+      .prepare(
+        "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
+      )
       .all(poll.id);
 
     // Calculate total votes
     const totalVotes = options.reduce(
       (sum: number, opt: any) => sum + (opt.vote_count || 0),
-      0
+      0,
     );
 
     return {

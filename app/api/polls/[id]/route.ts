@@ -6,7 +6,7 @@ import { revalidatePath } from "next/cache";
 // GET /api/polls/[id] - Get single poll with options
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const db = getDb();
   const { id } = await params;
@@ -20,17 +20,17 @@ export async function GET(
 
     const options = db
       .prepare(
-        "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order"
+        "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
       )
       .all(id);
 
     const totalVotes = options.reduce(
       (sum: number, opt: any) => sum + (opt.vote_count || 0),
-      0
+      0,
     );
 
     return NextResponse.json({
-      ...poll,
+      ...(poll as object),
       options,
       totalVotes,
     });
@@ -38,7 +38,7 @@ export async function GET(
     console.error("Error fetching poll:", error);
     return NextResponse.json(
       { error: "Failed to fetch poll" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -46,7 +46,7 @@ export async function GET(
 // PUT /api/polls/[id] - Update poll (admin only)
 export async function PUT(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const auth = await requireAuth();
   if (!auth) {
@@ -81,7 +81,7 @@ export async function PUT(
         status || "active",
         allow_multiple_votes || 0,
         end_date || null,
-        id
+        id,
       );
     }
 
@@ -104,7 +104,7 @@ export async function PUT(
           option.image_url || null,
           option.link || null,
           index,
-          option.vote_count || 0
+          option.vote_count || 0,
         );
       });
     }
@@ -113,23 +113,21 @@ export async function PUT(
     revalidatePath("/polls");
 
     // Fetch updated poll
-    const updatedPoll = db
-      .prepare("SELECT * FROM polls WHERE id = ?")
-      .get(id);
+    const updatedPoll = db.prepare("SELECT * FROM polls WHERE id = ?").get(id);
 
     const pollOptions = db
       .prepare(
-        "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order"
+        "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
       )
       .all(id);
 
     const totalVotes = pollOptions.reduce(
       (sum: number, opt: any) => sum + (opt.vote_count || 0),
-      0
+      0,
     );
 
     return NextResponse.json({
-      ...updatedPoll,
+      ...(updatedPoll as object),
       options: pollOptions,
       totalVotes,
     });
@@ -137,7 +135,7 @@ export async function PUT(
     console.error("Error updating poll:", error);
     return NextResponse.json(
       { error: "Failed to update poll" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -145,7 +143,7 @@ export async function PUT(
 // DELETE /api/polls/[id] - Delete poll (admin only)
 export async function DELETE(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   const auth = await requireAuth();
   if (!auth) {
@@ -171,7 +169,7 @@ export async function DELETE(
     console.error("Error deleting poll:", error);
     return NextResponse.json(
       { error: "Failed to delete poll" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

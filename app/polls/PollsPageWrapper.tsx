@@ -12,7 +12,7 @@ export default function PollsPageWrapper({
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--cursor-glow-color",
-      themeColor
+      themeColor,
     );
 
     return () => {

@@ -87,7 +87,10 @@ export default function AdminPollsPage() {
   };
 
   const handleAddOption = () => {
-    setOptions([...options, { name: "", description: "", image_url: "", link: "" }]);
+    setOptions([
+      ...options,
+      { name: "", description: "", image_url: "", link: "" },
+    ]);
   };
 
   const handleRemoveOption = (index: number) => {
@@ -96,7 +99,11 @@ export default function AdminPollsPage() {
     }
   };
 
-  const handleOptionChange = (index: number, field: keyof PollOption, value: string) => {
+  const handleOptionChange = (
+    index: number,
+    field: keyof PollOption,
+    value: string,
+  ) => {
     const newOptions = [...options];
     newOptions[index] = { ...newOptions[index], [field]: value };
     setOptions(newOptions);
@@ -138,7 +145,7 @@ export default function AdminPollsPage() {
         setMessage(
           editingPoll
             ? "✅ Poll updated successfully!"
-            : "✅ Poll created successfully!"
+            : "✅ Poll created successfully!",
         );
         await fetchPolls();
         resetForm();
@@ -166,7 +173,7 @@ export default function AdminPollsPage() {
         image_url: opt.image_url || "",
         link: opt.link || "",
         vote_count: opt.vote_count,
-      }))
+      })),
     );
     setEditingPoll(poll);
     setShowCreateForm(true);
@@ -410,7 +417,11 @@ export default function AdminPollsPage() {
                             type="url"
                             value={option.image_url}
                             onChange={(e) =>
-                              handleOptionChange(index, "image_url", e.target.value)
+                              handleOptionChange(
+                                index,
+                                "image_url",
+                                e.target.value,
+                              )
                             }
                             className="mt-1 block w-full rounded-md border border-gray-300 px-2 py-1 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                           />
@@ -424,7 +435,11 @@ export default function AdminPollsPage() {
                             type="text"
                             value={option.description}
                             onChange={(e) =>
-                              handleOptionChange(index, "description", e.target.value)
+                              handleOptionChange(
+                                index,
+                                "description",
+                                e.target.value,
+                              )
                             }
                             className="mt-1 block w-full rounded-md border border-gray-300 px-2 py-1 text-sm dark:bg-gray-700 dark:border-gray-600 dark:text-white"
                           />
@@ -515,7 +530,8 @@ export default function AdminPollsPage() {
                         {poll.allow_multiple_votes === 1
                           ? "Multiple votes allowed"
                           : "Single vote only"}
-                        {poll.end_date && ` • Ends ${new Date(poll.end_date).toLocaleDateString()}`}
+                        {poll.end_date &&
+                          ` • Ends ${new Date(poll.end_date).toLocaleDateString()}`}
                       </div>
                     </div>
 
@@ -550,7 +566,10 @@ export default function AdminPollsPage() {
                     {poll.options.map((option) => {
                       const percentage =
                         poll.totalVotes > 0
-                          ? ((option.vote_count! / poll.totalVotes) * 100).toFixed(1)
+                          ? (
+                              (option.vote_count! / poll.totalVotes) *
+                              100
+                            ).toFixed(1)
                           : "0.0";
 
                       return (

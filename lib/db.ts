@@ -89,7 +89,9 @@ function ensureTablesExist(database: Database.Database) {
 
   // Check if polls table exists
   const pollsTableExists = database
-    .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='polls'")
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='polls'",
+    )
     .get();
 
   if (!pollsTableExists) {

@@ -13,10 +13,7 @@ export async function GET(request: Request) {
     if (includeAll) {
       const auth = await requireAuth();
       if (!auth) {
-        return NextResponse.json(
-          { error: "Unauthorized" },
-          { status: 401 }
-        );
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }
     }
 
@@ -30,17 +27,19 @@ export async function GET(request: Request) {
     // For each poll, get its options
     const pollsWithOptions = polls.map((poll: any) => {
       const options = db
-        .prepare("SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order")
+        .prepare(
+          "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
+        )
         .all(poll.id);
 
       // Calculate total votes
       const totalVotes = options.reduce(
         (sum: number, opt: any) => sum + (opt.vote_count || 0),
-        0
+        0,
       );
 
       return {
-        ...poll,
+        ...(poll as object),
         options,
         totalVotes,
       };
@@ -51,7 +50,7 @@ export async function GET(request: Request) {
     console.error("Error fetching polls:", error);
     return NextResponse.json(
       { error: "Failed to fetch polls" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -79,7 +78,7 @@ export async function POST(request: Request) {
     if (!title || !options || options.length < 2) {
       return NextResponse.json(
         { error: "Title and at least 2 options are required" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -94,7 +93,7 @@ export async function POST(request: Request) {
       description || null,
       status,
       allow_multiple_votes,
-      end_date || null
+      end_date || null,
     );
 
     const pollId = pollResult.lastInsertRowid;
@@ -112,7 +111,7 @@ export async function POST(request: Request) {
         option.description || null,
         option.image_url || null,
         option.link || null,
-        index
+        index,
       );
     });
 
@@ -122,11 +121,13 @@ export async function POST(request: Request) {
       .get(pollId);
 
     const pollOptions = db
-      .prepare("SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order")
+      .prepare(
+        "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
+      )
       .all(pollId);
 
     return NextResponse.json({
-      ...createdPoll,
+      ...(createdPoll as object),
       options: pollOptions,
       totalVotes: 0,
     });
@@ -134,7 +135,7 @@ export async function POST(request: Request) {
     console.error("Error creating poll:", error);
     return NextResponse.json(
       { error: "Failed to create poll" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
