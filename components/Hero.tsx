@@ -75,10 +75,10 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
           <a href="https://www.facebook.com/nick.james.1622">
             <img src="/social-links/facebook.svg" alt="facebook icon" />
           </a>
-          <a href="https://github.com/nheek">
+          <a href="https://www.instagram.com/nick.mmrdl">
             <img src="/social-links/instagram.svg" alt="instagram icon" />
           </a>
-          <a href="https://github.com/nheek">
+          <a href="https://www.linkedin.com/in/nick-mmrdl">
             <img src="/social-links/linkedin.svg" alt="linkedin icon" />
           </a>
         </div>
