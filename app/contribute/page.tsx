@@ -3,6 +3,10 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FooterHero from "@/components/FooterHero";
+import Navigate from "@/components/Navigate";
+import ThemeWrapper from "@/components/ThemeWrapper";
 import { motion } from "framer-motion";
 
 // Graffiti Canvas Component
@@ -364,6 +368,8 @@ export default function ContributePage() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
+  const themeColor = "#10b981"; // emerald-500
+
   const currentCategory = CATEGORIES.find((c) => c.id === selectedCategory);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -416,191 +422,199 @@ export default function ContributePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a1410] text-white">
-      <Header compact={true} customHeaderText="nheek" />
+    <ThemeWrapper themeColor={themeColor}>
+      <div className="min-h-screen bg-[#0a1410] text-white">
+        <Header compact customHeaderText="nheek" themeColor={themeColor} />
 
-      <div className="mx-auto max-w-4xl px-4 py-8">
-        <div className="mb-12 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            leave your mark ✨
-          </h1>
-          <p className="mt-4 text-lg text-gray-400">
-            choose a category and share something with the world
-          </p>
-          <Link
-            href="/wall"
-            className="mt-6 inline-block text-emerald-400 hover:text-emerald-300 font-semibold hover:underline"
-          >
-            → view all contributions
-          </Link>
-        </div>
-
-        {message && (
-          <div className="mb-6 rounded-lg bg-emerald-900/40 border border-emerald-500/50 backdrop-blur p-4 text-center text-emerald-300">
-            {message}
-          </div>
-        )}
-
-        {error && (
-          <div className="mb-6 rounded-lg bg-red-900/40 border border-red-500/50 backdrop-blur p-4 text-center text-red-300">
-            {error}
-          </div>
-        )}
-
-        {/* Category Selection */}
-        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {CATEGORIES.map((category, index) => (
-            <motion.button
-              key={category.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`rounded-lg p-6 text-left border-2 backdrop-blur ${
-                selectedCategory === category.id
-                  ? "bg-emerald-700 border-emerald-500 text-white shadow-xl"
-                  : "bg-[#0d1f1a]/50 border-emerald-900/30 text-white hover:border-emerald-700/50 hover:bg-[#0d1f1a]/70"
-              }`}
+        <div className="mx-auto max-w-4xl px-4 py-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-2xl md:text-[3rem] xl:text-[4rem] text-center">
+              leave your mark
+            </h2>
+            <p className="text-slate-300 text-lg mb-6">
+              choose a category and share something with the world
+            </p>
+            <Link
+              href="/wall"
+              className="mt-6 inline-block text-emerald-400 hover:text-emerald-300 font-semibold hover:underline"
             >
-              <div className="text-4xl mb-2">{category.name.split(" ")[0]}</div>
-              <h3 className="font-semibold text-lg">
-                {category.name.substring(category.name.indexOf(" ") + 1)}
-              </h3>
-              <p
-                className={`mt-2 text-sm ${
+              → view all contributions
+            </Link>
+          </div>
+
+          {message && (
+            <div className="mb-6 rounded-lg bg-emerald-900/40 border border-emerald-500/50 backdrop-blur p-4 text-center text-emerald-300">
+              {message}
+            </div>
+          )}
+
+          {error && (
+            <div className="mb-6 rounded-lg bg-red-900/40 border border-red-500/50 backdrop-blur p-4 text-center text-red-300">
+              {error}
+            </div>
+          )}
+
+          {/* Category Selection */}
+          <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {CATEGORIES.map((category, index) => (
+              <motion.button
+                key={category.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`rounded-lg p-6 text-left border-2 backdrop-blur ${
                   selectedCategory === category.id
-                    ? "text-emerald-100"
-                    : "text-gray-400"
+                    ? "bg-emerald-700 border-emerald-500 text-white shadow-xl"
+                    : "bg-[#0d1f1a]/50 border-emerald-900/30 text-white hover:border-emerald-700/50 hover:bg-[#0d1f1a]/70"
                 }`}
               >
-                {category.description}
-              </p>
-            </motion.button>
-          ))}
-        </div>
+                <div className="text-4xl mb-2">
+                  {category.name.split(" ")[0]}
+                </div>
+                <h3 className="font-semibold text-lg">
+                  {category.name.substring(category.name.indexOf(" ") + 1)}
+                </h3>
+                <p
+                  className={`mt-2 text-sm ${
+                    selectedCategory === category.id
+                      ? "text-emerald-100"
+                      : "text-gray-400"
+                  }`}
+                >
+                  {category.description}
+                </p>
+              </motion.button>
+            ))}
+          </div>
 
-        {/* Submission Form */}
-        {selectedCategory && (
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            onSubmit={handleSubmit}
-            className="rounded-lg bg-[#0d1f1a]/50 backdrop-blur border-2 border-emerald-900/30 p-8 shadow-xl"
-          >
-            <h2 className="mb-6 text-3xl font-bold text-white">
-              {currentCategory?.name}
-            </h2>
+          {/* Submission Form */}
+          {selectedCategory && (
+            <motion.form
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              onSubmit={handleSubmit}
+              className="rounded-lg bg-[#0d1f1a]/50 backdrop-blur border-2 border-emerald-900/30 p-8 shadow-xl"
+            >
+              <h2 className="mb-6 text-3xl font-bold text-white">
+                {currentCategory?.name}
+              </h2>
 
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  your name <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  maxLength={50}
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
-                  placeholder="your name or nickname"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  your {currentCategory?.name.split(" ")[1].toLowerCase()}{" "}
-                  <span className="text-red-400">*</span>
-                </label>
-
-                {currentCategory?.isCanvas ? (
-                  selectedCategory === "graffiti" ? (
-                    <GraffitiCanvas onSave={(data) => setContent(data)} />
-                  ) : (
-                    <EmojiCanvas onSave={(data) => setContent(data)} />
-                  )
-                ) : (
-                  <>
-                    <textarea
-                      required
-                      maxLength={currentCategory?.maxLength}
-                      value={content}
-                      onChange={(e) => setContent(e.target.value)}
-                      rows={5}
-                      className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
-                      placeholder={currentCategory?.placeholder}
-                    />
-                    <p className="mt-2 text-xs text-gray-400">
-                      {content.length}/{currentCategory?.maxLength} characters
-                    </p>
-                  </>
-                )}
-              </div>
-
-              {selectedCategory === "song" && (
+              <div className="space-y-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    song link (optional)
+                    your name <span className="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    maxLength={50}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
+                    placeholder="your name or nickname"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    your {currentCategory?.name.split(" ")[1].toLowerCase()}{" "}
+                    <span className="text-red-400">*</span>
+                  </label>
+
+                  {currentCategory?.isCanvas ? (
+                    selectedCategory === "graffiti" ? (
+                      <GraffitiCanvas onSave={(data) => setContent(data)} />
+                    ) : (
+                      <EmojiCanvas onSave={(data) => setContent(data)} />
+                    )
+                  ) : (
+                    <>
+                      <textarea
+                        required
+                        maxLength={currentCategory?.maxLength}
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
+                        rows={5}
+                        className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
+                        placeholder={currentCategory?.placeholder}
+                      />
+                      <p className="mt-2 text-xs text-gray-400">
+                        {content.length}/{currentCategory?.maxLength} characters
+                      </p>
+                    </>
+                  )}
+                </div>
+
+                {selectedCategory === "song" && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                      song link (optional)
+                    </label>
+                    <input
+                      type="url"
+                      value={songLink}
+                      onChange={(e) => setSongLink(e.target.value)}
+                      className="block w-full rounded-md border border-purple-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 transition"
+                      placeholder="https://spotify.com/... or https://youtube.com/..."
+                    />
+                    <p className="mt-2 text-xs text-gray-400">
+                      share a link to listen to the song you're recommending
+                    </p>
+                  </div>
+                )}
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    your website (optional)
                   </label>
                   <input
                     type="url"
-                    value={songLink}
-                    onChange={(e) => setSongLink(e.target.value)}
-                    className="block w-full rounded-md border border-purple-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-purple-600 focus:ring-1 focus:ring-purple-600 transition"
-                    placeholder="https://spotify.com/... or https://youtube.com/..."
+                    value={websiteUrl}
+                    onChange={(e) => setWebsiteUrl(e.target.value)}
+                    className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
+                    placeholder="https://..."
                   />
-                  <p className="mt-2 text-xs text-gray-400">
-                    share a link to listen to the song you're recommending
+                </div>
+
+                <div className="rounded-md bg-emerald-900/30 border border-emerald-500/30 backdrop-blur p-4">
+                  <p className="text-sm text-emerald-300">
+                    ℹ️ you can submit <strong>one entry per category</strong>.
+                    your submission will be reviewed before appearing publicly.
                   </p>
                 </div>
-              )}
 
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  your website (optional)
-                </label>
-                <input
-                  type="url"
-                  value={websiteUrl}
-                  onChange={(e) => setWebsiteUrl(e.target.value)}
-                  className="block w-full rounded-md border border-emerald-900/50 bg-[#0a1410]/50 px-4 py-3 text-white placeholder-gray-500 focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 transition"
-                  placeholder="https://..."
-                />
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className={`w-full rounded-full px-6 py-4 text-lg font-semibold transition-all duration-300 ${
+                    submitting
+                      ? "cursor-not-allowed bg-gray-600 text-gray-400"
+                      : "bg-emerald-700 hover:bg-emerald-600 text-white hover:scale-105 shadow-lg hover:shadow-emerald-500/50"
+                  }`}
+                >
+                  {submitting ? "submitting..." : "submit your contribution"}
+                </button>
               </div>
+            </motion.form>
+          )}
 
-              <div className="rounded-md bg-emerald-900/30 border border-emerald-500/30 backdrop-blur p-4">
-                <p className="text-sm text-emerald-300">
-                  ℹ️ you can submit <strong>one entry per category</strong>.
-                  your submission will be reviewed before appearing publicly.
-                </p>
-              </div>
-
-              <button
-                type="submit"
-                disabled={submitting}
-                className={`w-full rounded-full px-6 py-4 text-lg font-semibold transition-all duration-300 ${
-                  submitting
-                    ? "cursor-not-allowed bg-gray-600 text-gray-400"
-                    : "bg-emerald-700 hover:bg-emerald-600 text-white hover:scale-105 shadow-lg hover:shadow-emerald-500/50"
-                }`}
-              >
-                {submitting ? "submitting..." : "submit your contribution"}
-              </button>
+          {!selectedCategory && (
+            <div className="rounded-lg bg-[#0d1f1a]/50 backdrop-blur border-2 border-emerald-900/30 p-16 text-center">
+              <p className="text-xl text-gray-400">
+                select a category above to get started
+              </p>
             </div>
-          </motion.form>
-        )}
+          )}
+        </div>
 
-        {!selectedCategory && (
-          <div className="rounded-lg bg-[#0d1f1a]/50 backdrop-blur border-2 border-emerald-900/30 p-16 text-center">
-            <p className="text-xl text-gray-400">
-              select a category above to get started
-            </p>
-          </div>
-        )}
+        <FooterHero themeColor={themeColor} />
+        <Navigate themeColor={themeColor} />
+        <Footer themeColor={themeColor} />
       </div>
-    </div>
+    </ThemeWrapper>
   );
 }
