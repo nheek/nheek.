@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
       .get(result.lastInsertRowid);
 
     // Revalidate films cache
-    revalidatePath("/watch");
+    revalidatePath("/watch", "page");
 
     return NextResponse.json({ film: newFilm }, { status: 201 });
   } catch (error) {

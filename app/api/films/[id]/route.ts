@@ -94,8 +94,8 @@ export async function PUT(
     const updatedFilm = db.prepare("SELECT * FROM films WHERE id = ?").get(id);
 
     // Revalidate cache
-    revalidatePath("/watch");
-    revalidatePath(`/watch/${id}`);
+    revalidatePath("/watch", "page");
+    revalidatePath(`/watch/${id}`, "page");
 
     return NextResponse.json({ film: updatedFilm });
   } catch (error) {
@@ -128,8 +128,8 @@ export async function DELETE(
     db.prepare("DELETE FROM films WHERE id = ?").run(id);
 
     // Revalidate cache
-    revalidatePath("/watch");
-    revalidatePath(`/watch/${id}`);
+    revalidatePath("/watch", "page");
+    revalidatePath(`/watch/${id}`, "page");
 
     return NextResponse.json({ message: "Film deleted successfully" });
   } catch (error) {
