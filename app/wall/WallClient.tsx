@@ -85,13 +85,11 @@ function SongDisplay({
           ))}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[45%] aspect-square rounded-full bg-gradient-to-br from-purple-900 via-purple-700 to-purple-900 border-4 border-purple-600 shadow-xl flex items-center justify-center p-4">
             <div className="text-center">
-              <div className="text-2xl mb-1">💿</div>
               <p className="text-xs text-white font-bold leading-tight break-words">
                 {content}
               </p>
             </div>
           </div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[12%] aspect-square rounded-full bg-gray-950 shadow-inner" />
         </div>
       </div>
       <p className="text-center text-sm text-gray-300 mt-4 font-semibold">
