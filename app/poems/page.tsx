@@ -76,7 +76,7 @@ function Main({ poems }: { poems: { title: string; slug: string }[] }) {
                 {poem.title.toLowerCase()}
               </h3>
             </div>
-            
+
             <div className="flex items-center gap-3 ml-4 shrink-0">
               <div className="hidden md:block border-b border-dotted border-orange-900/40 flex-1 min-w-[3rem] group-hover:border-orange-600 transition-colors duration-200" />
               <span className="text-sm font-mono text-orange-800/70 group-hover:text-orange-400 transition-colors duration-200">
@@ -89,7 +89,9 @@ function Main({ poems }: { poems: { title: string; slug: string }[] }) {
 
       {/* Book-style footer */}
       <div className="mt-12 pt-8 border-t-2 border-orange-900/30 text-center">
-        <p className="text-sm text-orange-700/60 italic">{poems.length} poems</p>
+        <p className="text-sm text-orange-700/60 italic">
+          {poems.length} poems
+        </p>
       </div>
     </main>
   );

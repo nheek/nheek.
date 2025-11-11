@@ -56,7 +56,7 @@ export default function Links() {
           >
             {/* Hover effect overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-300" />
-            
+
             {/* Content */}
             <div className="relative z-10">
               <div className="flex items-start justify-between mb-3">
@@ -80,7 +80,7 @@ export default function Links() {
               <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300 leading-relaxed">
                 {link.desc}
               </p>
-              
+
               {/* URL preview */}
               <div className="mt-4 pt-4 border-t border-gray-700/50">
                 <p className="text-xs text-gray-500 group-hover:text-blue-400 transition-colors duration-300 truncate">

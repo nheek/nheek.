@@ -13,7 +13,8 @@
     "add-custom-links": "tsx scripts/add-custom-links.ts",
     "migrate-old-links": "tsx scripts/migrate-old-links.ts",
     "migrate-projects": "tsx scripts/migrate-projects.ts",
-    "update-projects-schema": "tsx scripts/update-projects-schema.ts"
+    "update-projects-schema": "tsx scripts/update-projects-schema.ts",
+    "migrate-gallery": "tsx scripts/migrate-gallery.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

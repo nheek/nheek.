@@ -1,116 +1,195 @@
-import ImageLoader from "../utils/ImageLoader";
+"use client";
 
-const images = [
-  {
-    src: "https://uppy.nheek.com/uploads/5b3c7bc1-cfe1-4293-b447-2981a15544bf.png",
-    alt: "taylor swift night club lezgooo",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/7558a29e-56de-4c00-834f-b0c3bccdbf4b.png",
-    alt: "cgi ducks based",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/7321afea-c514-4aa8-b5b2-73d75e9f2f61.jpeg",
-    alt: "that is not my trash trust me",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/a6dbc99c-d2f1-4306-8e49-33972fb73dcb.jpeg",
-    alt: "this coat hits different",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/48087e9d-7e76-4cc5-9fa6-25e658286827.jpeg",
-    alt: "kronstad and sit @ 2am",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/95fafb7d-d554-47d5-9741-436a9112552f.jpeg",
-    alt: "first time street tacos",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/4c72d6d9-808e-4ecb-99d7-264d250c0995.png",
-    alt: "so huge caaards",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/afbba941-aa7f-4dd6-afe7-be91380efee2.jpeg",
-    alt: "vintage car with a friend",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/0673e6cb-1f5b-430b-bc9b-e429ac49921b.jpeg",
-    alt: "vintage car me",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/7033572e-e964-4044-b7c2-043dd2f8cddf.jpeg",
-    alt: "2nd time climbing",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/78dcee82-0c1e-4d62-aa98-26268c7060c0.jpeg",
-    alt: "dinner is served",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/613eeedf-a07e-4e30-8c90-93144a12bfdf.jpeg",
-    alt: "sit on the road and smile",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/a021b395-a2a7-4d15-ba60-742725a5dbb4.jpeg",
-    alt: "met norwayrob!!!",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/bc4a5620-09c0-4675-a750-d706c59e42b8.jpeg",
-    alt: "sunset by the sea",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/b6cf482b-645b-4121-8907-f5ca1e15f53a.jpeg",
-    alt: "kronstad @ 4am",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/d0261d84-70eb-4b29-9ed7-aed26d088b2a.png",
-    alt: "cinematic foggy morning",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/d2a40f9b-44f1-4837-baa1-4a3939cc46e6.png",
-    alt: "subic international airport",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/ead75e68-79b7-4fc1-8f2a-7778a91c6ac1.jpeg",
-    alt: "at subic bay",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/2b56d1aa-2993-462c-a24f-25e59fea613c.jpeg",
-    alt: "at an aviation school",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/82d34d52-7fad-4b22-b4e6-e88e18a767bc.jpeg",
-    alt: "riding a horse in my home city",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/1375cad3-431f-4b93-a9aa-ea21d9e3a070.jpeg",
-    alt: "coconut farm near my hometown",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/f9dcb669-32e0-43a3-ae46-27624a87bc2f.jpg",
-    alt: "a friend's car",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/9f1057f6-e9f8-4811-8e5f-b895e13bc866.jpeg",
-    alt: "17th of may",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/e717a9bb-5694-4b19-8a2f-10f30a149700.png",
-    alt: "picture of me",
-  },
-  {
-    src: "https://uppy.nheek.com/uploads/c473d7c3-2e46-4002-b736-58d9931eeff6.jpeg",
-    alt: "me holding my arguably first painting",
-  },
-];
+import { useState, useEffect } from "react";
+import ImageLoader from "../utils/ImageLoader";
+import { motion, AnimatePresence } from "framer-motion";
+
+type GalleryImage = {
+  id: number;
+  image_url: string;
+  alt_text: string;
+  display_order: number;
+};
 
 export default function Gallery() {
-  return (
-    <div className="w-full md:w-[80%] m-2 md:mx-auto mt-6 leading-[0] columns-2 md:columns-3 gap-x-1">
-      {images.map((image, index) => (
-        <div key={"gallery" + index} className="w-full h-auto mb-1">
-          <ImageLoader src={image.src} alt={image.alt} className="rounded-xl" />
+  const [images, setImages] = useState<GalleryImage[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [hoveredId, setHoveredId] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("/api/gallery")
+      .then((res) => res.json())
+      .then((data) => {
+        setImages(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Failed to load gallery images:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="w-full min-h-[50vh] flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-slate-400 border-r-transparent mb-4"></div>
+          <p className="text-slate-300/80 text-lg font-serif">
+            loading memories...
+          </p>
         </div>
-      ))}
-    </div>
+      </div>
+    );
+  }
+
+  if (images.length === 0) {
+    return (
+      <div className="w-full min-h-[50vh] flex items-center justify-center">
+        <p className="text-slate-300/60 text-lg font-serif italic">
+          no moments captured yet
+        </p>
+      </div>
+    );
+  }
+
+  // Function to determine grid span based on position
+  const getGridSpan = (index: number) => {
+    const patterns = [
+      "col-span-1 row-span-1", // normal
+      "col-span-2 row-span-2", // large
+      "col-span-1 row-span-2", // tall
+      "col-span-2 row-span-1", // wide
+    ];
+    // Create varied pattern
+    if (index % 7 === 0) return patterns[1]; // every 7th is large
+    if (index % 5 === 0) return patterns[2]; // every 5th is tall
+    if (index % 3 === 0) return patterns[3]; // every 3rd is wide
+    return patterns[0]; // default
+  };
+
+  return (
+    <>
+      <div className="w-full max-w-7xl mx-auto px-4 py-8">
+        {/* Header */}
+        {/* <div className="mb-8 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-3xl md:text-4xl font-serif text-slate-200 mb-2"
+          >
+            moments
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="flex justify-center gap-2 text-slate-600"
+          >
+            <span className="text-sm">◆</span>
+            <span className="text-sm">◆</span>
+            <span className="text-sm">◆</span>
+          </motion.div>
+        </div> */}
+
+        {/* Gallery Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 auto-rows-[250px] gap-3">
+          {images.map((image, index) => (
+            <motion.div
+              key={image.id}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.05, duration: 0.3 }}
+              className={`${getGridSpan(index)} relative group cursor-pointer overflow-hidden rounded-xl bg-slate-800/20`}
+              onMouseEnter={() => setHoveredId(image.id)}
+              onMouseLeave={() => setHoveredId(null)}
+              onClick={() => setSelectedImage(image)}
+            >
+              <div className="w-full h-full relative">
+                <ImageLoader
+                  src={image.image_url}
+                  alt={image.alt_text}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {/* Overlay on hover */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-300 ${
+                    hoveredId === image.id ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white text-sm font-serif line-clamp-2">
+                      {image.alt_text}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Corner accent */}
+                <div className="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-slate-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", damping: 25 }}
+              className="relative max-w-5xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute -top-12 right-0 text-white hover:text-slate-300 transition-colors"
+              >
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              {/* Image */}
+              <div className="rounded-xl overflow-hidden shadow-2xl">
+                <img
+                  src={selectedImage.image_url}
+                  alt={selectedImage.alt_text}
+                  className="w-full h-auto max-h-[80vh] object-contain"
+                />
+              </div>
+
+              {/* Caption */}
+              <div className="mt-4 text-center">
+                <p className="text-slate-200 text-lg font-serif">
+                  {selectedImage.alt_text}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

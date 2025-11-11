@@ -13,6 +13,11 @@ module.exports = {
         hostname: "next.nheek.com",
         pathname: "/**", // Allows all image paths from the domain
       },
+      {
+        protocol: "https",
+        hostname: "flies.nheek.com",
+        pathname: "/**", // Allows all image paths from the domain
+      },
     ],
   },
   turbopack: {},

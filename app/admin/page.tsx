@@ -13,6 +13,7 @@ export default function AdminDashboard() {
     songs: 0,
     projects: 0,
     contributions: 0,
+    gallery: 0,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
@@ -61,24 +62,27 @@ export default function AdminDashboard() {
 
   const fetchStats = async () => {
     try {
-      const [albumsRes, songsRes, projectsRes, contributionsRes] =
+      const [albumsRes, songsRes, projectsRes, contributionsRes, galleryRes] =
         await Promise.all([
           fetch("/api/albums"),
           fetch("/api/songs"),
           fetch("/api/projects"),
           fetch("/api/contributions?status=all"),
+          fetch("/api/gallery"),
         ]);
 
       const albums = await albumsRes.json();
       const songs = await songsRes.json();
       const projects = await projectsRes.json();
       const contributions = await contributionsRes.json();
+      const gallery = await galleryRes.json();
 
       setStats({
         albums: albums.albums?.length || 0,
         songs: songs.songs?.length || 0,
         projects: projects.projects?.length || 0,
         contributions: contributions.contributions?.length || 0,
+        gallery: Array.isArray(gallery) ? gallery.length : 0,
       });
     } catch (error) {
       console.error("Failed to fetch stats:", error);
@@ -213,6 +217,35 @@ export default function AdminDashboard() {
     localStorage.setItem("migrationButtonDisabled", String(!newValue));
   };
 
+  const handleMigrateGallery = async () => {
+    if (
+      !confirm(
+        "This will migrate hardcoded gallery images to the database. Continue?",
+      )
+    ) {
+      return;
+    }
+
+    try {
+      const res = await fetch("/api/migrate/gallery", {
+        method: "POST",
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(`✅ ${data.message}`);
+        // Refresh stats to show new gallery count
+        await fetchStats();
+      } else {
+        alert(`❌ ${data.error}\n${data.message || ""}`);
+      }
+    } catch (error) {
+      alert("❌ Error migrating gallery images");
+      console.error("Gallery migration error:", error);
+    }
+  };
+
   const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault();
     setPasswordError("");
@@ -289,7 +322,7 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats */}
-        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
           <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
             <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
               Total Albums
@@ -323,6 +356,15 @@ export default function AdminDashboard() {
             </dt>
             <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {stats.contributions}
+            </dd>
+          </div>
+
+          <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
+            <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
+              Gallery Images
+            </dt>
+            <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              {stats.gallery}
             </dd>
           </div>
         </div>
@@ -370,10 +412,20 @@ export default function AdminDashboard() {
               Approve graffiti, guestbook, songs, etc.
             </p>
           </Link>
+
+          <Link
+            href="/admin/gallery"
+            className="block rounded-lg bg-cyan-600 p-6 text-white shadow transition hover:bg-cyan-500"
+          >
+            <h3 className="text-lg font-semibold">Manage Gallery</h3>
+            <p className="mt-2 text-sm">
+              Add, edit, and organize gallery images
+            </p>
+          </Link>
         </div>
 
-        {/* Migration Tool */}
-        <div className="mt-6">
+        {/* Migration Tools */}
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <Link
             href="/admin/migrate"
             className="block rounded-lg bg-yellow-600 p-6 text-white shadow transition hover:bg-yellow-500"
@@ -383,6 +435,16 @@ export default function AdminDashboard() {
               Import data from JSON files to SQLite (for production deployment)
             </p>
           </Link>
+
+          <button
+            onClick={handleMigrateGallery}
+            className="block rounded-lg bg-purple-600 p-6 text-left text-white shadow transition hover:bg-purple-500"
+          >
+            <h3 className="text-lg font-semibold">🖼️ Gallery Migration</h3>
+            <p className="mt-2 text-sm">
+              Import existing gallery images to database (one-time setup)
+            </p>
+          </button>
         </div>
 
         {/* Backup & Restore Box */}

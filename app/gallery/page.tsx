@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import Gallery from "../../components/gallery/gallery";
 import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
+import FooterHero from "@/components/FooterHero";
 
 export const metadata: Metadata = {
   title: "gallery",
@@ -30,10 +31,11 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <div className="w-full mx-auto min-h-screen h-full bg-[rgba(24,20,16,1)]">
-      <Header customHeaderText={"gallery"} />
-      <Navigate underPage />
+    <div className="w-full mx-auto min-h-screen h-full bg-[#0f1114]">
+      <Header compact />
       <Gallery />
+      <FooterHero />
+      <Navigate />
       <Footer />
     </div>
   );

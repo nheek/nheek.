@@ -132,12 +132,25 @@ function initializeSchema(database: Database.Database) {
     )
   `);
 
+  // Gallery images table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS gallery_images (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      image_url TEXT NOT NULL,
+      alt_text TEXT NOT NULL,
+      display_order INTEGER,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
   // Create indexes
   database.exec(`
     CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
     CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
     CREATE INDEX IF NOT EXISTS idx_contributions_status ON contributions(status);
     CREATE INDEX IF NOT EXISTS idx_contributions_category ON contributions(category);
+    CREATE INDEX IF NOT EXISTS idx_gallery_order ON gallery_images(display_order);
   `);
 
   // Create default admin user
