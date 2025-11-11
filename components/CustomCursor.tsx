@@ -8,6 +8,7 @@ export default function CustomCursor() {
   const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isHoveringClickable, setIsHoveringClickable] = useState(false);
+  const [glowColor, setGlowColor] = useState("#60a5fa"); // default blue-400
 
   useEffect(() => {
     // Fetch cursor image URL from API
@@ -21,6 +22,25 @@ export default function CustomCursor() {
       .catch((error) => {
         console.error("Failed to load cursor image:", error);
       });
+
+    // Check for theme color CSS variable
+    const updateGlowColor = () => {
+      const themeColor = getComputedStyle(document.documentElement)
+        .getPropertyValue("--cursor-glow-color")
+        .trim();
+      if (themeColor) {
+        setGlowColor(themeColor);
+      }
+    };
+
+    updateGlowColor();
+
+    // Use MutationObserver to detect when the CSS variable changes
+    const observer = new MutationObserver(updateGlowColor);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
 
     // Check if element or any parent is clickable
     const isClickableElement = (element: Element | null): boolean => {
@@ -96,6 +116,7 @@ export default function CustomCursor() {
     document.addEventListener("mouseenter", handleMouseEnter);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
@@ -120,15 +141,15 @@ export default function CustomCursor() {
         alt="Custom cursor"
         className={`w-8 h-8 rounded-full object-cover border-2 transition-all duration-200 ${
           isHoveringClickable
-            ? "border-blue-400 scale-110 animate-[pulse-glow_1.5s_ease-in-out_infinite]"
+            ? "scale-110 animate-[pulse-glow_1.5s_ease-in-out_infinite]"
             : "border-white/80 shadow-lg"
         }`}
         draggable={false}
         style={
           isHoveringClickable
             ? {
-                boxShadow:
-                  "0 0 10px rgba(96, 165, 250, 0.5), 0 0 20px rgba(96, 165, 250, 0.3)",
+                borderColor: glowColor,
+                boxShadow: `0 0 10px ${glowColor}80, 0 0 20px ${glowColor}4D`,
               }
             : undefined
         }

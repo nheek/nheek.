@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import WallClient from "./WallClient";
 import FooterHero from "@/components/FooterHero";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 interface Contribution {
   id: number;
@@ -45,22 +46,24 @@ export default async function WallPage() {
   const wallThemeColor = "rgb(134 239 172)"; // green-300
 
   return (
-    <div className="min-h-screen bg-[#0a1410] text-white">
-      <Header
-        compact={true}
-        customHeaderText="nheek"
-        themeColor={wallThemeColor}
-      />
+    <ThemeWrapper themeColor={wallThemeColor}>
+      <div className="min-h-screen bg-[#0a1410] text-white">
+        <Header
+          compact={true}
+          customHeaderText="nheek"
+          themeColor={wallThemeColor}
+        />
 
-      <main>
-        <div className="w-[85%] mx-auto pt-8">
-          <WallClient initialContributions={contributions} />
-        </div>
-      </main>
+        <main>
+          <div className="w-[85%] mx-auto pt-8">
+            <WallClient initialContributions={contributions} />
+          </div>
+        </main>
 
-      <FooterHero themeColor={wallThemeColor} />
-      <Navigate themeColor={wallThemeColor} />
-      <Footer themeColor={wallThemeColor} />
-    </div>
+        <FooterHero themeColor={wallThemeColor} />
+        <Navigate themeColor={wallThemeColor} />
+        <Footer themeColor={wallThemeColor} />
+      </div>
+    </ThemeWrapper>
   );
 }

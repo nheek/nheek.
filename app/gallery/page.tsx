@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
 import FooterHero from "@/components/FooterHero";
 import { getDb } from "@/lib/db";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 export const metadata: Metadata = {
   title: "gallery",
@@ -57,12 +58,14 @@ export default async function GalleryPage() {
   const galleryThemeColor = "rgb(203 213 225)"; // slate-300
 
   return (
-    <div className="w-full mx-auto min-h-screen h-full bg-[#0f1114]">
-      <Header compact themeColor={galleryThemeColor} />
-      <Gallery initialImages={images} />
-      <FooterHero themeColor={galleryThemeColor} />
-      <Navigate themeColor={galleryThemeColor} />
-      <Footer themeColor={galleryThemeColor} />
-    </div>
+    <ThemeWrapper themeColor={galleryThemeColor}>
+      <div className="w-full mx-auto min-h-screen h-full bg-[#0f1114]">
+        <Header compact themeColor={galleryThemeColor} />
+        <Gallery initialImages={images} />
+        <FooterHero themeColor={galleryThemeColor} />
+        <Navigate themeColor={galleryThemeColor} />
+        <Footer themeColor={galleryThemeColor} />
+      </div>
+    </ThemeWrapper>
   );
 }

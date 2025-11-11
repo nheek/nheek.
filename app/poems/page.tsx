@@ -6,6 +6,7 @@ import Link from "next/link";
 import fs from "fs";
 import path from "path";
 import FooterHero from "@/components/FooterHero";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 export const metadata: Metadata = {
   title: "poems",
@@ -102,12 +103,14 @@ export default async function PoemsPage() {
   const poemsThemeColor = "rgb(254 215 170)"; // orange-200
 
   return (
-    <div className="w-full min-h-screen mx-auto px-4 bg-[#140e0a]">
-      <Header compact themeColor={poemsThemeColor} />
-      <Main poems={poems} />
-      <FooterHero themeColor={poemsThemeColor} />
-      <Navigate themeColor={poemsThemeColor} />
-      <Footer themeColor={poemsThemeColor} />
-    </div>
+    <ThemeWrapper themeColor={poemsThemeColor}>
+      <div className="w-full min-h-screen mx-auto px-4 bg-[#140e0a]">
+        <Header compact themeColor={poemsThemeColor} />
+        <Main poems={poems} />
+        <FooterHero themeColor={poemsThemeColor} />
+        <Navigate themeColor={poemsThemeColor} />
+        <Footer themeColor={poemsThemeColor} />
+      </div>
+    </ThemeWrapper>
   );
 }

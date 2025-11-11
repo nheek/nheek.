@@ -4,6 +4,7 @@ import Navigate from "../../components/Navigate";
 import Footer from "../../components/Footer";
 import Links from "../../components/links/links";
 import FooterHero from "@/components/FooterHero";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 export const metadata: Metadata = {
   title: "links",
@@ -33,12 +34,14 @@ export default function LinksPage() {
   const linksThemeColor = "rgb(253 224 71)"; // yellow-300
 
   return (
-    <div className="w-full px-4 bg-[#1a1508] min-h-screen">
-      <Header compact themeColor={linksThemeColor} />
-      <Links />
-      <FooterHero themeColor={linksThemeColor} />
-      <Navigate themeColor={linksThemeColor} />
-      <Footer themeColor={linksThemeColor} />
-    </div>
+    <ThemeWrapper themeColor={linksThemeColor}>
+      <div className="w-full px-4 bg-[#1a1508] min-h-screen">
+        <Header compact themeColor={linksThemeColor} />
+        <Links />
+        <FooterHero themeColor={linksThemeColor} />
+        <Navigate themeColor={linksThemeColor} />
+        <Footer themeColor={linksThemeColor} />
+      </div>
+    </ThemeWrapper>
   );
 }

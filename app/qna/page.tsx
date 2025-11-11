@@ -5,6 +5,7 @@ import Navigate from "../../components/Navigate";
 import FooterHero from "@/components/FooterHero";
 import QnAClient from "./QnAClient";
 import { getDb } from "@/lib/db";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 export const metadata: Metadata = {
   title: "Q&A",
@@ -58,12 +59,14 @@ export default async function QnAPage() {
   const themeColor = "#075985"; // sky-900 (darker)
 
   return (
-    <div className="w-full mx-auto min-h-screen h-full bg-[#0c1a2e]">
-      <Header compact themeColor={themeColor} />
-      <QnAClient initialQuestions={questions} />
-      <FooterHero themeColor={themeColor} />
-      <Navigate themeColor={themeColor} />
-      <Footer themeColor={themeColor} />
-    </div>
+    <ThemeWrapper themeColor={themeColor}>
+      <div className="w-full mx-auto min-h-screen h-full bg-[#0c1a2e]">
+        <Header compact themeColor={themeColor} />
+        <QnAClient initialQuestions={questions} />
+        <FooterHero themeColor={themeColor} />
+        <Navigate themeColor={themeColor} />
+        <Footer themeColor={themeColor} />
+      </div>
+    </ThemeWrapper>
   );
 }

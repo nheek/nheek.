@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import Navigate from "../../components/Navigate";
 import FooterHero from "@/components/FooterHero";
 import PollsClient from "./PollsClient";
+import ThemeWrapper from "@/components/ThemeWrapper";
 
 export const metadata: Metadata = {
   title: "Polls",
@@ -57,12 +58,14 @@ export default function PollsPage() {
   });
 
   return (
-    <div className="w-full mx-auto min-h-screen h-full bg-[#1a0b2e]">
-      <Header compact themeColor={themeColor} />
-      <PollsClient polls={pollsWithOptions} />
-      <FooterHero themeColor={themeColor} />
-      <Navigate themeColor={themeColor} />
-      <Footer themeColor={themeColor} />
-    </div>
+    <ThemeWrapper themeColor={themeColor}>
+      <div className="w-full mx-auto min-h-screen h-full bg-[#1a0b2e]">
+        <Header compact themeColor={themeColor} />
+        <PollsClient polls={pollsWithOptions} />
+        <FooterHero themeColor={themeColor} />
+        <Navigate themeColor={themeColor} />
+        <Footer themeColor={themeColor} />
+      </div>
+    </ThemeWrapper>
   );
 }
