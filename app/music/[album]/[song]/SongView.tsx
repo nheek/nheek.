@@ -56,11 +56,11 @@ export default function SongView({ album, song }: SongViewProps) {
     return (
       <div
         className="min-h-screen flex items-center justify-center"
-        style={{ backgroundColor: "#1a1625" }}
+        style={{ backgroundColor: "#2d0a1f" }}
       >
         <div className="text-center">
           <div className="text-white text-xl mb-4">Album not found</div>
-          <Link href="/" className="text-purple-400 hover:text-purple-300">
+          <Link href="/" className="text-[#c45a74] hover:text-[#d67088]">
             Back to Albums
           </Link>
         </div>
@@ -72,13 +72,13 @@ export default function SongView({ album, song }: SongViewProps) {
     return (
       <div
         className="min-h-screen flex items-center justify-center"
-        style={{ backgroundColor: "#1a1625" }}
+        style={{ backgroundColor: "#2d0a1f" }}
       >
         <div className="text-center">
           <div className="text-white text-xl mb-4">Song not found</div>
           <Link
             href={`/music/${album.codename}`}
-            className="text-purple-400 hover:text-purple-300"
+            className="text-[#c45a74] hover:text-[#d67088]"
           >
             Back to {album.title}
           </Link>
@@ -98,8 +98,8 @@ export default function SongView({ album, song }: SongViewProps) {
       : null;
 
   return (
-    <div className="min-h-screen bg-[#1a1625]">
-      <Header compact={true} />
+    <div className="min-h-screen bg-[#2d0a1f]">
+      <Header compact={true} themeColor="#c45a74" />
 
       {/* Main Content */}
       <main>
@@ -292,7 +292,7 @@ export default function SongView({ album, song }: SongViewProps) {
                 </svg>
                 <div className="text-left">
                   <p className="text-xs text-white/50">Previous Song</p>
-                  <p className="text-sm font-medium group-hover:text-purple-400">
+                  <p className="text-sm font-medium group-hover:text-[#c45a74]">
                     {prevSong.title}
                   </p>
                 </div>
@@ -308,7 +308,7 @@ export default function SongView({ album, song }: SongViewProps) {
               >
                 <div className="text-right">
                   <p className="text-xs text-white/50">Next Song</p>
-                  <p className="text-sm font-medium group-hover:text-purple-400">
+                  <p className="text-sm font-medium group-hover:text-[#c45a74]">
                     {nextSong.title}
                   </p>
                 </div>
@@ -332,9 +332,9 @@ export default function SongView({ album, song }: SongViewProps) {
           </div>
         </div>
         <FooterHero />
-        <Navigate />
+        <Navigate themeColor="#8a3952" />
       </main>
-      <Footer />
+      <Footer themeColor="#c45a74" />
     </div>
   );
 }

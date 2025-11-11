@@ -49,15 +49,15 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
                 href="/music"
                 className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
                   mode === "songwriter"
-                    ? "text-purple-400 hover:text-purple-300"
-                    : "hover:text-purple-400"
+                    ? "text-[#c45a74] hover:text-[#d67088]"
+                    : "hover:text-[#c45a74]"
                 }`}
               >
                 songwriter
               </Link>
               <TbHandFingerLeft
                 className={`text-xl transition-colors ${
-                  mode === "songwriter" ? "text-purple-400" : ""
+                  mode === "songwriter" ? "text-[#c45a74]" : ""
                 }`}
               />
             </div>

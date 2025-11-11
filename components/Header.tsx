@@ -132,8 +132,8 @@ export default function Header({
                 href="/"
                 className={`transition-colors text-2xl sm:text-3xl font-semibold ${
                   currentPage === "home"
-                    ? "text-purple-400 hover:text-purple-300"
-                    : "hover:text-purple-400"
+                    ? "text-blue-400 hover:text-blue-300"
+                    : "hover:text-blue-400"
                 }`}
               >
                 fullstack developer
@@ -145,7 +145,7 @@ export default function Header({
                 href="/music"
                 className={`transition-colors text-2xl sm:text-3xl font-semibold ${
                   currentPage === "music"
-                    ? "text-purple-400 hover:text-purple-300"
+                    ? "text-[#c45a74] hover:text-[#d67088]"
                     : "hover:text-purple-400"
                 }`}
               >
@@ -153,7 +153,7 @@ export default function Header({
               </Link>
               <TbHandFingerLeft
                 className={`text-xl transition-colors ${
-                  currentPage === "music" ? "text-purple-400" : ""
+                  currentPage === "music" ? "text-[#c45a74]" : ""
                 }`}
               />
             </div>

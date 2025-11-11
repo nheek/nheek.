@@ -64,11 +64,11 @@ export default function AlbumView({
     return (
       <div
         className="min-h-screen flex items-center justify-center"
-        style={{ backgroundColor: "#1a1625" }}
+        style={{ backgroundColor: "#2d0a1f" }}
       >
         <div className="text-center">
           <div className="text-white text-xl mb-4">Album not found</div>
-          <Link href="/music" className="text-purple-400 hover:text-purple-300">
+          <Link href="/music" className="text-[#c45a74] hover:text-[#d67088]">
             Back to Albums
           </Link>
         </div>
@@ -77,8 +77,8 @@ export default function AlbumView({
   }
 
   return (
-    <div className="min-h-screen bg-[#1a1625]">
-      <Header compact={true} />
+    <div className="min-h-screen bg-[#2d0a1f]">
+      <Header compact={true} themeColor="#c45a74" />
 
       {/* Main Content */}
       <main>
@@ -186,13 +186,13 @@ export default function AlbumView({
                   <Link
                     key={song.id}
                     href={`/music/${album.codename}/${song.codename}`}
-                    className="w-full flex items-center justify-between px-2 md:px-4 py-3 md:py-4 hover:bg-[#3a3a3a] rounded-lg transition-colors text-left group !no-underline"
+                    className="w-full flex items-center justify-between px-2 md:px-4 py-3 md:py-4 hover:bg-[#4a2538] rounded-lg transition-colors text-left group no-underline!"
                   >
                     <div className="flex items-center gap-4">
                       <span className="text-gray-500 font-mono w-8">
                         {(index + 1).toString().padStart(2, "0")}
                       </span>
-                      <span className="font-medium text-gray-200 group-hover:text-purple-400">
+                      <span className="font-medium text-gray-200 group-hover:text-[#c45a74]">
                         {song.title}
                       </span>
                     </div>
@@ -224,7 +224,7 @@ export default function AlbumView({
                   </svg>
                   <div className="text-left">
                     <p className="text-xs text-white/50">Previous Album</p>
-                    <p className="text-sm font-medium group-hover:text-purple-400">
+                    <p className="text-sm font-medium group-hover:text-[#c45a74]">
                       {prevAlbum.title}
                     </p>
                   </div>
@@ -240,7 +240,7 @@ export default function AlbumView({
                 >
                   <div className="text-right">
                     <p className="text-xs text-white/50">Next Album</p>
-                    <p className="text-sm font-medium group-hover:text-purple-400">
+                    <p className="text-sm font-medium group-hover:text-[#c45a74]">
                       {nextAlbum.title}
                     </p>
                   </div>
@@ -265,9 +265,9 @@ export default function AlbumView({
           </div>
         </div>
         <FooterHero />
-        <Navigate />
+        <Navigate themeColor="#8a3952" />
       </main>
-      <Footer />
+      <Footer themeColor="#c45a74" />
     </div>
   );
 }

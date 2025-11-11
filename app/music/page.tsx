@@ -72,7 +72,7 @@ export default async function MusicPage() {
     await getAlbums();
 
   return (
-    <div className="min-h-screen bg-[#1a1625]">
+    <div className="min-h-screen bg-[#2d0a1f]">
       <Header currentPage="music" />
 
       {/* Main Content */}
@@ -86,11 +86,11 @@ export default async function MusicPage() {
           {featuredAlbums.length > 0 && (
             <div className="mb-16">
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-px bg-purple-500 w-20"></div>
-                <h3 className="text-xl md:text-2xl text-purple-400 font-semibold">
+                <div className="h-px bg-[#a0475e] w-20"></div>
+                <h3 className="text-xl md:text-2xl text-[#c45a74] font-semibold">
                   Featured Albums
                 </h3>
-                <div className="h-px bg-purple-500 w-20"></div>
+                <div className="h-px bg-[#a0475e] w-20"></div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {featuredAlbums.map((album) => {
@@ -100,8 +100,8 @@ export default async function MusicPage() {
                       href={`/music/${album.codename}`}
                       className="group cursor-pointer"
                     >
-                      <div className="relative rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all ring-2 ring-purple-500">
-                        <div className="absolute top-2 right-2 z-10 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      <div className="relative rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all ring-2 ring-[#a0475e]">
+                        <div className="absolute top-2 right-2 z-10 bg-[#8a3952] text-white text-xs font-bold px-3 py-1 rounded-full">
                           FEATURED
                         </div>
                         <img
@@ -110,7 +110,7 @@ export default async function MusicPage() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute w-full p-4 bottom-0 bg-gradient-to-t from-black to-transparent">
-                          <h3 className="w-[70%] wrap-break-word text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
+                          <h3 className="w-[70%] wrap-break-word text-2xl font-semibold text-white group-hover:text-[#c45a74] transition-colors">
                             {album.title}
                           </h3>
                           <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
@@ -152,7 +152,7 @@ export default async function MusicPage() {
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                         <div className="absolute w-full p-4 bottom-0 bg-gradient-to-t from-black to-transparent">
-                          <h3 className="w-[70%] wrap-break-word text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
+                          <h3 className="w-[70%] wrap-break-word text-2xl font-semibold text-white group-hover:text-[#c45a74] transition-colors">
                             {album.title}
                           </h3>
                           <p className="text-sm text-gray-500 absolute right-0 bottom-0 p-4">
@@ -175,9 +175,9 @@ export default async function MusicPage() {
           </div>
         </div>
         <FooterHero />
-        <Navigate />
+        <Navigate themeColor="#8a3952" />
       </main>
-      <Footer />
+      <Footer themeColor="#c45a74" />
     </div>
   );
 }
