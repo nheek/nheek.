@@ -79,6 +79,8 @@ export default function PollClient({ poll: initialPoll }: { poll: Poll }) {
   const hasVoted = votedOptions.length > 0;
   const allowMultiple = poll.allow_multiple_votes === 1;
 
+  const isPollEnded = poll.status === "ended";
+
   return (
     <main className="w-full md:w-[70%] lg:w-[60%] xl:w-[50%] mx-auto mt-12 md:mt-20 mb-20">
       <div className="mb-8">
@@ -88,6 +90,14 @@ export default function PollClient({ poll: initialPoll }: { poll: Poll }) {
         >
           ← Back to all polls
         </Link>
+
+        {isPollEnded && (
+          <div className="bg-red-900/30 border border-red-700/50 rounded-lg px-4 py-3 mb-4">
+            <p className="text-red-300 font-semibold">
+              ⚠️ This poll has ended. Voting is no longer available.
+            </p>
+          </div>
+        )}
 
         <h1
           className="text-3xl md:text-5xl font-bold mb-4"
@@ -120,17 +130,21 @@ export default function PollClient({ poll: initialPoll }: { poll: Poll }) {
               className={`relative overflow-hidden rounded-xl border-2 transition-all ${
                 hasVotedForOption
                   ? "border-purple-500 bg-purple-900/20"
-                  : hasVoted
+                  : hasVoted || isPollEnded
                     ? "border-gray-700 bg-gray-800/50"
                     : "border-gray-600 hover:border-purple-400 cursor-pointer bg-gray-800/50"
               }`}
               onClick={() => {
-                if (!hasVoted || (allowMultiple && !hasVotedForOption)) {
+                if (
+                  !isPollEnded &&
+                  (!hasVoted || (allowMultiple && !hasVotedForOption))
+                ) {
                   handleVote(option.id);
                 }
               }}
               whileHover={
-                !hasVoted || (allowMultiple && !hasVotedForOption)
+                !isPollEnded &&
+                (!hasVoted || (allowMultiple && !hasVotedForOption))
                   ? { scale: 1.02 }
                   : {}
               }

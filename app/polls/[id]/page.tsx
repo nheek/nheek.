@@ -55,7 +55,7 @@ export default async function PollPage({ params }: Props) {
   // Fetch the poll
   const poll = db.prepare("SELECT * FROM polls WHERE id = ?").get(id) as any;
 
-  if (!poll || poll.status !== "active") {
+  if (!poll) {
     notFound();
   }
 

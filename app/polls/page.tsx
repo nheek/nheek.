@@ -33,15 +33,13 @@ export default function PollsPage() {
   const db = getDb();
   const themeColor = "#7e22ce"; // purple-700
 
-  // Fetch active polls
-  const polls = db
-    .prepare(
-      "SELECT * FROM polls WHERE status = 'active' ORDER BY created_at DESC",
-    )
+  // Fetch all polls (both active and ended)
+  const allPolls = db
+    .prepare("SELECT * FROM polls ORDER BY created_at DESC")
     .all();
 
   // For each poll, get its options
-  const pollsWithOptions = polls.map((poll: any) => {
+  const pollsWithOptions = allPolls.map((poll: any) => {
     const options = db
       .prepare(
         "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
@@ -61,11 +59,15 @@ export default function PollsPage() {
     };
   });
 
+  // Separate active and ended polls
+  const activePolls = pollsWithOptions.filter((p) => p.status === "active");
+  const endedPolls = pollsWithOptions.filter((p) => p.status === "ended");
+
   return (
     <ThemeWrapper themeColor={themeColor}>
       <div className="w-full mx-auto min-h-screen h-full bg-[#1a0b2e]">
         <Header compact themeColor={themeColor} />
-        <PollsClient polls={pollsWithOptions} />
+        <PollsClient activePolls={activePolls} endedPolls={endedPolls} />
         <FooterHero themeColor={themeColor} />
         <Navigate themeColor={themeColor} />
         <Footer themeColor={themeColor} />
