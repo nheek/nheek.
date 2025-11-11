@@ -1,12 +1,14 @@
 import { TbHandFingerRight, TbHandFingerLeft } from "react-icons/tb";
+import { FaGithub, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 
 type HeroProps = {
   mode: "developer" | "songwriter";
   onModeChange: (mode: "developer" | "songwriter") => void;
+  themeColor?: string;
 };
 
-export default function Hero({ mode, onModeChange }: HeroProps) {
+export default function Hero({ mode, onModeChange, themeColor }: HeroProps) {
   return (
     <div className="w-[85%] mx-auto">
       <div className="flex flex-col md:flex-row items-center justify-between pt-20">
@@ -28,17 +30,25 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
             <div className="flex gap-2 items-center">
               <TbHandFingerRight
-                className={`text-xl transition-colors ${
-                  mode === "developer" ? "text-blue-400" : ""
-                }`}
+                className="text-xl transition-colors"
+                style={{
+                  color:
+                    mode === "developer"
+                      ? themeColor || "rgb(96, 165, 250)"
+                      : "",
+                }}
               />
               <Link
                 href="/"
                 className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
-                  mode === "developer"
-                    ? "text-blue-400 hover:text-blue-300"
-                    : "hover:text-blue-400"
+                  mode === "developer" ? "hover:opacity-80" : "hover:text-blue-400"
                 }`}
+                style={{
+                  color:
+                    mode === "developer"
+                      ? themeColor || "rgb(96, 165, 250)"
+                      : "",
+                }}
               >
                 fullstack developer
               </Link>
@@ -48,17 +58,19 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
               <Link
                 href="/music"
                 className={`cursor-pointer font-semibold text-2xl sm:text-3xl transition-colors ${
-                  mode === "songwriter"
-                    ? "text-[#c45a74] hover:text-[#d67088]"
-                    : "hover:text-[#c45a74]"
+                  mode === "songwriter" ? "hover:opacity-80" : "hover:text-[#c45a74]"
                 }`}
+                style={{
+                  color: mode === "songwriter" ? themeColor || "#c45a74" : "",
+                }}
               >
                 songwriter
               </Link>
               <TbHandFingerLeft
-                className={`text-xl transition-colors ${
-                  mode === "songwriter" ? "text-[#c45a74]" : ""
-                }`}
+                className="text-xl transition-colors"
+                style={{
+                  color: mode === "songwriter" ? themeColor || "#c45a74" : "",
+                }}
               />
             </div>
           </div>
@@ -69,17 +81,33 @@ export default function Hero({ mode, onModeChange }: HeroProps) {
           </p>
         </div>
         <div className="flex items-center gap-10">
-          <a href="https://github.com/nheek">
-            <img src="/social-links/github.svg" alt="github icon" />
+          <a
+            href="https://github.com/nheek"
+            className="hover:opacity-70 transition-opacity"
+            style={{ color: themeColor }}
+          >
+            <FaGithub className="w-6 h-6" />
           </a>
-          <a href="https://www.facebook.com/nick.james.1622">
-            <img src="/social-links/facebook.svg" alt="facebook icon" />
+          <a
+            href="https://www.facebook.com/nick.james.1622"
+            className="hover:opacity-70 transition-opacity"
+            style={{ color: themeColor }}
+          >
+            <FaFacebook className="w-6 h-6" />
           </a>
-          <a href="https://www.instagram.com/nick.mmrdl">
-            <img src="/social-links/instagram.svg" alt="instagram icon" />
+          <a
+            href="https://www.instagram.com/nick.mmrdl"
+            className="hover:opacity-70 transition-opacity"
+            style={{ color: themeColor }}
+          >
+            <FaInstagram className="w-6 h-6" />
           </a>
-          <a href="https://www.linkedin.com/in/nick-mmrdl">
-            <img src="/social-links/linkedin.svg" alt="linkedin icon" />
+          <a
+            href="https://www.linkedin.com/in/nick-mmrdl"
+            className="hover:opacity-70 transition-opacity"
+            style={{ color: themeColor }}
+          >
+            <FaLinkedin className="w-6 h-6" />
           </a>
         </div>
       </div>

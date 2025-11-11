@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { TbHandFingerRight, TbHandFingerLeft } from "react-icons/tb";
+import { FaGithub, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export const siteTitle = "nheek";
 
@@ -51,42 +52,30 @@ export default function Header({
             <a
               href="https://github.com/nheek"
               className="hover:opacity-70 transition-opacity"
+              style={{ color: textColor }}
             >
-              <img
-                src="/social-links/github.svg"
-                alt="github icon"
-                className="w-5 h-5"
-              />
+              <FaGithub className="w-5 h-5" />
             </a>
             <a
               href="https://www.facebook.com/nick.james.1622"
               className="hover:opacity-70 transition-opacity"
+              style={{ color: textColor }}
             >
-              <img
-                src="/social-links/facebook.svg"
-                alt="facebook icon"
-                className="w-5 h-5"
-              />
+              <FaFacebook className="w-5 h-5" />
             </a>
             <a
               href="https://www.instagram.com/nick.mmrdl"
               className="hover:opacity-70 transition-opacity"
+              style={{ color: textColor }}
             >
-              <img
-                src="/social-links/instagram.svg"
-                alt="instagram icon"
-                className="w-5 h-5"
-              />
+              <FaInstagram className="w-5 h-5" />
             </a>
             <a
               href="https://www.linkedin.com/in/nheek"
               className="hover:opacity-70 transition-opacity"
+              style={{ color: textColor }}
             >
-              <img
-                src="/social-links/linkedin.svg"
-                alt="linkedin icon"
-                className="w-5 h-5"
-              />
+              <FaLinkedin className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -124,17 +113,21 @@ export default function Header({
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 justify-center">
             <div className="flex gap-2 items-center">
               <TbHandFingerRight
-                className={`text-xl transition-colors ${
-                  currentPage === "home" ? "text-purple-400" : ""
-                }`}
+                className="text-xl transition-colors"
+                style={{
+                  color: currentPage === "home" ? themeColor || "#a78bfa" : "",
+                }}
               />
               <Link
                 href="/"
                 className={`transition-colors text-2xl sm:text-3xl font-semibold ${
                   currentPage === "home"
-                    ? "text-blue-400 hover:text-blue-300"
+                    ? "hover:opacity-80"
                     : "hover:text-blue-400"
                 }`}
+                style={{
+                  color: currentPage === "home" ? themeColor || "#60a5fa" : "",
+                }}
               >
                 fullstack developer
               </Link>
@@ -145,16 +138,20 @@ export default function Header({
                 href="/music"
                 className={`transition-colors text-2xl sm:text-3xl font-semibold ${
                   currentPage === "music"
-                    ? "text-[#c45a74] hover:text-[#d67088]"
+                    ? "hover:opacity-80"
                     : "hover:text-purple-400"
                 }`}
+                style={{
+                  color: currentPage === "music" ? themeColor || "#c45a74" : "",
+                }}
               >
                 songwriter
               </Link>
               <TbHandFingerLeft
-                className={`text-xl transition-colors ${
-                  currentPage === "music" ? "text-[#c45a74]" : ""
-                }`}
+                className="text-xl transition-colors"
+                style={{
+                  color: currentPage === "music" ? themeColor || "#c45a74" : "",
+                }}
               />
             </div>
           </div>
@@ -164,26 +161,30 @@ export default function Header({
           <a
             href="https://github.com/nheek"
             className="hover:opacity-70 transition-opacity"
+            style={{ color: textColor }}
           >
-            <img src="/social-links/github.svg" alt="github icon" />
+            <FaGithub className="w-6 h-6" />
           </a>
           <a
             href="https://www.facebook.com/nick.james.1622"
             className="hover:opacity-70 transition-opacity"
+            style={{ color: textColor }}
           >
-            <img src="/social-links/facebook.svg" alt="facebook icon" />
+            <FaFacebook className="w-6 h-6" />
           </a>
           <a
             href="https://www.instagram.com/nick.mmrdl"
             className="hover:opacity-70 transition-opacity"
+            style={{ color: textColor }}
           >
-            <img src="/social-links/instagram.svg" alt="instagram icon" />
+            <FaInstagram className="w-6 h-6" />
           </a>
           <a
             href="https://www.linkedin.com/in/nheek"
             className="hover:opacity-70 transition-opacity"
+            style={{ color: textColor }}
           >
-            <img src="/social-links/linkedin.svg" alt="linkedin icon" />
+            <FaLinkedin className="w-6 h-6" />
           </a>
         </div>
       </div>
