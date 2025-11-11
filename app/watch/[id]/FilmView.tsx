@@ -83,7 +83,7 @@ export default function FilmView({ film }: FilmViewProps) {
             {/* Back Button */}
             <Link
               href="/watch"
-              className="inline-flex items-center gap-2 text-[#f08080] hover:text-[#dc143c] transition-colors mt-40 mb-8"
+              className="inline-flex items-center gap-2 text-[#f08080] hover:text-[#dc143c] transition-colors"
             >
               <span>←</span>
               <span>Back to All Films</span>
