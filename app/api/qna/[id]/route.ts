@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getDb } from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -56,6 +57,9 @@ export async function PUT(request: NextRequest, context: RouteContext) {
 
     const updated = db.prepare("SELECT * FROM qna WHERE id = ?").get(id);
 
+    // Revalidate the Q&A page cache
+    revalidatePath("/qna");
+
     return NextResponse.json({
       message: "Question updated successfully",
       question: updated,
@@ -91,6 +95,9 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
     }
 
     db.prepare("DELETE FROM qna WHERE id = ?").run(id);
+
+    // Revalidate the Q&A page cache
+    revalidatePath("/qna");
 
     return NextResponse.json({
       message: "Question deleted successfully",

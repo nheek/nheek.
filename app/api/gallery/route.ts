@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import getDb from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -64,6 +65,9 @@ export async function POST(request: Request) {
     const newImage = db
       .prepare("SELECT * FROM gallery_images WHERE id = ?")
       .get(result.lastInsertRowid);
+
+    // Revalidate gallery page cache
+    revalidatePath("/gallery");
 
     return NextResponse.json(newImage, { status: 201 });
   } catch (error) {

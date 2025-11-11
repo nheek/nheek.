@@ -20,6 +20,16 @@ export async function POST(request: NextRequest) {
       revalidatePath("/", "page");
     }
 
+    if (type === "qna" || type === "all") {
+      // Revalidate Q&A page
+      revalidatePath("/qna", "page");
+    }
+
+    if (type === "gallery" || type === "all") {
+      // Revalidate Gallery page
+      revalidatePath("/gallery", "page");
+    }
+
     return NextResponse.json({
       revalidated: true,
       type,

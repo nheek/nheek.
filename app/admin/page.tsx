@@ -760,7 +760,7 @@ export default function AdminDashboard() {
             Manually refresh cached pages after updating content
           </p>
 
-          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             <button
               onClick={async () => {
                 try {
@@ -811,6 +811,50 @@ export default function AdminDashboard() {
                   const res = await fetch("/api/revalidate", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: "gallery" }),
+                  });
+                  if (res.ok) {
+                    alert("✅ Gallery cache cleared!");
+                  } else {
+                    alert("❌ Failed to clear cache");
+                  }
+                } catch {
+                  alert("❌ Error clearing cache");
+                }
+              }}
+              className="rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-500"
+            >
+              Clear Gallery Cache
+            </button>
+
+            <button
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/revalidate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: "qna" }),
+                  });
+                  if (res.ok) {
+                    alert("✅ Q&A cache cleared!");
+                  } else {
+                    alert("❌ Failed to clear cache");
+                  }
+                } catch {
+                  alert("❌ Error clearing cache");
+                }
+              }}
+              className="rounded-md bg-cyan-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-cyan-500"
+            >
+              Clear Q&A Cache
+            </button>
+
+            <button
+              onClick={async () => {
+                try {
+                  const res = await fetch("/api/revalidate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ type: "all" }),
                   });
                   if (res.ok) {
@@ -829,9 +873,9 @@ export default function AdminDashboard() {
           </div>
 
           <div className="mt-4 rounded-md bg-cyan-100 p-3 text-xs text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300">
-            <strong>💡 Tip:</strong> Pages are cached permanently until manually
-            cleared. Use these buttons after adding/editing albums, songs, or
-            projects to immediately show changes on the website.
+            <strong>💡 Tip:</strong> Pages are cached indefinitely for
+            performance. Use these buttons after adding/editing content to
+            immediately show changes on the website.
           </div>
         </div>
 
