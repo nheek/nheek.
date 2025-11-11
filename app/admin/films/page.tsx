@@ -236,12 +236,39 @@ export default function AdminFilmsPage() {
         )}
 
         {/* Add Film Button */}
-        <div className="mb-8">
+        <div className="mb-8 flex gap-4">
           <button
             onClick={openAddModal}
             className="bg-blue-600 hover:bg-blue-500 px-6 py-3 rounded font-semibold"
           >
             + Add New Film/Series
+          </button>
+          <button
+            onClick={async () => {
+              if (
+                !confirm(
+                  "Clear cache for all films/series pages? This will refresh the content on the public pages.",
+                )
+              )
+                return;
+              try {
+                const response = await fetch("/api/revalidate", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ path: "/watch" }),
+                });
+                if (response.ok) {
+                  alert("Cache cleared successfully!");
+                } else {
+                  alert("Failed to clear cache");
+                }
+              } catch (err) {
+                alert("Error clearing cache");
+              }
+            }}
+            className="bg-purple-600 hover:bg-purple-500 px-6 py-3 rounded font-semibold"
+          >
+            🔄 Clear Films Cache
           </button>
         </div>
 
@@ -544,6 +571,7 @@ export default function AdminFilmsPage() {
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        unoptimized
                       />
                     </div>
                   )}

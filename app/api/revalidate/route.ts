@@ -7,7 +7,17 @@ export async function POST(request: NextRequest) {
     await requireAuth();
 
     const body = await request.json();
-    const { type } = body; // 'albums', 'projects', or 'all'
+    const { type, path } = body; // 'albums', 'projects', 'films', 'all', or custom path
+
+    // Support custom path revalidation
+    if (path) {
+      revalidatePath(path, "page");
+      return NextResponse.json({
+        revalidated: true,
+        path,
+        now: Date.now(),
+      });
+    }
 
     if (type === "albums" || type === "all") {
       // Revalidate all music-related pages
@@ -18,6 +28,11 @@ export async function POST(request: NextRequest) {
     if (type === "projects" || type === "all") {
       // Revalidate homepage for FeaturedProjects
       revalidatePath("/", "page");
+    }
+
+    if (type === "films" || type === "all") {
+      // Revalidate films/watch pages
+      revalidatePath("/watch", "page");
     }
 
     if (type === "qna" || type === "all") {

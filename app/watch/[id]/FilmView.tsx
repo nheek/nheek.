@@ -100,6 +100,7 @@ export default function FilmView({ film }: FilmViewProps) {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 320px"
                     priority
+                    unoptimized
                   />
                 </div>
               ) : (
