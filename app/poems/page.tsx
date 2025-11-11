@@ -99,14 +99,15 @@ function Main({ poems }: { poems: { title: string; slug: string }[] }) {
 
 export default async function PoemsPage() {
   const poems = await getPoems();
+  const poemsThemeColor = "rgb(254 215 170)"; // orange-200
 
   return (
     <div className="w-full min-h-screen mx-auto px-4 bg-[#140e0a]">
-      <Header compact />
+      <Header compact themeColor={poemsThemeColor} />
       <Main poems={poems} />
-      <FooterHero />
-      <Navigate />
-      <Footer />
+      <FooterHero themeColor={poemsThemeColor} />
+      <Navigate themeColor={poemsThemeColor} />
+      <Footer themeColor={poemsThemeColor} />
     </div>
   );
 }

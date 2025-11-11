@@ -7,16 +7,20 @@ type HeaderProps = {
   compact?: boolean;
   currentPage?: "home" | "music";
   customHeaderText?: string;
+  themeColor?: string;
 };
 
 export default function Header({
   compact = false,
   currentPage = "home",
   customHeaderText,
+  themeColor,
 }: HeaderProps) {
+  const textColor = themeColor || "inherit";
+  
   if (compact) {
     return (
-      <div className="w-[85%] mx-auto py-8">
+      <div className="w-[85%] mx-auto py-8" style={{ color: textColor }}>
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link href="/">
             <span
@@ -100,7 +104,7 @@ export default function Header({
   }
 
   return (
-    <div className="w-[85%] mx-auto">
+    <div className="w-[85%] mx-auto" style={{ color: textColor }}>
       <div className="flex flex-col md:flex-row items-center justify-between pt-20">
         <span className="text-8xl md:text-[12rem]" title="name's nick">
           nheek

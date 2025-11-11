@@ -30,13 +30,15 @@ export const metadata: Metadata = {
 };
 
 export default function LinksPage() {
+  const linksThemeColor = "rgb(253 224 71)"; // yellow-300
+
   return (
-    <div className="w-full px-4 bg-[rgba(24,20,16,1)] min-h-screen">
-      <Header compact />
+    <div className="w-full px-4 bg-[#1a1508] min-h-screen">
+      <Header compact themeColor={linksThemeColor} />
       <Links />
-      <FooterHero />
-      <Navigate />
-      <Footer />
+      <FooterHero themeColor={linksThemeColor} />
+      <Navigate themeColor={linksThemeColor} />
+      <Footer themeColor={linksThemeColor} />
     </div>
   );
 }

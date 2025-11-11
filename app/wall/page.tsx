@@ -42,10 +42,11 @@ async function getContributions(): Promise<Contribution[]> {
 
 export default async function WallPage() {
   const contributions = await getContributions();
+  const wallThemeColor = "rgb(134 239 172)"; // green-300
 
   return (
     <div className="min-h-screen bg-[#0a1410] text-white">
-      <Header compact={true} customHeaderText="nheek" />
+      <Header compact={true} customHeaderText="nheek" themeColor={wallThemeColor} />
 
       <main>
         <div className="w-[85%] mx-auto pt-8">
@@ -53,9 +54,9 @@ export default async function WallPage() {
         </div>
       </main>
 
-      <FooterHero />
-      <Navigate />
-      <Footer />
+      <FooterHero themeColor={wallThemeColor} />
+      <Navigate themeColor={wallThemeColor} />
+      <Footer themeColor={wallThemeColor} />
     </div>
   );
 }

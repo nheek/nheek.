@@ -54,14 +54,15 @@ async function getGalleryImages(): Promise<GalleryImage[]> {
 
 export default async function GalleryPage() {
   const images = await getGalleryImages();
+  const galleryThemeColor = "rgb(203 213 225)"; // slate-300
 
   return (
     <div className="w-full mx-auto min-h-screen h-full bg-[#0f1114]">
-      <Header compact />
+      <Header compact themeColor={galleryThemeColor} />
       <Gallery initialImages={images} />
-      <FooterHero />
-      <Navigate />
-      <Footer />
+      <FooterHero themeColor={galleryThemeColor} />
+      <Navigate themeColor={galleryThemeColor} />
+      <Footer themeColor={galleryThemeColor} />
     </div>
   );
 }
