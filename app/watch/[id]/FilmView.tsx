@@ -56,8 +56,11 @@ export default function FilmView({ film }: FilmViewProps) {
     }
     if (hasHalfStar) {
       stars.push(
-        <span key="half" className="text-yellow-400 text-3xl">
-          ½
+        <span key="half" className="relative inline-block text-3xl">
+          <span className="text-gray-600">★</span>
+          <span className="absolute inset-0 overflow-hidden w-1/2 text-yellow-400">
+            ★
+          </span>
         </span>,
       );
     }
