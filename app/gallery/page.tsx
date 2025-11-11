@@ -51,8 +51,8 @@ async function getGalleryImages(): Promise<GalleryImage[]> {
       return [];
     }
 
-    const data = await response.json();
-    return data.images || [];
+    const images = await response.json();
+    return images;
   } catch (error) {
     console.error("Error fetching gallery images:", error);
     return [];

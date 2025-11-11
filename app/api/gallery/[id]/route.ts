@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 import getDb from "@/lib/db";
 import { requireAuth } from "@/lib/session";
 
@@ -68,8 +68,8 @@ export async function PUT(request: Request, context: RouteContext) {
       .prepare("SELECT * FROM gallery_images WHERE id = ?")
       .get(id);
 
-    // Revalidate gallery page cache
-    revalidatePath("/gallery");
+    // Revalidate gallery cache
+    revalidateTag("gallery");
 
     return NextResponse.json(updatedImage);
   } catch (error) {
@@ -106,8 +106,8 @@ export async function DELETE(request: Request, context: RouteContext) {
 
     db.prepare("DELETE FROM gallery_images WHERE id = ?").run(id);
 
-    // Revalidate gallery page cache
-    revalidatePath("/gallery");
+    // Revalidate gallery cache
+    revalidateTag("gallery");
 
     return NextResponse.json({ message: "Gallery image deleted successfully" });
   } catch (error) {
