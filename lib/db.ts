@@ -6,6 +6,33 @@ import bcrypt from "bcryptjs";
 const dbPath = path.join(process.cwd(), "data", "nheek.db");
 let db: Database.Database | null = null;
 
+function ensureTablesExist(database: Database.Database) {
+  // Check if gallery_images table exists
+  const galleryTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='gallery_images'",
+    )
+    .get();
+
+  if (!galleryTableExists) {
+    console.log("Gallery table not found. Creating gallery_images table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS gallery_images (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        image_url TEXT NOT NULL,
+        alt_text TEXT NOT NULL,
+        display_order INTEGER,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    database.exec(`
+      CREATE INDEX IF NOT EXISTS idx_gallery_order ON gallery_images(display_order);
+    `);
+    console.log("✅ Gallery table created successfully");
+  }
+}
+
 export function getDb(): Database.Database {
   if (!db) {
     // Ensure the data directory exists
@@ -26,6 +53,9 @@ export function getDb(): Database.Database {
     if (!dbExists) {
       console.log("Database not found. Initializing schema...");
       initializeSchema(db);
+    } else {
+      // Database exists, but we need to ensure all tables exist (for migrations)
+      ensureTablesExist(db);
     }
   }
   return db;
