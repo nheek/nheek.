@@ -146,9 +146,7 @@ export default function AdminGalleryPage() {
 
       alert("Gallery cache cleared! The public page will show updated images.");
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Failed to clear cache",
-      );
+      setError(err instanceof Error ? err.message : "Failed to clear cache");
     } finally {
       setClearingCache(false);
     }

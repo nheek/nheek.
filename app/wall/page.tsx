@@ -46,7 +46,11 @@ export default async function WallPage() {
 
   return (
     <div className="min-h-screen bg-[#0a1410] text-white">
-      <Header compact={true} customHeaderText="nheek" themeColor={wallThemeColor} />
+      <Header
+        compact={true}
+        customHeaderText="nheek"
+        themeColor={wallThemeColor}
+      />
 
       <main>
         <div className="w-[85%] mx-auto pt-8">

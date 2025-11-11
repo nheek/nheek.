@@ -25,10 +25,10 @@ export default function CustomCursor() {
     // Check if element or any parent is clickable
     const isClickableElement = (element: Element | null): boolean => {
       if (!element) return false;
-      
+
       let currentElement: Element | null = element;
       let depth = 0;
-      
+
       // Check up to 5 parent levels
       while (currentElement && depth < 5) {
         const tagName = currentElement.tagName.toLowerCase();
@@ -40,21 +40,18 @@ export default function CustomCursor() {
           "select",
           "label",
         ];
-        
+
         // Check if it's a clickable tag
         if (clickableTags.includes(tagName)) return true;
-        
+
         // Check if it has click handlers or cursor pointer (before we set it to none)
         if (currentElement.hasAttribute("onclick")) return true;
-        
+
         // Check if it's a clickable role
         const role = currentElement.getAttribute("role");
-        if (
-          role &&
-          ["button", "link", "menuitem", "tab"].includes(role)
-        )
+        if (role && ["button", "link", "menuitem", "tab"].includes(role))
           return true;
-        
+
         // Check for common interactive classes
         const classList = currentElement.className;
         if (
@@ -65,12 +62,12 @@ export default function CustomCursor() {
         ) {
           return true;
         }
-        
+
         // Move to parent
         currentElement = currentElement.parentElement;
         depth++;
       }
-      
+
       return false;
     };
 
@@ -78,7 +75,7 @@ export default function CustomCursor() {
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
       setIsVisible(true);
-      
+
       // Check if hovering over clickable element or its parent
       const target = e.target as Element;
       setIsHoveringClickable(isClickableElement(target));

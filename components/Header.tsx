@@ -17,7 +17,7 @@ export default function Header({
   themeColor,
 }: HeaderProps) {
   const textColor = themeColor || "inherit";
-  
+
   if (compact) {
     return (
       <div className="w-[85%] mx-auto py-8" style={{ color: textColor }}>
@@ -69,7 +69,7 @@ export default function Header({
               />
             </a>
             <a
-              href="https://github.com/nheek"
+              href="https://www.instagram.com/nick.mmrdl"
               className="hover:opacity-70 transition-opacity"
             >
               <img
@@ -79,7 +79,7 @@ export default function Header({
               />
             </a>
             <a
-              href="https://github.com/nheek"
+              href="https://www.linkedin.com/in/nheek"
               className="hover:opacity-70 transition-opacity"
             >
               <img
@@ -174,13 +174,13 @@ export default function Header({
             <img src="/social-links/facebook.svg" alt="facebook icon" />
           </a>
           <a
-            href="https://github.com/nheek"
+            href="https://www.instagram.com/nick.mmrdl"
             className="hover:opacity-70 transition-opacity"
           >
             <img src="/social-links/instagram.svg" alt="instagram icon" />
           </a>
           <a
-            href="https://github.com/nheek"
+            href="https://www.linkedin.com/in/nheek"
             className="hover:opacity-70 transition-opacity"
           >
             <img src="/social-links/linkedin.svg" alt="linkedin icon" />

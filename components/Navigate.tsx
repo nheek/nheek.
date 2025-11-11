@@ -7,12 +7,15 @@ type NavigateProps = {
   themeColor?: string;
 };
 
-export default function Navigate({ underPage = false, themeColor }: NavigateProps) {
+export default function Navigate({
+  underPage = false,
+  themeColor,
+}: NavigateProps) {
   // Function to determine if a color is light or dark
   const isLightColor = (color: string): boolean => {
     // Convert rgb/rgba to hex if needed
     let hex = color;
-    
+
     if (color.startsWith("rgb")) {
       const match = color.match(/\d+/g);
       if (match) {
@@ -30,20 +33,20 @@ export default function Navigate({ underPage = false, themeColor }: NavigateProp
       const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
       return luminance > 0.5;
     }
-    
+
     return false;
   };
 
   const buttonBgColor = themeColor || "#172554"; // default blue-950
   const isLight = themeColor ? isLightColor(themeColor) : false;
-  
+
   // Button text color: dark text for light backgrounds, white for dark backgrounds
   const buttonTextColor = isLight ? "#1f2937" : "#ffffff"; // gray-800 or white
-  
+
   // Hover state: invert the colors
   const hoverBgColor = isLight ? "#1f2937" : "#e5e7eb"; // gray-800 or gray-200
   const hoverTextColor = isLight ? "#ffffff" : "#1f2937"; // white or gray-800
-  
+
   const navLinks = [
     { name: "home", link: "/" },
     // { name: "blog", link: "#" }, // blog about very small random things to very specific big things
