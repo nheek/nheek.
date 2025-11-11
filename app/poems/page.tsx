@@ -105,7 +105,7 @@ export default async function PoemsPage() {
   return (
     <ThemeWrapper themeColor={poemsThemeColor}>
       <div className="w-full min-h-screen mx-auto px-4 bg-[#140e0a]">
-        <Header compact themeColor={poemsThemeColor} />
+        <Header compact themeColor={poemsThemeColor} pageTitle="Poems" />
         <Main poems={poems} />
         <FooterHero themeColor={poemsThemeColor} />
         <Navigate themeColor={poemsThemeColor} />

@@ -79,7 +79,7 @@ export default function FilmView({ film }: FilmViewProps) {
   return (
     <ThemeWrapper themeColor="#8b0000">
       <div className="min-h-screen bg-[#3d0814]">
-        <Header themeColor="#f08080" compact />
+        <Header themeColor="#f08080" compact pageTitle={film.title} />
 
         <main>
           <div className="w-[85%] mx-auto mt-6 mb-20">

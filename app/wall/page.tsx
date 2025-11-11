@@ -52,6 +52,7 @@ export default async function WallPage() {
           compact={true}
           customHeaderText="nheek"
           themeColor={wallThemeColor}
+          pageTitle="Wall"
         />
 
         <main>

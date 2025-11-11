@@ -9,6 +9,7 @@ type HeaderProps = {
   currentPage?: "home" | "music";
   customHeaderText?: string;
   themeColor?: string;
+  pageTitle?: string;
 };
 
 export default function Header({
@@ -16,6 +17,7 @@ export default function Header({
   currentPage = "home",
   customHeaderText,
   themeColor,
+  pageTitle,
 }: HeaderProps) {
   const textColor = themeColor || "inherit";
 
@@ -44,7 +46,7 @@ export default function Header({
                 fullstack developer | songwriter
               </p>
               <p className="text-sm text-gray-400">
-                my lyrics breathe life into emotions
+                {pageTitle ? pageTitle.toLowerCase() : "my lyrics breathe life into emotions"}
               </p>
             </div>
           </div>
@@ -85,7 +87,7 @@ export default function Header({
             fullstack developer | songwriter
           </p>
           <p className="text-sm text-gray-400">
-            my lyrics breathe life into emotions
+            {pageTitle ? pageTitle.toLowerCase() : "my lyrics breathe life into emotions"}
           </p>
         </div>
       </div>

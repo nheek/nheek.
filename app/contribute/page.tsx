@@ -424,7 +424,7 @@ export default function ContributePage() {
   return (
     <ThemeWrapper themeColor={themeColor}>
       <div className="min-h-screen bg-[#0a1410] text-white">
-        <Header compact customHeaderText="nheek" themeColor={themeColor} />
+        <Header compact customHeaderText="nheek" themeColor={themeColor} pageTitle="Contribute" />
 
         <div className="mx-auto max-w-4xl px-4 py-8">
           <div className="mb-12 text-center">

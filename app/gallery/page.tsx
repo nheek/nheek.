@@ -65,7 +65,7 @@ export default async function GalleryPage() {
   return (
     <ThemeWrapper themeColor={galleryThemeColor}>
       <div className="w-full mx-auto min-h-screen h-full bg-[#0f1114]">
-        <Header compact themeColor={galleryThemeColor} />
+        <Header compact themeColor={galleryThemeColor} pageTitle="Gallery" />
         <Gallery initialImages={images} />
         <FooterHero themeColor={galleryThemeColor} />
         <Navigate themeColor={galleryThemeColor} />

@@ -115,7 +115,7 @@ export default function WatchPageClient({
   return (
     <ThemeWrapper themeColor="#8b0000">
       <div className="min-h-screen bg-[#3d0814]">
-        <Header themeColor="#f08080" compact />
+        <Header themeColor="#f08080" compact pageTitle="Watch" />
 
         {/* Main Content */}
         <main>

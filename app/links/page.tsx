@@ -36,7 +36,7 @@ export default function LinksPage() {
   return (
     <ThemeWrapper themeColor={linksThemeColor}>
       <div className="w-full px-4 bg-[#1a1508] min-h-screen">
-        <Header compact themeColor={linksThemeColor} />
+        <Header compact themeColor={linksThemeColor} pageTitle="Links" />
         <Links />
         <FooterHero themeColor={linksThemeColor} />
         <Navigate themeColor={linksThemeColor} />

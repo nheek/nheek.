@@ -66,7 +66,7 @@ export default async function QnAPage() {
   return (
     <ThemeWrapper themeColor={themeColor}>
       <div className="w-full mx-auto min-h-screen h-full bg-[#0c1a2e]">
-        <Header compact themeColor={themeColor} />
+        <Header compact themeColor={themeColor} pageTitle="Q&A" />
         <QnAClient initialQuestions={questions} />
         <FooterHero themeColor={themeColor} />
         <Navigate themeColor={themeColor} />

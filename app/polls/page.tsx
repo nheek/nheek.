@@ -61,7 +61,7 @@ export default async function PollsPage() {
   return (
     <ThemeWrapper themeColor={themeColor}>
       <div className="w-full mx-auto min-h-screen h-full bg-[#1a0b2e]">
-        <Header compact themeColor={themeColor} />
+        <Header compact themeColor={themeColor} pageTitle="Polls" />
         <PollsClient activePolls={activePolls} endedPolls={endedPolls} />
         <FooterHero themeColor={themeColor} />
         <Navigate themeColor={themeColor} />
