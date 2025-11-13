@@ -224,6 +224,22 @@ export function getDb(): Database.Database {
 }
 
 function initializeSchema(database: Database.Database) {
+  // CV/Resume table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS cv (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      company TEXT NOT NULL,
+      position TEXT NOT NULL,
+      date_from TEXT NOT NULL,
+      date_to TEXT,
+      present BOOLEAN DEFAULT 0,
+      link TEXT,
+      description TEXT,
+      location TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
   // Albums table
   database.exec(`
     CREATE TABLE IF NOT EXISTS albums (

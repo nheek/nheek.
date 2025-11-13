@@ -49,16 +49,14 @@ export default function Navigate({
 
   const navLinks = [
     { name: "home", link: "/" },
-    // { name: "blog", link: "#" }, // blog about very small random things to very specific big things
-    { name: "gallery", link: "/gallery" }, // maybe add a gallery page where i can showcase some of my favourite pictures
-    { name: "watch", link: "/watch" }, // films and series watched with ratings and reviews
-    // { name: "cv", link: "/cv" }, // add page for your cv
-    // { name: "fun", link: "/fun" }, // post your spotify playlists here maybe or favourite shows or anything really
-    { name: "poems", link: "/poems" }, // finally my poems seeing the light of day
-    { name: "links", link: "/links" }, // add links you want to add on your portfolio, like a friend's portfolio website
-    { name: "wall", link: "/wall" }, // visitor contributions wall - graffiti, guestbook, songs, etc.
-    { name: "q&a", link: "/qna" }, // ask me anything page
-    { name: "polls", link: "/polls" }, // community polls and voting
+    { name: "gallery", link: "/gallery" },
+    { name: "watch", link: "/watch" },
+    { name: "cv", link: "/cv" },
+    { name: "poems", link: "/poems" },
+    { name: "links", link: "/links" },
+    { name: "wall", link: "/wall" },
+    { name: "q&a", link: "/qna" },
+    { name: "polls", link: "/polls" },
   ];
 
   return (

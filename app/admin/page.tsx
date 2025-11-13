@@ -530,6 +530,15 @@ export default function AdminDashboard() {
         {/* Quick Actions */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           <Link
+            href="/admin/cv"
+            className="block rounded-lg bg-blue-700 p-6 text-white shadow transition hover:bg-blue-600"
+          >
+            <h3 className="text-lg font-semibold">Manage CV / Resume</h3>
+            <p className="mt-2 text-sm">
+              Add, edit, and organize your professional experience
+            </p>
+          </Link>
+          <Link
             href="/admin/links"
             className="block rounded-lg bg-purple-700 p-6 text-white shadow transition hover:bg-purple-600"
           >
