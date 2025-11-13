@@ -1,13 +1,20 @@
-export default async function Links() {
-  // SSR fetch to API route
-  // Use absolute URL for SSR fetch
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  // SSR fetch with indefinite cache
-  const res = await fetch(`${baseUrl}/api/links`, {
-    next: { revalidate: false },
-  });
-  const data = await res.json();
-  const links = (data.links || []).sort((a, b) => a.name.localeCompare(b.name));
+"use client";
+
+type Link = {
+  id: number;
+  name: string;
+  url: string;
+  desc: string;
+  color: string;
+  display_order: number;
+};
+
+type LinksProps = {
+  initialLinks: Link[];
+};
+
+export default function Links({ initialLinks }: LinksProps) {
+  const links = initialLinks;
 
   return (
     <div className="w-full md:w-[85%] lg:w-[75%] mx-auto mt-12 md:mt-20 mb-20">

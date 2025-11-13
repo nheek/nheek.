@@ -30,14 +30,45 @@ export const metadata: Metadata = {
   },
 };
 
-export default function LinksPage() {
+type Link = {
+  id: number;
+  name: string;
+  url: string;
+  desc: string;
+  color: string;
+  display_order: number;
+};
+
+async function getLinks(): Promise<Link[]> {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+
+  try {
+    const response = await fetch(`${baseUrl}/api/links`, {
+      next: { revalidate: false },
+    });
+
+    if (!response.ok) {
+      console.error("Failed to fetch links:", response.statusText);
+      return [];
+    }
+
+    const data = await response.json();
+    return (data.links || []).sort((a, b) => a.name.localeCompare(b.name));
+  } catch (error) {
+    console.error("Error fetching links:", error);
+    return [];
+  }
+}
+
+export default async function LinksPage() {
+  const links = await getLinks();
   const linksThemeColor = "rgb(253 224 71)"; // yellow-300
 
   return (
     <ThemeWrapper themeColor={linksThemeColor}>
       <div className="w-full px-4 bg-[#1a1508] min-h-screen">
         <Header compact themeColor={linksThemeColor} pageTitle="Links" />
-        <Links />
+        <Links initialLinks={links} />
         <FooterHero themeColor={linksThemeColor} />
         <Navigate themeColor={linksThemeColor} />
         <Footer themeColor={linksThemeColor} />
