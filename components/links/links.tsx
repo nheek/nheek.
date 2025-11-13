@@ -1,7 +1,7 @@
 export default async function Links() {
   // SSR fetch to API route
   // Use absolute URL for SSR fetch
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
   // SSR fetch with indefinite cache
   const res = await fetch(`${baseUrl}/api/links`, {
     next: { revalidate: false },
