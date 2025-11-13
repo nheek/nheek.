@@ -17,10 +17,10 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
       vx: 0,
       vy: 0,
       id: i,
-    }))
+    })),
   );
-    const minSize = 80;
-    const maxSize = 180;
+  const minSize = 80;
+  const maxSize = 180;
   const friction = 0.98;
   const pushStrength = 2;
 
@@ -36,7 +36,9 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
     function animate() {
       setPositions((prev) => {
         const next = prev.map((pos) => ({ ...pos }));
-        const bubbleSizes = skills.map(skill => Math.max(minSize, Math.min(maxSize, 32 + skill.name.length * 12)));
+        const bubbleSizes = skills.map((skill) =>
+          Math.max(minSize, Math.min(maxSize, 32 + skill.name.length * 12)),
+        );
         // Bubble-bubble collision (realistic physics)
         for (let i = 0; i < next.length; i++) {
           for (let j = i + 1; j < next.length; j++) {
@@ -124,8 +126,14 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
               vy += ny * force;
               // Cap velocity to prevent bubbles from lagging behind cursor
               const maxCursorVelocity = 18;
-              vx = Math.max(Math.min(vx, maxCursorVelocity), -maxCursorVelocity);
-              vy = Math.max(Math.min(vy, maxCursorVelocity), -maxCursorVelocity);
+              vx = Math.max(
+                Math.min(vx, maxCursorVelocity),
+                -maxCursorVelocity,
+              );
+              vy = Math.max(
+                Math.min(vy, maxCursorVelocity),
+                -maxCursorVelocity,
+              );
               // If cursor is deep inside bubble, snap bubble out instantly
               if (dist < cursorRadius) {
                 x += nx * (borderDist - dist);
@@ -197,14 +205,17 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
     <div
       ref={containerRef}
       className="relative w-full min-h-[350px]"
-      style={{ height: 350, cursor: 'none' }}
+      style={{ height: 350, cursor: "none" }}
     >
       {skills.map((skill, i) => {
         // Calculate bubble size based on text length (min 80px, max 180px)
         const textLength = skill.name.length;
         const minSize = 80;
         const maxSize = 180;
-        const bubbleSizeDynamic = Math.max(minSize, Math.min(maxSize, 32 + textLength * 12));
+        const bubbleSizeDynamic = Math.max(
+          minSize,
+          Math.min(maxSize, 32 + textLength * 12),
+        );
         return (
           <div
             key={skill.id}
@@ -212,7 +223,8 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
             style={{
               width: bubbleSizeDynamic,
               height: bubbleSizeDynamic,
-              background: "radial-gradient(circle at 40% 40%, #fff 0%, #B8E8D8 80%)",
+              background:
+                "radial-gradient(circle at 40% 40%, #fff 0%, #B8E8D8 80%)",
               borderColor: "#7DB8A2",
               boxShadow: "0 4px 16px 0 rgba(27,77,62,0.12)",
               textDecoration: "none",

@@ -52,10 +52,8 @@ export async function PUT(
   if (!auth) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-
   const db = getDb();
   const { id } = await params;
-
   try {
     const body = await request.json();
     const {
@@ -66,7 +64,6 @@ export async function PUT(
       end_date,
       options,
     } = body;
-
     // Update poll
     if (title !== undefined) {
       const updatePoll = db.prepare(`
@@ -74,7 +71,6 @@ export async function PUT(
         SET title = ?, description = ?, status = ?, allow_multiple_votes = ?, end_date = ?, updated_at = CURRENT_TIMESTAMP
         WHERE id = ?
       `);
-
       updatePoll.run(
         title,
         description || null,
@@ -84,18 +80,15 @@ export async function PUT(
         id,
       );
     }
-
     // Update options if provided
     if (options && Array.isArray(options)) {
       // Delete existing options
       db.prepare("DELETE FROM poll_options WHERE poll_id = ?").run(id);
-
       // Insert new options
       const insertOption = db.prepare(`
         INSERT INTO poll_options (poll_id, name, description, image_url, link, display_order, vote_count)
         VALUES (?, ?, ?, ?, ?, ?, ?)
       `);
-
       options.forEach((option: any, index: number) => {
         insertOption.run(
           id,
@@ -108,24 +101,19 @@ export async function PUT(
         );
       });
     }
-
     // Revalidate polls page
     revalidatePath("/polls");
-
     // Fetch updated poll
     const updatedPoll = db.prepare("SELECT * FROM polls WHERE id = ?").get(id);
-
     const pollOptions = db
       .prepare(
         "SELECT * FROM poll_options WHERE poll_id = ? ORDER BY display_order",
       )
       .all(id);
-
     const totalVotes = pollOptions.reduce(
       (sum: number, opt: any) => sum + (opt.vote_count || 0),
       0,
     );
-
     return NextResponse.json({
       ...(updatedPoll as object),
       options: pollOptions,
@@ -149,7 +137,6 @@ export async function DELETE(
   if (!auth) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-
   const db = getDb();
   const { id } = await params;
 

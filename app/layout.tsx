@@ -77,7 +77,7 @@ export default function RootLayout({
           data-website-id="74e002f4-f2a6-43b6-9045-840f9632e53a"
         ></script>
       </head>
-  <body>
+      <body>
         <CustomCursor />
         {children}
       </body>

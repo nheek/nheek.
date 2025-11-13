@@ -18,6 +18,7 @@ export default function AdminDashboard() {
     qna: 0,
     polls: 0,
     links: 0,
+    skills: 0,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
@@ -86,6 +87,8 @@ export default function AdminDashboard() {
         filmsRes,
         qnaRes,
         pollsRes,
+        linksRes,
+        skillsRes, // Add this
       ] = await Promise.all([
         fetch("/api/albums"),
         fetch("/api/songs"),
@@ -96,6 +99,7 @@ export default function AdminDashboard() {
         fetch("/api/qna?status=pending"),
         fetch("/api/polls?includeAll=true"),
         fetch("/api/links"),
+        fetch("/api/skills"), // Add this
       ]);
 
       const albums = await albumsRes.json();
@@ -106,7 +110,8 @@ export default function AdminDashboard() {
       const films = await filmsRes.json();
       const qna = await qnaRes.json();
       const polls = await pollsRes.json();
-      const links = await (await fetch("/api/links")).json();
+      const links = await linksRes.json();
+      const skills = await skillsRes.json(); // Add this
 
       setStats({
         albums: albums.albums?.length || 0,
@@ -120,6 +125,7 @@ export default function AdminDashboard() {
           ? polls.filter((p: any) => p.status === "active").length
           : 0,
         links: links.links?.length || 0,
+        skills: skills.skills?.length || 0, // Add this
       });
     } catch (error) {
       console.error("Failed to fetch stats:", error);

@@ -46,20 +46,19 @@ img {
   display: block;
 }
 
-
 /* Pulsating glow animation for cursor */
 @keyframes pulse-glow {
   0%,
   100% {
     box-shadow:
       0 0 10px var(--cursor-glow-color, #60a5fa80),
-      0 0 20px var(--cursor-glow-color, #60a5fa4D);
+      0 0 20px var(--cursor-glow-color, #60a5fa4d);
   }
   50% {
     box-shadow:
-      0 0 20px var(--cursor-glow-color, #60a5faCC),
+      0 0 20px var(--cursor-glow-color, #60a5facc),
       0 0 30px var(--cursor-glow-color, #60a5fa80),
-      0 0 40px var(--cursor-glow-color, #60a5fa4D);
+      0 0 40px var(--cursor-glow-color, #60a5fa4d);
   }
 }
 
