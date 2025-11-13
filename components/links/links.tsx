@@ -1,13 +1,11 @@
-
-
 export default async function Links() {
   // SSR fetch to API route
   // Use absolute URL for SSR fetch
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-    // SSR fetch with indefinite cache
-    const res = await fetch(`${baseUrl}/api/links`, {
-      next: { revalidate: false },
-    });
+  // SSR fetch with indefinite cache
+  const res = await fetch(`${baseUrl}/api/links`, {
+    next: { revalidate: false },
+  });
   const data = await res.json();
   const links = (data.links || []).sort((a, b) => a.name.localeCompare(b.name));
 
@@ -52,7 +50,9 @@ export default async function Links() {
               {/* URL preview */}
               <div className="mt-4 pt-4 border-t border-gray-700/50">
                 <p className="text-xs text-gray-500 group-hover:text-yellow-300 transition-colors duration-300 truncate">
-                  {(link.url || "").replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                  {(link.url || "")
+                    .replace(/^https?:\/\//, "")
+                    .replace(/\/$/, "")}
                 </p>
               </div>
             </div>

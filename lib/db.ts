@@ -415,8 +415,8 @@ function initializeSchema(database: Database.Database) {
     )
   `);
 
-    // Links table
-    database.exec(`
+  // Links table
+  database.exec(`
       CREATE TABLE IF NOT EXISTS links (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,

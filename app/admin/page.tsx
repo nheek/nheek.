@@ -9,15 +9,15 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [migrationButtonVisible, setMigrationButtonVisible] = useState(true);
   const [stats, setStats] = useState({
-  albums: 0,
-  songs: 0,
-  projects: 0,
-  contributions: 0,
-  gallery: 0,
-  films: 0,
-  qna: 0,
-  polls: 0,
-  links: 0,
+    albums: 0,
+    songs: 0,
+    projects: 0,
+    contributions: 0,
+    gallery: 0,
+    films: 0,
+    qna: 0,
+    polls: 0,
+    links: 0,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
@@ -445,7 +445,7 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats */}
-  <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-8">
+        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-8">
           <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
             <dt className="truncate text-sm font-medium text-purple-700 dark:text-purple-400">
               Total Links
@@ -528,7 +528,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Quick Actions */}
-  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
           <Link
             href="/admin/links"
             className="block rounded-lg bg-purple-700 p-6 text-white shadow transition hover:bg-purple-600"
