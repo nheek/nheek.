@@ -6,15 +6,22 @@ import Footer from "@/components/Footer";
 import ThemeWrapper from "@/components/ThemeWrapper";
 import SkillsBubblesClientWrapper from "./SkillsBubblesClientWrapper";
 
-export const dynamicSetting = "force-static";
-
 async function getSkills() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/api/skills`,
-    { next: { revalidate: 3600 } },
-  );
-  const data = await res.json();
-  return data.skills || [];
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  try {
+    const response = await fetch(`${baseUrl}/api/skills`, {
+      next: { tags: ["skills"] },
+    });
+    if (!response.ok) {
+      console.error("Failed to fetch skills:", response.statusText);
+      return [];
+    }
+    const data = await response.json();
+    return data.skills || [];
+  } catch (error) {
+    console.error("Error fetching skills:", error);
+    return [];
+  }
 }
 
 // Client wrapper for SkillsBubbles

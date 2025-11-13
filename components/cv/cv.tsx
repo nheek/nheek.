@@ -12,14 +12,6 @@ export interface CVEntry {
   location: string;
 }
 
-// SSR fetch
-async function fetchCVEntries(): Promise<CVEntry[]> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-  const res = await fetch(`${baseUrl}/api/cv`, { next: { revalidate: false } });
-  const data = await res.json();
-  return data.cv || [];
-}
-
 // Helper to format date as 'MMM YYYY' (e.g. 'Nov 2025')
 function formatDate(dateStr: string | null): string {
   if (!dateStr) return "";
@@ -28,9 +20,7 @@ function formatDate(dateStr: string | null): string {
   return date.toLocaleString("en-US", { month: "short", year: "numeric" });
 }
 
-export default async function CV() {
-  const entries = await fetchCVEntries();
-
+export default function CV({ entries }: { entries: CVEntry[] }) {
   return (
     <section className="w-full md:w-[80%] lg:w-[65%] xl:w-[55%] mx-auto mt-14 md:mt-20 mb-20">
       <div className="text-center mb-12">

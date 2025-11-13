@@ -55,6 +55,12 @@ export default function AdminCVPage() {
     setEditId(null);
     setShowModal(false);
     fetchCV();
+    // Revalidate the CV page cache
+    await fetch("/api/revalidate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: "/cv" }),
+    });
   }
 
   async function handleDelete(id) {
@@ -64,6 +70,12 @@ export default function AdminCVPage() {
       body: JSON.stringify({ id }),
     });
     fetchCV();
+    // Revalidate the CV page cache
+    await fetch("/api/revalidate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ path: "/cv" }),
+    });
   }
 
   return (

@@ -5,7 +5,6 @@ import { requireAuth } from "@/lib/session";
 
 // GET /api/polls - Get all polls (public for active, admin for all)
 export async function GET(request: Request) {
-  const db = getDb();
   const { searchParams } = new URL(request.url);
   const includeAll = searchParams.get("includeAll") === "true";
 
@@ -17,6 +16,8 @@ export async function GET(request: Request) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }
     }
+
+    const db = getDb();
 
     // Get polls based on status
     const pollsQuery = includeAll
