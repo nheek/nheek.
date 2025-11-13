@@ -1,47 +1,15 @@
-export default function Links() {
-  const links = [
-    {
-      name: "mathias haugsbø",
-      link: "https://mathiash98.github.io/",
-      desc: "portfolio website of mathias haugsbø (fribyte member)",
-    },
-    {
-      name: "bergen font",
-      link: "https://bergenfont.no",
-      desc: "font archive by erik g. ingebrigtsen (fribyte member)",
-    },
-    {
-      name: "moldescriptor",
-      link: "https://moldescriptor.com/",
-      desc: "input molecules to calculate various descriptors by johannes lysne (fribyte member)",
-    },
-    {
-      name: "sindre kjelsrud",
-      link: "https://kjelsrud.dev/",
-      desc: "portfolio website of sindre kjelsrud (fribyte member)",
-    },
-    {
-      name: "adam remøy",
-      link: "https://www.aadam.no/",
-      desc: "portfolio website of adam remøy (root and fribyte member)",
-    },
-    {
-      name: "christian engelsen",
-      link: "https://cengelsen.no/",
-      desc: "portfolio website of christian engelsen (fribyte member)",
-    },
-    {
-      name: "rolf glomsrud",
-      link: "https://polsevev.dev/",
-      desc: "portfolio website of rolf glomsrud (fribyte member)",
-    },
-    {
-      name: "simen strømsnes",
-      link: "https://simsine.no/",
-      desc: "portfolio website of simen strømsnes (root and fribyte member)",
-    },
-  ];
-  links.sort((a, b) => a.name.localeCompare(b.name));
+
+
+export default async function Links() {
+  // SSR fetch to API route
+  // Use absolute URL for SSR fetch
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    // SSR fetch with indefinite cache
+    const res = await fetch(`${baseUrl}/api/links`, {
+      next: { revalidate: false },
+    });
+  const data = await res.json();
+  const links = (data.links || []).sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="w-full md:w-[85%] lg:w-[75%] mx-auto mt-12 md:mt-20 mb-20">
@@ -49,7 +17,7 @@ export default function Links() {
         {links.map((link, index) => (
           <a
             key={"link" + index}
-            href={link.link}
+            href={link.url}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 p-6 transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20 hover:border-yellow-500/50 !no-underline"
@@ -84,7 +52,7 @@ export default function Links() {
               {/* URL preview */}
               <div className="mt-4 pt-4 border-t border-gray-700/50">
                 <p className="text-xs text-gray-500 group-hover:text-yellow-300 transition-colors duration-300 truncate">
-                  {link.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+                  {(link.url || "").replace(/^https?:\/\//, "").replace(/\/$/, "")}
                 </p>
               </div>
             </div>

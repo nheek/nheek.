@@ -415,6 +415,20 @@ function initializeSchema(database: Database.Database) {
     )
   `);
 
+    // Links table
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS links (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  url TEXT NOT NULL,
+  desc TEXT,
+  color TEXT,
+  display_order INTEGER,
+  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
   // Create indexes
   database.exec(`
     CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);

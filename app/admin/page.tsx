@@ -9,14 +9,15 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [migrationButtonVisible, setMigrationButtonVisible] = useState(true);
   const [stats, setStats] = useState({
-    albums: 0,
-    songs: 0,
-    projects: 0,
-    contributions: 0,
-    gallery: 0,
-    films: 0,
-    qna: 0,
-    polls: 0,
+  albums: 0,
+  songs: 0,
+  projects: 0,
+  contributions: 0,
+  gallery: 0,
+  films: 0,
+  qna: 0,
+  polls: 0,
+  links: 0,
   });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [passwordData, setPasswordData] = useState({
@@ -94,6 +95,7 @@ export default function AdminDashboard() {
         fetch("/api/films"),
         fetch("/api/qna?status=pending"),
         fetch("/api/polls?includeAll=true"),
+        fetch("/api/links"),
       ]);
 
       const albums = await albumsRes.json();
@@ -104,6 +106,7 @@ export default function AdminDashboard() {
       const films = await filmsRes.json();
       const qna = await qnaRes.json();
       const polls = await pollsRes.json();
+      const links = await (await fetch("/api/links")).json();
 
       setStats({
         albums: albums.albums?.length || 0,
@@ -116,6 +119,7 @@ export default function AdminDashboard() {
         polls: Array.isArray(polls)
           ? polls.filter((p: any) => p.status === "active").length
           : 0,
+        links: links.links?.length || 0,
       });
     } catch (error) {
       console.error("Failed to fetch stats:", error);
@@ -441,7 +445,15 @@ export default function AdminDashboard() {
       {/* Main Content */}
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats */}
-        <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-7">
+  <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-8">
+          <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
+            <dt className="truncate text-sm font-medium text-purple-700 dark:text-purple-400">
+              Total Links
+            </dt>
+            <dd className="mt-1 text-3xl font-semibold tracking-tight text-purple-900 dark:text-purple-300">
+              {stats.links}
+            </dd>
+          </div>
           <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
             <dt className="truncate text-sm font-medium text-gray-500 dark:text-gray-400">
               Total Albums
@@ -516,7 +528,14 @@ export default function AdminDashboard() {
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <Link
+            href="/admin/links"
+            className="block rounded-lg bg-purple-700 p-6 text-white shadow transition hover:bg-purple-600"
+          >
+            <h3 className="text-lg font-semibold">Manage Links</h3>
+            <p className="mt-2 text-sm">Add, edit, import, and delete links</p>
+          </Link>
           <Link
             href="/admin/albums"
             className="block rounded-lg bg-indigo-600 p-6 text-white shadow transition hover:bg-indigo-500"
