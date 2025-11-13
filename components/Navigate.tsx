@@ -52,6 +52,7 @@ export default function Navigate({
     { name: "gallery", link: "/gallery" },
     { name: "watch", link: "/watch" },
     { name: "cv", link: "/cv" },
+    { name: "skills", link: "/skills" },
     { name: "poems", link: "/poems" },
     { name: "links", link: "/links" },
     { name: "wall", link: "/wall" },

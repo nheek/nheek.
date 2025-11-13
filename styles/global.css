@@ -1,6 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @import "tailwindcss";
 
+/* Skills bubble jump animation */
+.skills-bubble {
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0.8, 0.6, 1),
+    box-shadow 0.3s;
+}
+.skills-bubble:hover {
+  transform: translateY(-60px) scale(1.1);
+  box-shadow: 0 12px 32px 0 rgba(30, 51, 92, 0.18);
+}
 html,
 body {
   padding: 0;
@@ -35,10 +45,6 @@ img {
   display: block;
 }
 
-/* Hide default cursor on all clickable elements */
-* {
-  cursor: none !important;
-}
 
 /* Pulsating glow animation for cursor */
 @keyframes pulse-glow {

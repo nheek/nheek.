@@ -446,6 +446,14 @@ export default function AdminDashboard() {
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {/* Stats */}
         <div className="mb-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-8">
+          <div className="overflow-hidden rounded-lg bg-green-50 px-4 py-5 shadow dark:bg-green-900/20 sm:p-6">
+            <dt className="truncate text-sm font-medium text-green-700 dark:text-green-400">
+              Skills
+            </dt>
+            <dd className="mt-1 text-3xl font-semibold tracking-tight text-green-900 dark:text-green-300">
+              {stats.skills}
+            </dd>
+          </div>
           <div className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow dark:bg-gray-800 sm:p-6">
             <dt className="truncate text-sm font-medium text-purple-700 dark:text-purple-400">
               Total Links
@@ -529,6 +537,13 @@ export default function AdminDashboard() {
 
         {/* Quick Actions */}
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <Link
+            href="/admin/skills"
+            className="block rounded-lg bg-green-700 p-6 text-white shadow transition hover:bg-green-600"
+          >
+            <h3 className="text-lg font-semibold">Manage Skills</h3>
+            <p className="mt-2 text-sm">Add, edit, and explain your skills</p>
+          </Link>
           <Link
             href="/admin/cv"
             className="block rounded-lg bg-blue-700 p-6 text-white shadow transition hover:bg-blue-600"

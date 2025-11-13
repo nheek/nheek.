@@ -7,6 +7,26 @@ const dbPath = path.join(process.cwd(), "data", "nheek.db");
 let db: Database.Database | null = null;
 
 function ensureTablesExist(database: Database.Database) {
+  // Check if skills table exists
+  const skillsTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='skills'",
+    )
+    .get();
+
+  if (!skillsTableExists) {
+    console.log("Skills table not found. Creating skills table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS skills (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL UNIQUE,
+        description TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    console.log("✅ Skills table created successfully");
+  }
   // Check if gallery_images table exists
   const galleryTableExists = database
     .prepare(
@@ -224,6 +244,16 @@ export function getDb(): Database.Database {
 }
 
 function initializeSchema(database: Database.Database) {
+  // Skills table
+  database.exec(`
+    CREATE TABLE IF NOT EXISTS skills (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL UNIQUE,
+      description TEXT,
+      created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+      updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
   // CV/Resume table
   database.exec(`
     CREATE TABLE IF NOT EXISTS cv (
