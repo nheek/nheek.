@@ -27,6 +27,32 @@ function ensureTablesExist(database: Database.Database) {
     `);
     console.log("✅ Skills table created successfully");
   }
+  // Check if cv table exists
+  const cvTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='cv'",
+    )
+    .get();
+
+  if (!cvTableExists) {
+    console.log("CV table not found. Creating cv table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS cv (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        company TEXT NOT NULL,
+        position TEXT NOT NULL,
+        date_from TEXT NOT NULL,
+        date_to TEXT,
+        present BOOLEAN DEFAULT 0,
+        link TEXT,
+        description TEXT,
+        location TEXT,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    console.log("✅ CV table created successfully");
+  }
   // Check if gallery_images table exists
   const galleryTableExists = database
     .prepare(
@@ -489,6 +515,30 @@ function initializeSchema(database: Database.Database) {
     CREATE INDEX IF NOT EXISTS idx_films_featured ON films(featured);
     CREATE INDEX IF NOT EXISTS idx_films_order ON films(display_order);
   `);
+
+  // Check if links table exists
+  const linksTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='links'",
+    )
+    .get();
+
+  if (!linksTableExists) {
+    console.log("Links table not found. Creating links table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS links (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        url TEXT NOT NULL,
+        desc TEXT,
+        color TEXT,
+        display_order INTEGER,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    console.log("✅ Links table created successfully");
+  }
 
   // Create default admin user
   createDefaultAdminUser(database);
