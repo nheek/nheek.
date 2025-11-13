@@ -29,10 +29,10 @@ async function getSkills() {
 
 export default async function SkillsPage() {
   const skills = await getSkills();
-  const themeColor = "#1e335c";
+  const themeColor = "#B8E8D8";
   return (
     <ThemeWrapper themeColor={themeColor}>
-      <div className="min-h-screen bg-[#0a1833] text-white">
+      <div className="min-h-screen bg-[#1A2E1A] text-white">
         <CustomCursor />
         <Header
           compact={true}
@@ -47,9 +47,9 @@ export default async function SkillsPage() {
             </h2> */}
             {/* Client-side bubble float logic wrapper */}
             <SkillsBubblesClientWrapper skills={skills} />
-            <p className="mt-8 text-[#1e335c] dark:text-navy-300 text-center">
+            {/* <p className="mt-8 text-[#B8E8D8]/50 text-center">
               Click a skill to learn more about how I use it!
-            </p>
+            </p> */}
           </div>
         </main>
         <FooterHero themeColor={themeColor} />

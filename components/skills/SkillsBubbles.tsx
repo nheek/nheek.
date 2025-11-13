@@ -19,7 +19,8 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
       id: i,
     }))
   );
-  const bubbleSize = 96;
+    const minSize = 80;
+    const maxSize = 180;
   const friction = 0.98;
   const pushStrength = 2;
 
@@ -34,39 +35,50 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
     let animationFrame: number;
     function animate() {
       setPositions((prev) => {
-        // Bubble physics: collision and cursor push
-  const next = prev.map((pos) => ({ ...pos }));
-        // Bubble-bubble collision
+        const next = prev.map((pos) => ({ ...pos }));
+        const bubbleSizes = skills.map(skill => Math.max(minSize, Math.min(maxSize, 32 + skill.name.length * 12)));
+        // Bubble-bubble collision (realistic physics)
         for (let i = 0; i < next.length; i++) {
           for (let j = i + 1; j < next.length; j++) {
             const a = next[i];
             const b = next[j];
-            const dx = b.x - a.x;
-            const dy = b.y - a.y;
+            const sizeA = bubbleSizes[a.id];
+            const sizeB = bubbleSizes[b.id];
+            const dx = b.x + sizeB / 2 - (a.x + sizeA / 2);
+            const dy = b.y + sizeB / 2 - (a.y + sizeA / 2);
             const dist = Math.sqrt(dx * dx + dy * dy);
-            // Add a small offset so bubbles bounce before fully touching
-            const bounceOffset = 0; // px, tweak for effect
-            if (dist < bubbleSize - bounceOffset) {
-              const overlap = bubbleSize - bounceOffset - dist;
-              const nx = dx / (dist || 1);
-              const ny = dy / (dist || 1);
-              a.x -= (nx * overlap) / 2;
-              a.y -= (ny * overlap) / 2;
-              b.x += (nx * overlap) / 2;
-              b.y += (ny * overlap) / 2;
-              // Simple velocity exchange
-              const vax = a.vx;
-              const vay = a.vy;
-              a.vx = b.vx;
-              a.vy = b.vy;
-              b.vx = vax;
-              b.vy = vay;
+            const collisionDist = (sizeA + sizeB) / 2;
+            if (dist < collisionDist && dist > 0) {
+              // Overlap resolution
+              const overlap = collisionDist - dist;
+              const nx = dx / dist;
+              const ny = dy / dist;
+              // Move bubbles apart proportional to their size (mass)
+              const massA = sizeA * sizeA;
+              const massB = sizeB * sizeB;
+              const totalMass = massA + massB;
+              a.x -= nx * (overlap * (massB / totalMass));
+              a.y -= ny * (overlap * (massB / totalMass));
+              b.x += nx * (overlap * (massA / totalMass));
+              b.y += ny * (overlap * (massA / totalMass));
+              // Realistic velocity exchange (elastic collision)
+              const dvx = b.vx - a.vx;
+              const dvy = b.vy - a.vy;
+              const impact = dvx * nx + dvy * ny;
+              if (impact < 0) {
+                const impulse = (2 * impact) / (massA + massB);
+                a.vx += impulse * massB * nx;
+                a.vy += impulse * massB * ny;
+                b.vx -= impulse * massA * nx;
+                b.vy -= impulse * massA * ny;
+              }
             }
           }
         }
         // Bubble movement and wall collision
         for (let i = 0; i < next.length; i++) {
           let { x, y, vx, vy } = next[i];
+          const size = bubbleSizes[i];
           x += vx;
           y += vy;
           vx *= friction;
@@ -78,8 +90,8 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
               x = 0;
               vx = -vx * 0.7;
             }
-            if (x > width - bubbleSize) {
-              x = width - bubbleSize;
+            if (x > width - size) {
+              x = width - size;
               vx = -vx * 0.7;
             }
           }
@@ -95,12 +107,12 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
           if (mouse.current.active) {
             const mx = mouse.current.x;
             const my = mouse.current.y;
-            const dx = x + bubbleSize / 2 - mx;
-            const dy = y + bubbleSize / 2 - my;
+            const dx = x + size / 2 - mx;
+            const dy = y + size / 2 - my;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < bubbleSize) {
+            if (dist < size / 2) {
               // Push away from cursor
-              const force = (bubbleSize - dist) * 0.2;
+              const force = (size / 2 - dist) * 0.2;
               const nx = dx / (dist || 1);
               const ny = dy / (dist || 1);
               vx += nx * force;
@@ -173,29 +185,45 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
       className="relative w-full min-h-[350px]"
       style={{ height: 350 }}
     >
-      {skills.map((skill, i) => (
-        <Link
-          key={skill.id}
-          href={`/skills/${encodeURIComponent(skill.name.toLowerCase())}`}
-          className="skills-bubble flex items-center justify-center bg-linear-to-br from-blue-200 via-blue-100 to-blue-300 dark:from-navy-800 dark:via-navy-900 dark:to-navy-700 rounded-full shadow-2xl border-4 border-blue-300 dark:border-navy-700 transition-all duration-300 cursor-pointer select-none"
-          style={{
-            width: bubbleSize,
-            height: bubbleSize,
-            textDecoration: "none",
-            position: "absolute",
-            left: positions[i]?.x,
-            top: positions[i]?.y,
-            zIndex: 10 + i,
-            userSelect: "none",
-          }}
-          title={skill.description || skill.name}
-          onMouseDown={(e) => handleMouseDown(i, e)}
-        >
-          <span className="font-bold text-lg text-blue-900 dark:text-navy-100 drop-shadow-md text-center z-10">
-            {skill.name}
-          </span>
-        </Link>
-      ))}
+      {skills.map((skill, i) => {
+        // Calculate bubble size based on text length (min 80px, max 180px)
+        const textLength = skill.name.length;
+        const minSize = 80;
+        const maxSize = 180;
+        const bubbleSizeDynamic = Math.max(minSize, Math.min(maxSize, 32 + textLength * 12));
+        return (
+          <div
+            key={skill.id}
+            className="skills-bubble flex items-center justify-center rounded-full border-4 transition-all duration-300 select-none"
+            style={{
+              width: bubbleSizeDynamic,
+              height: bubbleSizeDynamic,
+              background: "radial-gradient(circle at 40% 40%, #fff 0%, #B8E8D8 80%)",
+              borderColor: "#7DB8A2",
+              boxShadow: "0 4px 16px 0 rgba(27,77,62,0.12)",
+              textDecoration: "none",
+              position: "absolute",
+              left: positions[i]?.x,
+              top: positions[i]?.y,
+              zIndex: 10 + i,
+              userSelect: "none",
+              overflow: "hidden",
+            }}
+            title={skill.description || skill.name}
+            onMouseDown={(e) => handleMouseDown(i, e)}
+          >
+            <span
+              className="font-bold text-lg text-center z-10"
+              style={{
+                color: "#1B4D3E",
+                textShadow: "0 1px 6px #fff, 0 1px 0 #7DB8A2",
+              }}
+            >
+              {skill.name}
+            </span>
+          </div>
+        );
+      })}
     </div>
   );
 }
