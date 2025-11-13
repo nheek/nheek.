@@ -142,17 +142,17 @@ export default function CustomCursor() {
         className={`w-8 h-8 rounded-full object-cover border-2 transition-all duration-200 ${
           isHoveringClickable
             ? "scale-110 animate-[pulse-glow_1.5s_ease-in-out_infinite]"
-            : "border-white/80 shadow-lg"
+            : "shadow-lg"
         }`}
         draggable={false}
-        style={
-          isHoveringClickable
+        style={{
+          borderColor: glowColor,
+          ...(isHoveringClickable
             ? {
-                borderColor: glowColor,
                 boxShadow: `0 0 10px ${glowColor}80, 0 0 20px ${glowColor}4D`,
               }
-            : undefined
-        }
+            : {}),
+        }}
       />
     </div>
   );

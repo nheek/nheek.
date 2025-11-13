@@ -103,20 +103,34 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
             y = 0;
             vy = -vy * 0.7;
           }
-          // Cursor push
+          // Cursor push: bounce when cursor border touches bubble border
           if (mouse.current.active) {
             const mx = mouse.current.x;
             const my = mouse.current.y;
-            const dx = x + size / 2 - mx;
-            const dy = y + size / 2 - my;
+            const bubbleCenterX = x + size / 2;
+            const bubbleCenterY = y + size / 2;
+            const dx = bubbleCenterX - mx;
+            const dy = bubbleCenterY - my;
             const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < size / 2) {
-              // Push away from cursor
-              const force = (size / 2 - dist) * 0.2;
+            // Assume custom cursor radius (adjust if needed)
+            const cursorRadius = 24; // px, change if your cursor is larger/smaller
+            const borderDist = size / 2 + cursorRadius;
+            if (dist < borderDist) {
+              // Stronger push to prevent overlap, especially at high speed
+              const force = Math.max((borderDist - dist) * 0.7, 0.5);
               const nx = dx / (dist || 1);
               const ny = dy / (dist || 1);
               vx += nx * force;
               vy += ny * force;
+              // Cap velocity to prevent bubbles from lagging behind cursor
+              const maxCursorVelocity = 18;
+              vx = Math.max(Math.min(vx, maxCursorVelocity), -maxCursorVelocity);
+              vy = Math.max(Math.min(vy, maxCursorVelocity), -maxCursorVelocity);
+              // If cursor is deep inside bubble, snap bubble out instantly
+              if (dist < cursorRadius) {
+                x += nx * (borderDist - dist);
+                y += ny * (borderDist - dist);
+              }
             }
           }
           next[i] = { ...next[i], x, y, vx, vy };
@@ -183,7 +197,7 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
     <div
       ref={containerRef}
       className="relative w-full min-h-[350px]"
-      style={{ height: 350 }}
+      style={{ height: 350, cursor: 'none' }}
     >
       {skills.map((skill, i) => {
         // Calculate bubble size based on text length (min 80px, max 180px)
