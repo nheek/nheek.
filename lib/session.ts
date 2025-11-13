@@ -10,7 +10,7 @@ export interface SessionData {
 export const sessionOptions: SessionOptions = {
   password:
     process.env.SESSION_SECRET ||
-    "complex_password_at_least_32_characters_long_change_this",
+    "this_is_a_very_long_password_that_is_at_least_32_characters_long_for_iron_session",
   cookieName: "nheek_admin_session",
   cookieOptions: {
     secure: process.env.NODE_ENV === "production",
