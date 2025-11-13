@@ -24,7 +24,7 @@ async function getContributions(): Promise<Contribution[]> {
     const response = await fetch(
       `${baseUrl}/api/contributions?status=approved`,
       {
-        cache: "no-store", // Always get fresh data
+        // Use default cache (static)
       },
     );
 

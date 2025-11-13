@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { requireAuth } from "@/lib/session";
 import { getDb } from "@/lib/db";
 
@@ -32,7 +33,8 @@ export async function PATCH(
     );
 
     stmt.run(newValue, id);
-
+    // Revalidate /wall page cache
+    revalidatePath("/wall");
     return NextResponse.json({ message: "Link visibility updated" });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {

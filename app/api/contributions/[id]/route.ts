@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { requireAuth } from "@/lib/session";
 import { getDb } from "@/lib/db";
 
@@ -26,7 +27,8 @@ export async function PATCH(
         { status: 404 },
       );
     }
-
+    // Revalidate /wall page cache
+    revalidatePath("/wall");
     return NextResponse.json({ message: "Contribution approved" });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
@@ -59,7 +61,8 @@ export async function DELETE(
         { status: 404 },
       );
     }
-
+    // Revalidate /wall page cache
+    revalidatePath("/wall");
     return NextResponse.json({ message: "Contribution deleted" });
   } catch (error: unknown) {
     if (error instanceof Error && error.message === "Unauthorized") {
