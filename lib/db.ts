@@ -239,6 +239,30 @@ function ensureTablesExist(database: Database.Database) {
     `);
     console.log("✅ Polls tables created successfully");
   }
+
+  // Check if links table exists
+  const linksTableExists = database
+    .prepare(
+      "SELECT name FROM sqlite_master WHERE type='table' AND name='links'",
+    )
+    .get();
+
+  if (!linksTableExists) {
+    console.log("Links table not found. Creating links table...");
+    database.exec(`
+      CREATE TABLE IF NOT EXISTS links (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        url TEXT NOT NULL,
+        desc TEXT,
+        color TEXT,
+        display_order INTEGER,
+        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    console.log("✅ Links table created successfully");
+  }
 }
 
 export function getDb(): Database.Database {
@@ -486,59 +510,6 @@ function initializeSchema(database: Database.Database) {
       UNIQUE(poll_id, voter_fingerprint, option_id)
     )
   `);
-
-  // Links table
-  database.exec(`
-      CREATE TABLE IF NOT EXISTS links (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  url TEXT NOT NULL,
-  desc TEXT,
-  color TEXT,
-  display_order INTEGER,
-  created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-  updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-      )
-    `);
-
-  // Create indexes
-  database.exec(`
-    CREATE INDEX IF NOT EXISTS idx_songs_album ON songs(album_id);
-    CREATE INDEX IF NOT EXISTS idx_projects_category ON projects(category_id);
-    CREATE INDEX IF NOT EXISTS idx_contributions_status ON contributions(status);
-    CREATE INDEX IF NOT EXISTS idx_contributions_category ON contributions(category);
-    CREATE INDEX IF NOT EXISTS idx_gallery_order ON gallery_images(display_order);
-    CREATE INDEX IF NOT EXISTS idx_qna_status ON qna(status);
-    CREATE INDEX IF NOT EXISTS idx_poll_options_poll ON poll_options(poll_id);
-    CREATE INDEX IF NOT EXISTS idx_poll_votes_poll ON poll_votes(poll_id);
-    CREATE INDEX IF NOT EXISTS idx_poll_votes_fingerprint ON poll_votes(voter_fingerprint);
-    CREATE INDEX IF NOT EXISTS idx_films_featured ON films(featured);
-    CREATE INDEX IF NOT EXISTS idx_films_order ON films(display_order);
-  `);
-
-  // Check if links table exists
-  const linksTableExists = database
-    .prepare(
-      "SELECT name FROM sqlite_master WHERE type='table' AND name='links'",
-    )
-    .get();
-
-  if (!linksTableExists) {
-    console.log("Links table not found. Creating links table...");
-    database.exec(`
-      CREATE TABLE IF NOT EXISTS links (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        url TEXT NOT NULL,
-        desc TEXT,
-        color TEXT,
-        display_order INTEGER,
-        created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-        updated_at TEXT DEFAULT CURRENT_TIMESTAMP
-      )
-    `);
-    console.log("✅ Links table created successfully");
-  }
 
   // Create default admin user
   createDefaultAdminUser(database);
