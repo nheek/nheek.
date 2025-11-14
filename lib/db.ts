@@ -29,9 +29,7 @@ function ensureTablesExist(database: Database.Database) {
   }
   // Check if cv table exists
   const cvTableExists = database
-    .prepare(
-      "SELECT name FROM sqlite_master WHERE type='table' AND name='cv'",
-    )
+    .prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='cv'")
     .get();
 
   if (!cvTableExists) {

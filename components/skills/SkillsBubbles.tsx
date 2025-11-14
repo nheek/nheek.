@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 
 interface Skill {
   id: number;
@@ -8,15 +8,35 @@ interface Skill {
   description?: string;
 }
 
-export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
+export default function SkillsBubbles({
+  skills,
+  faceHidden = false,
+  onFaceClick,
+  faceInPhysics = false,
+}: {
+  skills: Skill[];
+  faceHidden?: boolean;
+  onFaceClick?: () => void;
+  faceInPhysics?: boolean;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [positions, setPositions] = useState(() =>
+  const [positions, setPositions] = useState<
+    Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      id: number;
+      type: "skill" | "face";
+    }>
+  >(() =>
     skills.map((_, i) => ({
       x: 60 + i * 140,
-      y: 250,
+      y: 300,
       vx: 0,
       vy: 0,
       id: i,
+      type: "skill" as const,
     })),
   );
   const minSize = 80;
@@ -31,21 +51,57 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
     active: false,
   });
 
+  // Face physics state
+  const positionsRef = useRef(positions);
+
+  // Keep positionsRef updated
+  useEffect(() => {
+    positionsRef.current = positions;
+  }, [positions]);
+
+  // Add face to physics when face is in physics mode
+  useEffect(() => {
+    if (faceInPhysics && !positions.some((p) => p.type === "face")) {
+      setPositions((prev) => [
+        ...prev,
+        {
+          x: window.innerWidth / 2 - 40,
+          y: 300,
+          vx: (Math.random() - 0.5) * 4,
+          vy: 2,
+          id: skills.length,
+          type: "face" as const,
+        },
+      ]);
+    }
+  }, [faceInPhysics, positions, skills.length]);
+
+  const getBubbleSize = useCallback(
+    (pos: (typeof positions)[0]) => {
+      if (pos.type === "face") {
+        return 80; // Fixed size for face bubble
+      } else {
+        const skill = skills[pos.id];
+        if (!skill) return minSize;
+        const textLength = skill.name.length;
+        return Math.max(minSize, Math.min(maxSize, 32 + textLength * 12));
+      }
+    },
+    [skills],
+  );
+
   useEffect(() => {
     let animationFrame: number;
     function animate() {
       setPositions((prev) => {
         const next = prev.map((pos) => ({ ...pos }));
-        const bubbleSizes = skills.map((skill) =>
-          Math.max(minSize, Math.min(maxSize, 32 + skill.name.length * 12)),
-        );
         // Bubble-bubble collision (realistic physics)
         for (let i = 0; i < next.length; i++) {
           for (let j = i + 1; j < next.length; j++) {
             const a = next[i];
             const b = next[j];
-            const sizeA = bubbleSizes[a.id];
-            const sizeB = bubbleSizes[b.id];
+            const sizeA = getBubbleSize(a);
+            const sizeB = getBubbleSize(b);
             const dx = b.x + sizeB / 2 - (a.x + sizeA / 2);
             const dy = b.y + sizeB / 2 - (a.y + sizeA / 2);
             const dist = Math.sqrt(dx * dx + dy * dy);
@@ -80,7 +136,7 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
         // Bubble movement and wall collision
         for (let i = 0; i < next.length; i++) {
           let { x, y, vx, vy } = next[i];
-          const size = bubbleSizes[i];
+          const size = getBubbleSize(next[i]);
           x += vx;
           y += vy;
           vx *= friction;
@@ -97,8 +153,8 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
               vx = -vx * 0.7;
             }
           }
-          if (y > 250) {
-            y = 250;
+          if (y > 600) {
+            y = 600;
             vy = -vy * 0.7;
           }
           if (y < 0) {
@@ -204,51 +260,86 @@ export default function SkillsBubbles({ skills }: { skills: Skill[] }) {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[350px]"
-      style={{ height: 350, cursor: "none" }}
+      className="relative w-full min-h-[700px]"
+      style={{ height: 700, cursor: "none" }}
     >
-      {skills.map((skill, i) => {
-        // Calculate bubble size based on text length (min 80px, max 180px)
-        const textLength = skill.name.length;
-        const minSize = 80;
-        const maxSize = 180;
-        const bubbleSizeDynamic = Math.max(
-          minSize,
-          Math.min(maxSize, 32 + textLength * 12),
-        );
-        return (
-          <div
-            key={skill.id}
-            className="skills-bubble flex items-center justify-center rounded-full border-4 transition-all duration-300 select-none"
-            style={{
-              width: bubbleSizeDynamic,
-              height: bubbleSizeDynamic,
-              background:
-                "radial-gradient(circle at 40% 40%, #fff 0%, #B8E8D8 80%)",
-              borderColor: "#7DB8A2",
-              boxShadow: "0 4px 16px 0 rgba(27,77,62,0.12)",
-              textDecoration: "none",
-              position: "absolute",
-              left: positions[i]?.x,
-              top: positions[i]?.y,
-              zIndex: 10 + i,
-              userSelect: "none",
-              overflow: "hidden",
-            }}
-            title={skill.description || skill.name}
-            onMouseDown={(e) => handleMouseDown(i, e)}
-          >
-            <span
-              className="font-bold text-lg text-center z-10"
+      {positions.map((pos, i) => {
+        if (pos.type === "face") {
+          // Render face bubble
+          return (
+            <div
+              key={`face-${pos.id}`}
+              className="skills-bubble flex items-center justify-center rounded-full border-4 transition-all duration-300 select-none"
               style={{
-                color: "#1B4D3E",
-                textShadow: "0 1px 6px #fff, 0 1px 0 #7DB8A2",
+                width: 80,
+                height: 80,
+                background:
+                  "radial-gradient(circle at 40% 40%, #fff 0%, #B8E8D8 80%)",
+                borderColor: "#7DB8A2",
+                boxShadow: "0 4px 16px 0 rgba(27,77,62,0.12)",
+                position: "absolute",
+                left: pos.x,
+                top: pos.y,
+                zIndex: 10 + i,
+                userSelect: "none",
+                overflow: "hidden",
               }}
+              title="Your face!"
+              onMouseDown={(e) => handleMouseDown(i, e)}
             >
-              {skill.name}
-            </span>
-          </div>
-        );
+              <img
+                className="w-16 h-16 rounded-full"
+                src="https://flies.nheek.com/uploads/nheek/pfp/pfp"
+                alt="your face"
+              />
+            </div>
+          );
+        } else {
+          // Render skill bubble
+          const skill = skills[pos.id];
+          if (!skill) return null;
+
+          const textLength = skill.name.length;
+          const minSize = 80;
+          const maxSize = 180;
+          const bubbleSizeDynamic = Math.max(
+            minSize,
+            Math.min(maxSize, 32 + textLength * 12),
+          );
+          return (
+            <div
+              key={skill.id}
+              className="skills-bubble flex items-center justify-center rounded-full border-4 transition-all duration-300 select-none"
+              style={{
+                width: bubbleSizeDynamic,
+                height: bubbleSizeDynamic,
+                background:
+                  "radial-gradient(circle at 40% 40%, #fff 0%, #B8E8D8 80%)",
+                borderColor: "#7DB8A2",
+                boxShadow: "0 4px 16px 0 rgba(27,77,62,0.12)",
+                textDecoration: "none",
+                position: "absolute",
+                left: pos.x,
+                top: pos.y,
+                zIndex: 10 + i,
+                userSelect: "none",
+                overflow: "hidden",
+              }}
+              title={skill.description || skill.name}
+              onMouseDown={(e) => handleMouseDown(i, e)}
+            >
+              <span
+                className="font-bold text-lg text-center z-10"
+                style={{
+                  color: "#1B4D3E",
+                  textShadow: "0 1px 6px #fff, 0 1px 0 #7DB8A2",
+                }}
+              >
+                {skill.name}
+              </span>
+            </div>
+          );
+        }
       })}
     </div>
   );

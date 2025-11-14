@@ -7,6 +7,8 @@ const SkillsBubbles = dynamic(
 
 interface SkillsBubblesClientWrapperProps {
   skills: Array<{ id: number; name: string; description?: string }>;
+  faceHidden?: boolean;
+  faceInPhysics?: boolean;
 }
 
 export default function SkillsBubblesClientWrapper(

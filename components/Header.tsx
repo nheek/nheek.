@@ -10,6 +10,11 @@ type HeaderProps = {
   customHeaderText?: string;
   themeColor?: string;
   pageTitle?: string;
+  onFaceClick?: () => void;
+  faceHidden?: boolean;
+  isFalling?: boolean;
+  faceInPhysics?: boolean;
+  faceRef?: React.RefObject<HTMLDivElement>;
 };
 
 export default function Header({
@@ -18,6 +23,11 @@ export default function Header({
   customHeaderText,
   themeColor,
   pageTitle,
+  onFaceClick,
+  faceHidden = false,
+  isFalling = false,
+  faceInPhysics = false,
+  faceRef,
 }: HeaderProps) {
   const textColor = themeColor || "inherit";
 
@@ -34,13 +44,19 @@ export default function Header({
             </span>
           </Link>
           <div className="flex items-center gap-6">
-            <div className="bg-slate-200 rounded-full">
-              <img
-                className="w-20 h-20 p-0.5 rounded-full"
-                src="https://flies.nheek.com/uploads/nheek/pfp/pfp"
-                alt="nheek"
-              />
-            </div>
+            {(!faceHidden || isFalling) && !faceInPhysics && (
+              <div
+                ref={faceRef}
+                className={`bg-slate-200 rounded-full cursor-pointer ${isFalling ? "absolute" : ""}`}
+                onClick={onFaceClick}
+              >
+                <img
+                  className="w-20 h-20 p-0.5 rounded-full"
+                  src="https://flies.nheek.com/uploads/nheek/pfp/pfp"
+                  alt="nheek"
+                />
+              </div>
+            )}
             <div className="hidden md:flex flex-col">
               <p className="text-lg font-semibold">
                 fullstack developer | songwriter
